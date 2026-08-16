@@ -4,19 +4,9 @@
 
     public partial class GLFW
     {
-        static GLFW()
-        {
-            InitApi();
-        }
+        static GLFW() => InitApi();
 
-        public static string GetLibraryName()
-        {
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                return "glfw3";
-            }
-
-            return "libglfw";
-        }
+        public static string GetLibraryName() => 
+            RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "glfw3" : "libglfw";
     }
 }

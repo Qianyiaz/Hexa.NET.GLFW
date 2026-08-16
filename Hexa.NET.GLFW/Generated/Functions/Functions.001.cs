@@ -96,6 +96,188 @@ namespace Hexa.NET.GLFW
 		/// <br/>
 		/// <br/>
 		/// </summary>
+		public static GLFWwindowPtr CreateWindow(int width, int height, in byte title, ref GLFWmonitor monitor, GLFWwindowPtr share)
+		{
+			fixed (byte* ptitle = &title)
+			{
+				fixed (GLFWmonitor* pmonitor = &monitor)
+				{
+					GLFWwindowPtr ret = CreateWindowNative(width, height, (byte*)ptitle, (GLFWmonitor*)pmonitor, (GLFWwindow*)share);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function creates a window and its associated OpenGL or OpenGL ES<br/>
+		/// context.  Most of the options controlling how the window and its context<br/>
+		/// should be created are specified with [window hints](<br/>
+		/// Successful creation does not change which context is current.  Before you<br/>
+		/// can use the newly created context, you need to<br/>
+		/// [make it current](<br/>
+		/// For information about the `share`<br/>
+		/// parameter, see <br/>
+		/// The created window, framebuffer and context may differ from what you<br/>
+		/// requested, as not all parameters and hints are<br/>
+		/// [hard constraints](<br/>
+		/// This includes the size of the<br/>
+		/// window, especially for full screen windows.  To query the actual attributes<br/>
+		/// of the created window, framebuffer and context, see <br/>
+		/// <br/>
+		/// and <br/>
+		/// To create a full screen window, you need to specify the monitor the window<br/>
+		/// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
+		/// Unless you have a way for the user to choose a specific monitor, it is<br/>
+		/// recommended that you pick the primary monitor.  For more information on how<br/>
+		/// to query connected monitors, see <br/>
+		/// For full screen windows, the specified size becomes the resolution of the<br/>
+		/// window's _desired video mode_.  As long as a full screen window is not<br/>
+		/// iconified, the supported video mode most closely matching the desired video<br/>
+		/// mode is set for the specified monitor.  For more information about full<br/>
+		/// screen windows, including the creation of so called _windowed full screen_<br/>
+		/// or _borderless full screen_ windows, see <br/>
+		/// Once you have created the window, you can switch it between windowed and<br/>
+		/// full screen mode with <br/>
+		/// This will not affect its<br/>
+		/// OpenGL or OpenGL ES context.<br/>
+		/// By default, newly created windows use the placement recommended by the<br/>
+		/// window system.  To create the window at a specific position, set the <br/>
+		/// and <br/>
+		/// window hints before creation.  To<br/>
+		/// restore the default behavior, set either or both hints back to<br/>
+		/// `GLFW_ANY_POSITION`.<br/>
+		/// As long as at least one full screen window is not iconified, the screensaver<br/>
+		/// is prohibited from starting.<br/>
+		/// Window systems put limits on window sizes.  Very large or very small window<br/>
+		/// dimensions may be overridden by the window system on creation.  Check the<br/>
+		/// actual [size](<br/>
+		/// after creation.<br/>
+		/// The [swap interval](<br/>
+		/// is not set during window creation and<br/>
+		/// the initial value may vary depending on driver settings and defaults.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+		/// <br/>
+		/// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
+		/// <br/>
+		/// <br/>
+		/// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static GLFWwindowPtr CreateWindow(int width, int height, ReadOnlySpan<byte> title, ref GLFWmonitor monitor, GLFWwindowPtr share)
+		{
+			fixed (byte* ptitle = title)
+			{
+				fixed (GLFWmonitor* pmonitor = &monitor)
+				{
+					GLFWwindowPtr ret = CreateWindowNative(width, height, (byte*)ptitle, (GLFWmonitor*)pmonitor, (GLFWwindow*)share);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function creates a window and its associated OpenGL or OpenGL ES<br/>
+		/// context.  Most of the options controlling how the window and its context<br/>
+		/// should be created are specified with [window hints](<br/>
+		/// Successful creation does not change which context is current.  Before you<br/>
+		/// can use the newly created context, you need to<br/>
+		/// [make it current](<br/>
+		/// For information about the `share`<br/>
+		/// parameter, see <br/>
+		/// The created window, framebuffer and context may differ from what you<br/>
+		/// requested, as not all parameters and hints are<br/>
+		/// [hard constraints](<br/>
+		/// This includes the size of the<br/>
+		/// window, especially for full screen windows.  To query the actual attributes<br/>
+		/// of the created window, framebuffer and context, see <br/>
+		/// <br/>
+		/// and <br/>
+		/// To create a full screen window, you need to specify the monitor the window<br/>
+		/// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
+		/// Unless you have a way for the user to choose a specific monitor, it is<br/>
+		/// recommended that you pick the primary monitor.  For more information on how<br/>
+		/// to query connected monitors, see <br/>
+		/// For full screen windows, the specified size becomes the resolution of the<br/>
+		/// window's _desired video mode_.  As long as a full screen window is not<br/>
+		/// iconified, the supported video mode most closely matching the desired video<br/>
+		/// mode is set for the specified monitor.  For more information about full<br/>
+		/// screen windows, including the creation of so called _windowed full screen_<br/>
+		/// or _borderless full screen_ windows, see <br/>
+		/// Once you have created the window, you can switch it between windowed and<br/>
+		/// full screen mode with <br/>
+		/// This will not affect its<br/>
+		/// OpenGL or OpenGL ES context.<br/>
+		/// By default, newly created windows use the placement recommended by the<br/>
+		/// window system.  To create the window at a specific position, set the <br/>
+		/// and <br/>
+		/// window hints before creation.  To<br/>
+		/// restore the default behavior, set either or both hints back to<br/>
+		/// `GLFW_ANY_POSITION`.<br/>
+		/// As long as at least one full screen window is not iconified, the screensaver<br/>
+		/// is prohibited from starting.<br/>
+		/// Window systems put limits on window sizes.  Very large or very small window<br/>
+		/// dimensions may be overridden by the window system on creation.  Check the<br/>
+		/// actual [size](<br/>
+		/// after creation.<br/>
+		/// The [swap interval](<br/>
+		/// is not set during window creation and<br/>
+		/// the initial value may vary depending on driver settings and defaults.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+		/// <br/>
+		/// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
+		/// <br/>
+		/// <br/>
+		/// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
 		public static GLFWwindowPtr CreateWindow(int width, int height, string title, ref GLFWmonitor monitor, GLFWwindowPtr share)
 		{
 			byte* pStr0 = null;
@@ -920,9 +1102,9 @@ namespace Hexa.NET.GLFW
 		internal static void DestroyWindowNative(GLFWwindow* window)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[29])(window);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[30])(window);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[29])((nint)window);
+			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[30])((nint)window);
 			#endif
 		}
 
@@ -997,9 +1179,9 @@ namespace Hexa.NET.GLFW
 		internal static int WindowShouldCloseNative(GLFWwindow* window)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, int>)funcTable[30])(window);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, int>)funcTable[31])(window);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, int>)funcTable[30])((nint)window);
+			return (int)((delegate* unmanaged[Cdecl]<nint, int>)funcTable[31])((nint)window);
 			#endif
 		}
 
@@ -1066,9 +1248,9 @@ namespace Hexa.NET.GLFW
 		internal static void SetWindowShouldCloseNative(GLFWwindow* window, int value)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, void>)funcTable[31])(window, value);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, void>)funcTable[32])(window, value);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, int, void>)funcTable[31])((nint)window, value);
+			((delegate* unmanaged[Cdecl]<nint, int, void>)funcTable[32])((nint)window, value);
 			#endif
 		}
 
@@ -1143,9 +1325,9 @@ namespace Hexa.NET.GLFW
 		internal static byte* GetWindowTitleNative(GLFWwindow* window)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, byte*>)funcTable[32])(window);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, byte*>)funcTable[33])(window);
 			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[32])((nint)window);
+			return (byte*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[33])((nint)window);
 			#endif
 		}
 
@@ -1287,9 +1469,9 @@ namespace Hexa.NET.GLFW
 		internal static void SetWindowTitleNative(GLFWwindow* window, byte* title)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, byte*, void>)funcTable[33])(window, title);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, byte*, void>)funcTable[34])(window, title);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[33])((nint)window, (nint)title);
+			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[34])((nint)window, (nint)title);
 			#endif
 		}
 
@@ -1563,9 +1745,9 @@ namespace Hexa.NET.GLFW
 		internal static void SetWindowIconNative(GLFWwindow* window, int count, GLFWimage* images)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, GLFWimage*, void>)funcTable[34])(window, count, images);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, GLFWimage*, void>)funcTable[35])(window, count, images);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, int, nint, void>)funcTable[34])((nint)window, count, (nint)images);
+			((delegate* unmanaged[Cdecl]<nint, int, nint, void>)funcTable[35])((nint)window, count, (nint)images);
 			#endif
 		}
 
@@ -1753,9 +1935,9 @@ namespace Hexa.NET.GLFW
 		internal static void GetWindowPosNative(GLFWwindow* window, int* xpos, int* ypos)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, int*, int*, void>)funcTable[35])(window, xpos, ypos);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, int*, int*, void>)funcTable[36])(window, xpos, ypos);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[35])((nint)window, (nint)xpos, (nint)ypos);
+			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[36])((nint)window, (nint)xpos, (nint)ypos);
 			#endif
 		}
 
@@ -2022,9 +2204,9 @@ namespace Hexa.NET.GLFW
 		internal static void SetWindowPosNative(GLFWwindow* window, int xpos, int ypos)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int, void>)funcTable[36])(window, xpos, ypos);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int, void>)funcTable[37])(window, xpos, ypos);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, int, int, void>)funcTable[36])((nint)window, xpos, ypos);
+			((delegate* unmanaged[Cdecl]<nint, int, int, void>)funcTable[37])((nint)window, xpos, ypos);
 			#endif
 		}
 
@@ -2109,9 +2291,9 @@ namespace Hexa.NET.GLFW
 		internal static void GetWindowSizeNative(GLFWwindow* window, int* width, int* height)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, int*, int*, void>)funcTable[37])(window, width, height);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, int*, int*, void>)funcTable[38])(window, width, height);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[37])((nint)window, (nint)width, (nint)height);
+			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[38])((nint)window, (nint)width, (nint)height);
 			#endif
 		}
 
@@ -2363,9 +2545,9 @@ namespace Hexa.NET.GLFW
 		internal static void SetWindowSizeLimitsNative(GLFWwindow* window, int minwidth, int minheight, int maxwidth, int maxheight)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int, int, int, void>)funcTable[38])(window, minwidth, minheight, maxwidth, maxheight);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int, int, int, void>)funcTable[39])(window, minwidth, minheight, maxwidth, maxheight);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, int, int, int, int, void>)funcTable[38])((nint)window, minwidth, minheight, maxwidth, maxheight);
+			((delegate* unmanaged[Cdecl]<nint, int, int, int, int, void>)funcTable[39])((nint)window, minwidth, minheight, maxwidth, maxheight);
 			#endif
 		}
 
@@ -2461,9 +2643,9 @@ namespace Hexa.NET.GLFW
 		internal static void SetWindowAspectRatioNative(GLFWwindow* window, int numer, int denom)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int, void>)funcTable[39])(window, numer, denom);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int, void>)funcTable[40])(window, numer, denom);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, int, int, void>)funcTable[39])((nint)window, numer, denom);
+			((delegate* unmanaged[Cdecl]<nint, int, int, void>)funcTable[40])((nint)window, numer, denom);
 			#endif
 		}
 
@@ -2561,9 +2743,9 @@ namespace Hexa.NET.GLFW
 		internal static void SetWindowSizeNative(GLFWwindow* window, int width, int height)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int, void>)funcTable[40])(window, width, height);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int, void>)funcTable[41])(window, width, height);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, int, int, void>)funcTable[40])((nint)window, width, height);
+			((delegate* unmanaged[Cdecl]<nint, int, int, void>)funcTable[41])((nint)window, width, height);
 			#endif
 		}
 
@@ -2648,9 +2830,9 @@ namespace Hexa.NET.GLFW
 		internal static void GetFramebufferSizeNative(GLFWwindow* window, int* width, int* height)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, int*, int*, void>)funcTable[41])(window, width, height);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, int*, int*, void>)funcTable[42])(window, width, height);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[41])((nint)window, (nint)width, (nint)height);
+			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[42])((nint)window, (nint)width, (nint)height);
 			#endif
 		}
 
@@ -2901,9 +3083,9 @@ namespace Hexa.NET.GLFW
 		internal static void GetWindowFrameSizeNative(GLFWwindow* window, int* left, int* top, int* right, int* bottom)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, int*, int*, int*, int*, void>)funcTable[42])(window, left, top, right, bottom);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, int*, int*, int*, int*, void>)funcTable[43])(window, left, top, right, bottom);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, nint, void>)funcTable[42])((nint)window, (nint)left, (nint)top, (nint)right, (nint)bottom);
+			((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, nint, void>)funcTable[43])((nint)window, (nint)left, (nint)top, (nint)right, (nint)bottom);
 			#endif
 		}
 
@@ -4070,9 +4252,9 @@ namespace Hexa.NET.GLFW
 		internal static void GetWindowContentScaleNative(GLFWwindow* window, float* xscale, float* yscale)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, float*, float*, void>)funcTable[43])(window, xscale, yscale);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, float*, float*, void>)funcTable[44])(window, xscale, yscale);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[43])((nint)window, (nint)xscale, (nint)yscale);
+			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[44])((nint)window, (nint)xscale, (nint)yscale);
 			#endif
 		}
 
@@ -4358,9 +4540,9 @@ namespace Hexa.NET.GLFW
 		internal static float GetWindowOpacityNative(GLFWwindow* window)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, float>)funcTable[44])(window);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, float>)funcTable[45])(window);
 			#else
-			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[44])((nint)window);
+			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[45])((nint)window);
 			#endif
 		}
 
@@ -4441,9 +4623,9 @@ namespace Hexa.NET.GLFW
 		internal static void SetWindowOpacityNative(GLFWwindow* window, float opacity)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, float, void>)funcTable[45])(window, opacity);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, float, void>)funcTable[46])(window, opacity);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[45])((nint)window, opacity);
+			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[46])((nint)window, opacity);
 			#endif
 		}
 
@@ -4528,9 +4710,9 @@ namespace Hexa.NET.GLFW
 		internal static void IconifyWindowNative(GLFWwindow* window)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[46])(window);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[47])(window);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[46])((nint)window);
+			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[47])((nint)window);
 			#endif
 		}
 
@@ -4609,9 +4791,9 @@ namespace Hexa.NET.GLFW
 		internal static void RestoreWindowNative(GLFWwindow* window)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[47])(window);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[48])(window);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[47])((nint)window);
+			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[48])((nint)window);
 			#endif
 		}
 
@@ -4683,9 +4865,9 @@ namespace Hexa.NET.GLFW
 		internal static void MaximizeWindowNative(GLFWwindow* window)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[48])(window);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[49])(window);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[48])((nint)window);
+			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[49])((nint)window);
 			#endif
 		}
 
@@ -4758,9 +4940,9 @@ namespace Hexa.NET.GLFW
 		internal static void ShowWindowNative(GLFWwindow* window)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[49])(window);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[50])(window);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[49])((nint)window);
+			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[50])((nint)window);
 			#endif
 		}
 
@@ -4841,196 +5023,9 @@ namespace Hexa.NET.GLFW
 		internal static void HideWindowNative(GLFWwindow* window)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[50])(window);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[50])((nint)window);
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function hides the specified window if it was previously visible.  If<br/>
-		/// the window is already hidden or is in full screen mode, this function does<br/>
-		/// nothing.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void HideWindow(GLFWwindowPtr window)
-		{
-			HideWindowNative((GLFWwindow*)window);
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function hides the specified window if it was previously visible.  If<br/>
-		/// the window is already hidden or is in full screen mode, this function does<br/>
-		/// nothing.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void HideWindow(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				HideWindowNative((GLFWwindow*)pwindow);
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function brings the specified window to front and sets input focus.<br/>
-		/// The window should already be visible and not iconified.<br/>
-		/// By default, both windowed and full screen mode windows are focused when<br/>
-		/// initially created.  Set the [GLFW_FOCUSED](<br/>
-		/// to<br/>
-		/// disable this behavior.<br/>
-		/// Also by default, windowed mode windows are focused when shown<br/>
-		/// with <br/>
-		/// Set the<br/>
-		/// [GLFW_FOCUS_ON_SHOW](<br/>
-		/// to disable this behavior.<br/>
-		/// __Do not use this function__ to steal focus from other applications unless<br/>
-		/// you are certain that is what the user wants.  Focus stealing can be<br/>
-		/// extremely disruptive.<br/>
-		/// For a less disruptive way of getting the user's attention, see<br/>
-		/// [attention requests](<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void FocusWindowNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[51])(window);
 			#else
 			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[51])((nint)window);
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function brings the specified window to front and sets input focus.<br/>
-		/// The window should already be visible and not iconified.<br/>
-		/// By default, both windowed and full screen mode windows are focused when<br/>
-		/// initially created.  Set the [GLFW_FOCUSED](<br/>
-		/// to<br/>
-		/// disable this behavior.<br/>
-		/// Also by default, windowed mode windows are focused when shown<br/>
-		/// with <br/>
-		/// Set the<br/>
-		/// [GLFW_FOCUS_ON_SHOW](<br/>
-		/// to disable this behavior.<br/>
-		/// __Do not use this function__ to steal focus from other applications unless<br/>
-		/// you are certain that is what the user wants.  Focus stealing can be<br/>
-		/// extremely disruptive.<br/>
-		/// For a less disruptive way of getting the user's attention, see<br/>
-		/// [attention requests](<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void FocusWindow(GLFWwindowPtr window)
-		{
-			FocusWindowNative((GLFWwindow*)window);
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function brings the specified window to front and sets input focus.<br/>
-		/// The window should already be visible and not iconified.<br/>
-		/// By default, both windowed and full screen mode windows are focused when<br/>
-		/// initially created.  Set the [GLFW_FOCUSED](<br/>
-		/// to<br/>
-		/// disable this behavior.<br/>
-		/// Also by default, windowed mode windows are focused when shown<br/>
-		/// with <br/>
-		/// Set the<br/>
-		/// [GLFW_FOCUS_ON_SHOW](<br/>
-		/// to disable this behavior.<br/>
-		/// __Do not use this function__ to steal focus from other applications unless<br/>
-		/// you are certain that is what the user wants.  Focus stealing can be<br/>
-		/// extremely disruptive.<br/>
-		/// For a less disruptive way of getting the user's attention, see<br/>
-		/// [attention requests](<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void FocusWindow(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				FocusWindowNative((GLFWwindow*)pwindow);
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function requests user attention to the specified window.  On<br/>
-		/// platforms where this is not supported, attention is requested to the<br/>
-		/// application as a whole.<br/>
-		/// Once the user has given attention, usually by focusing the window or<br/>
-		/// application, the system will end the request automatically.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void RequestWindowAttentionNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[52])(window);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[52])((nint)window);
 			#endif
 		}
 	}

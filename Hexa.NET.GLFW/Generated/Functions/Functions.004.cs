@@ -30,6 +30,1631 @@ namespace Hexa.NET.GLFW
 		/// <br/>
 		/// <br/>
 		/// </summary>
+		public static byte* GetWin32Adapter(ref GLFWmonitor monitor)
+		{
+			fixed (GLFWmonitor* pmonitor = &monitor)
+			{
+				byte* ret = GetWin32AdapterNative((GLFWmonitor*)pmonitor);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static string GetWin32AdapterS(ref GLFWmonitor monitor)
+		{
+			fixed (GLFWmonitor* pmonitor = &monitor)
+			{
+				string ret = Utils.DecodeStringUTF8(GetWin32AdapterNative((GLFWmonitor*)pmonitor));
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static byte* GetWin32MonitorNative(GLFWmonitor* monitor)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, byte*>)funcTable[125])(monitor);
+			#else
+			return (byte*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[125])((nint)monitor);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static byte* GetWin32Monitor(GLFWmonitorPtr monitor)
+		{
+			byte* ret = GetWin32MonitorNative((GLFWmonitor*)monitor);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static string GetWin32MonitorS(GLFWmonitorPtr monitor)
+		{
+			string ret = Utils.DecodeStringUTF8(GetWin32MonitorNative((GLFWmonitor*)monitor));
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static byte* GetWin32Monitor(ref GLFWmonitor monitor)
+		{
+			fixed (GLFWmonitor* pmonitor = &monitor)
+			{
+				byte* ret = GetWin32MonitorNative((GLFWmonitor*)pmonitor);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static string GetWin32MonitorS(ref GLFWmonitor monitor)
+		{
+			fixed (GLFWmonitor* pmonitor = &monitor)
+			{
+				string ret = Utils.DecodeStringUTF8(GetWin32MonitorNative((GLFWmonitor*)pmonitor));
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// This DC is private and does not need to be released.<br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static nint GetWin32WindowNative(GLFWwindow* window)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, nint>)funcTable[126])(window);
+			#else
+			return (nint)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[126])((nint)window);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// This DC is private and does not need to be released.<br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static nint GetWin32Window(GLFWwindowPtr window)
+		{
+			nint ret = GetWin32WindowNative((GLFWwindow*)window);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// This DC is private and does not need to be released.<br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static nint GetWin32Window(ref GLFWwindow window)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				nint ret = GetWin32WindowNative((GLFWwindow*)pwindow);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// This DC is private and does not need to be released.<br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void* GetWGLContextNative(GLFWwindow* window)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[127])(window);
+			#else
+			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[127])((nint)window);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// This DC is private and does not need to be released.<br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void* GetWGLContext(GLFWwindowPtr window)
+		{
+			void* ret = GetWGLContextNative((GLFWwindow*)window);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// This DC is private and does not need to be released.<br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void* GetWGLContext(ref GLFWwindow window)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				void* ret = GetWGLContextNative((GLFWwindow*)pwindow);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static uint GetCocoaMonitorNative(GLFWmonitor* monitor)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, uint>)funcTable[128])(monitor);
+			#else
+			return (uint)((delegate* unmanaged[Cdecl]<nint, uint>)funcTable[128])((nint)monitor);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static uint GetCocoaMonitor(GLFWmonitorPtr monitor)
+		{
+			uint ret = GetCocoaMonitorNative((GLFWmonitor*)monitor);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static uint GetCocoaMonitor(ref GLFWmonitor monitor)
+		{
+			fixed (GLFWmonitor* pmonitor = &monitor)
+			{
+				uint ret = GetCocoaMonitorNative((GLFWmonitor*)pmonitor);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void* GetCocoaWindowNative(GLFWwindow* window)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[129])(window);
+			#else
+			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[129])((nint)window);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void* GetCocoaWindow(GLFWwindowPtr window)
+		{
+			void* ret = GetCocoaWindowNative((GLFWwindow*)window);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void* GetCocoaWindow(ref GLFWwindow window)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				void* ret = GetCocoaWindowNative((GLFWwindow*)pwindow);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void* GetCocoaViewNative(GLFWwindow* window)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[130])(window);
+			#else
+			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[130])((nint)window);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void* GetCocoaView(GLFWwindowPtr window)
+		{
+			void* ret = GetCocoaViewNative((GLFWwindow*)window);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void* GetCocoaView(ref GLFWwindow window)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				void* ret = GetCocoaViewNative((GLFWwindow*)pwindow);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void* GetNSGLContextNative(GLFWwindow* window)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[131])(window);
+			#else
+			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[131])((nint)window);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void* GetNSGLContext(GLFWwindowPtr window)
+		{
+			void* ret = GetNSGLContextNative((GLFWwindow*)window);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void* GetNSGLContext(ref GLFWwindow window)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				void* ret = GetNSGLContextNative((GLFWwindow*)pwindow);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static X11Display* GetX11DisplayNative()
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<X11Display*>)funcTable[132])();
+			#else
+			return (X11Display*)((delegate* unmanaged[Cdecl]<nint>)funcTable[132])();
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static X11Display* GetX11Display()
+		{
+			X11Display* ret = GetX11DisplayNative();
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void* GetX11AdapterNative(GLFWmonitor* monitor)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, void*>)funcTable[133])(monitor);
+			#else
+			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[133])((nint)monitor);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void* GetX11Adapter(GLFWmonitorPtr monitor)
+		{
+			void* ret = GetX11AdapterNative((GLFWmonitor*)monitor);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void* GetX11Adapter(ref GLFWmonitor monitor)
+		{
+			fixed (GLFWmonitor* pmonitor = &monitor)
+			{
+				void* ret = GetX11AdapterNative((GLFWmonitor*)pmonitor);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void* GetX11MonitorNative(GLFWmonitor* monitor)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, void*>)funcTable[134])(monitor);
+			#else
+			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[134])((nint)monitor);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void* GetX11Monitor(GLFWmonitorPtr monitor)
+		{
+			void* ret = GetX11MonitorNative((GLFWmonitor*)monitor);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void* GetX11Monitor(ref GLFWmonitor monitor)
+		{
+			fixed (GLFWmonitor* pmonitor = &monitor)
+			{
+				void* ret = GetX11MonitorNative((GLFWmonitor*)pmonitor);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static X11Window GetX11WindowNative(GLFWwindow* window)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, X11Window>)funcTable[135])(window);
+			#else
+			return (X11Window)((delegate* unmanaged[Cdecl]<nint, X11Window>)funcTable[135])((nint)window);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static X11Window GetX11Window(GLFWwindowPtr window)
+		{
+			X11Window ret = GetX11WindowNative((GLFWwindow*)window);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static X11Window GetX11Window(ref GLFWwindow window)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				X11Window ret = GetX11WindowNative((GLFWwindow*)pwindow);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// _lifetime The specified string is copied before this function<br/>
+		/// returns.<br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void SetX11SelectionStringNative(byte* str)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<byte*, void>)funcTable[136])(str);
+			#else
+			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[136])((nint)str);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// _lifetime The specified string is copied before this function<br/>
+		/// returns.<br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetX11SelectionString(byte* str)
+		{
+			SetX11SelectionStringNative(str);
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// _lifetime The specified string is copied before this function<br/>
+		/// returns.<br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetX11SelectionString(in byte str)
+		{
+			fixed (byte* pstr = &str)
+			{
+				SetX11SelectionStringNative((byte*)pstr);
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// _lifetime The specified string is copied before this function<br/>
+		/// returns.<br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetX11SelectionString(ReadOnlySpan<byte> str)
+		{
+			fixed (byte* pstr = str)
+			{
+				SetX11SelectionStringNative((byte*)pstr);
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// _lifetime The specified string is copied before this function<br/>
+		/// returns.<br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void SetX11SelectionString(string str)
+		{
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (str != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(str);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(str, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			SetX11SelectionStringNative(pStr0);
+			if (pStrSize0 >= Utils.MaxStackallocSize)
+			{
+				Utils.Free(pStr0);
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// If the selection is empty or if its contents cannot be converted, `NULL`<br/>
+		/// is returned and a <br/>
+		/// error is generated.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// _lifetime The returned string is allocated and freed by GLFW. You<br/>
+		/// should not free it yourself. It is valid until the next call to <br/>
+		/// or <br/>
+		/// or until the<br/>
+		/// library is terminated.<br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static byte* GetX11SelectionStringNative()
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<byte*>)funcTable[137])();
+			#else
+			return (byte*)((delegate* unmanaged[Cdecl]<nint>)funcTable[137])();
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// If the selection is empty or if its contents cannot be converted, `NULL`<br/>
+		/// is returned and a <br/>
+		/// error is generated.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// _lifetime The returned string is allocated and freed by GLFW. You<br/>
+		/// should not free it yourself. It is valid until the next call to <br/>
+		/// or <br/>
+		/// or until the<br/>
+		/// library is terminated.<br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static byte* GetX11SelectionString()
+		{
+			byte* ret = GetX11SelectionStringNative();
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// If the selection is empty or if its contents cannot be converted, `NULL`<br/>
+		/// is returned and a <br/>
+		/// error is generated.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// _lifetime The returned string is allocated and freed by GLFW. You<br/>
+		/// should not free it yourself. It is valid until the next call to <br/>
+		/// or <br/>
+		/// or until the<br/>
+		/// library is terminated.<br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static string GetX11SelectionStringS()
+		{
+			string ret = Utils.DecodeStringUTF8(GetX11SelectionStringNative());
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void* GetGLXContextNative(GLFWwindow* window)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[138])(window);
+			#else
+			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[138])((nint)window);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void* GetGLXContext(GLFWwindowPtr window)
+		{
+			void* ret = GetGLXContextNative((GLFWwindow*)window);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void* GetGLXContext(ref GLFWwindow window)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				void* ret = GetGLXContextNative((GLFWwindow*)pwindow);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void* GetGLXWindowNative(GLFWwindow* window)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[139])(window);
+			#else
+			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[139])((nint)window);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void* GetGLXWindow(GLFWwindowPtr window)
+		{
+			void* ret = GetGLXWindowNative((GLFWwindow*)window);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void* GetGLXWindow(ref GLFWwindow window)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				void* ret = GetGLXWindowNative((GLFWwindow*)pwindow);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static WlDisplay* GetWaylandDisplayNative()
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<WlDisplay*>)funcTable[140])();
+			#else
+			return (WlDisplay*)((delegate* unmanaged[Cdecl]<nint>)funcTable[140])();
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static WlDisplayPtr GetWaylandDisplay()
+		{
+			WlDisplayPtr ret = GetWaylandDisplayNative();
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static WlOutput* GetWaylandMonitorNative(GLFWmonitor* monitor)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, WlOutput*>)funcTable[141])(monitor);
+			#else
+			return (WlOutput*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[141])((nint)monitor);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static WlOutputPtr GetWaylandMonitor(GLFWmonitorPtr monitor)
+		{
+			WlOutputPtr ret = GetWaylandMonitorNative((GLFWmonitor*)monitor);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static WlOutputPtr GetWaylandMonitor(ref GLFWmonitor monitor)
+		{
+			fixed (GLFWmonitor* pmonitor = &monitor)
+			{
+				WlOutputPtr ret = GetWaylandMonitorNative((GLFWmonitor*)pmonitor);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static WlSurface* GetWaylandWindowNative(GLFWwindow* window)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, WlSurface*>)funcTable[142])(window);
+			#else
+			return (WlSurface*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[142])((nint)window);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static WlSurfacePtr GetWaylandWindow(GLFWwindowPtr window)
+		{
+			WlSurfacePtr ret = GetWaylandWindowNative((GLFWwindow*)window);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static WlSurfacePtr GetWaylandWindow(ref GLFWwindow window)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				WlSurfacePtr ret = GetWaylandWindowNative((GLFWwindow*)pwindow);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void* GetEGLDisplayNative()
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<void*>)funcTable[143])();
+			#else
+			return (void*)((delegate* unmanaged[Cdecl]<nint>)funcTable[143])();
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void* GetEGLDisplay()
+		{
+			void* ret = GetEGLDisplayNative();
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void* GetEGLContextNative(GLFWwindow* window)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[144])(window);
+			#else
+			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[144])((nint)window);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void* GetEGLContext(GLFWwindowPtr window)
+		{
+			void* ret = GetEGLContextNative((GLFWwindow*)window);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void* GetEGLContext(ref GLFWwindow window)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				void* ret = GetEGLContextNative((GLFWwindow*)pwindow);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void* GetEGLSurfaceNative(GLFWwindow* window)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[145])(window);
+			#else
+			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[145])((nint)window);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void* GetEGLSurface(GLFWwindowPtr window)
+		{
+			void* ret = GetEGLSurfaceNative((GLFWwindow*)window);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void* GetEGLSurface(ref GLFWwindow window)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				void* ret = GetEGLSurfaceNative((GLFWwindow*)pwindow);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static int GetOSMesaColorBufferNative(GLFWwindow* window, int* width, int* height, int* format, void** buffer)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, int*, int*, int*, void**, int>)funcTable[146])(window, width, height, format, buffer);
+			#else
+			return (int)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, nint, int>)funcTable[146])((nint)window, (nint)width, (nint)height, (nint)format, (nint)buffer);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int GetOSMesaColorBuffer(GLFWwindowPtr window, int* width, int* height, int* format, void** buffer)
+		{
+			int ret = GetOSMesaColorBufferNative((GLFWwindow*)window, width, height, format, buffer);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int GetOSMesaColorBuffer(ref GLFWwindow window, int* width, int* height, int* format, void** buffer)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				int ret = GetOSMesaColorBufferNative((GLFWwindow*)pwindow, width, height, format, buffer);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int GetOSMesaColorBuffer(GLFWwindowPtr window, ref int width, int* height, int* format, void** buffer)
+		{
+			fixed (int* pwidth = &width)
+			{
+				int ret = GetOSMesaColorBufferNative((GLFWwindow*)window, (int*)pwidth, height, format, buffer);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int GetOSMesaColorBuffer(ref GLFWwindow window, ref int width, int* height, int* format, void** buffer)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				fixed (int* pwidth = &width)
+				{
+					int ret = GetOSMesaColorBufferNative((GLFWwindow*)pwindow, (int*)pwidth, height, format, buffer);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int GetOSMesaColorBuffer(GLFWwindowPtr window, int* width, ref int height, int* format, void** buffer)
+		{
+			fixed (int* pheight = &height)
+			{
+				int ret = GetOSMesaColorBufferNative((GLFWwindow*)window, width, (int*)pheight, format, buffer);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  Access is not<br/>
+		/// synchronized.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
 		public static int GetOSMesaColorBuffer(ref GLFWwindow window, int* width, ref int height, int* format, void** buffer)
 		{
 			fixed (GLFWwindow* pwindow = &window)
@@ -772,9 +2397,9 @@ namespace Hexa.NET.GLFW
 		internal static int GetOSMesaDepthBufferNative(GLFWwindow* window, int* width, int* height, int* bytesPerValue, void** buffer)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, int*, int*, int*, void**, int>)funcTable[143])(window, width, height, bytesPerValue, buffer);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, int*, int*, int*, void**, int>)funcTable[147])(window, width, height, bytesPerValue, buffer);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, nint, int>)funcTable[143])((nint)window, (nint)width, (nint)height, (nint)bytesPerValue, (nint)buffer);
+			return (int)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, nint, int>)funcTable[147])((nint)window, (nint)width, (nint)height, (nint)bytesPerValue, (nint)buffer);
 			#endif
 		}
 
@@ -1643,9 +3268,9 @@ namespace Hexa.NET.GLFW
 		internal static void* GetOSMesaContextNative(GLFWwindow* window)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[144])(window);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[148])(window);
 			#else
-			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[144])((nint)window);
+			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[148])((nint)window);
 			#endif
 		}
 

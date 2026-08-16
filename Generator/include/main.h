@@ -1,3 +1,14 @@
+#ifndef VK_VERSION_1_0
+#define VK_VERSION_1_0
+typedef void* VkInstance;
+typedef void* VkPhysicalDevice;
+typedef void* VkAllocationCallbacks;
+typedef void* VkSurfaceKHR;
+typedef int   VkResult;
+typedef void* PFN_vkGetInstanceProcAddr;
+typedef void* PFN_vkVoidFunction;
+#endif
+
 #include "glfw3.h"
 
 // Windows-specific types

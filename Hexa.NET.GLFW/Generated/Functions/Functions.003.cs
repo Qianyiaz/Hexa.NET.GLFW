@@ -19,6 +19,201 @@ namespace Hexa.NET.GLFW
 
 		/// <summary>
 		/// <br/>
+		/// This function sets the cursor position callback of the specified window,<br/>
+		/// which is called when the cursor is moved.  The callback is provided with the<br/>
+		/// position, in screen coordinates, relative to the upper-left corner of the<br/>
+		/// content area of the window.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// For more information about the callback parameters, see the<br/>
+		/// [function pointer type](<br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static delegate*<GLFWwindow*, double, double, void> SetCursorPosCallback(ref GLFWwindow window, GLFWcursorposfun callback)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				delegate*<GLFWwindow*, double, double, void> ret = SetCursorPosCallbackNative((GLFWwindow*)pwindow, (delegate*<GLFWwindow*, double, double, void>)Utils.GetFunctionPointerForDelegate(callback));
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function sets the cursor boundary crossing callback of the specified<br/>
+		/// window, which is called when the cursor enters or leaves the content area of<br/>
+		/// the window.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// For more information about the callback parameters, see the<br/>
+		/// [function pointer type](<br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static delegate*<GLFWwindow*, int, void> SetCursorEnterCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, int, void> callback)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, void>, delegate*<GLFWwindow*, int, void>>)funcTable[91])(window, callback);
+			#else
+			return (delegate*<GLFWwindow*, int, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[91])((nint)window, (nint)callback);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function sets the cursor boundary crossing callback of the specified<br/>
+		/// window, which is called when the cursor enters or leaves the content area of<br/>
+		/// the window.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// For more information about the callback parameters, see the<br/>
+		/// [function pointer type](<br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static delegate*<GLFWwindow*, int, void> SetCursorEnterCallback(GLFWwindowPtr window, delegate*<GLFWwindow*, int, void> callback)
+		{
+			delegate*<GLFWwindow*, int, void> ret = SetCursorEnterCallbackNative((GLFWwindow*)window, callback);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function sets the cursor boundary crossing callback of the specified<br/>
+		/// window, which is called when the cursor enters or leaves the content area of<br/>
+		/// the window.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// For more information about the callback parameters, see the<br/>
+		/// [function pointer type](<br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static delegate*<GLFWwindow*, int, void> SetCursorEnterCallback(ref GLFWwindow window, delegate*<GLFWwindow*, int, void> callback)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				delegate*<GLFWwindow*, int, void> ret = SetCursorEnterCallbackNative((GLFWwindow*)pwindow, callback);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function sets the cursor boundary crossing callback of the specified<br/>
+		/// window, which is called when the cursor enters or leaves the content area of<br/>
+		/// the window.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// For more information about the callback parameters, see the<br/>
+		/// [function pointer type](<br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static delegate*<GLFWwindow*, int, void> SetCursorEnterCallback(GLFWwindowPtr window, GLFWcursorenterfun callback)
+		{
+			delegate*<GLFWwindow*, int, void> ret = SetCursorEnterCallbackNative((GLFWwindow*)window, (delegate*<GLFWwindow*, int, void>)Utils.GetFunctionPointerForDelegate(callback));
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function sets the cursor boundary crossing callback of the specified<br/>
+		/// window, which is called when the cursor enters or leaves the content area of<br/>
+		/// the window.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// For more information about the callback parameters, see the<br/>
+		/// [function pointer type](<br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static delegate*<GLFWwindow*, int, void> SetCursorEnterCallback(ref GLFWwindow window, GLFWcursorenterfun callback)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				delegate*<GLFWwindow*, int, void> ret = SetCursorEnterCallbackNative((GLFWwindow*)pwindow, (delegate*<GLFWwindow*, int, void>)Utils.GetFunctionPointerForDelegate(callback));
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function sets the scroll callback of the specified window, which is<br/>
+		/// called when a scrolling device is used, such as a mouse wheel or scrolling<br/>
+		/// area of a touchpad.<br/>
+		/// The scroll callback receives all scrolling input, like that from a mouse<br/>
+		/// wheel or a touchpad scrolling area.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// For more information about the callback parameters, see the<br/>
+		/// [function pointer type](<br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static delegate*<GLFWwindow*, double, double, void> SetScrollCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, double, double, void> callback)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, double, double, void>, delegate*<GLFWwindow*, double, double, void>>)funcTable[92])(window, callback);
+			#else
+			return (delegate*<GLFWwindow*, double, double, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[92])((nint)window, (nint)callback);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
 		/// This function sets the scroll callback of the specified window, which is<br/>
 		/// called when a scrolling device is used, such as a mouse wheel or scrolling<br/>
 		/// area of a touchpad.<br/>
@@ -157,9 +352,9 @@ namespace Hexa.NET.GLFW
 		internal static delegate*<GLFWwindow*, int, byte**, void> SetDropCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, int, byte**, void> callback)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, byte**, void>, delegate*<GLFWwindow*, int, byte**, void>>)funcTable[92])(window, callback);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, byte**, void>, delegate*<GLFWwindow*, int, byte**, void>>)funcTable[93])(window, callback);
 			#else
-			return (delegate*<GLFWwindow*, int, byte**, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[92])((nint)window, (nint)callback);
+			return (delegate*<GLFWwindow*, int, byte**, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[93])((nint)window, (nint)callback);
 			#endif
 		}
 
@@ -303,9 +498,9 @@ namespace Hexa.NET.GLFW
 		internal static int JoystickPresentNative(int jid)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, int>)funcTable[93])(jid);
+			return ((delegate* unmanaged[Cdecl]<int, int>)funcTable[94])(jid);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<int, int>)funcTable[93])(jid);
+			return (int)((delegate* unmanaged[Cdecl]<int, int>)funcTable[94])(jid);
 			#endif
 		}
 
@@ -360,9 +555,9 @@ namespace Hexa.NET.GLFW
 		internal static float* GetJoystickAxesNative(int jid, int* count)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, int*, float*>)funcTable[94])(jid, count);
+			return ((delegate* unmanaged[Cdecl]<int, int*, float*>)funcTable[95])(jid, count);
 			#else
-			return (float*)((delegate* unmanaged[Cdecl]<int, nint, nint>)funcTable[94])(jid, (nint)count);
+			return (float*)((delegate* unmanaged[Cdecl]<int, nint, nint>)funcTable[95])(jid, (nint)count);
 			#endif
 		}
 
@@ -460,9 +655,9 @@ namespace Hexa.NET.GLFW
 		internal static byte* GetJoystickButtonsNative(int jid, int* count)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, int*, byte*>)funcTable[95])(jid, count);
+			return ((delegate* unmanaged[Cdecl]<int, int*, byte*>)funcTable[96])(jid, count);
 			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<int, nint, nint>)funcTable[95])(jid, (nint)count);
+			return (byte*)((delegate* unmanaged[Cdecl]<int, nint, nint>)funcTable[96])(jid, (nint)count);
 			#endif
 		}
 
@@ -663,9 +858,9 @@ namespace Hexa.NET.GLFW
 		internal static byte* GetJoystickHatsNative(int jid, int* count)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, int*, byte*>)funcTable[96])(jid, count);
+			return ((delegate* unmanaged[Cdecl]<int, int*, byte*>)funcTable[97])(jid, count);
 			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<int, nint, nint>)funcTable[96])(jid, (nint)count);
+			return (byte*)((delegate* unmanaged[Cdecl]<int, nint, nint>)funcTable[97])(jid, (nint)count);
 			#endif
 		}
 
@@ -915,9 +1110,9 @@ namespace Hexa.NET.GLFW
 		internal static byte* GetJoystickNameNative(int jid)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, byte*>)funcTable[97])(jid);
+			return ((delegate* unmanaged[Cdecl]<int, byte*>)funcTable[98])(jid);
 			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<int, nint>)funcTable[97])(jid);
+			return (byte*)((delegate* unmanaged[Cdecl]<int, nint>)funcTable[98])(jid);
 			#endif
 		}
 
@@ -1017,9 +1212,9 @@ namespace Hexa.NET.GLFW
 		internal static byte* GetJoystickGUIDNative(int jid)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, byte*>)funcTable[98])(jid);
+			return ((delegate* unmanaged[Cdecl]<int, byte*>)funcTable[99])(jid);
 			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<int, nint>)funcTable[98])(jid);
+			return (byte*)((delegate* unmanaged[Cdecl]<int, nint>)funcTable[99])(jid);
 			#endif
 		}
 
@@ -1121,9 +1316,9 @@ namespace Hexa.NET.GLFW
 		internal static void SetJoystickUserPointerNative(int jid, void* pointer)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<int, void*, void>)funcTable[99])(jid, pointer);
+			((delegate* unmanaged[Cdecl]<int, void*, void>)funcTable[100])(jid, pointer);
 			#else
-			((delegate* unmanaged[Cdecl]<int, nint, void>)funcTable[99])(jid, (nint)pointer);
+			((delegate* unmanaged[Cdecl]<int, nint, void>)funcTable[100])(jid, (nint)pointer);
 			#endif
 		}
 
@@ -1194,9 +1389,9 @@ namespace Hexa.NET.GLFW
 		internal static void* GetJoystickUserPointerNative(int jid)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, void*>)funcTable[100])(jid);
+			return ((delegate* unmanaged[Cdecl]<int, void*>)funcTable[101])(jid);
 			#else
-			return (void*)((delegate* unmanaged[Cdecl]<int, nint>)funcTable[100])(jid);
+			return (void*)((delegate* unmanaged[Cdecl]<int, nint>)funcTable[101])(jid);
 			#endif
 		}
 
@@ -1247,9 +1442,9 @@ namespace Hexa.NET.GLFW
 		internal static int JoystickIsGamepadNative(int jid)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, int>)funcTable[101])(jid);
+			return ((delegate* unmanaged[Cdecl]<int, int>)funcTable[102])(jid);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<int, int>)funcTable[101])(jid);
+			return (int)((delegate* unmanaged[Cdecl]<int, int>)funcTable[102])(jid);
 			#endif
 		}
 
@@ -1307,9 +1502,9 @@ namespace Hexa.NET.GLFW
 		internal static delegate*<int, int, void> SetJoystickCallbackNative(delegate*<int, int, void> callback)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<delegate*<int, int, void>, delegate*<int, int, void>>)funcTable[102])(callback);
+			return ((delegate* unmanaged[Cdecl]<delegate*<int, int, void>, delegate*<int, int, void>>)funcTable[103])(callback);
 			#else
-			return (delegate*<int, int, void>)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[102])((nint)callback);
+			return (delegate*<int, int, void>)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[103])((nint)callback);
 			#endif
 		}
 
@@ -1401,9 +1596,9 @@ namespace Hexa.NET.GLFW
 		internal static int UpdateGamepadMappingsNative(byte* str)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte*, int>)funcTable[103])(str);
+			return ((delegate* unmanaged[Cdecl]<byte*, int>)funcTable[104])(str);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, int>)funcTable[103])((nint)str);
+			return (int)((delegate* unmanaged[Cdecl]<nint, int>)funcTable[104])((nint)str);
 			#endif
 		}
 
@@ -1582,9 +1777,9 @@ namespace Hexa.NET.GLFW
 		internal static byte* GetGamepadNameNative(int jid)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, byte*>)funcTable[104])(jid);
+			return ((delegate* unmanaged[Cdecl]<int, byte*>)funcTable[105])(jid);
 			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<int, nint>)funcTable[104])(jid);
+			return (byte*)((delegate* unmanaged[Cdecl]<int, nint>)funcTable[105])(jid);
 			#endif
 		}
 
@@ -1677,9 +1872,9 @@ namespace Hexa.NET.GLFW
 		internal static int GetGamepadStateNative(int jid, GLFWgamepadstate* state)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, GLFWgamepadstate*, int>)funcTable[105])(jid, state);
+			return ((delegate* unmanaged[Cdecl]<int, GLFWgamepadstate*, int>)funcTable[106])(jid, state);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<int, nint, int>)funcTable[105])(jid, (nint)state);
+			return (int)((delegate* unmanaged[Cdecl]<int, nint, int>)funcTable[106])(jid, (nint)state);
 			#endif
 		}
 
@@ -1771,9 +1966,9 @@ namespace Hexa.NET.GLFW
 		internal static void SetClipboardStringNative(GLFWwindow* window, byte* str)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, byte*, void>)funcTable[106])(window, str);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, byte*, void>)funcTable[107])(window, str);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[106])((nint)window, (nint)str);
+			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[107])((nint)window, (nint)str);
 			#endif
 		}
 
@@ -2064,9 +2259,9 @@ namespace Hexa.NET.GLFW
 		internal static byte* GetClipboardStringNative(GLFWwindow* window)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, byte*>)funcTable[107])(window);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, byte*>)funcTable[108])(window);
 			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[107])((nint)window);
+			return (byte*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[108])((nint)window);
 			#endif
 		}
 
@@ -2228,9 +2423,9 @@ namespace Hexa.NET.GLFW
 		internal static double GetTimeNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<double>)funcTable[108])();
+			return ((delegate* unmanaged[Cdecl]<double>)funcTable[109])();
 			#else
-			return (double)((delegate* unmanaged[Cdecl]<double>)funcTable[108])();
+			return (double)((delegate* unmanaged[Cdecl]<double>)funcTable[109])();
 			#endif
 		}
 
@@ -2290,9 +2485,9 @@ namespace Hexa.NET.GLFW
 		internal static void SetTimeNative(double time)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<double, void>)funcTable[109])(time);
+			((delegate* unmanaged[Cdecl]<double, void>)funcTable[110])(time);
 			#else
-			((delegate* unmanaged[Cdecl]<double, void>)funcTable[109])(time);
+			((delegate* unmanaged[Cdecl]<double, void>)funcTable[110])(time);
 			#endif
 		}
 
@@ -2345,9 +2540,9 @@ namespace Hexa.NET.GLFW
 		internal static ulong GetTimerValueNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ulong>)funcTable[110])();
+			return ((delegate* unmanaged[Cdecl]<ulong>)funcTable[111])();
 			#else
-			return (ulong)((delegate* unmanaged[Cdecl]<ulong>)funcTable[110])();
+			return (ulong)((delegate* unmanaged[Cdecl]<ulong>)funcTable[111])();
 			#endif
 		}
 
@@ -2392,9 +2587,9 @@ namespace Hexa.NET.GLFW
 		internal static ulong GetTimerFrequencyNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ulong>)funcTable[111])();
+			return ((delegate* unmanaged[Cdecl]<ulong>)funcTable[112])();
 			#else
-			return (ulong)((delegate* unmanaged[Cdecl]<ulong>)funcTable[111])();
+			return (ulong)((delegate* unmanaged[Cdecl]<ulong>)funcTable[112])();
 			#endif
 		}
 
@@ -2452,9 +2647,9 @@ namespace Hexa.NET.GLFW
 		internal static void MakeContextCurrentNative(GLFWwindow* window)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[112])(window);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[113])(window);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[112])((nint)window);
+			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[113])((nint)window);
 			#endif
 		}
 
@@ -2551,9 +2746,9 @@ namespace Hexa.NET.GLFW
 		internal static GLFWwindow* GetCurrentContextNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*>)funcTable[113])();
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*>)funcTable[114])();
 			#else
-			return (GLFWwindow*)((delegate* unmanaged[Cdecl]<nint>)funcTable[113])();
+			return (GLFWwindow*)((delegate* unmanaged[Cdecl]<nint>)funcTable[114])();
 			#endif
 		}
 
@@ -2605,9 +2800,9 @@ namespace Hexa.NET.GLFW
 		internal static void SwapBuffersNative(GLFWwindow* window)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[114])(window);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[115])(window);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[114])((nint)window);
+			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[115])((nint)window);
 			#endif
 		}
 
@@ -2706,9 +2901,9 @@ namespace Hexa.NET.GLFW
 		internal static void SwapIntervalNative(int interval)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<int, void>)funcTable[115])(interval);
+			((delegate* unmanaged[Cdecl]<int, void>)funcTable[116])(interval);
 			#else
-			((delegate* unmanaged[Cdecl]<int, void>)funcTable[115])(interval);
+			((delegate* unmanaged[Cdecl]<int, void>)funcTable[116])(interval);
 			#endif
 		}
 
@@ -2781,9 +2976,9 @@ namespace Hexa.NET.GLFW
 		internal static int ExtensionSupportedNative(byte* extension)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte*, int>)funcTable[116])(extension);
+			return ((delegate* unmanaged[Cdecl]<byte*, int>)funcTable[117])(extension);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, int>)funcTable[116])((nint)extension);
+			return (int)((delegate* unmanaged[Cdecl]<nint, int>)funcTable[117])((nint)extension);
 			#endif
 		}
 
@@ -2992,9 +3187,9 @@ namespace Hexa.NET.GLFW
 		internal static delegate*<void> GetProcAddressNative(byte* procname)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte*, delegate*<void>>)funcTable[117])(procname);
+			return ((delegate* unmanaged[Cdecl]<byte*, delegate*<void>>)funcTable[118])(procname);
 			#else
-			return (delegate*<void>)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[117])((nint)procname);
+			return (delegate*<void>)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[118])((nint)procname);
 			#endif
 		}
 
@@ -3193,9 +3388,9 @@ namespace Hexa.NET.GLFW
 		internal static int VulkanSupportedNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int>)funcTable[118])();
+			return ((delegate* unmanaged[Cdecl]<int>)funcTable[119])();
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<int>)funcTable[118])();
+			return (int)((delegate* unmanaged[Cdecl]<int>)funcTable[119])();
 			#endif
 		}
 
@@ -3259,9 +3454,9 @@ namespace Hexa.NET.GLFW
 		internal static byte** GetRequiredInstanceExtensionsNative(uint* count)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<uint*, byte**>)funcTable[119])(count);
+			return ((delegate* unmanaged[Cdecl]<uint*, byte**>)funcTable[120])(count);
 			#else
-			return (byte**)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[119])((nint)count);
+			return (byte**)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[120])((nint)count);
 			#endif
 		}
 
@@ -3342,6 +3537,1444 @@ namespace Hexa.NET.GLFW
 
 		/// <summary>
 		/// <br/>
+		/// This function returns the address of the specified Vulkan core or extension<br/>
+		/// function for the specified instance.  If instance is set to `NULL` it can<br/>
+		/// return any function exported from the Vulkan loader, including at least the<br/>
+		/// following functions:<br/>
+		/// - `vkEnumerateInstanceExtensionProperties`<br/>
+		/// - `vkEnumerateInstanceLayerProperties`<br/>
+		/// - `vkCreateInstance`<br/>
+		/// - `vkGetInstanceProcAddr`<br/>
+		/// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether Vulkan is at least minimally available.<br/>
+		/// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
+		/// a platform-specific query of the Vulkan loader as a fallback.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _lifetime The returned function pointer is valid until the library<br/>
+		/// is terminated.<br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static delegate*<void> GetInstanceProcAddressNative(void* instance, byte* procname)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<void*, byte*, delegate*<void>>)funcTable[121])(instance, procname);
+			#else
+			return (delegate*<void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[121])((nint)instance, (nint)procname);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function returns the address of the specified Vulkan core or extension<br/>
+		/// function for the specified instance.  If instance is set to `NULL` it can<br/>
+		/// return any function exported from the Vulkan loader, including at least the<br/>
+		/// following functions:<br/>
+		/// - `vkEnumerateInstanceExtensionProperties`<br/>
+		/// - `vkEnumerateInstanceLayerProperties`<br/>
+		/// - `vkCreateInstance`<br/>
+		/// - `vkGetInstanceProcAddr`<br/>
+		/// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether Vulkan is at least minimally available.<br/>
+		/// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
+		/// a platform-specific query of the Vulkan loader as a fallback.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _lifetime The returned function pointer is valid until the library<br/>
+		/// is terminated.<br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static delegate*<void> GetInstanceProcAddress(void* instance, byte* procname)
+		{
+			delegate*<void> ret = GetInstanceProcAddressNative(instance, procname);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function returns the address of the specified Vulkan core or extension<br/>
+		/// function for the specified instance.  If instance is set to `NULL` it can<br/>
+		/// return any function exported from the Vulkan loader, including at least the<br/>
+		/// following functions:<br/>
+		/// - `vkEnumerateInstanceExtensionProperties`<br/>
+		/// - `vkEnumerateInstanceLayerProperties`<br/>
+		/// - `vkCreateInstance`<br/>
+		/// - `vkGetInstanceProcAddr`<br/>
+		/// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether Vulkan is at least minimally available.<br/>
+		/// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
+		/// a platform-specific query of the Vulkan loader as a fallback.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _lifetime The returned function pointer is valid until the library<br/>
+		/// is terminated.<br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static delegate*<void> GetInstanceProcAddress(nint instance, byte* procname)
+		{
+			delegate*<void> ret = GetInstanceProcAddressNative((void*)instance, procname);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function returns the address of the specified Vulkan core or extension<br/>
+		/// function for the specified instance.  If instance is set to `NULL` it can<br/>
+		/// return any function exported from the Vulkan loader, including at least the<br/>
+		/// following functions:<br/>
+		/// - `vkEnumerateInstanceExtensionProperties`<br/>
+		/// - `vkEnumerateInstanceLayerProperties`<br/>
+		/// - `vkCreateInstance`<br/>
+		/// - `vkGetInstanceProcAddr`<br/>
+		/// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether Vulkan is at least minimally available.<br/>
+		/// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
+		/// a platform-specific query of the Vulkan loader as a fallback.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _lifetime The returned function pointer is valid until the library<br/>
+		/// is terminated.<br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static delegate*<void> GetInstanceProcAddress(void* instance, in byte procname)
+		{
+			fixed (byte* pprocname = &procname)
+			{
+				delegate*<void> ret = GetInstanceProcAddressNative(instance, (byte*)pprocname);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function returns the address of the specified Vulkan core or extension<br/>
+		/// function for the specified instance.  If instance is set to `NULL` it can<br/>
+		/// return any function exported from the Vulkan loader, including at least the<br/>
+		/// following functions:<br/>
+		/// - `vkEnumerateInstanceExtensionProperties`<br/>
+		/// - `vkEnumerateInstanceLayerProperties`<br/>
+		/// - `vkCreateInstance`<br/>
+		/// - `vkGetInstanceProcAddr`<br/>
+		/// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether Vulkan is at least minimally available.<br/>
+		/// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
+		/// a platform-specific query of the Vulkan loader as a fallback.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _lifetime The returned function pointer is valid until the library<br/>
+		/// is terminated.<br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static delegate*<void> GetInstanceProcAddress(void* instance, ReadOnlySpan<byte> procname)
+		{
+			fixed (byte* pprocname = procname)
+			{
+				delegate*<void> ret = GetInstanceProcAddressNative(instance, (byte*)pprocname);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function returns the address of the specified Vulkan core or extension<br/>
+		/// function for the specified instance.  If instance is set to `NULL` it can<br/>
+		/// return any function exported from the Vulkan loader, including at least the<br/>
+		/// following functions:<br/>
+		/// - `vkEnumerateInstanceExtensionProperties`<br/>
+		/// - `vkEnumerateInstanceLayerProperties`<br/>
+		/// - `vkCreateInstance`<br/>
+		/// - `vkGetInstanceProcAddr`<br/>
+		/// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether Vulkan is at least minimally available.<br/>
+		/// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
+		/// a platform-specific query of the Vulkan loader as a fallback.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _lifetime The returned function pointer is valid until the library<br/>
+		/// is terminated.<br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static delegate*<void> GetInstanceProcAddress(void* instance, string procname)
+		{
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (procname != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(procname);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(procname, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			delegate*<void> ret = GetInstanceProcAddressNative(instance, pStr0);
+			if (pStrSize0 >= Utils.MaxStackallocSize)
+			{
+				Utils.Free(pStr0);
+			}
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function returns the address of the specified Vulkan core or extension<br/>
+		/// function for the specified instance.  If instance is set to `NULL` it can<br/>
+		/// return any function exported from the Vulkan loader, including at least the<br/>
+		/// following functions:<br/>
+		/// - `vkEnumerateInstanceExtensionProperties`<br/>
+		/// - `vkEnumerateInstanceLayerProperties`<br/>
+		/// - `vkCreateInstance`<br/>
+		/// - `vkGetInstanceProcAddr`<br/>
+		/// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether Vulkan is at least minimally available.<br/>
+		/// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
+		/// a platform-specific query of the Vulkan loader as a fallback.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _lifetime The returned function pointer is valid until the library<br/>
+		/// is terminated.<br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static delegate*<void> GetInstanceProcAddress(nint instance, in byte procname)
+		{
+			fixed (byte* pprocname = &procname)
+			{
+				delegate*<void> ret = GetInstanceProcAddressNative((void*)instance, (byte*)pprocname);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function returns the address of the specified Vulkan core or extension<br/>
+		/// function for the specified instance.  If instance is set to `NULL` it can<br/>
+		/// return any function exported from the Vulkan loader, including at least the<br/>
+		/// following functions:<br/>
+		/// - `vkEnumerateInstanceExtensionProperties`<br/>
+		/// - `vkEnumerateInstanceLayerProperties`<br/>
+		/// - `vkCreateInstance`<br/>
+		/// - `vkGetInstanceProcAddr`<br/>
+		/// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether Vulkan is at least minimally available.<br/>
+		/// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
+		/// a platform-specific query of the Vulkan loader as a fallback.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _lifetime The returned function pointer is valid until the library<br/>
+		/// is terminated.<br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static delegate*<void> GetInstanceProcAddress(nint instance, ReadOnlySpan<byte> procname)
+		{
+			fixed (byte* pprocname = procname)
+			{
+				delegate*<void> ret = GetInstanceProcAddressNative((void*)instance, (byte*)pprocname);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function returns the address of the specified Vulkan core or extension<br/>
+		/// function for the specified instance.  If instance is set to `NULL` it can<br/>
+		/// return any function exported from the Vulkan loader, including at least the<br/>
+		/// following functions:<br/>
+		/// - `vkEnumerateInstanceExtensionProperties`<br/>
+		/// - `vkEnumerateInstanceLayerProperties`<br/>
+		/// - `vkCreateInstance`<br/>
+		/// - `vkGetInstanceProcAddr`<br/>
+		/// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether Vulkan is at least minimally available.<br/>
+		/// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
+		/// a platform-specific query of the Vulkan loader as a fallback.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _lifetime The returned function pointer is valid until the library<br/>
+		/// is terminated.<br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static delegate*<void> GetInstanceProcAddress(nint instance, string procname)
+		{
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (procname != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(procname);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(procname, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			delegate*<void> ret = GetInstanceProcAddressNative((void*)instance, pStr0);
+			if (pStrSize0 >= Utils.MaxStackallocSize)
+			{
+				Utils.Free(pStr0);
+			}
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function returns whether the specified queue family of the specified<br/>
+		/// physical device supports presentation to the platform GLFW was built for.<br/>
+		/// If Vulkan or the required window surface creation instance extensions are<br/>
+		/// not available on the machine, or if the specified instance was not created<br/>
+		/// with the required extensions, this function returns `GLFW_FALSE` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether Vulkan is at least minimally available and <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static int GetPhysicalDevicePresentationSupportNative(void* instance, void* device, uint queuefamily)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<void*, void*, uint, int>)funcTable[122])(instance, device, queuefamily);
+			#else
+			return (int)((delegate* unmanaged[Cdecl]<nint, nint, uint, int>)funcTable[122])((nint)instance, (nint)device, queuefamily);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function returns whether the specified queue family of the specified<br/>
+		/// physical device supports presentation to the platform GLFW was built for.<br/>
+		/// If Vulkan or the required window surface creation instance extensions are<br/>
+		/// not available on the machine, or if the specified instance was not created<br/>
+		/// with the required extensions, this function returns `GLFW_FALSE` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether Vulkan is at least minimally available and <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int GetPhysicalDevicePresentationSupport(void* instance, void* device, uint queuefamily)
+		{
+			int ret = GetPhysicalDevicePresentationSupportNative(instance, device, queuefamily);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function returns whether the specified queue family of the specified<br/>
+		/// physical device supports presentation to the platform GLFW was built for.<br/>
+		/// If Vulkan or the required window surface creation instance extensions are<br/>
+		/// not available on the machine, or if the specified instance was not created<br/>
+		/// with the required extensions, this function returns `GLFW_FALSE` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether Vulkan is at least minimally available and <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int GetPhysicalDevicePresentationSupport(nint instance, void* device, uint queuefamily)
+		{
+			int ret = GetPhysicalDevicePresentationSupportNative((void*)instance, device, queuefamily);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function returns whether the specified queue family of the specified<br/>
+		/// physical device supports presentation to the platform GLFW was built for.<br/>
+		/// If Vulkan or the required window surface creation instance extensions are<br/>
+		/// not available on the machine, or if the specified instance was not created<br/>
+		/// with the required extensions, this function returns `GLFW_FALSE` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether Vulkan is at least minimally available and <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int GetPhysicalDevicePresentationSupport(void* instance, nint device, uint queuefamily)
+		{
+			int ret = GetPhysicalDevicePresentationSupportNative(instance, (void*)device, queuefamily);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function returns whether the specified queue family of the specified<br/>
+		/// physical device supports presentation to the platform GLFW was built for.<br/>
+		/// If Vulkan or the required window surface creation instance extensions are<br/>
+		/// not available on the machine, or if the specified instance was not created<br/>
+		/// with the required extensions, this function returns `GLFW_FALSE` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether Vulkan is at least minimally available and <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int GetPhysicalDevicePresentationSupport(nint instance, nint device, uint queuefamily)
+		{
+			int ret = GetPhysicalDevicePresentationSupportNative((void*)instance, (void*)device, queuefamily);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function creates a Vulkan surface for the specified window.<br/>
+		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether<br/>
+		/// Vulkan is at least minimally available.<br/>
+		/// If the required window surface creation instance extensions are not<br/>
+		/// available or if the specified instance was not created with these extensions<br/>
+		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// The window surface cannot be shared with another API so the window must<br/>
+		/// have been created with the [client api hint](<br/>
+		/// set to `GLFW_NO_API` otherwise it generates a <br/>
+		/// error<br/>
+		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
+		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+		/// surface.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static int CreateWindowSurfaceNative(void* instance, GLFWwindow* window, void** allocator, void** surface)
+		{
+			#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<void*, GLFWwindow*, void**, void**, int>)funcTable[123])(instance, window, allocator, surface);
+			#else
+			return (int)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, int>)funcTable[123])((nint)instance, (nint)window, (nint)allocator, (nint)surface);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function creates a Vulkan surface for the specified window.<br/>
+		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether<br/>
+		/// Vulkan is at least minimally available.<br/>
+		/// If the required window surface creation instance extensions are not<br/>
+		/// available or if the specified instance was not created with these extensions<br/>
+		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// The window surface cannot be shared with another API so the window must<br/>
+		/// have been created with the [client api hint](<br/>
+		/// set to `GLFW_NO_API` otherwise it generates a <br/>
+		/// error<br/>
+		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
+		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+		/// surface.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int CreateWindowSurface(void* instance, GLFWwindowPtr window, void** allocator, void** surface)
+		{
+			int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)window, allocator, surface);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function creates a Vulkan surface for the specified window.<br/>
+		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether<br/>
+		/// Vulkan is at least minimally available.<br/>
+		/// If the required window surface creation instance extensions are not<br/>
+		/// available or if the specified instance was not created with these extensions<br/>
+		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// The window surface cannot be shared with another API so the window must<br/>
+		/// have been created with the [client api hint](<br/>
+		/// set to `GLFW_NO_API` otherwise it generates a <br/>
+		/// error<br/>
+		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
+		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+		/// surface.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int CreateWindowSurface(nint instance, GLFWwindowPtr window, void** allocator, void** surface)
+		{
+			int ret = CreateWindowSurfaceNative((void*)instance, (GLFWwindow*)window, allocator, surface);
+			return ret;
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function creates a Vulkan surface for the specified window.<br/>
+		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether<br/>
+		/// Vulkan is at least minimally available.<br/>
+		/// If the required window surface creation instance extensions are not<br/>
+		/// available or if the specified instance was not created with these extensions<br/>
+		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// The window surface cannot be shared with another API so the window must<br/>
+		/// have been created with the [client api hint](<br/>
+		/// set to `GLFW_NO_API` otherwise it generates a <br/>
+		/// error<br/>
+		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
+		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+		/// surface.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int CreateWindowSurface(void* instance, ref GLFWwindow window, void** allocator, void** surface)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)pwindow, allocator, surface);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function creates a Vulkan surface for the specified window.<br/>
+		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether<br/>
+		/// Vulkan is at least minimally available.<br/>
+		/// If the required window surface creation instance extensions are not<br/>
+		/// available or if the specified instance was not created with these extensions<br/>
+		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// The window surface cannot be shared with another API so the window must<br/>
+		/// have been created with the [client api hint](<br/>
+		/// set to `GLFW_NO_API` otherwise it generates a <br/>
+		/// error<br/>
+		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
+		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+		/// surface.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int CreateWindowSurface(nint instance, ref GLFWwindow window, void** allocator, void** surface)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				int ret = CreateWindowSurfaceNative((void*)instance, (GLFWwindow*)pwindow, allocator, surface);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function creates a Vulkan surface for the specified window.<br/>
+		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether<br/>
+		/// Vulkan is at least minimally available.<br/>
+		/// If the required window surface creation instance extensions are not<br/>
+		/// available or if the specified instance was not created with these extensions<br/>
+		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// The window surface cannot be shared with another API so the window must<br/>
+		/// have been created with the [client api hint](<br/>
+		/// set to `GLFW_NO_API` otherwise it generates a <br/>
+		/// error<br/>
+		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
+		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+		/// surface.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int CreateWindowSurface(void* instance, GLFWwindowPtr window, in nint allocator, void** surface)
+		{
+			fixed (nint* pallocator = &allocator)
+			{
+				int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)window, (void**)pallocator, surface);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function creates a Vulkan surface for the specified window.<br/>
+		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether<br/>
+		/// Vulkan is at least minimally available.<br/>
+		/// If the required window surface creation instance extensions are not<br/>
+		/// available or if the specified instance was not created with these extensions<br/>
+		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// The window surface cannot be shared with another API so the window must<br/>
+		/// have been created with the [client api hint](<br/>
+		/// set to `GLFW_NO_API` otherwise it generates a <br/>
+		/// error<br/>
+		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
+		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+		/// surface.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int CreateWindowSurface(nint instance, GLFWwindowPtr window, in nint allocator, void** surface)
+		{
+			fixed (nint* pallocator = &allocator)
+			{
+				int ret = CreateWindowSurfaceNative((void*)instance, (GLFWwindow*)window, (void**)pallocator, surface);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function creates a Vulkan surface for the specified window.<br/>
+		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether<br/>
+		/// Vulkan is at least minimally available.<br/>
+		/// If the required window surface creation instance extensions are not<br/>
+		/// available or if the specified instance was not created with these extensions<br/>
+		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// The window surface cannot be shared with another API so the window must<br/>
+		/// have been created with the [client api hint](<br/>
+		/// set to `GLFW_NO_API` otherwise it generates a <br/>
+		/// error<br/>
+		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
+		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+		/// surface.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int CreateWindowSurface(void* instance, ref GLFWwindow window, in nint allocator, void** surface)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				fixed (nint* pallocator = &allocator)
+				{
+					int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)pwindow, (void**)pallocator, surface);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function creates a Vulkan surface for the specified window.<br/>
+		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether<br/>
+		/// Vulkan is at least minimally available.<br/>
+		/// If the required window surface creation instance extensions are not<br/>
+		/// available or if the specified instance was not created with these extensions<br/>
+		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// The window surface cannot be shared with another API so the window must<br/>
+		/// have been created with the [client api hint](<br/>
+		/// set to `GLFW_NO_API` otherwise it generates a <br/>
+		/// error<br/>
+		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
+		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+		/// surface.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int CreateWindowSurface(nint instance, ref GLFWwindow window, in nint allocator, void** surface)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				fixed (nint* pallocator = &allocator)
+				{
+					int ret = CreateWindowSurfaceNative((void*)instance, (GLFWwindow*)pwindow, (void**)pallocator, surface);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function creates a Vulkan surface for the specified window.<br/>
+		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether<br/>
+		/// Vulkan is at least minimally available.<br/>
+		/// If the required window surface creation instance extensions are not<br/>
+		/// available or if the specified instance was not created with these extensions<br/>
+		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// The window surface cannot be shared with another API so the window must<br/>
+		/// have been created with the [client api hint](<br/>
+		/// set to `GLFW_NO_API` otherwise it generates a <br/>
+		/// error<br/>
+		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
+		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+		/// surface.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int CreateWindowSurface(void* instance, GLFWwindowPtr window, void** allocator, ref nint surface)
+		{
+			fixed (nint* psurface = &surface)
+			{
+				int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)window, allocator, (void**)psurface);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function creates a Vulkan surface for the specified window.<br/>
+		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether<br/>
+		/// Vulkan is at least minimally available.<br/>
+		/// If the required window surface creation instance extensions are not<br/>
+		/// available or if the specified instance was not created with these extensions<br/>
+		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// The window surface cannot be shared with another API so the window must<br/>
+		/// have been created with the [client api hint](<br/>
+		/// set to `GLFW_NO_API` otherwise it generates a <br/>
+		/// error<br/>
+		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
+		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+		/// surface.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int CreateWindowSurface(nint instance, GLFWwindowPtr window, void** allocator, ref nint surface)
+		{
+			fixed (nint* psurface = &surface)
+			{
+				int ret = CreateWindowSurfaceNative((void*)instance, (GLFWwindow*)window, allocator, (void**)psurface);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function creates a Vulkan surface for the specified window.<br/>
+		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether<br/>
+		/// Vulkan is at least minimally available.<br/>
+		/// If the required window surface creation instance extensions are not<br/>
+		/// available or if the specified instance was not created with these extensions<br/>
+		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// The window surface cannot be shared with another API so the window must<br/>
+		/// have been created with the [client api hint](<br/>
+		/// set to `GLFW_NO_API` otherwise it generates a <br/>
+		/// error<br/>
+		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
+		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+		/// surface.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int CreateWindowSurface(void* instance, ref GLFWwindow window, void** allocator, ref nint surface)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				fixed (nint* psurface = &surface)
+				{
+					int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)pwindow, allocator, (void**)psurface);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function creates a Vulkan surface for the specified window.<br/>
+		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether<br/>
+		/// Vulkan is at least minimally available.<br/>
+		/// If the required window surface creation instance extensions are not<br/>
+		/// available or if the specified instance was not created with these extensions<br/>
+		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// The window surface cannot be shared with another API so the window must<br/>
+		/// have been created with the [client api hint](<br/>
+		/// set to `GLFW_NO_API` otherwise it generates a <br/>
+		/// error<br/>
+		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
+		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+		/// surface.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int CreateWindowSurface(nint instance, ref GLFWwindow window, void** allocator, ref nint surface)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				fixed (nint* psurface = &surface)
+				{
+					int ret = CreateWindowSurfaceNative((void*)instance, (GLFWwindow*)pwindow, allocator, (void**)psurface);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function creates a Vulkan surface for the specified window.<br/>
+		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether<br/>
+		/// Vulkan is at least minimally available.<br/>
+		/// If the required window surface creation instance extensions are not<br/>
+		/// available or if the specified instance was not created with these extensions<br/>
+		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// The window surface cannot be shared with another API so the window must<br/>
+		/// have been created with the [client api hint](<br/>
+		/// set to `GLFW_NO_API` otherwise it generates a <br/>
+		/// error<br/>
+		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
+		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+		/// surface.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int CreateWindowSurface(void* instance, GLFWwindowPtr window, in nint allocator, ref nint surface)
+		{
+			fixed (nint* pallocator = &allocator)
+			{
+				fixed (nint* psurface = &surface)
+				{
+					int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)window, (void**)pallocator, (void**)psurface);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function creates a Vulkan surface for the specified window.<br/>
+		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether<br/>
+		/// Vulkan is at least minimally available.<br/>
+		/// If the required window surface creation instance extensions are not<br/>
+		/// available or if the specified instance was not created with these extensions<br/>
+		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// The window surface cannot be shared with another API so the window must<br/>
+		/// have been created with the [client api hint](<br/>
+		/// set to `GLFW_NO_API` otherwise it generates a <br/>
+		/// error<br/>
+		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
+		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+		/// surface.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int CreateWindowSurface(nint instance, GLFWwindowPtr window, in nint allocator, ref nint surface)
+		{
+			fixed (nint* pallocator = &allocator)
+			{
+				fixed (nint* psurface = &surface)
+				{
+					int ret = CreateWindowSurfaceNative((void*)instance, (GLFWwindow*)window, (void**)pallocator, (void**)psurface);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function creates a Vulkan surface for the specified window.<br/>
+		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether<br/>
+		/// Vulkan is at least minimally available.<br/>
+		/// If the required window surface creation instance extensions are not<br/>
+		/// available or if the specified instance was not created with these extensions<br/>
+		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// The window surface cannot be shared with another API so the window must<br/>
+		/// have been created with the [client api hint](<br/>
+		/// set to `GLFW_NO_API` otherwise it generates a <br/>
+		/// error<br/>
+		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
+		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+		/// surface.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int CreateWindowSurface(void* instance, ref GLFWwindow window, in nint allocator, ref nint surface)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				fixed (nint* pallocator = &allocator)
+				{
+					fixed (nint* psurface = &surface)
+					{
+						int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)pwindow, (void**)pallocator, (void**)psurface);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function creates a Vulkan surface for the specified window.<br/>
+		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+		/// error.  Call <br/>
+		/// to check whether<br/>
+		/// Vulkan is at least minimally available.<br/>
+		/// If the required window surface creation instance extensions are not<br/>
+		/// available or if the specified instance was not created with these extensions<br/>
+		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+		/// generates a <br/>
+		/// error.  Call <br/>
+		/// to check what instance extensions are<br/>
+		/// required.<br/>
+		/// The window surface cannot be shared with another API so the window must<br/>
+		/// have been created with the [client api hint](<br/>
+		/// set to `GLFW_NO_API` otherwise it generates a <br/>
+		/// error<br/>
+		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
+		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+		/// surface.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// <br/>
+		/// <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function may be called from any thread.  For<br/>
+		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static int CreateWindowSurface(nint instance, ref GLFWwindow window, in nint allocator, ref nint surface)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				fixed (nint* pallocator = &allocator)
+				{
+					fixed (nint* psurface = &surface)
+					{
+						int ret = CreateWindowSurfaceNative((void*)instance, (GLFWwindow*)pwindow, (void**)pallocator, (void**)psurface);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// <br/>
 		/// <br/>
 		/// <br/>
 		/// Possible errors include <br/>
@@ -3357,9 +4990,9 @@ namespace Hexa.NET.GLFW
 		internal static byte* GetWin32AdapterNative(GLFWmonitor* monitor)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, byte*>)funcTable[120])(monitor);
+			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, byte*>)funcTable[124])(monitor);
 			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[120])((nint)monitor);
+			return (byte*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[124])((nint)monitor);
 			#endif
 		}
 
@@ -3399,1631 +5032,6 @@ namespace Hexa.NET.GLFW
 		{
 			string ret = Utils.DecodeStringUTF8(GetWin32AdapterNative((GLFWmonitor*)monitor));
 			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static byte* GetWin32Adapter(ref GLFWmonitor monitor)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				byte* ret = GetWin32AdapterNative((GLFWmonitor*)pmonitor);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static string GetWin32AdapterS(ref GLFWmonitor monitor)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				string ret = Utils.DecodeStringUTF8(GetWin32AdapterNative((GLFWmonitor*)pmonitor));
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte* GetWin32MonitorNative(GLFWmonitor* monitor)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, byte*>)funcTable[121])(monitor);
-			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[121])((nint)monitor);
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static byte* GetWin32Monitor(GLFWmonitorPtr monitor)
-		{
-			byte* ret = GetWin32MonitorNative((GLFWmonitor*)monitor);
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static string GetWin32MonitorS(GLFWmonitorPtr monitor)
-		{
-			string ret = Utils.DecodeStringUTF8(GetWin32MonitorNative((GLFWmonitor*)monitor));
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static byte* GetWin32Monitor(ref GLFWmonitor monitor)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				byte* ret = GetWin32MonitorNative((GLFWmonitor*)pmonitor);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static string GetWin32MonitorS(ref GLFWmonitor monitor)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				string ret = Utils.DecodeStringUTF8(GetWin32MonitorNative((GLFWmonitor*)pmonitor));
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// This DC is private and does not need to be released.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static nint GetWin32WindowNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, nint>)funcTable[122])(window);
-			#else
-			return (nint)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[122])((nint)window);
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// This DC is private and does not need to be released.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static nint GetWin32Window(GLFWwindowPtr window)
-		{
-			nint ret = GetWin32WindowNative((GLFWwindow*)window);
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// This DC is private and does not need to be released.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static nint GetWin32Window(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				nint ret = GetWin32WindowNative((GLFWwindow*)pwindow);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// This DC is private and does not need to be released.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void* GetWGLContextNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[123])(window);
-			#else
-			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[123])((nint)window);
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// This DC is private and does not need to be released.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetWGLContext(GLFWwindowPtr window)
-		{
-			void* ret = GetWGLContextNative((GLFWwindow*)window);
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// This DC is private and does not need to be released.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetWGLContext(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				void* ret = GetWGLContextNative((GLFWwindow*)pwindow);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static uint GetCocoaMonitorNative(GLFWmonitor* monitor)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, uint>)funcTable[124])(monitor);
-			#else
-			return (uint)((delegate* unmanaged[Cdecl]<nint, uint>)funcTable[124])((nint)monitor);
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static uint GetCocoaMonitor(GLFWmonitorPtr monitor)
-		{
-			uint ret = GetCocoaMonitorNative((GLFWmonitor*)monitor);
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static uint GetCocoaMonitor(ref GLFWmonitor monitor)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				uint ret = GetCocoaMonitorNative((GLFWmonitor*)pmonitor);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void* GetCocoaWindowNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[125])(window);
-			#else
-			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[125])((nint)window);
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetCocoaWindow(GLFWwindowPtr window)
-		{
-			void* ret = GetCocoaWindowNative((GLFWwindow*)window);
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetCocoaWindow(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				void* ret = GetCocoaWindowNative((GLFWwindow*)pwindow);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void* GetCocoaViewNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[126])(window);
-			#else
-			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[126])((nint)window);
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetCocoaView(GLFWwindowPtr window)
-		{
-			void* ret = GetCocoaViewNative((GLFWwindow*)window);
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetCocoaView(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				void* ret = GetCocoaViewNative((GLFWwindow*)pwindow);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void* GetNSGLContextNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[127])(window);
-			#else
-			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[127])((nint)window);
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetNSGLContext(GLFWwindowPtr window)
-		{
-			void* ret = GetNSGLContextNative((GLFWwindow*)window);
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetNSGLContext(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				void* ret = GetNSGLContextNative((GLFWwindow*)pwindow);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static X11Display* GetX11DisplayNative()
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<X11Display*>)funcTable[128])();
-			#else
-			return (X11Display*)((delegate* unmanaged[Cdecl]<nint>)funcTable[128])();
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static X11Display* GetX11Display()
-		{
-			X11Display* ret = GetX11DisplayNative();
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void* GetX11AdapterNative(GLFWmonitor* monitor)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, void*>)funcTable[129])(monitor);
-			#else
-			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[129])((nint)monitor);
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetX11Adapter(GLFWmonitorPtr monitor)
-		{
-			void* ret = GetX11AdapterNative((GLFWmonitor*)monitor);
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetX11Adapter(ref GLFWmonitor monitor)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				void* ret = GetX11AdapterNative((GLFWmonitor*)pmonitor);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void* GetX11MonitorNative(GLFWmonitor* monitor)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, void*>)funcTable[130])(monitor);
-			#else
-			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[130])((nint)monitor);
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetX11Monitor(GLFWmonitorPtr monitor)
-		{
-			void* ret = GetX11MonitorNative((GLFWmonitor*)monitor);
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetX11Monitor(ref GLFWmonitor monitor)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				void* ret = GetX11MonitorNative((GLFWmonitor*)pmonitor);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static X11Window GetX11WindowNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, X11Window>)funcTable[131])(window);
-			#else
-			return (X11Window)((delegate* unmanaged[Cdecl]<nint, X11Window>)funcTable[131])((nint)window);
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static X11Window GetX11Window(GLFWwindowPtr window)
-		{
-			X11Window ret = GetX11WindowNative((GLFWwindow*)window);
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static X11Window GetX11Window(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				X11Window ret = GetX11WindowNative((GLFWwindow*)pwindow);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The specified string is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void SetX11SelectionStringNative(byte* str)
-		{
-			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<byte*, void>)funcTable[132])(str);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[132])((nint)str);
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The specified string is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetX11SelectionString(byte* str)
-		{
-			SetX11SelectionStringNative(str);
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The specified string is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetX11SelectionString(in byte str)
-		{
-			fixed (byte* pstr = &str)
-			{
-				SetX11SelectionStringNative((byte*)pstr);
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The specified string is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetX11SelectionString(ReadOnlySpan<byte> str)
-		{
-			fixed (byte* pstr = str)
-			{
-				SetX11SelectionStringNative((byte*)pstr);
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The specified string is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetX11SelectionString(string str)
-		{
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (str != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(str);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(str, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			SetX11SelectionStringNative(pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// If the selection is empty or if its contents cannot be converted, `NULL`<br/>
-		/// is returned and a <br/>
-		/// error is generated.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW. You<br/>
-		/// should not free it yourself. It is valid until the next call to <br/>
-		/// or <br/>
-		/// or until the<br/>
-		/// library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte* GetX11SelectionStringNative()
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte*>)funcTable[133])();
-			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<nint>)funcTable[133])();
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// If the selection is empty or if its contents cannot be converted, `NULL`<br/>
-		/// is returned and a <br/>
-		/// error is generated.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW. You<br/>
-		/// should not free it yourself. It is valid until the next call to <br/>
-		/// or <br/>
-		/// or until the<br/>
-		/// library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static byte* GetX11SelectionString()
-		{
-			byte* ret = GetX11SelectionStringNative();
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// If the selection is empty or if its contents cannot be converted, `NULL`<br/>
-		/// is returned and a <br/>
-		/// error is generated.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW. You<br/>
-		/// should not free it yourself. It is valid until the next call to <br/>
-		/// or <br/>
-		/// or until the<br/>
-		/// library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static string GetX11SelectionStringS()
-		{
-			string ret = Utils.DecodeStringUTF8(GetX11SelectionStringNative());
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void* GetGLXContextNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[134])(window);
-			#else
-			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[134])((nint)window);
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetGLXContext(GLFWwindowPtr window)
-		{
-			void* ret = GetGLXContextNative((GLFWwindow*)window);
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetGLXContext(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				void* ret = GetGLXContextNative((GLFWwindow*)pwindow);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void* GetGLXWindowNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[135])(window);
-			#else
-			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[135])((nint)window);
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetGLXWindow(GLFWwindowPtr window)
-		{
-			void* ret = GetGLXWindowNative((GLFWwindow*)window);
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetGLXWindow(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				void* ret = GetGLXWindowNative((GLFWwindow*)pwindow);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static WlDisplay* GetWaylandDisplayNative()
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<WlDisplay*>)funcTable[136])();
-			#else
-			return (WlDisplay*)((delegate* unmanaged[Cdecl]<nint>)funcTable[136])();
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static WlDisplayPtr GetWaylandDisplay()
-		{
-			WlDisplayPtr ret = GetWaylandDisplayNative();
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static WlOutput* GetWaylandMonitorNative(GLFWmonitor* monitor)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, WlOutput*>)funcTable[137])(monitor);
-			#else
-			return (WlOutput*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[137])((nint)monitor);
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static WlOutputPtr GetWaylandMonitor(GLFWmonitorPtr monitor)
-		{
-			WlOutputPtr ret = GetWaylandMonitorNative((GLFWmonitor*)monitor);
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static WlOutputPtr GetWaylandMonitor(ref GLFWmonitor monitor)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				WlOutputPtr ret = GetWaylandMonitorNative((GLFWmonitor*)pmonitor);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static WlSurface* GetWaylandWindowNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, WlSurface*>)funcTable[138])(window);
-			#else
-			return (WlSurface*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[138])((nint)window);
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static WlSurfacePtr GetWaylandWindow(GLFWwindowPtr window)
-		{
-			WlSurfacePtr ret = GetWaylandWindowNative((GLFWwindow*)window);
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static WlSurfacePtr GetWaylandWindow(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				WlSurfacePtr ret = GetWaylandWindowNative((GLFWwindow*)pwindow);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void* GetEGLDisplayNative()
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*>)funcTable[139])();
-			#else
-			return (void*)((delegate* unmanaged[Cdecl]<nint>)funcTable[139])();
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetEGLDisplay()
-		{
-			void* ret = GetEGLDisplayNative();
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void* GetEGLContextNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[140])(window);
-			#else
-			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[140])((nint)window);
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetEGLContext(GLFWwindowPtr window)
-		{
-			void* ret = GetEGLContextNative((GLFWwindow*)window);
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetEGLContext(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				void* ret = GetEGLContextNative((GLFWwindow*)pwindow);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void* GetEGLSurfaceNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[141])(window);
-			#else
-			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[141])((nint)window);
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetEGLSurface(GLFWwindowPtr window)
-		{
-			void* ret = GetEGLSurfaceNative((GLFWwindow*)window);
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetEGLSurface(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				void* ret = GetEGLSurfaceNative((GLFWwindow*)pwindow);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int GetOSMesaColorBufferNative(GLFWwindow* window, int* width, int* height, int* format, void** buffer)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, int*, int*, int*, void**, int>)funcTable[142])(window, width, height, format, buffer);
-			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, nint, int>)funcTable[142])((nint)window, (nint)width, (nint)height, (nint)format, (nint)buffer);
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int GetOSMesaColorBuffer(GLFWwindowPtr window, int* width, int* height, int* format, void** buffer)
-		{
-			int ret = GetOSMesaColorBufferNative((GLFWwindow*)window, width, height, format, buffer);
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int GetOSMesaColorBuffer(ref GLFWwindow window, int* width, int* height, int* format, void** buffer)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				int ret = GetOSMesaColorBufferNative((GLFWwindow*)pwindow, width, height, format, buffer);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int GetOSMesaColorBuffer(GLFWwindowPtr window, ref int width, int* height, int* format, void** buffer)
-		{
-			fixed (int* pwidth = &width)
-			{
-				int ret = GetOSMesaColorBufferNative((GLFWwindow*)window, (int*)pwidth, height, format, buffer);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int GetOSMesaColorBuffer(ref GLFWwindow window, ref int width, int* height, int* format, void** buffer)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* pwidth = &width)
-				{
-					int ret = GetOSMesaColorBufferNative((GLFWwindow*)pwindow, (int*)pwidth, height, format, buffer);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int GetOSMesaColorBuffer(GLFWwindowPtr window, int* width, ref int height, int* format, void** buffer)
-		{
-			fixed (int* pheight = &height)
-			{
-				int ret = GetOSMesaColorBufferNative((GLFWwindow*)window, width, (int*)pheight, format, buffer);
-				return ret;
-			}
 		}
 	}
 }

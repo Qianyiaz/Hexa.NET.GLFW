@@ -6,6 +6,7 @@
   "GeneratePlaceholderComments": false,
   "GenerateMetadata": false,
   "WrapPointersAsHandle": true,
+  "GenerateExtensions": false,
   "ImportType": "FunctionTable",
   "TypeMappings": {
     "Window": "X11Window",

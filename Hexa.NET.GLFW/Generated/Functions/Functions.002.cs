@@ -19,6 +19,193 @@ namespace Hexa.NET.GLFW
 
 		/// <summary>
 		/// <br/>
+		/// This function hides the specified window if it was previously visible.  If<br/>
+		/// the window is already hidden or is in full screen mode, this function does<br/>
+		/// nothing.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void HideWindow(GLFWwindowPtr window)
+		{
+			HideWindowNative((GLFWwindow*)window);
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function hides the specified window if it was previously visible.  If<br/>
+		/// the window is already hidden or is in full screen mode, this function does<br/>
+		/// nothing.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void HideWindow(ref GLFWwindow window)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				HideWindowNative((GLFWwindow*)pwindow);
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function brings the specified window to front and sets input focus.<br/>
+		/// The window should already be visible and not iconified.<br/>
+		/// By default, both windowed and full screen mode windows are focused when<br/>
+		/// initially created.  Set the [GLFW_FOCUSED](<br/>
+		/// to<br/>
+		/// disable this behavior.<br/>
+		/// Also by default, windowed mode windows are focused when shown<br/>
+		/// with <br/>
+		/// Set the<br/>
+		/// [GLFW_FOCUS_ON_SHOW](<br/>
+		/// to disable this behavior.<br/>
+		/// __Do not use this function__ to steal focus from other applications unless<br/>
+		/// you are certain that is what the user wants.  Focus stealing can be<br/>
+		/// extremely disruptive.<br/>
+		/// For a less disruptive way of getting the user's attention, see<br/>
+		/// [attention requests](<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void FocusWindowNative(GLFWwindow* window)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[52])(window);
+			#else
+			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[52])((nint)window);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function brings the specified window to front and sets input focus.<br/>
+		/// The window should already be visible and not iconified.<br/>
+		/// By default, both windowed and full screen mode windows are focused when<br/>
+		/// initially created.  Set the [GLFW_FOCUSED](<br/>
+		/// to<br/>
+		/// disable this behavior.<br/>
+		/// Also by default, windowed mode windows are focused when shown<br/>
+		/// with <br/>
+		/// Set the<br/>
+		/// [GLFW_FOCUS_ON_SHOW](<br/>
+		/// to disable this behavior.<br/>
+		/// __Do not use this function__ to steal focus from other applications unless<br/>
+		/// you are certain that is what the user wants.  Focus stealing can be<br/>
+		/// extremely disruptive.<br/>
+		/// For a less disruptive way of getting the user's attention, see<br/>
+		/// [attention requests](<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void FocusWindow(GLFWwindowPtr window)
+		{
+			FocusWindowNative((GLFWwindow*)window);
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function brings the specified window to front and sets input focus.<br/>
+		/// The window should already be visible and not iconified.<br/>
+		/// By default, both windowed and full screen mode windows are focused when<br/>
+		/// initially created.  Set the [GLFW_FOCUSED](<br/>
+		/// to<br/>
+		/// disable this behavior.<br/>
+		/// Also by default, windowed mode windows are focused when shown<br/>
+		/// with <br/>
+		/// Set the<br/>
+		/// [GLFW_FOCUS_ON_SHOW](<br/>
+		/// to disable this behavior.<br/>
+		/// __Do not use this function__ to steal focus from other applications unless<br/>
+		/// you are certain that is what the user wants.  Focus stealing can be<br/>
+		/// extremely disruptive.<br/>
+		/// For a less disruptive way of getting the user's attention, see<br/>
+		/// [attention requests](<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void FocusWindow(ref GLFWwindow window)
+		{
+			fixed (GLFWwindow* pwindow = &window)
+			{
+				FocusWindowNative((GLFWwindow*)pwindow);
+			}
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function requests user attention to the specified window.  On<br/>
+		/// platforms where this is not supported, attention is requested to the<br/>
+		/// application as a whole.<br/>
+		/// Once the user has given attention, usually by focusing the window or<br/>
+		/// application, the system will end the request automatically.<br/>
+		/// <br/>
+		/// <br/>
+		/// Possible errors include <br/>
+		/// and <br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void RequestWindowAttentionNative(GLFWwindow* window)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[53])(window);
+			#else
+			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[53])((nint)window);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
 		/// This function requests user attention to the specified window.  On<br/>
 		/// platforms where this is not supported, attention is requested to the<br/>
 		/// application as a whole.<br/>
@@ -86,9 +273,9 @@ namespace Hexa.NET.GLFW
 		internal static GLFWmonitor* GetWindowMonitorNative(GLFWwindow* window)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, GLFWmonitor*>)funcTable[53])(window);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, GLFWmonitor*>)funcTable[54])(window);
 			#else
-			return (GLFWmonitor*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[53])((nint)window);
+			return (GLFWmonitor*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[54])((nint)window);
 			#endif
 		}
 
@@ -167,9 +354,9 @@ namespace Hexa.NET.GLFW
 		internal static void SetWindowMonitorNative(GLFWwindow* window, GLFWmonitor* monitor, int xpos, int ypos, int width, int height, int refreshRate)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, GLFWmonitor*, int, int, int, int, int, void>)funcTable[54])(window, monitor, xpos, ypos, width, height, refreshRate);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, GLFWmonitor*, int, int, int, int, int, void>)funcTable[55])(window, monitor, xpos, ypos, width, height, refreshRate);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, int, int, int, int, int, void>)funcTable[54])((nint)window, (nint)monitor, xpos, ypos, width, height, refreshRate);
+			((delegate* unmanaged[Cdecl]<nint, nint, int, int, int, int, int, void>)funcTable[55])((nint)window, (nint)monitor, xpos, ypos, width, height, refreshRate);
 			#endif
 		}
 
@@ -340,9 +527,9 @@ namespace Hexa.NET.GLFW
 		internal static int GetWindowAttribNative(GLFWwindow* window, int attrib)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int>)funcTable[55])(window, attrib);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int>)funcTable[56])(window, attrib);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, int, int>)funcTable[55])((nint)window, attrib);
+			return (int)((delegate* unmanaged[Cdecl]<nint, int, int>)funcTable[56])((nint)window, attrib);
 			#endif
 		}
 
@@ -434,9 +621,9 @@ namespace Hexa.NET.GLFW
 		internal static void SetWindowAttribNative(GLFWwindow* window, int attrib, int value)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int, void>)funcTable[56])(window, attrib, value);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int, void>)funcTable[57])(window, attrib, value);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, int, int, void>)funcTable[56])((nint)window, attrib, value);
+			((delegate* unmanaged[Cdecl]<nint, int, int, void>)funcTable[57])((nint)window, attrib, value);
 			#endif
 		}
 
@@ -535,9 +722,9 @@ namespace Hexa.NET.GLFW
 		internal static void SetWindowUserPointerNative(GLFWwindow* window, void* pointer)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, void*, void>)funcTable[57])(window, pointer);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, void*, void>)funcTable[58])(window, pointer);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[57])((nint)window, (nint)pointer);
+			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[58])((nint)window, (nint)pointer);
 			#endif
 		}
 
@@ -650,9 +837,9 @@ namespace Hexa.NET.GLFW
 		internal static void* GetWindowUserPointerNative(GLFWwindow* window)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[58])(window);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[59])(window);
 			#else
-			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[58])((nint)window);
+			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[59])((nint)window);
 			#endif
 		}
 
@@ -726,9 +913,9 @@ namespace Hexa.NET.GLFW
 		internal static delegate*<GLFWwindow*, int, int, void> SetWindowPosCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, int, int, void> callback)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, int, void>, delegate*<GLFWwindow*, int, int, void>>)funcTable[59])(window, callback);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, int, void>, delegate*<GLFWwindow*, int, int, void>>)funcTable[60])(window, callback);
 			#else
-			return (delegate*<GLFWwindow*, int, int, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[59])((nint)window, (nint)callback);
+			return (delegate*<GLFWwindow*, int, int, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[60])((nint)window, (nint)callback);
 			#endif
 		}
 
@@ -869,9 +1056,9 @@ namespace Hexa.NET.GLFW
 		internal static delegate*<GLFWwindow*, int, int, void> SetWindowSizeCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, int, int, void> callback)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, int, void>, delegate*<GLFWwindow*, int, int, void>>)funcTable[60])(window, callback);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, int, void>, delegate*<GLFWwindow*, int, int, void>>)funcTable[61])(window, callback);
 			#else
-			return (delegate*<GLFWwindow*, int, int, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[60])((nint)window, (nint)callback);
+			return (delegate*<GLFWwindow*, int, int, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[61])((nint)window, (nint)callback);
 			#endif
 		}
 
@@ -1008,9 +1195,9 @@ namespace Hexa.NET.GLFW
 		internal static delegate*<GLFWwindow*, void> SetWindowCloseCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, void> callback)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, void>, delegate*<GLFWwindow*, void>>)funcTable[61])(window, callback);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, void>, delegate*<GLFWwindow*, void>>)funcTable[62])(window, callback);
 			#else
-			return (delegate*<GLFWwindow*, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[61])((nint)window, (nint)callback);
+			return (delegate*<GLFWwindow*, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[62])((nint)window, (nint)callback);
 			#endif
 		}
 
@@ -1162,9 +1349,9 @@ namespace Hexa.NET.GLFW
 		internal static delegate*<GLFWwindow*, void> SetWindowRefreshCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, void> callback)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, void>, delegate*<GLFWwindow*, void>>)funcTable[62])(window, callback);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, void>, delegate*<GLFWwindow*, void>>)funcTable[63])(window, callback);
 			#else
-			return (delegate*<GLFWwindow*, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[62])((nint)window, (nint)callback);
+			return (delegate*<GLFWwindow*, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[63])((nint)window, (nint)callback);
 			#endif
 		}
 
@@ -1312,9 +1499,9 @@ namespace Hexa.NET.GLFW
 		internal static delegate*<GLFWwindow*, int, void> SetWindowFocusCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, int, void> callback)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, void>, delegate*<GLFWwindow*, int, void>>)funcTable[63])(window, callback);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, void>, delegate*<GLFWwindow*, int, void>>)funcTable[64])(window, callback);
 			#else
-			return (delegate*<GLFWwindow*, int, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[63])((nint)window, (nint)callback);
+			return (delegate*<GLFWwindow*, int, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[64])((nint)window, (nint)callback);
 			#endif
 		}
 
@@ -1458,9 +1645,9 @@ namespace Hexa.NET.GLFW
 		internal static delegate*<GLFWwindow*, int, void> SetWindowIconifyCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, int, void> callback)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, void>, delegate*<GLFWwindow*, int, void>>)funcTable[64])(window, callback);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, void>, delegate*<GLFWwindow*, int, void>>)funcTable[65])(window, callback);
 			#else
-			return (delegate*<GLFWwindow*, int, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[64])((nint)window, (nint)callback);
+			return (delegate*<GLFWwindow*, int, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[65])((nint)window, (nint)callback);
 			#endif
 		}
 
@@ -1588,9 +1775,9 @@ namespace Hexa.NET.GLFW
 		internal static delegate*<GLFWwindow*, int, void> SetWindowMaximizeCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, int, void> callback)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, void>, delegate*<GLFWwindow*, int, void>>)funcTable[65])(window, callback);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, void>, delegate*<GLFWwindow*, int, void>>)funcTable[66])(window, callback);
 			#else
-			return (delegate*<GLFWwindow*, int, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[65])((nint)window, (nint)callback);
+			return (delegate*<GLFWwindow*, int, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[66])((nint)window, (nint)callback);
 			#endif
 		}
 
@@ -1718,9 +1905,9 @@ namespace Hexa.NET.GLFW
 		internal static delegate*<GLFWwindow*, int, int, void> SetFramebufferSizeCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, int, int, void> callback)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, int, void>, delegate*<GLFWwindow*, int, int, void>>)funcTable[66])(window, callback);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, int, void>, delegate*<GLFWwindow*, int, int, void>>)funcTable[67])(window, callback);
 			#else
-			return (delegate*<GLFWwindow*, int, int, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[66])((nint)window, (nint)callback);
+			return (delegate*<GLFWwindow*, int, int, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[67])((nint)window, (nint)callback);
 			#endif
 		}
 
@@ -1848,9 +2035,9 @@ namespace Hexa.NET.GLFW
 		internal static delegate*<GLFWwindow*, float, float, void> SetWindowContentScaleCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, float, float, void> callback)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, float, float, void>, delegate*<GLFWwindow*, float, float, void>>)funcTable[67])(window, callback);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, float, float, void>, delegate*<GLFWwindow*, float, float, void>>)funcTable[68])(window, callback);
 			#else
-			return (delegate*<GLFWwindow*, float, float, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[67])((nint)window, (nint)callback);
+			return (delegate*<GLFWwindow*, float, float, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[68])((nint)window, (nint)callback);
 			#endif
 		}
 
@@ -1990,9 +2177,9 @@ namespace Hexa.NET.GLFW
 		internal static void PollEventsNative()
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<void>)funcTable[68])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[69])();
 			#else
-			((delegate* unmanaged[Cdecl]<void>)funcTable[68])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[69])();
 			#endif
 		}
 
@@ -2072,9 +2259,9 @@ namespace Hexa.NET.GLFW
 		internal static void WaitEventsNative()
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<void>)funcTable[69])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[70])();
 			#else
-			((delegate* unmanaged[Cdecl]<void>)funcTable[69])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[70])();
 			#endif
 		}
 
@@ -2163,9 +2350,9 @@ namespace Hexa.NET.GLFW
 		internal static void WaitEventsTimeoutNative(double timeout)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<double, void>)funcTable[70])(timeout);
+			((delegate* unmanaged[Cdecl]<double, void>)funcTable[71])(timeout);
 			#else
-			((delegate* unmanaged[Cdecl]<double, void>)funcTable[70])(timeout);
+			((delegate* unmanaged[Cdecl]<double, void>)funcTable[71])(timeout);
 			#endif
 		}
 
@@ -2233,9 +2420,9 @@ namespace Hexa.NET.GLFW
 		internal static void PostEmptyEventNative()
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<void>)funcTable[71])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[72])();
 			#else
-			((delegate* unmanaged[Cdecl]<void>)funcTable[71])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[72])();
 			#endif
 		}
 
@@ -2284,9 +2471,9 @@ namespace Hexa.NET.GLFW
 		internal static int GetInputModeNative(GLFWwindow* window, int mode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int>)funcTable[72])(window, mode);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int>)funcTable[73])(window, mode);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, int, int>)funcTable[72])((nint)window, mode);
+			return (int)((delegate* unmanaged[Cdecl]<nint, int, int>)funcTable[73])((nint)window, mode);
 			#endif
 		}
 
@@ -2413,9 +2600,9 @@ namespace Hexa.NET.GLFW
 		internal static void SetInputModeNative(GLFWwindow* window, int mode, int value)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int, void>)funcTable[73])(window, mode, value);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int, void>)funcTable[74])(window, mode, value);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, int, int, void>)funcTable[73])((nint)window, mode, value);
+			((delegate* unmanaged[Cdecl]<nint, int, int, void>)funcTable[74])((nint)window, mode, value);
 			#endif
 		}
 
@@ -2586,9 +2773,9 @@ namespace Hexa.NET.GLFW
 		internal static int RawMouseMotionSupportedNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int>)funcTable[74])();
+			return ((delegate* unmanaged[Cdecl]<int>)funcTable[75])();
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<int>)funcTable[74])();
+			return (int)((delegate* unmanaged[Cdecl]<int>)funcTable[75])();
 			#endif
 		}
 
@@ -2682,9 +2869,9 @@ namespace Hexa.NET.GLFW
 		internal static byte* GetKeyNameNative(int key, int scancode)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, int, byte*>)funcTable[75])(key, scancode);
+			return ((delegate* unmanaged[Cdecl]<int, int, byte*>)funcTable[76])(key, scancode);
 			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<int, int, nint>)funcTable[75])(key, scancode);
+			return (byte*)((delegate* unmanaged[Cdecl]<int, int, nint>)funcTable[76])(key, scancode);
 			#endif
 		}
 
@@ -2840,9 +3027,9 @@ namespace Hexa.NET.GLFW
 		internal static int GetKeyScancodeNative(int key)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, int>)funcTable[76])(key);
+			return ((delegate* unmanaged[Cdecl]<int, int>)funcTable[77])(key);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<int, int>)funcTable[76])(key);
+			return (int)((delegate* unmanaged[Cdecl]<int, int>)funcTable[77])(key);
 			#endif
 		}
 
@@ -2903,9 +3090,9 @@ namespace Hexa.NET.GLFW
 		internal static int GetKeyNative(GLFWwindow* window, int key)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int>)funcTable[77])(window, key);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int>)funcTable[78])(window, key);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, int, int>)funcTable[77])((nint)window, key);
+			return (int)((delegate* unmanaged[Cdecl]<nint, int, int>)funcTable[78])((nint)window, key);
 			#endif
 		}
 
@@ -3005,9 +3192,9 @@ namespace Hexa.NET.GLFW
 		internal static int GetMouseButtonNative(GLFWwindow* window, int button)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int>)funcTable[78])(window, button);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int>)funcTable[79])(window, button);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, int, int>)funcTable[78])((nint)window, button);
+			return (int)((delegate* unmanaged[Cdecl]<nint, int, int>)funcTable[79])((nint)window, button);
 			#endif
 		}
 
@@ -3100,9 +3287,9 @@ namespace Hexa.NET.GLFW
 		internal static void GetCursorPosNative(GLFWwindow* window, double* xpos, double* ypos)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, double*, double*, void>)funcTable[79])(window, xpos, ypos);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, double*, double*, void>)funcTable[80])(window, xpos, ypos);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[79])((nint)window, (nint)xpos, (nint)ypos);
+			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[80])((nint)window, (nint)xpos, (nint)ypos);
 			#endif
 		}
 
@@ -3406,9 +3593,9 @@ namespace Hexa.NET.GLFW
 		internal static void SetCursorPosNative(GLFWwindow* window, double xpos, double ypos)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, double, double, void>)funcTable[80])(window, xpos, ypos);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, double, double, void>)funcTable[81])(window, xpos, ypos);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, double, double, void>)funcTable[80])((nint)window, xpos, ypos);
+			((delegate* unmanaged[Cdecl]<nint, double, double, void>)funcTable[81])((nint)window, xpos, ypos);
 			#endif
 		}
 
@@ -3511,9 +3698,9 @@ namespace Hexa.NET.GLFW
 		internal static GLFWcursor* CreateCursorNative(GLFWimage* image, int xhot, int yhot)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWimage*, int, int, GLFWcursor*>)funcTable[81])(image, xhot, yhot);
+			return ((delegate* unmanaged[Cdecl]<GLFWimage*, int, int, GLFWcursor*>)funcTable[82])(image, xhot, yhot);
 			#else
-			return (GLFWcursor*)((delegate* unmanaged[Cdecl]<nint, int, int, nint>)funcTable[81])((nint)image, xhot, yhot);
+			return (GLFWcursor*)((delegate* unmanaged[Cdecl]<nint, int, int, nint>)funcTable[82])((nint)image, xhot, yhot);
 			#endif
 		}
 
@@ -3648,9 +3835,9 @@ namespace Hexa.NET.GLFW
 		internal static GLFWcursor* CreateStandardCursorNative(int shape)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, GLFWcursor*>)funcTable[82])(shape);
+			return ((delegate* unmanaged[Cdecl]<int, GLFWcursor*>)funcTable[83])(shape);
 			#else
-			return (GLFWcursor*)((delegate* unmanaged[Cdecl]<int, nint>)funcTable[82])(shape);
+			return (GLFWcursor*)((delegate* unmanaged[Cdecl]<int, nint>)funcTable[83])(shape);
 			#endif
 		}
 
@@ -3743,9 +3930,9 @@ namespace Hexa.NET.GLFW
 		internal static void DestroyCursorNative(GLFWcursor* cursor)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWcursor*, void>)funcTable[83])(cursor);
+			((delegate* unmanaged[Cdecl]<GLFWcursor*, void>)funcTable[84])(cursor);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[83])((nint)cursor);
+			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[84])((nint)cursor);
 			#endif
 		}
 
@@ -3824,9 +4011,9 @@ namespace Hexa.NET.GLFW
 		internal static void SetCursorNative(GLFWwindow* window, GLFWcursor* cursor)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, GLFWcursor*, void>)funcTable[84])(window, cursor);
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, GLFWcursor*, void>)funcTable[85])(window, cursor);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[84])((nint)window, (nint)cursor);
+			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[85])((nint)window, (nint)cursor);
 			#endif
 		}
 
@@ -3982,9 +4169,9 @@ namespace Hexa.NET.GLFW
 		internal static delegate*<GLFWwindow*, int, int, int, int, void> SetKeyCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, int, int, int, int, void> callback)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, int, int, int, void>, delegate*<GLFWwindow*, int, int, int, int, void>>)funcTable[85])(window, callback);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, int, int, int, void>, delegate*<GLFWwindow*, int, int, int, int, void>>)funcTable[86])(window, callback);
 			#else
-			return (delegate*<GLFWwindow*, int, int, int, int, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[85])((nint)window, (nint)callback);
+			return (delegate*<GLFWwindow*, int, int, int, int, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[86])((nint)window, (nint)callback);
 			#endif
 		}
 
@@ -4195,9 +4382,9 @@ namespace Hexa.NET.GLFW
 		internal static delegate*<GLFWwindow*, uint, void> SetCharCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, uint, void> callback)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, uint, void>, delegate*<GLFWwindow*, uint, void>>)funcTable[86])(window, callback);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, uint, void>, delegate*<GLFWwindow*, uint, void>>)funcTable[87])(window, callback);
 			#else
-			return (delegate*<GLFWwindow*, uint, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[86])((nint)window, (nint)callback);
+			return (delegate*<GLFWwindow*, uint, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[87])((nint)window, (nint)callback);
 			#endif
 		}
 
@@ -4381,9 +4568,9 @@ namespace Hexa.NET.GLFW
 		internal static delegate*<GLFWwindow*, uint, int, void> SetCharModsCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, uint, int, void> callback)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, uint, int, void>, delegate*<GLFWwindow*, uint, int, void>>)funcTable[87])(window, callback);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, uint, int, void>, delegate*<GLFWwindow*, uint, int, void>>)funcTable[88])(window, callback);
 			#else
-			return (delegate*<GLFWwindow*, uint, int, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[87])((nint)window, (nint)callback);
+			return (delegate*<GLFWwindow*, uint, int, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[88])((nint)window, (nint)callback);
 			#endif
 		}
 
@@ -4571,9 +4758,9 @@ namespace Hexa.NET.GLFW
 		internal static delegate*<GLFWwindow*, int, int, int, void> SetMouseButtonCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, int, int, int, void> callback)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, int, int, void>, delegate*<GLFWwindow*, int, int, int, void>>)funcTable[88])(window, callback);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, int, int, void>, delegate*<GLFWwindow*, int, int, int, void>>)funcTable[89])(window, callback);
 			#else
-			return (delegate*<GLFWwindow*, int, int, int, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[88])((nint)window, (nint)callback);
+			return (delegate*<GLFWwindow*, int, int, int, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[89])((nint)window, (nint)callback);
 			#endif
 		}
 
@@ -4751,9 +4938,9 @@ namespace Hexa.NET.GLFW
 		internal static delegate*<GLFWwindow*, double, double, void> SetCursorPosCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, double, double, void> callback)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, double, double, void>, delegate*<GLFWwindow*, double, double, void>>)funcTable[89])(window, callback);
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, double, double, void>, delegate*<GLFWwindow*, double, double, void>>)funcTable[90])(window, callback);
 			#else
-			return (delegate*<GLFWwindow*, double, double, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[89])((nint)window, (nint)callback);
+			return (delegate*<GLFWwindow*, double, double, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[90])((nint)window, (nint)callback);
 			#endif
 		}
 
@@ -4836,201 +5023,6 @@ namespace Hexa.NET.GLFW
 		{
 			delegate*<GLFWwindow*, double, double, void> ret = SetCursorPosCallbackNative((GLFWwindow*)window, (delegate*<GLFWwindow*, double, double, void>)Utils.GetFunctionPointerForDelegate(callback));
 			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function sets the cursor position callback of the specified window,<br/>
-		/// which is called when the cursor is moved.  The callback is provided with the<br/>
-		/// position, in screen coordinates, relative to the upper-left corner of the<br/>
-		/// content area of the window.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<GLFWwindow*, double, double, void> SetCursorPosCallback(ref GLFWwindow window, GLFWcursorposfun callback)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				delegate*<GLFWwindow*, double, double, void> ret = SetCursorPosCallbackNative((GLFWwindow*)pwindow, (delegate*<GLFWwindow*, double, double, void>)Utils.GetFunctionPointerForDelegate(callback));
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function sets the cursor boundary crossing callback of the specified<br/>
-		/// window, which is called when the cursor enters or leaves the content area of<br/>
-		/// the window.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static delegate*<GLFWwindow*, int, void> SetCursorEnterCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, int, void> callback)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, void>, delegate*<GLFWwindow*, int, void>>)funcTable[90])(window, callback);
-			#else
-			return (delegate*<GLFWwindow*, int, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[90])((nint)window, (nint)callback);
-			#endif
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function sets the cursor boundary crossing callback of the specified<br/>
-		/// window, which is called when the cursor enters or leaves the content area of<br/>
-		/// the window.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<GLFWwindow*, int, void> SetCursorEnterCallback(GLFWwindowPtr window, delegate*<GLFWwindow*, int, void> callback)
-		{
-			delegate*<GLFWwindow*, int, void> ret = SetCursorEnterCallbackNative((GLFWwindow*)window, callback);
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function sets the cursor boundary crossing callback of the specified<br/>
-		/// window, which is called when the cursor enters or leaves the content area of<br/>
-		/// the window.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<GLFWwindow*, int, void> SetCursorEnterCallback(ref GLFWwindow window, delegate*<GLFWwindow*, int, void> callback)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				delegate*<GLFWwindow*, int, void> ret = SetCursorEnterCallbackNative((GLFWwindow*)pwindow, callback);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function sets the cursor boundary crossing callback of the specified<br/>
-		/// window, which is called when the cursor enters or leaves the content area of<br/>
-		/// the window.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<GLFWwindow*, int, void> SetCursorEnterCallback(GLFWwindowPtr window, GLFWcursorenterfun callback)
-		{
-			delegate*<GLFWwindow*, int, void> ret = SetCursorEnterCallbackNative((GLFWwindow*)window, (delegate*<GLFWwindow*, int, void>)Utils.GetFunctionPointerForDelegate(callback));
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function sets the cursor boundary crossing callback of the specified<br/>
-		/// window, which is called when the cursor enters or leaves the content area of<br/>
-		/// the window.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<GLFWwindow*, int, void> SetCursorEnterCallback(ref GLFWwindow window, GLFWcursorenterfun callback)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				delegate*<GLFWwindow*, int, void> ret = SetCursorEnterCallbackNative((GLFWwindow*)pwindow, (delegate*<GLFWwindow*, int, void>)Utils.GetFunctionPointerForDelegate(callback));
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function sets the scroll callback of the specified window, which is<br/>
-		/// called when a scrolling device is used, such as a mouse wheel or scrolling<br/>
-		/// area of a touchpad.<br/>
-		/// The scroll callback receives all scrolling input, like that from a mouse<br/>
-		/// wheel or a touchpad scrolling area.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static delegate*<GLFWwindow*, double, double, void> SetScrollCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, double, double, void> callback)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, double, double, void>, delegate*<GLFWwindow*, double, double, void>>)funcTable[91])(window, callback);
-			#else
-			return (delegate*<GLFWwindow*, double, double, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[91])((nint)window, (nint)callback);
-			#endif
 		}
 	}
 }

@@ -317,6 +317,113 @@ namespace Hexa.NET.GLFW
 
 		/// <summary>
 		/// <br/>
+		/// This function sets the `vkGetInstanceProcAddr` function that GLFW will use for all<br/>
+		/// Vulkan related entry point queries.<br/>
+		/// This feature is mostly useful on macOS, if your copy of the Vulkan loader is in<br/>
+		/// a location where GLFW cannot find it through dynamic loading, or if you are still<br/>
+		/// using the static library version of the loader.<br/>
+		/// If set to `NULL`, GLFW will try to load the Vulkan loader dynamically by its standard<br/>
+		/// name and get this function from there.  This is the default behavior.<br/>
+		/// The standard name of the loader is `vulkan-1.dll` on Windows, `libvulkan.so.1` on<br/>
+		/// Linux and other Unix-like systems and `libvulkan.1.dylib` on macOS.  If your code is<br/>
+		/// also loading it via these names then you probably don't need to use this function.<br/>
+		/// The function address you set is never reset by GLFW, but it only takes effect during<br/>
+		/// initialization.  Once GLFW has been initialized, any updates will be ignored until the<br/>
+		/// library is terminated and initialized again.<br/>
+		/// <br/>
+		/// <br/>
+		/// For more information about this function, see the<br/>
+		/// [Vulkan Registry](https://www.khronos.org/registry/vulkan/).<br/>
+		/// <br/>
+		/// None.<br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static void InitVulkanLoaderNative(void* loader)
+		{
+			#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<void*, void>)funcTable[4])(loader);
+			#else
+			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[4])((nint)loader);
+			#endif
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function sets the `vkGetInstanceProcAddr` function that GLFW will use for all<br/>
+		/// Vulkan related entry point queries.<br/>
+		/// This feature is mostly useful on macOS, if your copy of the Vulkan loader is in<br/>
+		/// a location where GLFW cannot find it through dynamic loading, or if you are still<br/>
+		/// using the static library version of the loader.<br/>
+		/// If set to `NULL`, GLFW will try to load the Vulkan loader dynamically by its standard<br/>
+		/// name and get this function from there.  This is the default behavior.<br/>
+		/// The standard name of the loader is `vulkan-1.dll` on Windows, `libvulkan.so.1` on<br/>
+		/// Linux and other Unix-like systems and `libvulkan.1.dylib` on macOS.  If your code is<br/>
+		/// also loading it via these names then you probably don't need to use this function.<br/>
+		/// The function address you set is never reset by GLFW, but it only takes effect during<br/>
+		/// initialization.  Once GLFW has been initialized, any updates will be ignored until the<br/>
+		/// library is terminated and initialized again.<br/>
+		/// <br/>
+		/// <br/>
+		/// For more information about this function, see the<br/>
+		/// [Vulkan Registry](https://www.khronos.org/registry/vulkan/).<br/>
+		/// <br/>
+		/// None.<br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void InitVulkanLoader(void* loader)
+		{
+			InitVulkanLoaderNative(loader);
+		}
+
+		/// <summary>
+		/// <br/>
+		/// This function sets the `vkGetInstanceProcAddr` function that GLFW will use for all<br/>
+		/// Vulkan related entry point queries.<br/>
+		/// This feature is mostly useful on macOS, if your copy of the Vulkan loader is in<br/>
+		/// a location where GLFW cannot find it through dynamic loading, or if you are still<br/>
+		/// using the static library version of the loader.<br/>
+		/// If set to `NULL`, GLFW will try to load the Vulkan loader dynamically by its standard<br/>
+		/// name and get this function from there.  This is the default behavior.<br/>
+		/// The standard name of the loader is `vulkan-1.dll` on Windows, `libvulkan.so.1` on<br/>
+		/// Linux and other Unix-like systems and `libvulkan.1.dylib` on macOS.  If your code is<br/>
+		/// also loading it via these names then you probably don't need to use this function.<br/>
+		/// The function address you set is never reset by GLFW, but it only takes effect during<br/>
+		/// initialization.  Once GLFW has been initialized, any updates will be ignored until the<br/>
+		/// library is terminated and initialized again.<br/>
+		/// <br/>
+		/// <br/>
+		/// For more information about this function, see the<br/>
+		/// [Vulkan Registry](https://www.khronos.org/registry/vulkan/).<br/>
+		/// <br/>
+		/// None.<br/>
+		/// <br/>
+		/// <br/>
+		/// _safety This function must only be called from the main thread.<br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// <br/>
+		/// </summary>
+		public static void InitVulkanLoader(nint loader)
+		{
+			InitVulkanLoaderNative((void*)loader);
+		}
+
+		/// <summary>
+		/// <br/>
 		/// This function retrieves the major, minor and revision numbers of the GLFW<br/>
 		/// library.  It is intended for when you are using GLFW as a shared library and<br/>
 		/// want to ensure that you are using the minimum required version.<br/>
@@ -336,9 +443,9 @@ namespace Hexa.NET.GLFW
 		internal static void GetVersionNative(int* major, int* minor, int* rev)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<int*, int*, int*, void>)funcTable[4])(major, minor, rev);
+			((delegate* unmanaged[Cdecl]<int*, int*, int*, void>)funcTable[5])(major, minor, rev);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[4])((nint)major, (nint)minor, (nint)rev);
+			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[5])((nint)major, (nint)minor, (nint)rev);
 			#endif
 		}
 
@@ -585,9 +692,9 @@ namespace Hexa.NET.GLFW
 		internal static byte* GetVersionStringNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte*>)funcTable[5])();
+			return ((delegate* unmanaged[Cdecl]<byte*>)funcTable[6])();
 			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<nint>)funcTable[5])();
+			return (byte*)((delegate* unmanaged[Cdecl]<nint>)funcTable[6])();
 			#endif
 		}
 
@@ -685,9 +792,9 @@ namespace Hexa.NET.GLFW
 		internal static int GetErrorNative(byte** description)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte**, int>)funcTable[6])(description);
+			return ((delegate* unmanaged[Cdecl]<byte**, int>)funcTable[7])(description);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, int>)funcTable[6])((nint)description);
+			return (int)((delegate* unmanaged[Cdecl]<nint, int>)funcTable[7])((nint)description);
 			#endif
 		}
 
@@ -788,9 +895,9 @@ namespace Hexa.NET.GLFW
 		internal static delegate*<int, byte*, void> SetErrorCallbackNative(delegate*<int, byte*, void> callback)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<delegate*<int, byte*, void>, delegate*<int, byte*, void>>)funcTable[7])(callback);
+			return ((delegate* unmanaged[Cdecl]<delegate*<int, byte*, void>, delegate*<int, byte*, void>>)funcTable[8])(callback);
 			#else
-			return (delegate*<int, byte*, void>)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[7])((nint)callback);
+			return (delegate*<int, byte*, void>)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[8])((nint)callback);
 			#endif
 		}
 
@@ -885,9 +992,9 @@ namespace Hexa.NET.GLFW
 		internal static int GetPlatformNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int>)funcTable[8])();
+			return ((delegate* unmanaged[Cdecl]<int>)funcTable[9])();
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<int>)funcTable[8])();
+			return (int)((delegate* unmanaged[Cdecl]<int>)funcTable[9])();
 			#endif
 		}
 
@@ -932,9 +1039,9 @@ namespace Hexa.NET.GLFW
 		internal static int PlatformSupportedNative(int platform)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, int>)funcTable[9])(platform);
+			return ((delegate* unmanaged[Cdecl]<int, int>)funcTable[10])(platform);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<int, int>)funcTable[9])(platform);
+			return (int)((delegate* unmanaged[Cdecl]<int, int>)funcTable[10])(platform);
 			#endif
 		}
 
@@ -983,9 +1090,9 @@ namespace Hexa.NET.GLFW
 		internal static GLFWmonitor** GetMonitorsNative(int* count)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int*, GLFWmonitor**>)funcTable[10])(count);
+			return ((delegate* unmanaged[Cdecl]<int*, GLFWmonitor**>)funcTable[11])(count);
 			#else
-			return (GLFWmonitor**)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[10])((nint)count);
+			return (GLFWmonitor**)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[11])((nint)count);
 			#endif
 		}
 
@@ -1061,9 +1168,9 @@ namespace Hexa.NET.GLFW
 		internal static GLFWmonitor* GetPrimaryMonitorNative()
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*>)funcTable[11])();
+			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*>)funcTable[12])();
 			#else
-			return (GLFWmonitor*)((delegate* unmanaged[Cdecl]<nint>)funcTable[11])();
+			return (GLFWmonitor*)((delegate* unmanaged[Cdecl]<nint>)funcTable[12])();
 			#endif
 		}
 
@@ -1109,9 +1216,9 @@ namespace Hexa.NET.GLFW
 		internal static void GetMonitorPosNative(GLFWmonitor* monitor, int* xpos, int* ypos)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWmonitor*, int*, int*, void>)funcTable[12])(monitor, xpos, ypos);
+			((delegate* unmanaged[Cdecl]<GLFWmonitor*, int*, int*, void>)funcTable[13])(monitor, xpos, ypos);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[12])((nint)monitor, (nint)xpos, (nint)ypos);
+			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[13])((nint)monitor, (nint)xpos, (nint)ypos);
 			#endif
 		}
 
@@ -1352,9 +1459,9 @@ namespace Hexa.NET.GLFW
 		internal static void GetMonitorWorkareaNative(GLFWmonitor* monitor, int* xpos, int* ypos, int* width, int* height)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWmonitor*, int*, int*, int*, int*, void>)funcTable[13])(monitor, xpos, ypos, width, height);
+			((delegate* unmanaged[Cdecl]<GLFWmonitor*, int*, int*, int*, int*, void>)funcTable[14])(monitor, xpos, ypos, width, height);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, nint, void>)funcTable[13])((nint)monitor, (nint)xpos, (nint)ypos, (nint)width, (nint)height);
+			((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, nint, void>)funcTable[14])((nint)monitor, (nint)xpos, (nint)ypos, (nint)width, (nint)height);
 			#endif
 		}
 
@@ -2455,9 +2562,9 @@ namespace Hexa.NET.GLFW
 		internal static void GetMonitorPhysicalSizeNative(GLFWmonitor* monitor, int* widthMM, int* heightMM)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWmonitor*, int*, int*, void>)funcTable[14])(monitor, widthMM, heightMM);
+			((delegate* unmanaged[Cdecl]<GLFWmonitor*, int*, int*, void>)funcTable[15])(monitor, widthMM, heightMM);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[14])((nint)monitor, (nint)widthMM, (nint)heightMM);
+			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[15])((nint)monitor, (nint)widthMM, (nint)heightMM);
 			#endif
 		}
 
@@ -2733,9 +2840,9 @@ namespace Hexa.NET.GLFW
 		internal static void GetMonitorContentScaleNative(GLFWmonitor* monitor, float* xscale, float* yscale)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWmonitor*, float*, float*, void>)funcTable[15])(monitor, xscale, yscale);
+			((delegate* unmanaged[Cdecl]<GLFWmonitor*, float*, float*, void>)funcTable[16])(monitor, xscale, yscale);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[15])((nint)monitor, (nint)xscale, (nint)yscale);
+			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[16])((nint)monitor, (nint)xscale, (nint)yscale);
 			#endif
 		}
 
@@ -3030,9 +3137,9 @@ namespace Hexa.NET.GLFW
 		internal static byte* GetMonitorNameNative(GLFWmonitor* monitor)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, byte*>)funcTable[16])(monitor);
+			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, byte*>)funcTable[17])(monitor);
 			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[16])((nint)monitor);
+			return (byte*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[17])((nint)monitor);
 			#endif
 		}
 
@@ -3164,9 +3271,9 @@ namespace Hexa.NET.GLFW
 		internal static void SetMonitorUserPointerNative(GLFWmonitor* monitor, void* pointer)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWmonitor*, void*, void>)funcTable[17])(monitor, pointer);
+			((delegate* unmanaged[Cdecl]<GLFWmonitor*, void*, void>)funcTable[18])(monitor, pointer);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[17])((nint)monitor, (nint)pointer);
+			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[18])((nint)monitor, (nint)pointer);
 			#endif
 		}
 
@@ -3289,9 +3396,9 @@ namespace Hexa.NET.GLFW
 		internal static void* GetMonitorUserPointerNative(GLFWmonitor* monitor)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, void*>)funcTable[18])(monitor);
+			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, void*>)funcTable[19])(monitor);
 			#else
-			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[18])((nint)monitor);
+			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[19])((nint)monitor);
 			#endif
 		}
 
@@ -3367,9 +3474,9 @@ namespace Hexa.NET.GLFW
 		internal static delegate*<GLFWmonitor*, int, void> SetMonitorCallbackNative(delegate*<GLFWmonitor*, int, void> callback)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<delegate*<GLFWmonitor*, int, void>, delegate*<GLFWmonitor*, int, void>>)funcTable[19])(callback);
+			return ((delegate* unmanaged[Cdecl]<delegate*<GLFWmonitor*, int, void>, delegate*<GLFWmonitor*, int, void>>)funcTable[20])(callback);
 			#else
-			return (delegate*<GLFWmonitor*, int, void>)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[19])((nint)callback);
+			return (delegate*<GLFWmonitor*, int, void>)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[20])((nint)callback);
 			#endif
 		}
 
@@ -3450,9 +3557,9 @@ namespace Hexa.NET.GLFW
 		internal static GLFWvidmode* GetVideoModesNative(GLFWmonitor* monitor, int* count)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, int*, GLFWvidmode*>)funcTable[20])(monitor, count);
+			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, int*, GLFWvidmode*>)funcTable[21])(monitor, count);
 			#else
-			return (GLFWvidmode*)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[20])((nint)monitor, (nint)count);
+			return (GLFWvidmode*)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[21])((nint)monitor, (nint)count);
 			#endif
 		}
 
@@ -3608,9 +3715,9 @@ namespace Hexa.NET.GLFW
 		internal static GLFWvidmode* GetVideoModeNative(GLFWmonitor* monitor)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, GLFWvidmode*>)funcTable[21])(monitor);
+			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, GLFWvidmode*>)funcTable[22])(monitor);
 			#else
-			return (GLFWvidmode*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[21])((nint)monitor);
+			return (GLFWvidmode*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[22])((nint)monitor);
 			#endif
 		}
 
@@ -3700,9 +3807,9 @@ namespace Hexa.NET.GLFW
 		internal static void SetGammaNative(GLFWmonitor* monitor, float gamma)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWmonitor*, float, void>)funcTable[22])(monitor, gamma);
+			((delegate* unmanaged[Cdecl]<GLFWmonitor*, float, void>)funcTable[23])(monitor, gamma);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[22])((nint)monitor, gamma);
+			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[23])((nint)monitor, gamma);
 			#endif
 		}
 
@@ -3799,9 +3906,9 @@ namespace Hexa.NET.GLFW
 		internal static GLFWgammaramp* GetGammaRampNative(GLFWmonitor* monitor)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, GLFWgammaramp*>)funcTable[23])(monitor);
+			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, GLFWgammaramp*>)funcTable[24])(monitor);
 			#else
-			return (GLFWgammaramp*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[23])((nint)monitor);
+			return (GLFWgammaramp*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[24])((nint)monitor);
 			#endif
 		}
 
@@ -3898,9 +4005,9 @@ namespace Hexa.NET.GLFW
 		internal static void SetGammaRampNative(GLFWmonitor* monitor, GLFWgammaramp* ramp)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWmonitor*, GLFWgammaramp*, void>)funcTable[24])(monitor, ramp);
+			((delegate* unmanaged[Cdecl]<GLFWmonitor*, GLFWgammaramp*, void>)funcTable[25])(monitor, ramp);
 			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[24])((nint)monitor, (nint)ramp);
+			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[25])((nint)monitor, (nint)ramp);
 			#endif
 		}
 
@@ -4073,9 +4180,9 @@ namespace Hexa.NET.GLFW
 		internal static void DefaultWindowHintsNative()
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<void>)funcTable[25])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[26])();
 			#else
-			((delegate* unmanaged[Cdecl]<void>)funcTable[25])();
+			((delegate* unmanaged[Cdecl]<void>)funcTable[26])();
 			#endif
 		}
 
@@ -4127,9 +4234,9 @@ namespace Hexa.NET.GLFW
 		internal static void WindowHintNative(int hint, int value)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<int, int, void>)funcTable[26])(hint, value);
+			((delegate* unmanaged[Cdecl]<int, int, void>)funcTable[27])(hint, value);
 			#else
-			((delegate* unmanaged[Cdecl]<int, int, void>)funcTable[26])(hint, value);
+			((delegate* unmanaged[Cdecl]<int, int, void>)funcTable[27])(hint, value);
 			#endif
 		}
 
@@ -4197,9 +4304,9 @@ namespace Hexa.NET.GLFW
 		internal static void WindowHintStringNative(int hint, byte* value)
 		{
 			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<int, byte*, void>)funcTable[27])(hint, value);
+			((delegate* unmanaged[Cdecl]<int, byte*, void>)funcTable[28])(hint, value);
 			#else
-			((delegate* unmanaged[Cdecl]<int, nint, void>)funcTable[27])(hint, (nint)value);
+			((delegate* unmanaged[Cdecl]<int, nint, void>)funcTable[28])(hint, (nint)value);
 			#endif
 		}
 
@@ -4449,9 +4556,9 @@ namespace Hexa.NET.GLFW
 		internal static GLFWwindow* CreateWindowNative(int width, int height, byte* title, GLFWmonitor* monitor, GLFWwindow* share)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, int, byte*, GLFWmonitor*, GLFWwindow*, GLFWwindow*>)funcTable[28])(width, height, title, monitor, share);
+			return ((delegate* unmanaged[Cdecl]<int, int, byte*, GLFWmonitor*, GLFWwindow*, GLFWwindow*>)funcTable[29])(width, height, title, monitor, share);
 			#else
-			return (GLFWwindow*)((delegate* unmanaged[Cdecl]<int, int, nint, nint, nint, nint>)funcTable[28])(width, height, (nint)title, (nint)monitor, (nint)share);
+			return (GLFWwindow*)((delegate* unmanaged[Cdecl]<int, int, nint, nint, nint, nint>)funcTable[29])(width, height, (nint)title, (nint)monitor, (nint)share);
 			#endif
 		}
 
@@ -4907,188 +5014,6 @@ namespace Hexa.NET.GLFW
 			{
 				GLFWwindowPtr ret = CreateWindowNative(width, height, title, (GLFWmonitor*)pmonitor, (GLFWwindow*)share);
 				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function creates a window and its associated OpenGL or OpenGL ES<br/>
-		/// context.  Most of the options controlling how the window and its context<br/>
-		/// should be created are specified with [window hints](<br/>
-		/// Successful creation does not change which context is current.  Before you<br/>
-		/// can use the newly created context, you need to<br/>
-		/// [make it current](<br/>
-		/// For information about the `share`<br/>
-		/// parameter, see <br/>
-		/// The created window, framebuffer and context may differ from what you<br/>
-		/// requested, as not all parameters and hints are<br/>
-		/// [hard constraints](<br/>
-		/// This includes the size of the<br/>
-		/// window, especially for full screen windows.  To query the actual attributes<br/>
-		/// of the created window, framebuffer and context, see <br/>
-		/// <br/>
-		/// and <br/>
-		/// To create a full screen window, you need to specify the monitor the window<br/>
-		/// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
-		/// Unless you have a way for the user to choose a specific monitor, it is<br/>
-		/// recommended that you pick the primary monitor.  For more information on how<br/>
-		/// to query connected monitors, see <br/>
-		/// For full screen windows, the specified size becomes the resolution of the<br/>
-		/// window's _desired video mode_.  As long as a full screen window is not<br/>
-		/// iconified, the supported video mode most closely matching the desired video<br/>
-		/// mode is set for the specified monitor.  For more information about full<br/>
-		/// screen windows, including the creation of so called _windowed full screen_<br/>
-		/// or _borderless full screen_ windows, see <br/>
-		/// Once you have created the window, you can switch it between windowed and<br/>
-		/// full screen mode with <br/>
-		/// This will not affect its<br/>
-		/// OpenGL or OpenGL ES context.<br/>
-		/// By default, newly created windows use the placement recommended by the<br/>
-		/// window system.  To create the window at a specific position, set the <br/>
-		/// and <br/>
-		/// window hints before creation.  To<br/>
-		/// restore the default behavior, set either or both hints back to<br/>
-		/// `GLFW_ANY_POSITION`.<br/>
-		/// As long as at least one full screen window is not iconified, the screensaver<br/>
-		/// is prohibited from starting.<br/>
-		/// Window systems put limits on window sizes.  Very large or very small window<br/>
-		/// dimensions may be overridden by the window system on creation.  Check the<br/>
-		/// actual [size](<br/>
-		/// after creation.<br/>
-		/// The [swap interval](<br/>
-		/// is not set during window creation and<br/>
-		/// the initial value may vary depending on driver settings and defaults.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
-		/// <br/>
-		/// <br/>
-		/// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWwindowPtr CreateWindow(int width, int height, in byte title, ref GLFWmonitor monitor, GLFWwindowPtr share)
-		{
-			fixed (byte* ptitle = &title)
-			{
-				fixed (GLFWmonitor* pmonitor = &monitor)
-				{
-					GLFWwindowPtr ret = CreateWindowNative(width, height, (byte*)ptitle, (GLFWmonitor*)pmonitor, (GLFWwindow*)share);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function creates a window and its associated OpenGL or OpenGL ES<br/>
-		/// context.  Most of the options controlling how the window and its context<br/>
-		/// should be created are specified with [window hints](<br/>
-		/// Successful creation does not change which context is current.  Before you<br/>
-		/// can use the newly created context, you need to<br/>
-		/// [make it current](<br/>
-		/// For information about the `share`<br/>
-		/// parameter, see <br/>
-		/// The created window, framebuffer and context may differ from what you<br/>
-		/// requested, as not all parameters and hints are<br/>
-		/// [hard constraints](<br/>
-		/// This includes the size of the<br/>
-		/// window, especially for full screen windows.  To query the actual attributes<br/>
-		/// of the created window, framebuffer and context, see <br/>
-		/// <br/>
-		/// and <br/>
-		/// To create a full screen window, you need to specify the monitor the window<br/>
-		/// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
-		/// Unless you have a way for the user to choose a specific monitor, it is<br/>
-		/// recommended that you pick the primary monitor.  For more information on how<br/>
-		/// to query connected monitors, see <br/>
-		/// For full screen windows, the specified size becomes the resolution of the<br/>
-		/// window's _desired video mode_.  As long as a full screen window is not<br/>
-		/// iconified, the supported video mode most closely matching the desired video<br/>
-		/// mode is set for the specified monitor.  For more information about full<br/>
-		/// screen windows, including the creation of so called _windowed full screen_<br/>
-		/// or _borderless full screen_ windows, see <br/>
-		/// Once you have created the window, you can switch it between windowed and<br/>
-		/// full screen mode with <br/>
-		/// This will not affect its<br/>
-		/// OpenGL or OpenGL ES context.<br/>
-		/// By default, newly created windows use the placement recommended by the<br/>
-		/// window system.  To create the window at a specific position, set the <br/>
-		/// and <br/>
-		/// window hints before creation.  To<br/>
-		/// restore the default behavior, set either or both hints back to<br/>
-		/// `GLFW_ANY_POSITION`.<br/>
-		/// As long as at least one full screen window is not iconified, the screensaver<br/>
-		/// is prohibited from starting.<br/>
-		/// Window systems put limits on window sizes.  Very large or very small window<br/>
-		/// dimensions may be overridden by the window system on creation.  Check the<br/>
-		/// actual [size](<br/>
-		/// after creation.<br/>
-		/// The [swap interval](<br/>
-		/// is not set during window creation and<br/>
-		/// the initial value may vary depending on driver settings and defaults.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
-		/// <br/>
-		/// <br/>
-		/// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWwindowPtr CreateWindow(int width, int height, ReadOnlySpan<byte> title, ref GLFWmonitor monitor, GLFWwindowPtr share)
-		{
-			fixed (byte* ptitle = title)
-			{
-				fixed (GLFWmonitor* pmonitor = &monitor)
-				{
-					GLFWwindowPtr ret = CreateWindowNative(width, height, (byte*)ptitle, (GLFWmonitor*)pmonitor, (GLFWwindow*)share);
-					return ret;
-				}
 			}
 		}
 	}
