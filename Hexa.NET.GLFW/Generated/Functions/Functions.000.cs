@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -14,5007 +13,5099 @@ using HexaGen.Runtime;
 
 namespace Hexa.NET.GLFW
 {
-	public unsafe partial class GLFW
-	{
-		/// <summary>
-		/// <br/>
-		/// This function initializes the GLFW library.  Before most GLFW functions can<br/>
-		/// be used, GLFW must be initialized, and before an application terminates GLFW<br/>
-		/// should be terminated in order to free any resources allocated during or<br/>
-		/// after initialization.<br/>
-		/// If this function fails, it calls <br/>
-		/// before returning.  If it<br/>
-		/// succeeds, you should call <br/>
-		/// before the application exits.<br/>
-		/// Additional calls to this function after successful initialization but before<br/>
-		/// termination will return `GLFW_TRUE` immediately.<br/>
-		/// The <br/>
-		/// init hint controls which platforms are considered during<br/>
-		/// initialization.  This also depends on which platforms the library was compiled to<br/>
-		/// support.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int InitNative()
-		{
-			#if NET5_0_OR_GREATER
+    public unsafe partial class GLFW
+    {
+        /// <summary>
+        /// <br/>
+        /// This function initializes the GLFW library.  Before most GLFW functions can<br/>
+        /// be used, GLFW must be initialized, and before an application terminates GLFW<br/>
+        /// should be terminated in order to free any resources allocated during or<br/>
+        /// after initialization.<br/>
+        /// If this function fails, it calls <br/>
+        /// before returning.  If it<br/>
+        /// succeeds, you should call <br/>
+        /// before the application exits.<br/>
+        /// Additional calls to this function after successful initialization but before<br/>
+        /// termination will return `GLFW_TRUE` immediately.<br/>
+        /// The <br/>
+        /// init hint controls which platforms are considered during<br/>
+        /// initialization.  This also depends on which platforms the library was compiled to<br/>
+        /// support.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static int InitNative()
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int>)funcTable[0])();
-			#else
-			return (int)((delegate* unmanaged[Cdecl]<int>)funcTable[0])();
-			#endif
-		}
+#else
+            return (int)((delegate* unmanaged[Cdecl]<int> )funcTable[0])();
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function initializes the GLFW library.  Before most GLFW functions can<br/>
-		/// be used, GLFW must be initialized, and before an application terminates GLFW<br/>
-		/// should be terminated in order to free any resources allocated during or<br/>
-		/// after initialization.<br/>
-		/// If this function fails, it calls <br/>
-		/// before returning.  If it<br/>
-		/// succeeds, you should call <br/>
-		/// before the application exits.<br/>
-		/// Additional calls to this function after successful initialization but before<br/>
-		/// termination will return `GLFW_TRUE` immediately.<br/>
-		/// The <br/>
-		/// init hint controls which platforms are considered during<br/>
-		/// initialization.  This also depends on which platforms the library was compiled to<br/>
-		/// support.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int Init()
-		{
-			int ret = InitNative();
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function initializes the GLFW library.  Before most GLFW functions can<br/>
+        /// be used, GLFW must be initialized, and before an application terminates GLFW<br/>
+        /// should be terminated in order to free any resources allocated during or<br/>
+        /// after initialization.<br/>
+        /// If this function fails, it calls <br/>
+        /// before returning.  If it<br/>
+        /// succeeds, you should call <br/>
+        /// before the application exits.<br/>
+        /// Additional calls to this function after successful initialization but before<br/>
+        /// termination will return `GLFW_TRUE` immediately.<br/>
+        /// The <br/>
+        /// init hint controls which platforms are considered during<br/>
+        /// initialization.  This also depends on which platforms the library was compiled to<br/>
+        /// support.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int Init()
+        {
+            int ret = InitNative();
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function destroys all remaining windows and cursors, restores any<br/>
-		/// modified gamma ramps and frees any other allocated resources.  Once this<br/>
-		/// function is called, you must again call <br/>
-		/// successfully before<br/>
-		/// you will be able to use most GLFW functions.<br/>
-		/// If GLFW has been successfully initialized, this function should be called<br/>
-		/// before the application exits.  If initialization fails, there is no need to<br/>
-		/// call this function, as it is called by <br/>
-		/// before it returns<br/>
-		/// failure.<br/>
-		/// This function has no effect if GLFW is not initialized.<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// This function must not be called from a callback.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void TerminateNative()
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function destroys all remaining windows and cursors, restores any<br/>
+        /// modified gamma ramps and frees any other allocated resources.  Once this<br/>
+        /// function is called, you must again call <br/>
+        /// successfully before<br/>
+        /// you will be able to use most GLFW functions.<br/>
+        /// If GLFW has been successfully initialized, this function should be called<br/>
+        /// before the application exits.  If initialization fails, there is no need to<br/>
+        /// call this function, as it is called by <br/>
+        /// before it returns<br/>
+        /// failure.<br/>
+        /// This function has no effect if GLFW is not initialized.<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// This function must not be called from a callback.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void TerminateNative()
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<void>)funcTable[1])();
-			#else
-			((delegate* unmanaged[Cdecl]<void>)funcTable[1])();
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<void> )funcTable[1])();
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function destroys all remaining windows and cursors, restores any<br/>
-		/// modified gamma ramps and frees any other allocated resources.  Once this<br/>
-		/// function is called, you must again call <br/>
-		/// successfully before<br/>
-		/// you will be able to use most GLFW functions.<br/>
-		/// If GLFW has been successfully initialized, this function should be called<br/>
-		/// before the application exits.  If initialization fails, there is no need to<br/>
-		/// call this function, as it is called by <br/>
-		/// before it returns<br/>
-		/// failure.<br/>
-		/// This function has no effect if GLFW is not initialized.<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// This function must not be called from a callback.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void Terminate()
-		{
-			TerminateNative();
-		}
+        /// <summary>
+        /// <br/>
+        /// This function destroys all remaining windows and cursors, restores any<br/>
+        /// modified gamma ramps and frees any other allocated resources.  Once this<br/>
+        /// function is called, you must again call <br/>
+        /// successfully before<br/>
+        /// you will be able to use most GLFW functions.<br/>
+        /// If GLFW has been successfully initialized, this function should be called<br/>
+        /// before the application exits.  If initialization fails, there is no need to<br/>
+        /// call this function, as it is called by <br/>
+        /// before it returns<br/>
+        /// failure.<br/>
+        /// This function has no effect if GLFW is not initialized.<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// This function must not be called from a callback.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void Terminate()
+        {
+            TerminateNative();
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets hints for the next initialization of GLFW.<br/>
-		/// The values you set hints to are never reset by GLFW, but they only take<br/>
-		/// effect during initialization.  Once GLFW has been initialized, any values<br/>
-		/// you set will be ignored until the library is terminated and initialized<br/>
-		/// again.<br/>
-		/// Some hints are platform specific.  These may be set on any platform but they<br/>
-		/// will only affect their specific platform.  Other platforms will ignore them.<br/>
-		/// Setting these hints requires no platform specific headers or functions.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void InitHintNative(int hint, int value)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets hints for the next initialization of GLFW.<br/>
+        /// The values you set hints to are never reset by GLFW, but they only take<br/>
+        /// effect during initialization.  Once GLFW has been initialized, any values<br/>
+        /// you set will be ignored until the library is terminated and initialized<br/>
+        /// again.<br/>
+        /// Some hints are platform specific.  These may be set on any platform but they<br/>
+        /// will only affect their specific platform.  Other platforms will ignore them.<br/>
+        /// Setting these hints requires no platform specific headers or functions.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void InitHintNative(int hint, int value)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<int, int, void>)funcTable[2])(hint, value);
-			#else
-			((delegate* unmanaged[Cdecl]<int, int, void>)funcTable[2])(hint, value);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<int, int, void> )funcTable[2])(hint, value);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets hints for the next initialization of GLFW.<br/>
-		/// The values you set hints to are never reset by GLFW, but they only take<br/>
-		/// effect during initialization.  Once GLFW has been initialized, any values<br/>
-		/// you set will be ignored until the library is terminated and initialized<br/>
-		/// again.<br/>
-		/// Some hints are platform specific.  These may be set on any platform but they<br/>
-		/// will only affect their specific platform.  Other platforms will ignore them.<br/>
-		/// Setting these hints requires no platform specific headers or functions.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void InitHint(int hint, int value)
-		{
-			InitHintNative(hint, value);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets hints for the next initialization of GLFW.<br/>
+        /// The values you set hints to are never reset by GLFW, but they only take<br/>
+        /// effect during initialization.  Once GLFW has been initialized, any values<br/>
+        /// you set will be ignored until the library is terminated and initialized<br/>
+        /// again.<br/>
+        /// Some hints are platform specific.  These may be set on any platform but they<br/>
+        /// will only affect their specific platform.  Other platforms will ignore them.<br/>
+        /// Setting these hints requires no platform specific headers or functions.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void InitHint(int hint, int value)
+        {
+            InitHintNative(hint, value);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// To use the default allocator, call this function with a `NULL` argument.<br/>
-		/// If you specify an allocator struct, every member must be a valid function<br/>
-		/// pointer.  If any member is `NULL`, this function will emit <br/>
-		/// and the init allocator will be unchanged.<br/>
-		/// The functions in the allocator must fulfil a number of requirements.  See the<br/>
-		/// documentation for <br/>
-		/// <br/>
-		/// and <br/>
-		/// for details.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _lifetime The specified allocator is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void InitAllocatorNative(GLFWallocator* allocator)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// To use the default allocator, call this function with a `NULL` argument.<br/>
+        /// If you specify an allocator struct, every member must be a valid function<br/>
+        /// pointer.  If any member is `NULL`, this function will emit <br/>
+        /// and the init allocator will be unchanged.<br/>
+        /// The functions in the allocator must fulfil a number of requirements.  See the<br/>
+        /// documentation for <br/>
+        /// <br/>
+        /// and <br/>
+        /// for details.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _lifetime The specified allocator is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void InitAllocatorNative(GLFWallocator* allocator)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWallocator*, void>)funcTable[3])(allocator);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[3])((nint)allocator);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, void> )funcTable[3])((nint)allocator);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// To use the default allocator, call this function with a `NULL` argument.<br/>
-		/// If you specify an allocator struct, every member must be a valid function<br/>
-		/// pointer.  If any member is `NULL`, this function will emit <br/>
-		/// and the init allocator will be unchanged.<br/>
-		/// The functions in the allocator must fulfil a number of requirements.  See the<br/>
-		/// documentation for <br/>
-		/// <br/>
-		/// and <br/>
-		/// for details.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _lifetime The specified allocator is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void InitAllocator(GLFWallocatorPtr allocator)
-		{
-			InitAllocatorNative((GLFWallocator*)allocator);
-		}
+        /// <summary>
+        /// <br/>
+        /// To use the default allocator, call this function with a `NULL` argument.<br/>
+        /// If you specify an allocator struct, every member must be a valid function<br/>
+        /// pointer.  If any member is `NULL`, this function will emit <br/>
+        /// and the init allocator will be unchanged.<br/>
+        /// The functions in the allocator must fulfil a number of requirements.  See the<br/>
+        /// documentation for <br/>
+        /// <br/>
+        /// and <br/>
+        /// for details.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _lifetime The specified allocator is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void InitAllocator(GLFWallocatorPtr allocator)
+        {
+            InitAllocatorNative((GLFWallocator*)allocator);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// To use the default allocator, call this function with a `NULL` argument.<br/>
-		/// If you specify an allocator struct, every member must be a valid function<br/>
-		/// pointer.  If any member is `NULL`, this function will emit <br/>
-		/// and the init allocator will be unchanged.<br/>
-		/// The functions in the allocator must fulfil a number of requirements.  See the<br/>
-		/// documentation for <br/>
-		/// <br/>
-		/// and <br/>
-		/// for details.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _lifetime The specified allocator is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void InitAllocator(in GLFWallocator allocator)
-		{
-			fixed (GLFWallocator* pallocator = &allocator)
-			{
-				InitAllocatorNative((GLFWallocator*)pallocator);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// To use the default allocator, call this function with a `NULL` argument.<br/>
+        /// If you specify an allocator struct, every member must be a valid function<br/>
+        /// pointer.  If any member is `NULL`, this function will emit <br/>
+        /// and the init allocator will be unchanged.<br/>
+        /// The functions in the allocator must fulfil a number of requirements.  See the<br/>
+        /// documentation for <br/>
+        /// <br/>
+        /// and <br/>
+        /// for details.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _lifetime The specified allocator is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void InitAllocator(in GLFWallocator allocator)
+        {
+            fixed (GLFWallocator* pallocator = &allocator)
+            {
+                InitAllocatorNative((GLFWallocator*)pallocator);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the `vkGetInstanceProcAddr` function that GLFW will use for all<br/>
-		/// Vulkan related entry point queries.<br/>
-		/// This feature is mostly useful on macOS, if your copy of the Vulkan loader is in<br/>
-		/// a location where GLFW cannot find it through dynamic loading, or if you are still<br/>
-		/// using the static library version of the loader.<br/>
-		/// If set to `NULL`, GLFW will try to load the Vulkan loader dynamically by its standard<br/>
-		/// name and get this function from there.  This is the default behavior.<br/>
-		/// The standard name of the loader is `vulkan-1.dll` on Windows, `libvulkan.so.1` on<br/>
-		/// Linux and other Unix-like systems and `libvulkan.1.dylib` on macOS.  If your code is<br/>
-		/// also loading it via these names then you probably don't need to use this function.<br/>
-		/// The function address you set is never reset by GLFW, but it only takes effect during<br/>
-		/// initialization.  Once GLFW has been initialized, any updates will be ignored until the<br/>
-		/// library is terminated and initialized again.<br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about this function, see the<br/>
-		/// [Vulkan Registry](https://www.khronos.org/registry/vulkan/).<br/>
-		/// <br/>
-		/// None.<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void InitVulkanLoaderNative(void* loader)
-		{
-			#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<void*, void>)funcTable[4])(loader);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[4])((nint)loader);
-			#endif
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the `vkGetInstanceProcAddr` function that GLFW will use for all<br/>
+        /// Vulkan related entry point queries.<br/>
+        /// This feature is mostly useful on macOS, if your copy of the Vulkan loader is in<br/>
+        /// a location where GLFW cannot find it through dynamic loading, or if you are still<br/>
+        /// using the static library version of the loader.<br/>
+        /// If set to `NULL`, GLFW will try to load the Vulkan loader dynamically by its standard<br/>
+        /// name and get this function from there.  This is the default behavior.<br/>
+        /// The standard name of the loader is `vulkan-1.dll` on Windows, `libvulkan.so.1` on<br/>
+        /// Linux and other Unix-like systems and `libvulkan.1.dylib` on macOS.  If your code is<br/>
+        /// also loading it via these names then you probably don't need to use this function.<br/>
+        /// The function address you set is never reset by GLFW, but it only takes effect during<br/>
+        /// initialization.  Once GLFW has been initialized, any updates will be ignored until the<br/>
+        /// library is terminated and initialized again.<br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about this function, see the<br/>
+        /// [Vulkan Registry](https://www.khronos.org/registry/vulkan/).<br/>
+        /// <br/>
+        /// None.<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void InitVulkanLoaderNative(PFNVkGetInstanceProcAddr loader)
+        {
+#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<PFNVkGetInstanceProcAddr, void>)funcTable[4])(loader);
+#else
+            ((delegate* unmanaged[Cdecl]<PFNVkGetInstanceProcAddr, void> )funcTable[4])(loader);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the `vkGetInstanceProcAddr` function that GLFW will use for all<br/>
-		/// Vulkan related entry point queries.<br/>
-		/// This feature is mostly useful on macOS, if your copy of the Vulkan loader is in<br/>
-		/// a location where GLFW cannot find it through dynamic loading, or if you are still<br/>
-		/// using the static library version of the loader.<br/>
-		/// If set to `NULL`, GLFW will try to load the Vulkan loader dynamically by its standard<br/>
-		/// name and get this function from there.  This is the default behavior.<br/>
-		/// The standard name of the loader is `vulkan-1.dll` on Windows, `libvulkan.so.1` on<br/>
-		/// Linux and other Unix-like systems and `libvulkan.1.dylib` on macOS.  If your code is<br/>
-		/// also loading it via these names then you probably don't need to use this function.<br/>
-		/// The function address you set is never reset by GLFW, but it only takes effect during<br/>
-		/// initialization.  Once GLFW has been initialized, any updates will be ignored until the<br/>
-		/// library is terminated and initialized again.<br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about this function, see the<br/>
-		/// [Vulkan Registry](https://www.khronos.org/registry/vulkan/).<br/>
-		/// <br/>
-		/// None.<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void InitVulkanLoader(void* loader)
-		{
-			InitVulkanLoaderNative(loader);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the `vkGetInstanceProcAddr` function that GLFW will use for all<br/>
+        /// Vulkan related entry point queries.<br/>
+        /// This feature is mostly useful on macOS, if your copy of the Vulkan loader is in<br/>
+        /// a location where GLFW cannot find it through dynamic loading, or if you are still<br/>
+        /// using the static library version of the loader.<br/>
+        /// If set to `NULL`, GLFW will try to load the Vulkan loader dynamically by its standard<br/>
+        /// name and get this function from there.  This is the default behavior.<br/>
+        /// The standard name of the loader is `vulkan-1.dll` on Windows, `libvulkan.so.1` on<br/>
+        /// Linux and other Unix-like systems and `libvulkan.1.dylib` on macOS.  If your code is<br/>
+        /// also loading it via these names then you probably don't need to use this function.<br/>
+        /// The function address you set is never reset by GLFW, but it only takes effect during<br/>
+        /// initialization.  Once GLFW has been initialized, any updates will be ignored until the<br/>
+        /// library is terminated and initialized again.<br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about this function, see the<br/>
+        /// [Vulkan Registry](https://www.khronos.org/registry/vulkan/).<br/>
+        /// <br/>
+        /// None.<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void InitVulkanLoader(PFNVkGetInstanceProcAddr loader)
+        {
+            InitVulkanLoaderNative(loader);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the `vkGetInstanceProcAddr` function that GLFW will use for all<br/>
-		/// Vulkan related entry point queries.<br/>
-		/// This feature is mostly useful on macOS, if your copy of the Vulkan loader is in<br/>
-		/// a location where GLFW cannot find it through dynamic loading, or if you are still<br/>
-		/// using the static library version of the loader.<br/>
-		/// If set to `NULL`, GLFW will try to load the Vulkan loader dynamically by its standard<br/>
-		/// name and get this function from there.  This is the default behavior.<br/>
-		/// The standard name of the loader is `vulkan-1.dll` on Windows, `libvulkan.so.1` on<br/>
-		/// Linux and other Unix-like systems and `libvulkan.1.dylib` on macOS.  If your code is<br/>
-		/// also loading it via these names then you probably don't need to use this function.<br/>
-		/// The function address you set is never reset by GLFW, but it only takes effect during<br/>
-		/// initialization.  Once GLFW has been initialized, any updates will be ignored until the<br/>
-		/// library is terminated and initialized again.<br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about this function, see the<br/>
-		/// [Vulkan Registry](https://www.khronos.org/registry/vulkan/).<br/>
-		/// <br/>
-		/// None.<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void InitVulkanLoader(nint loader)
-		{
-			InitVulkanLoaderNative((void*)loader);
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the major, minor and revision numbers of the GLFW<br/>
-		/// library.  It is intended for when you are using GLFW as a shared library and<br/>
-		/// want to ensure that you are using the minimum required version.<br/>
-		/// Any or all of the version arguments may be `NULL`.<br/>
-		/// <br/>
-		/// <br/>
-		/// None.<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void GetVersionNative(int* major, int* minor, int* rev)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the major, minor and revision numbers of the GLFW<br/>
+        /// library.  It is intended for when you are using GLFW as a shared library and<br/>
+        /// want to ensure that you are using the minimum required version.<br/>
+        /// Any or all of the version arguments may be `NULL`.<br/>
+        /// <br/>
+        /// <br/>
+        /// None.<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void GetVersionNative(int* major, int* minor, int* rev)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<int*, int*, int*, void>)funcTable[5])(major, minor, rev);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[5])((nint)major, (nint)minor, (nint)rev);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, nint, nint, void> )funcTable[5])((nint)major, (nint)minor, (nint)rev);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the major, minor and revision numbers of the GLFW<br/>
-		/// library.  It is intended for when you are using GLFW as a shared library and<br/>
-		/// want to ensure that you are using the minimum required version.<br/>
-		/// Any or all of the version arguments may be `NULL`.<br/>
-		/// <br/>
-		/// <br/>
-		/// None.<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetVersion(int* major, int* minor, int* rev)
-		{
-			GetVersionNative(major, minor, rev);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the major, minor and revision numbers of the GLFW<br/>
+        /// library.  It is intended for when you are using GLFW as a shared library and<br/>
+        /// want to ensure that you are using the minimum required version.<br/>
+        /// Any or all of the version arguments may be `NULL`.<br/>
+        /// <br/>
+        /// <br/>
+        /// None.<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetVersion(int* major, int* minor, int* rev)
+        {
+            GetVersionNative(major, minor, rev);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the major, minor and revision numbers of the GLFW<br/>
-		/// library.  It is intended for when you are using GLFW as a shared library and<br/>
-		/// want to ensure that you are using the minimum required version.<br/>
-		/// Any or all of the version arguments may be `NULL`.<br/>
-		/// <br/>
-		/// <br/>
-		/// None.<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetVersion(ref int major, int* minor, int* rev)
-		{
-			fixed (int* pmajor = &major)
-			{
-				GetVersionNative((int*)pmajor, minor, rev);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the major, minor and revision numbers of the GLFW<br/>
+        /// library.  It is intended for when you are using GLFW as a shared library and<br/>
+        /// want to ensure that you are using the minimum required version.<br/>
+        /// Any or all of the version arguments may be `NULL`.<br/>
+        /// <br/>
+        /// <br/>
+        /// None.<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetVersion(ref int major, int* minor, int* rev)
+        {
+            fixed (int* pmajor = &major)
+            {
+                GetVersionNative((int*)pmajor, minor, rev);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the major, minor and revision numbers of the GLFW<br/>
-		/// library.  It is intended for when you are using GLFW as a shared library and<br/>
-		/// want to ensure that you are using the minimum required version.<br/>
-		/// Any or all of the version arguments may be `NULL`.<br/>
-		/// <br/>
-		/// <br/>
-		/// None.<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetVersion(int* major, ref int minor, int* rev)
-		{
-			fixed (int* pminor = &minor)
-			{
-				GetVersionNative(major, (int*)pminor, rev);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the major, minor and revision numbers of the GLFW<br/>
+        /// library.  It is intended for when you are using GLFW as a shared library and<br/>
+        /// want to ensure that you are using the minimum required version.<br/>
+        /// Any or all of the version arguments may be `NULL`.<br/>
+        /// <br/>
+        /// <br/>
+        /// None.<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetVersion(int* major, ref int minor, int* rev)
+        {
+            fixed (int* pminor = &minor)
+            {
+                GetVersionNative(major, (int*)pminor, rev);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the major, minor and revision numbers of the GLFW<br/>
-		/// library.  It is intended for when you are using GLFW as a shared library and<br/>
-		/// want to ensure that you are using the minimum required version.<br/>
-		/// Any or all of the version arguments may be `NULL`.<br/>
-		/// <br/>
-		/// <br/>
-		/// None.<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetVersion(ref int major, ref int minor, int* rev)
-		{
-			fixed (int* pmajor = &major)
-			{
-				fixed (int* pminor = &minor)
-				{
-					GetVersionNative((int*)pmajor, (int*)pminor, rev);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the major, minor and revision numbers of the GLFW<br/>
+        /// library.  It is intended for when you are using GLFW as a shared library and<br/>
+        /// want to ensure that you are using the minimum required version.<br/>
+        /// Any or all of the version arguments may be `NULL`.<br/>
+        /// <br/>
+        /// <br/>
+        /// None.<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetVersion(ref int major, ref int minor, int* rev)
+        {
+            fixed (int* pmajor = &major)
+            {
+                fixed (int* pminor = &minor)
+                {
+                    GetVersionNative((int*)pmajor, (int*)pminor, rev);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the major, minor and revision numbers of the GLFW<br/>
-		/// library.  It is intended for when you are using GLFW as a shared library and<br/>
-		/// want to ensure that you are using the minimum required version.<br/>
-		/// Any or all of the version arguments may be `NULL`.<br/>
-		/// <br/>
-		/// <br/>
-		/// None.<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetVersion(int* major, int* minor, ref int rev)
-		{
-			fixed (int* prev = &rev)
-			{
-				GetVersionNative(major, minor, (int*)prev);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the major, minor and revision numbers of the GLFW<br/>
+        /// library.  It is intended for when you are using GLFW as a shared library and<br/>
+        /// want to ensure that you are using the minimum required version.<br/>
+        /// Any or all of the version arguments may be `NULL`.<br/>
+        /// <br/>
+        /// <br/>
+        /// None.<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetVersion(int* major, int* minor, ref int rev)
+        {
+            fixed (int* prev = &rev)
+            {
+                GetVersionNative(major, minor, (int*)prev);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the major, minor and revision numbers of the GLFW<br/>
-		/// library.  It is intended for when you are using GLFW as a shared library and<br/>
-		/// want to ensure that you are using the minimum required version.<br/>
-		/// Any or all of the version arguments may be `NULL`.<br/>
-		/// <br/>
-		/// <br/>
-		/// None.<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetVersion(ref int major, int* minor, ref int rev)
-		{
-			fixed (int* pmajor = &major)
-			{
-				fixed (int* prev = &rev)
-				{
-					GetVersionNative((int*)pmajor, minor, (int*)prev);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the major, minor and revision numbers of the GLFW<br/>
+        /// library.  It is intended for when you are using GLFW as a shared library and<br/>
+        /// want to ensure that you are using the minimum required version.<br/>
+        /// Any or all of the version arguments may be `NULL`.<br/>
+        /// <br/>
+        /// <br/>
+        /// None.<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetVersion(ref int major, int* minor, ref int rev)
+        {
+            fixed (int* pmajor = &major)
+            {
+                fixed (int* prev = &rev)
+                {
+                    GetVersionNative((int*)pmajor, minor, (int*)prev);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the major, minor and revision numbers of the GLFW<br/>
-		/// library.  It is intended for when you are using GLFW as a shared library and<br/>
-		/// want to ensure that you are using the minimum required version.<br/>
-		/// Any or all of the version arguments may be `NULL`.<br/>
-		/// <br/>
-		/// <br/>
-		/// None.<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetVersion(int* major, ref int minor, ref int rev)
-		{
-			fixed (int* pminor = &minor)
-			{
-				fixed (int* prev = &rev)
-				{
-					GetVersionNative(major, (int*)pminor, (int*)prev);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the major, minor and revision numbers of the GLFW<br/>
+        /// library.  It is intended for when you are using GLFW as a shared library and<br/>
+        /// want to ensure that you are using the minimum required version.<br/>
+        /// Any or all of the version arguments may be `NULL`.<br/>
+        /// <br/>
+        /// <br/>
+        /// None.<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetVersion(int* major, ref int minor, ref int rev)
+        {
+            fixed (int* pminor = &minor)
+            {
+                fixed (int* prev = &rev)
+                {
+                    GetVersionNative(major, (int*)pminor, (int*)prev);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the major, minor and revision numbers of the GLFW<br/>
-		/// library.  It is intended for when you are using GLFW as a shared library and<br/>
-		/// want to ensure that you are using the minimum required version.<br/>
-		/// Any or all of the version arguments may be `NULL`.<br/>
-		/// <br/>
-		/// <br/>
-		/// None.<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetVersion(ref int major, ref int minor, ref int rev)
-		{
-			fixed (int* pmajor = &major)
-			{
-				fixed (int* pminor = &minor)
-				{
-					fixed (int* prev = &rev)
-					{
-						GetVersionNative((int*)pmajor, (int*)pminor, (int*)prev);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the major, minor and revision numbers of the GLFW<br/>
+        /// library.  It is intended for when you are using GLFW as a shared library and<br/>
+        /// want to ensure that you are using the minimum required version.<br/>
+        /// Any or all of the version arguments may be `NULL`.<br/>
+        /// <br/>
+        /// <br/>
+        /// None.<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetVersion(ref int major, ref int minor, ref int rev)
+        {
+            fixed (int* pmajor = &major)
+            {
+                fixed (int* pminor = &minor)
+                {
+                    fixed (int* prev = &rev)
+                    {
+                        GetVersionNative((int*)pmajor, (int*)pminor, (int*)prev);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the compile-time generated<br/>
-		/// [version string](<br/>
-		/// of the GLFW library binary.  It describes<br/>
-		/// the version, platforms, compiler and any platform or operating system specific<br/>
-		/// compile-time options.  It should not be confused with the OpenGL or OpenGL ES version<br/>
-		/// string, queried with `glGetString`.<br/>
-		/// __Do not use the version string__ to parse the GLFW library version.  The<br/>
-		/// <br/>
-		/// function provides the version of the running library<br/>
-		/// binary in numerical format.<br/>
-		/// __Do not use the version string__ to parse what platforms are supported.  The <br/>
-		/// function lets you query platform support.<br/>
-		/// <br/>
-		/// <br/>
-		/// None.<br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned string is static and compile-time generated.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte* GetVersionStringNative()
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the compile-time generated<br/>
+        /// [version string](<br/>
+        /// of the GLFW library binary.  It describes<br/>
+        /// the version, platforms, compiler and any platform or operating system specific<br/>
+        /// compile-time options.  It should not be confused with the OpenGL or OpenGL ES version<br/>
+        /// string, queried with `glGetString`.<br/>
+        /// __Do not use the version string__ to parse the GLFW library version.  The<br/>
+        /// <br/>
+        /// function provides the version of the running library<br/>
+        /// binary in numerical format.<br/>
+        /// __Do not use the version string__ to parse what platforms are supported.  The <br/>
+        /// function lets you query platform support.<br/>
+        /// <br/>
+        /// <br/>
+        /// None.<br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned string is static and compile-time generated.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static byte* GetVersionStringNative()
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<byte*>)funcTable[6])();
-			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<nint>)funcTable[6])();
-			#endif
-		}
+#else
+            return (byte*)((delegate* unmanaged[Cdecl]<nint> )funcTable[6])();
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the compile-time generated<br/>
-		/// [version string](<br/>
-		/// of the GLFW library binary.  It describes<br/>
-		/// the version, platforms, compiler and any platform or operating system specific<br/>
-		/// compile-time options.  It should not be confused with the OpenGL or OpenGL ES version<br/>
-		/// string, queried with `glGetString`.<br/>
-		/// __Do not use the version string__ to parse the GLFW library version.  The<br/>
-		/// <br/>
-		/// function provides the version of the running library<br/>
-		/// binary in numerical format.<br/>
-		/// __Do not use the version string__ to parse what platforms are supported.  The <br/>
-		/// function lets you query platform support.<br/>
-		/// <br/>
-		/// <br/>
-		/// None.<br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned string is static and compile-time generated.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static byte* GetVersionString()
-		{
-			byte* ret = GetVersionStringNative();
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the compile-time generated<br/>
+        /// [version string](<br/>
+        /// of the GLFW library binary.  It describes<br/>
+        /// the version, platforms, compiler and any platform or operating system specific<br/>
+        /// compile-time options.  It should not be confused with the OpenGL or OpenGL ES version<br/>
+        /// string, queried with `glGetString`.<br/>
+        /// __Do not use the version string__ to parse the GLFW library version.  The<br/>
+        /// <br/>
+        /// function provides the version of the running library<br/>
+        /// binary in numerical format.<br/>
+        /// __Do not use the version string__ to parse what platforms are supported.  The <br/>
+        /// function lets you query platform support.<br/>
+        /// <br/>
+        /// <br/>
+        /// None.<br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned string is static and compile-time generated.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static byte* GetVersionString()
+        {
+            byte* ret = GetVersionStringNative();
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the compile-time generated<br/>
-		/// [version string](<br/>
-		/// of the GLFW library binary.  It describes<br/>
-		/// the version, platforms, compiler and any platform or operating system specific<br/>
-		/// compile-time options.  It should not be confused with the OpenGL or OpenGL ES version<br/>
-		/// string, queried with `glGetString`.<br/>
-		/// __Do not use the version string__ to parse the GLFW library version.  The<br/>
-		/// <br/>
-		/// function provides the version of the running library<br/>
-		/// binary in numerical format.<br/>
-		/// __Do not use the version string__ to parse what platforms are supported.  The <br/>
-		/// function lets you query platform support.<br/>
-		/// <br/>
-		/// <br/>
-		/// None.<br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned string is static and compile-time generated.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static string GetVersionStringS()
-		{
-			string ret = Utils.DecodeStringUTF8(GetVersionStringNative());
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the compile-time generated<br/>
+        /// [version string](<br/>
+        /// of the GLFW library binary.  It describes<br/>
+        /// the version, platforms, compiler and any platform or operating system specific<br/>
+        /// compile-time options.  It should not be confused with the OpenGL or OpenGL ES version<br/>
+        /// string, queried with `glGetString`.<br/>
+        /// __Do not use the version string__ to parse the GLFW library version.  The<br/>
+        /// <br/>
+        /// function provides the version of the running library<br/>
+        /// binary in numerical format.<br/>
+        /// __Do not use the version string__ to parse what platforms are supported.  The <br/>
+        /// function lets you query platform support.<br/>
+        /// <br/>
+        /// <br/>
+        /// None.<br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned string is static and compile-time generated.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static string GetVersionStringS()
+        {
+            string ret = Utils.DecodeStringUTF8(GetVersionStringNative());
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns and clears the [error code](<br/>
-		/// of the last<br/>
-		/// error that occurred on the calling thread, and optionally a UTF-8 encoded<br/>
-		/// human-readable description of it.  If no error has occurred since the last<br/>
-		/// call, it returns <br/>
-		/// (zero) and the description pointer is<br/>
-		/// set to `NULL`.<br/>
-		/// <br/>
-		/// <br/>
-		/// None.<br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is guaranteed to be valid only until the<br/>
-		/// next error occurs or the library is terminated.<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int GetErrorNative(byte** description)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns and clears the [error code](<br/>
+        /// of the last<br/>
+        /// error that occurred on the calling thread, and optionally a UTF-8 encoded<br/>
+        /// human-readable description of it.  If no error has occurred since the last<br/>
+        /// call, it returns <br/>
+        /// (zero) and the description pointer is<br/>
+        /// set to `NULL`.<br/>
+        /// <br/>
+        /// <br/>
+        /// None.<br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is guaranteed to be valid only until the<br/>
+        /// next error occurs or the library is terminated.<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static int GetErrorNative(byte** description)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<byte**, int>)funcTable[7])(description);
-			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, int>)funcTable[7])((nint)description);
-			#endif
-		}
+#else
+            return (int)((delegate* unmanaged[Cdecl]<nint, int> )funcTable[7])((nint)description);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns and clears the [error code](<br/>
-		/// of the last<br/>
-		/// error that occurred on the calling thread, and optionally a UTF-8 encoded<br/>
-		/// human-readable description of it.  If no error has occurred since the last<br/>
-		/// call, it returns <br/>
-		/// (zero) and the description pointer is<br/>
-		/// set to `NULL`.<br/>
-		/// <br/>
-		/// <br/>
-		/// None.<br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is guaranteed to be valid only until the<br/>
-		/// next error occurs or the library is terminated.<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int GetError(byte** description)
-		{
-			int ret = GetErrorNative(description);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns and clears the [error code](<br/>
+        /// of the last<br/>
+        /// error that occurred on the calling thread, and optionally a UTF-8 encoded<br/>
+        /// human-readable description of it.  If no error has occurred since the last<br/>
+        /// call, it returns <br/>
+        /// (zero) and the description pointer is<br/>
+        /// set to `NULL`.<br/>
+        /// <br/>
+        /// <br/>
+        /// None.<br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is guaranteed to be valid only until the<br/>
+        /// next error occurs or the library is terminated.<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int GetError(byte** description)
+        {
+            int ret = GetErrorNative(description);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns and clears the [error code](<br/>
-		/// of the last<br/>
-		/// error that occurred on the calling thread, and optionally a UTF-8 encoded<br/>
-		/// human-readable description of it.  If no error has occurred since the last<br/>
-		/// call, it returns <br/>
-		/// (zero) and the description pointer is<br/>
-		/// set to `NULL`.<br/>
-		/// <br/>
-		/// <br/>
-		/// None.<br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is guaranteed to be valid only until the<br/>
-		/// next error occurs or the library is terminated.<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int GetError(ref byte* description)
-		{
-			fixed (byte** pdescription = &description)
-			{
-				int ret = GetErrorNative((byte**)pdescription);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns and clears the [error code](<br/>
+        /// of the last<br/>
+        /// error that occurred on the calling thread, and optionally a UTF-8 encoded<br/>
+        /// human-readable description of it.  If no error has occurred since the last<br/>
+        /// call, it returns <br/>
+        /// (zero) and the description pointer is<br/>
+        /// set to `NULL`.<br/>
+        /// <br/>
+        /// <br/>
+        /// None.<br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is guaranteed to be valid only until the<br/>
+        /// next error occurs or the library is terminated.<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int GetError(ref byte* description)
+        {
+            fixed (byte** pdescription = &description)
+            {
+                int ret = GetErrorNative((byte**)pdescription);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the error callback, which is called with an error code<br/>
-		/// and a human-readable description each time a GLFW error occurs.<br/>
-		/// The error code is set before the callback is called.  Calling <br/>
-		/// from the error callback will return the same value as the error<br/>
-		/// code argument.<br/>
-		/// The error callback is called on the thread where the error occurred.  If you<br/>
-		/// are using GLFW from multiple threads, your error callback needs to be<br/>
-		/// written accordingly.<br/>
-		/// Because the description string may have been generated specifically for that<br/>
-		/// error, it is not guaranteed to be valid after the callback has returned.  If<br/>
-		/// you wish to use it after the callback returns, you need to make a copy.<br/>
-		/// Once set, the error callback remains set even after the library has been<br/>
-		/// terminated.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [callback pointer type](<br/>
-		/// <br/>
-		/// None.<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static delegate*<int, byte*, void> SetErrorCallbackNative(delegate*<int, byte*, void> callback)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets the error callback, which is called with an error code<br/>
+        /// and a human-readable description each time a GLFW error occurs.<br/>
+        /// The error code is set before the callback is called.  Calling <br/>
+        /// from the error callback will return the same value as the error<br/>
+        /// code argument.<br/>
+        /// The error callback is called on the thread where the error occurred.  If you<br/>
+        /// are using GLFW from multiple threads, your error callback needs to be<br/>
+        /// written accordingly.<br/>
+        /// Because the description string may have been generated specifically for that<br/>
+        /// error, it is not guaranteed to be valid after the callback has returned.  If<br/>
+        /// you wish to use it after the callback returns, you need to make a copy.<br/>
+        /// Once set, the error callback remains set even after the library has been<br/>
+        /// terminated.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [callback pointer type](<br/>
+        /// <br/>
+        /// None.<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static delegate*<int, byte*, void> SetErrorCallbackNative(delegate*<int, byte*, void> callback)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<delegate*<int, byte*, void>, delegate*<int, byte*, void>>)funcTable[8])(callback);
-			#else
-			return (delegate*<int, byte*, void>)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[8])((nint)callback);
-			#endif
-		}
+#else
+            return (delegate*<int, byte*, void> )((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[8])((nint)callback);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the error callback, which is called with an error code<br/>
-		/// and a human-readable description each time a GLFW error occurs.<br/>
-		/// The error code is set before the callback is called.  Calling <br/>
-		/// from the error callback will return the same value as the error<br/>
-		/// code argument.<br/>
-		/// The error callback is called on the thread where the error occurred.  If you<br/>
-		/// are using GLFW from multiple threads, your error callback needs to be<br/>
-		/// written accordingly.<br/>
-		/// Because the description string may have been generated specifically for that<br/>
-		/// error, it is not guaranteed to be valid after the callback has returned.  If<br/>
-		/// you wish to use it after the callback returns, you need to make a copy.<br/>
-		/// Once set, the error callback remains set even after the library has been<br/>
-		/// terminated.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [callback pointer type](<br/>
-		/// <br/>
-		/// None.<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<int, byte*, void> SetErrorCallback(delegate*<int, byte*, void> callback)
-		{
-			delegate*<int, byte*, void> ret = SetErrorCallbackNative(callback);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the error callback, which is called with an error code<br/>
+        /// and a human-readable description each time a GLFW error occurs.<br/>
+        /// The error code is set before the callback is called.  Calling <br/>
+        /// from the error callback will return the same value as the error<br/>
+        /// code argument.<br/>
+        /// The error callback is called on the thread where the error occurred.  If you<br/>
+        /// are using GLFW from multiple threads, your error callback needs to be<br/>
+        /// written accordingly.<br/>
+        /// Because the description string may have been generated specifically for that<br/>
+        /// error, it is not guaranteed to be valid after the callback has returned.  If<br/>
+        /// you wish to use it after the callback returns, you need to make a copy.<br/>
+        /// Once set, the error callback remains set even after the library has been<br/>
+        /// terminated.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [callback pointer type](<br/>
+        /// <br/>
+        /// None.<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<int, byte*, void> SetErrorCallback(delegate*<int, byte*, void> callback)
+        {
+            delegate*<int, byte*, void> ret = SetErrorCallbackNative(callback);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the error callback, which is called with an error code<br/>
-		/// and a human-readable description each time a GLFW error occurs.<br/>
-		/// The error code is set before the callback is called.  Calling <br/>
-		/// from the error callback will return the same value as the error<br/>
-		/// code argument.<br/>
-		/// The error callback is called on the thread where the error occurred.  If you<br/>
-		/// are using GLFW from multiple threads, your error callback needs to be<br/>
-		/// written accordingly.<br/>
-		/// Because the description string may have been generated specifically for that<br/>
-		/// error, it is not guaranteed to be valid after the callback has returned.  If<br/>
-		/// you wish to use it after the callback returns, you need to make a copy.<br/>
-		/// Once set, the error callback remains set even after the library has been<br/>
-		/// terminated.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [callback pointer type](<br/>
-		/// <br/>
-		/// None.<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<int, byte*, void> SetErrorCallback(GLFWerrorfun callback)
-		{
-			delegate*<int, byte*, void> ret = SetErrorCallbackNative((delegate*<int, byte*, void>)Utils.GetFunctionPointerForDelegate(callback));
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the error callback, which is called with an error code<br/>
+        /// and a human-readable description each time a GLFW error occurs.<br/>
+        /// The error code is set before the callback is called.  Calling <br/>
+        /// from the error callback will return the same value as the error<br/>
+        /// code argument.<br/>
+        /// The error callback is called on the thread where the error occurred.  If you<br/>
+        /// are using GLFW from multiple threads, your error callback needs to be<br/>
+        /// written accordingly.<br/>
+        /// Because the description string may have been generated specifically for that<br/>
+        /// error, it is not guaranteed to be valid after the callback has returned.  If<br/>
+        /// you wish to use it after the callback returns, you need to make a copy.<br/>
+        /// Once set, the error callback remains set even after the library has been<br/>
+        /// terminated.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [callback pointer type](<br/>
+        /// <br/>
+        /// None.<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<int, byte*, void> SetErrorCallback(GLFWerrorfun callback)
+        {
+            delegate*<int, byte*, void> ret = SetErrorCallbackNative((delegate*<int, byte*, void> )Utils.GetFunctionPointerForDelegate(callback));
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the platform that was selected during initialization.  The<br/>
-		/// returned value will be one of `GLFW_PLATFORM_WIN32`, `GLFW_PLATFORM_COCOA`,<br/>
-		/// `GLFW_PLATFORM_WAYLAND`, `GLFW_PLATFORM_X11` or `GLFW_PLATFORM_NULL`.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int GetPlatformNative()
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the platform that was selected during initialization.  The<br/>
+        /// returned value will be one of `GLFW_PLATFORM_WIN32`, `GLFW_PLATFORM_COCOA`,<br/>
+        /// `GLFW_PLATFORM_WAYLAND`, `GLFW_PLATFORM_X11` or `GLFW_PLATFORM_NULL`.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static int GetPlatformNative()
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int>)funcTable[9])();
-			#else
-			return (int)((delegate* unmanaged[Cdecl]<int>)funcTable[9])();
-			#endif
-		}
+#else
+            return (int)((delegate* unmanaged[Cdecl]<int> )funcTable[9])();
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the platform that was selected during initialization.  The<br/>
-		/// returned value will be one of `GLFW_PLATFORM_WIN32`, `GLFW_PLATFORM_COCOA`,<br/>
-		/// `GLFW_PLATFORM_WAYLAND`, `GLFW_PLATFORM_X11` or `GLFW_PLATFORM_NULL`.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int GetPlatform()
-		{
-			int ret = GetPlatformNative();
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the platform that was selected during initialization.  The<br/>
+        /// returned value will be one of `GLFW_PLATFORM_WIN32`, `GLFW_PLATFORM_COCOA`,<br/>
+        /// `GLFW_PLATFORM_WAYLAND`, `GLFW_PLATFORM_X11` or `GLFW_PLATFORM_NULL`.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int GetPlatform()
+        {
+            int ret = GetPlatformNative();
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns whether the library was compiled with support for the specified<br/>
-		/// platform.  The platform must be one of `GLFW_PLATFORM_WIN32`, `GLFW_PLATFORM_COCOA`,<br/>
-		/// `GLFW_PLATFORM_WAYLAND`, `GLFW_PLATFORM_X11` or `GLFW_PLATFORM_NULL`.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int PlatformSupportedNative(int platform)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns whether the library was compiled with support for the specified<br/>
+        /// platform.  The platform must be one of `GLFW_PLATFORM_WIN32`, `GLFW_PLATFORM_COCOA`,<br/>
+        /// `GLFW_PLATFORM_WAYLAND`, `GLFW_PLATFORM_X11` or `GLFW_PLATFORM_NULL`.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static int PlatformSupportedNative(int platform)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int, int>)funcTable[10])(platform);
-			#else
-			return (int)((delegate* unmanaged[Cdecl]<int, int>)funcTable[10])(platform);
-			#endif
-		}
+#else
+            return (int)((delegate* unmanaged[Cdecl]<int, int> )funcTable[10])(platform);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns whether the library was compiled with support for the specified<br/>
-		/// platform.  The platform must be one of `GLFW_PLATFORM_WIN32`, `GLFW_PLATFORM_COCOA`,<br/>
-		/// `GLFW_PLATFORM_WAYLAND`, `GLFW_PLATFORM_X11` or `GLFW_PLATFORM_NULL`.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int PlatformSupported(int platform)
-		{
-			int ret = PlatformSupportedNative(platform);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns whether the library was compiled with support for the specified<br/>
+        /// platform.  The platform must be one of `GLFW_PLATFORM_WIN32`, `GLFW_PLATFORM_COCOA`,<br/>
+        /// `GLFW_PLATFORM_WAYLAND`, `GLFW_PLATFORM_X11` or `GLFW_PLATFORM_NULL`.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int PlatformSupported(int platform)
+        {
+            int ret = PlatformSupportedNative(platform);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns an array of handles for all currently connected<br/>
-		/// monitors.  The primary monitor is always first in the returned array.  If no<br/>
-		/// monitors were found, this function returns `NULL`.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is guaranteed to be valid only until the<br/>
-		/// monitor configuration changes or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static GLFWmonitor** GetMonitorsNative(int* count)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns an array of handles for all currently connected<br/>
+        /// monitors.  The primary monitor is always first in the returned array.  If no<br/>
+        /// monitors were found, this function returns `NULL`.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is guaranteed to be valid only until the<br/>
+        /// monitor configuration changes or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static GLFWmonitor** GetMonitorsNative(int* count)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int*, GLFWmonitor**>)funcTable[11])(count);
-			#else
-			return (GLFWmonitor**)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[11])((nint)count);
-			#endif
-		}
+#else
+            return (GLFWmonitor**)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[11])((nint)count);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns an array of handles for all currently connected<br/>
-		/// monitors.  The primary monitor is always first in the returned array.  If no<br/>
-		/// monitors were found, this function returns `NULL`.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is guaranteed to be valid only until the<br/>
-		/// monitor configuration changes or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWmonitorPtrPtr GetMonitors(int* count)
-		{
-			GLFWmonitorPtrPtr ret = GetMonitorsNative(count);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns an array of handles for all currently connected<br/>
+        /// monitors.  The primary monitor is always first in the returned array.  If no<br/>
+        /// monitors were found, this function returns `NULL`.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is guaranteed to be valid only until the<br/>
+        /// monitor configuration changes or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWmonitorPtrPtr GetMonitors(int* count)
+        {
+            GLFWmonitorPtrPtr ret = GetMonitorsNative(count);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns an array of handles for all currently connected<br/>
-		/// monitors.  The primary monitor is always first in the returned array.  If no<br/>
-		/// monitors were found, this function returns `NULL`.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is guaranteed to be valid only until the<br/>
-		/// monitor configuration changes or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWmonitorPtrPtr GetMonitors(ref int count)
-		{
-			fixed (int* pcount = &count)
-			{
-				GLFWmonitorPtrPtr ret = GetMonitorsNative((int*)pcount);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns an array of handles for all currently connected<br/>
+        /// monitors.  The primary monitor is always first in the returned array.  If no<br/>
+        /// monitors were found, this function returns `NULL`.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is guaranteed to be valid only until the<br/>
+        /// monitor configuration changes or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWmonitorPtrPtr GetMonitors(ref int count)
+        {
+            fixed (int* pcount = &count)
+            {
+                GLFWmonitorPtrPtr ret = GetMonitorsNative((int*)pcount);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the primary monitor.  This is usually the monitor<br/>
-		/// where elements like the task bar or global menu bar are located.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static GLFWmonitor* GetPrimaryMonitorNative()
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the primary monitor.  This is usually the monitor<br/>
+        /// where elements like the task bar or global menu bar are located.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static GLFWmonitor* GetPrimaryMonitorNative()
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*>)funcTable[12])();
-			#else
-			return (GLFWmonitor*)((delegate* unmanaged[Cdecl]<nint>)funcTable[12])();
-			#endif
-		}
+#else
+            return (GLFWmonitor*)((delegate* unmanaged[Cdecl]<nint> )funcTable[12])();
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the primary monitor.  This is usually the monitor<br/>
-		/// where elements like the task bar or global menu bar are located.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWmonitorPtr GetPrimaryMonitor()
-		{
-			GLFWmonitorPtr ret = GetPrimaryMonitorNative();
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the primary monitor.  This is usually the monitor<br/>
+        /// where elements like the task bar or global menu bar are located.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWmonitorPtr GetPrimaryMonitor()
+        {
+            GLFWmonitorPtr ret = GetPrimaryMonitorNative();
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the specified monitor.<br/>
-		/// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` position arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void GetMonitorPosNative(GLFWmonitor* monitor, int* xpos, int* ypos)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the specified monitor.<br/>
+        /// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` position arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void GetMonitorPosNative(GLFWmonitor* monitor, int* xpos, int* ypos)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWmonitor*, int*, int*, void>)funcTable[13])(monitor, xpos, ypos);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[13])((nint)monitor, (nint)xpos, (nint)ypos);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, nint, nint, void> )funcTable[13])((nint)monitor, (nint)xpos, (nint)ypos);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the specified monitor.<br/>
-		/// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` position arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorPos(GLFWmonitorPtr monitor, int* xpos, int* ypos)
-		{
-			GetMonitorPosNative((GLFWmonitor*)monitor, xpos, ypos);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the specified monitor.<br/>
+        /// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` position arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorPos(GLFWmonitorPtr monitor, int* xpos, int* ypos)
+        {
+            GetMonitorPosNative((GLFWmonitor*)monitor, xpos, ypos);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the specified monitor.<br/>
-		/// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` position arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorPos(ref GLFWmonitor monitor, int* xpos, int* ypos)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				GetMonitorPosNative((GLFWmonitor*)pmonitor, xpos, ypos);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the specified monitor.<br/>
+        /// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` position arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorPos(ref GLFWmonitor monitor, int* xpos, int* ypos)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                GetMonitorPosNative((GLFWmonitor*)pmonitor, xpos, ypos);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the specified monitor.<br/>
-		/// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` position arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorPos(GLFWmonitorPtr monitor, ref int xpos, int* ypos)
-		{
-			fixed (int* pxpos = &xpos)
-			{
-				GetMonitorPosNative((GLFWmonitor*)monitor, (int*)pxpos, ypos);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the specified monitor.<br/>
+        /// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` position arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorPos(GLFWmonitorPtr monitor, ref int xpos, int* ypos)
+        {
+            fixed (int* pxpos = &xpos)
+            {
+                GetMonitorPosNative((GLFWmonitor*)monitor, (int*)pxpos, ypos);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the specified monitor.<br/>
-		/// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` position arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorPos(ref GLFWmonitor monitor, ref int xpos, int* ypos)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pxpos = &xpos)
-				{
-					GetMonitorPosNative((GLFWmonitor*)pmonitor, (int*)pxpos, ypos);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the specified monitor.<br/>
+        /// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` position arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorPos(ref GLFWmonitor monitor, ref int xpos, int* ypos)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pxpos = &xpos)
+                {
+                    GetMonitorPosNative((GLFWmonitor*)pmonitor, (int*)pxpos, ypos);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the specified monitor.<br/>
-		/// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` position arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorPos(GLFWmonitorPtr monitor, int* xpos, ref int ypos)
-		{
-			fixed (int* pypos = &ypos)
-			{
-				GetMonitorPosNative((GLFWmonitor*)monitor, xpos, (int*)pypos);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the specified monitor.<br/>
+        /// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` position arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorPos(GLFWmonitorPtr monitor, int* xpos, ref int ypos)
+        {
+            fixed (int* pypos = &ypos)
+            {
+                GetMonitorPosNative((GLFWmonitor*)monitor, xpos, (int*)pypos);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the specified monitor.<br/>
-		/// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` position arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorPos(ref GLFWmonitor monitor, int* xpos, ref int ypos)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pypos = &ypos)
-				{
-					GetMonitorPosNative((GLFWmonitor*)pmonitor, xpos, (int*)pypos);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the specified monitor.<br/>
+        /// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` position arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorPos(ref GLFWmonitor monitor, int* xpos, ref int ypos)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pypos = &ypos)
+                {
+                    GetMonitorPosNative((GLFWmonitor*)pmonitor, xpos, (int*)pypos);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the specified monitor.<br/>
-		/// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` position arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorPos(GLFWmonitorPtr monitor, ref int xpos, ref int ypos)
-		{
-			fixed (int* pxpos = &xpos)
-			{
-				fixed (int* pypos = &ypos)
-				{
-					GetMonitorPosNative((GLFWmonitor*)monitor, (int*)pxpos, (int*)pypos);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the specified monitor.<br/>
+        /// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` position arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorPos(GLFWmonitorPtr monitor, ref int xpos, ref int ypos)
+        {
+            fixed (int* pxpos = &xpos)
+            {
+                fixed (int* pypos = &ypos)
+                {
+                    GetMonitorPosNative((GLFWmonitor*)monitor, (int*)pxpos, (int*)pypos);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the specified monitor.<br/>
-		/// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` position arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorPos(ref GLFWmonitor monitor, ref int xpos, ref int ypos)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pxpos = &xpos)
-				{
-					fixed (int* pypos = &ypos)
-					{
-						GetMonitorPosNative((GLFWmonitor*)pmonitor, (int*)pxpos, (int*)pypos);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the specified monitor.<br/>
+        /// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` position arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorPos(ref GLFWmonitor monitor, ref int xpos, ref int ypos)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pxpos = &xpos)
+                {
+                    fixed (int* pypos = &ypos)
+                    {
+                        GetMonitorPosNative((GLFWmonitor*)pmonitor, (int*)pxpos, (int*)pypos);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void GetMonitorWorkareaNative(GLFWmonitor* monitor, int* xpos, int* ypos, int* width, int* height)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void GetMonitorWorkareaNative(GLFWmonitor* monitor, int* xpos, int* ypos, int* width, int* height)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWmonitor*, int*, int*, int*, int*, void>)funcTable[14])(monitor, xpos, ypos, width, height);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, nint, void>)funcTable[14])((nint)monitor, (nint)xpos, (nint)ypos, (nint)width, (nint)height);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, nint, void> )funcTable[14])((nint)monitor, (nint)xpos, (nint)ypos, (nint)width, (nint)height);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, int* xpos, int* ypos, int* width, int* height)
-		{
-			GetMonitorWorkareaNative((GLFWmonitor*)monitor, xpos, ypos, width, height);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, int* xpos, int* ypos, int* width, int* height)
+        {
+            GetMonitorWorkareaNative((GLFWmonitor*)monitor, xpos, ypos, width, height);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(ref GLFWmonitor monitor, int* xpos, int* ypos, int* width, int* height)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, xpos, ypos, width, height);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(ref GLFWmonitor monitor, int* xpos, int* ypos, int* width, int* height)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, xpos, ypos, width, height);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, ref int xpos, int* ypos, int* width, int* height)
-		{
-			fixed (int* pxpos = &xpos)
-			{
-				GetMonitorWorkareaNative((GLFWmonitor*)monitor, (int*)pxpos, ypos, width, height);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, ref int xpos, int* ypos, int* width, int* height)
+        {
+            fixed (int* pxpos = &xpos)
+            {
+                GetMonitorWorkareaNative((GLFWmonitor*)monitor, (int*)pxpos, ypos, width, height);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(ref GLFWmonitor monitor, ref int xpos, int* ypos, int* width, int* height)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pxpos = &xpos)
-				{
-					GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, (int*)pxpos, ypos, width, height);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(ref GLFWmonitor monitor, ref int xpos, int* ypos, int* width, int* height)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pxpos = &xpos)
+                {
+                    GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, (int*)pxpos, ypos, width, height);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, int* xpos, ref int ypos, int* width, int* height)
-		{
-			fixed (int* pypos = &ypos)
-			{
-				GetMonitorWorkareaNative((GLFWmonitor*)monitor, xpos, (int*)pypos, width, height);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, int* xpos, ref int ypos, int* width, int* height)
+        {
+            fixed (int* pypos = &ypos)
+            {
+                GetMonitorWorkareaNative((GLFWmonitor*)monitor, xpos, (int*)pypos, width, height);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(ref GLFWmonitor monitor, int* xpos, ref int ypos, int* width, int* height)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pypos = &ypos)
-				{
-					GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, xpos, (int*)pypos, width, height);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(ref GLFWmonitor monitor, int* xpos, ref int ypos, int* width, int* height)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pypos = &ypos)
+                {
+                    GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, xpos, (int*)pypos, width, height);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, ref int xpos, ref int ypos, int* width, int* height)
-		{
-			fixed (int* pxpos = &xpos)
-			{
-				fixed (int* pypos = &ypos)
-				{
-					GetMonitorWorkareaNative((GLFWmonitor*)monitor, (int*)pxpos, (int*)pypos, width, height);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, ref int xpos, ref int ypos, int* width, int* height)
+        {
+            fixed (int* pxpos = &xpos)
+            {
+                fixed (int* pypos = &ypos)
+                {
+                    GetMonitorWorkareaNative((GLFWmonitor*)monitor, (int*)pxpos, (int*)pypos, width, height);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(ref GLFWmonitor monitor, ref int xpos, ref int ypos, int* width, int* height)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pxpos = &xpos)
-				{
-					fixed (int* pypos = &ypos)
-					{
-						GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, (int*)pxpos, (int*)pypos, width, height);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(ref GLFWmonitor monitor, ref int xpos, ref int ypos, int* width, int* height)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pxpos = &xpos)
+                {
+                    fixed (int* pypos = &ypos)
+                    {
+                        GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, (int*)pxpos, (int*)pypos, width, height);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, int* xpos, int* ypos, ref int width, int* height)
-		{
-			fixed (int* pwidth = &width)
-			{
-				GetMonitorWorkareaNative((GLFWmonitor*)monitor, xpos, ypos, (int*)pwidth, height);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, int* xpos, int* ypos, ref int width, int* height)
+        {
+            fixed (int* pwidth = &width)
+            {
+                GetMonitorWorkareaNative((GLFWmonitor*)monitor, xpos, ypos, (int*)pwidth, height);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(ref GLFWmonitor monitor, int* xpos, int* ypos, ref int width, int* height)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pwidth = &width)
-				{
-					GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, xpos, ypos, (int*)pwidth, height);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(ref GLFWmonitor monitor, int* xpos, int* ypos, ref int width, int* height)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pwidth = &width)
+                {
+                    GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, xpos, ypos, (int*)pwidth, height);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, ref int xpos, int* ypos, ref int width, int* height)
-		{
-			fixed (int* pxpos = &xpos)
-			{
-				fixed (int* pwidth = &width)
-				{
-					GetMonitorWorkareaNative((GLFWmonitor*)monitor, (int*)pxpos, ypos, (int*)pwidth, height);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, ref int xpos, int* ypos, ref int width, int* height)
+        {
+            fixed (int* pxpos = &xpos)
+            {
+                fixed (int* pwidth = &width)
+                {
+                    GetMonitorWorkareaNative((GLFWmonitor*)monitor, (int*)pxpos, ypos, (int*)pwidth, height);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(ref GLFWmonitor monitor, ref int xpos, int* ypos, ref int width, int* height)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pxpos = &xpos)
-				{
-					fixed (int* pwidth = &width)
-					{
-						GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, (int*)pxpos, ypos, (int*)pwidth, height);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(ref GLFWmonitor monitor, ref int xpos, int* ypos, ref int width, int* height)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pxpos = &xpos)
+                {
+                    fixed (int* pwidth = &width)
+                    {
+                        GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, (int*)pxpos, ypos, (int*)pwidth, height);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, int* xpos, ref int ypos, ref int width, int* height)
-		{
-			fixed (int* pypos = &ypos)
-			{
-				fixed (int* pwidth = &width)
-				{
-					GetMonitorWorkareaNative((GLFWmonitor*)monitor, xpos, (int*)pypos, (int*)pwidth, height);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, int* xpos, ref int ypos, ref int width, int* height)
+        {
+            fixed (int* pypos = &ypos)
+            {
+                fixed (int* pwidth = &width)
+                {
+                    GetMonitorWorkareaNative((GLFWmonitor*)monitor, xpos, (int*)pypos, (int*)pwidth, height);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(ref GLFWmonitor monitor, int* xpos, ref int ypos, ref int width, int* height)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pypos = &ypos)
-				{
-					fixed (int* pwidth = &width)
-					{
-						GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, xpos, (int*)pypos, (int*)pwidth, height);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(ref GLFWmonitor monitor, int* xpos, ref int ypos, ref int width, int* height)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pypos = &ypos)
+                {
+                    fixed (int* pwidth = &width)
+                    {
+                        GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, xpos, (int*)pypos, (int*)pwidth, height);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, ref int xpos, ref int ypos, ref int width, int* height)
-		{
-			fixed (int* pxpos = &xpos)
-			{
-				fixed (int* pypos = &ypos)
-				{
-					fixed (int* pwidth = &width)
-					{
-						GetMonitorWorkareaNative((GLFWmonitor*)monitor, (int*)pxpos, (int*)pypos, (int*)pwidth, height);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, ref int xpos, ref int ypos, ref int width, int* height)
+        {
+            fixed (int* pxpos = &xpos)
+            {
+                fixed (int* pypos = &ypos)
+                {
+                    fixed (int* pwidth = &width)
+                    {
+                        GetMonitorWorkareaNative((GLFWmonitor*)monitor, (int*)pxpos, (int*)pypos, (int*)pwidth, height);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(ref GLFWmonitor monitor, ref int xpos, ref int ypos, ref int width, int* height)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pxpos = &xpos)
-				{
-					fixed (int* pypos = &ypos)
-					{
-						fixed (int* pwidth = &width)
-						{
-							GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, (int*)pxpos, (int*)pypos, (int*)pwidth, height);
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(ref GLFWmonitor monitor, ref int xpos, ref int ypos, ref int width, int* height)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pxpos = &xpos)
+                {
+                    fixed (int* pypos = &ypos)
+                    {
+                        fixed (int* pwidth = &width)
+                        {
+                            GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, (int*)pxpos, (int*)pypos, (int*)pwidth, height);
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, int* xpos, int* ypos, int* width, ref int height)
-		{
-			fixed (int* pheight = &height)
-			{
-				GetMonitorWorkareaNative((GLFWmonitor*)monitor, xpos, ypos, width, (int*)pheight);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, int* xpos, int* ypos, int* width, ref int height)
+        {
+            fixed (int* pheight = &height)
+            {
+                GetMonitorWorkareaNative((GLFWmonitor*)monitor, xpos, ypos, width, (int*)pheight);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(ref GLFWmonitor monitor, int* xpos, int* ypos, int* width, ref int height)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pheight = &height)
-				{
-					GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, xpos, ypos, width, (int*)pheight);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(ref GLFWmonitor monitor, int* xpos, int* ypos, int* width, ref int height)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pheight = &height)
+                {
+                    GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, xpos, ypos, width, (int*)pheight);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, ref int xpos, int* ypos, int* width, ref int height)
-		{
-			fixed (int* pxpos = &xpos)
-			{
-				fixed (int* pheight = &height)
-				{
-					GetMonitorWorkareaNative((GLFWmonitor*)monitor, (int*)pxpos, ypos, width, (int*)pheight);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, ref int xpos, int* ypos, int* width, ref int height)
+        {
+            fixed (int* pxpos = &xpos)
+            {
+                fixed (int* pheight = &height)
+                {
+                    GetMonitorWorkareaNative((GLFWmonitor*)monitor, (int*)pxpos, ypos, width, (int*)pheight);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(ref GLFWmonitor monitor, ref int xpos, int* ypos, int* width, ref int height)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pxpos = &xpos)
-				{
-					fixed (int* pheight = &height)
-					{
-						GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, (int*)pxpos, ypos, width, (int*)pheight);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(ref GLFWmonitor monitor, ref int xpos, int* ypos, int* width, ref int height)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pxpos = &xpos)
+                {
+                    fixed (int* pheight = &height)
+                    {
+                        GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, (int*)pxpos, ypos, width, (int*)pheight);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, int* xpos, ref int ypos, int* width, ref int height)
-		{
-			fixed (int* pypos = &ypos)
-			{
-				fixed (int* pheight = &height)
-				{
-					GetMonitorWorkareaNative((GLFWmonitor*)monitor, xpos, (int*)pypos, width, (int*)pheight);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, int* xpos, ref int ypos, int* width, ref int height)
+        {
+            fixed (int* pypos = &ypos)
+            {
+                fixed (int* pheight = &height)
+                {
+                    GetMonitorWorkareaNative((GLFWmonitor*)monitor, xpos, (int*)pypos, width, (int*)pheight);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(ref GLFWmonitor monitor, int* xpos, ref int ypos, int* width, ref int height)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pypos = &ypos)
-				{
-					fixed (int* pheight = &height)
-					{
-						GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, xpos, (int*)pypos, width, (int*)pheight);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(ref GLFWmonitor monitor, int* xpos, ref int ypos, int* width, ref int height)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pypos = &ypos)
+                {
+                    fixed (int* pheight = &height)
+                    {
+                        GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, xpos, (int*)pypos, width, (int*)pheight);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, ref int xpos, ref int ypos, int* width, ref int height)
-		{
-			fixed (int* pxpos = &xpos)
-			{
-				fixed (int* pypos = &ypos)
-				{
-					fixed (int* pheight = &height)
-					{
-						GetMonitorWorkareaNative((GLFWmonitor*)monitor, (int*)pxpos, (int*)pypos, width, (int*)pheight);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, ref int xpos, ref int ypos, int* width, ref int height)
+        {
+            fixed (int* pxpos = &xpos)
+            {
+                fixed (int* pypos = &ypos)
+                {
+                    fixed (int* pheight = &height)
+                    {
+                        GetMonitorWorkareaNative((GLFWmonitor*)monitor, (int*)pxpos, (int*)pypos, width, (int*)pheight);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(ref GLFWmonitor monitor, ref int xpos, ref int ypos, int* width, ref int height)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pxpos = &xpos)
-				{
-					fixed (int* pypos = &ypos)
-					{
-						fixed (int* pheight = &height)
-						{
-							GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, (int*)pxpos, (int*)pypos, width, (int*)pheight);
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(ref GLFWmonitor monitor, ref int xpos, ref int ypos, int* width, ref int height)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pxpos = &xpos)
+                {
+                    fixed (int* pypos = &ypos)
+                    {
+                        fixed (int* pheight = &height)
+                        {
+                            GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, (int*)pxpos, (int*)pypos, width, (int*)pheight);
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, int* xpos, int* ypos, ref int width, ref int height)
-		{
-			fixed (int* pwidth = &width)
-			{
-				fixed (int* pheight = &height)
-				{
-					GetMonitorWorkareaNative((GLFWmonitor*)monitor, xpos, ypos, (int*)pwidth, (int*)pheight);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, int* xpos, int* ypos, ref int width, ref int height)
+        {
+            fixed (int* pwidth = &width)
+            {
+                fixed (int* pheight = &height)
+                {
+                    GetMonitorWorkareaNative((GLFWmonitor*)monitor, xpos, ypos, (int*)pwidth, (int*)pheight);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(ref GLFWmonitor monitor, int* xpos, int* ypos, ref int width, ref int height)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pwidth = &width)
-				{
-					fixed (int* pheight = &height)
-					{
-						GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, xpos, ypos, (int*)pwidth, (int*)pheight);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(ref GLFWmonitor monitor, int* xpos, int* ypos, ref int width, ref int height)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pwidth = &width)
+                {
+                    fixed (int* pheight = &height)
+                    {
+                        GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, xpos, ypos, (int*)pwidth, (int*)pheight);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, ref int xpos, int* ypos, ref int width, ref int height)
-		{
-			fixed (int* pxpos = &xpos)
-			{
-				fixed (int* pwidth = &width)
-				{
-					fixed (int* pheight = &height)
-					{
-						GetMonitorWorkareaNative((GLFWmonitor*)monitor, (int*)pxpos, ypos, (int*)pwidth, (int*)pheight);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, ref int xpos, int* ypos, ref int width, ref int height)
+        {
+            fixed (int* pxpos = &xpos)
+            {
+                fixed (int* pwidth = &width)
+                {
+                    fixed (int* pheight = &height)
+                    {
+                        GetMonitorWorkareaNative((GLFWmonitor*)monitor, (int*)pxpos, ypos, (int*)pwidth, (int*)pheight);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(ref GLFWmonitor monitor, ref int xpos, int* ypos, ref int width, ref int height)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pxpos = &xpos)
-				{
-					fixed (int* pwidth = &width)
-					{
-						fixed (int* pheight = &height)
-						{
-							GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, (int*)pxpos, ypos, (int*)pwidth, (int*)pheight);
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(ref GLFWmonitor monitor, ref int xpos, int* ypos, ref int width, ref int height)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pxpos = &xpos)
+                {
+                    fixed (int* pwidth = &width)
+                    {
+                        fixed (int* pheight = &height)
+                        {
+                            GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, (int*)pxpos, ypos, (int*)pwidth, (int*)pheight);
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, int* xpos, ref int ypos, ref int width, ref int height)
-		{
-			fixed (int* pypos = &ypos)
-			{
-				fixed (int* pwidth = &width)
-				{
-					fixed (int* pheight = &height)
-					{
-						GetMonitorWorkareaNative((GLFWmonitor*)monitor, xpos, (int*)pypos, (int*)pwidth, (int*)pheight);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, int* xpos, ref int ypos, ref int width, ref int height)
+        {
+            fixed (int* pypos = &ypos)
+            {
+                fixed (int* pwidth = &width)
+                {
+                    fixed (int* pheight = &height)
+                    {
+                        GetMonitorWorkareaNative((GLFWmonitor*)monitor, xpos, (int*)pypos, (int*)pwidth, (int*)pheight);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(ref GLFWmonitor monitor, int* xpos, ref int ypos, ref int width, ref int height)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pypos = &ypos)
-				{
-					fixed (int* pwidth = &width)
-					{
-						fixed (int* pheight = &height)
-						{
-							GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, xpos, (int*)pypos, (int*)pwidth, (int*)pheight);
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(ref GLFWmonitor monitor, int* xpos, ref int ypos, ref int width, ref int height)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pypos = &ypos)
+                {
+                    fixed (int* pwidth = &width)
+                    {
+                        fixed (int* pheight = &height)
+                        {
+                            GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, xpos, (int*)pypos, (int*)pwidth, (int*)pheight);
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, ref int xpos, ref int ypos, ref int width, ref int height)
-		{
-			fixed (int* pxpos = &xpos)
-			{
-				fixed (int* pypos = &ypos)
-				{
-					fixed (int* pwidth = &width)
-					{
-						fixed (int* pheight = &height)
-						{
-							GetMonitorWorkareaNative((GLFWmonitor*)monitor, (int*)pxpos, (int*)pypos, (int*)pwidth, (int*)pheight);
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(GLFWmonitorPtr monitor, ref int xpos, ref int ypos, ref int width, ref int height)
+        {
+            fixed (int* pxpos = &xpos)
+            {
+                fixed (int* pypos = &ypos)
+                {
+                    fixed (int* pwidth = &width)
+                    {
+                        fixed (int* pheight = &height)
+                        {
+                            GetMonitorWorkareaNative((GLFWmonitor*)monitor, (int*)pxpos, (int*)pypos, (int*)pwidth, (int*)pheight);
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the work area of the specified monitor along with the work area<br/>
-		/// size in screen coordinates. The work area is defined as the area of the<br/>
-		/// monitor not occluded by the window system task bar where present. If no<br/>
-		/// task bar exists then the work area is the monitor resolution in screen<br/>
-		/// coordinates.<br/>
-		/// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
-		/// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorWorkarea(ref GLFWmonitor monitor, ref int xpos, ref int ypos, ref int width, ref int height)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pxpos = &xpos)
-				{
-					fixed (int* pypos = &ypos)
-					{
-						fixed (int* pwidth = &width)
-						{
-							fixed (int* pheight = &height)
-							{
-								GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, (int*)pxpos, (int*)pypos, (int*)pwidth, (int*)pheight);
-							}
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the work area of the specified monitor along with the work area<br/>
+        /// size in screen coordinates. The work area is defined as the area of the<br/>
+        /// monitor not occluded by the window system task bar where present. If no<br/>
+        /// task bar exists then the work area is the monitor resolution in screen<br/>
+        /// coordinates.<br/>
+        /// Any or all of the position and size arguments may be `NULL`.  If an error<br/>
+        /// occurs, all non-`NULL` position and size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorWorkarea(ref GLFWmonitor monitor, ref int xpos, ref int ypos, ref int width, ref int height)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pxpos = &xpos)
+                {
+                    fixed (int* pypos = &ypos)
+                    {
+                        fixed (int* pwidth = &width)
+                        {
+                            fixed (int* pheight = &height)
+                            {
+                                GetMonitorWorkareaNative((GLFWmonitor*)pmonitor, (int*)pxpos, (int*)pypos, (int*)pwidth, (int*)pheight);
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the size, in millimetres, of the display area of the<br/>
-		/// specified monitor.<br/>
-		/// Some platforms do not provide accurate monitor size information, either<br/>
-		/// because the monitor [EDID][] data is incorrect or because the driver does<br/>
-		/// not report it accurately.<br/>
-		/// [EDID]: https://en.wikipedia.org/wiki/Extended_display_identification_data<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void GetMonitorPhysicalSizeNative(GLFWmonitor* monitor, int* widthMM, int* heightMM)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the size, in millimetres, of the display area of the<br/>
+        /// specified monitor.<br/>
+        /// Some platforms do not provide accurate monitor size information, either<br/>
+        /// because the monitor [EDID][] data is incorrect or because the driver does<br/>
+        /// not report it accurately.<br/>
+        /// [EDID]: https://en.wikipedia.org/wiki/Extended_display_identification_data<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void GetMonitorPhysicalSizeNative(GLFWmonitor* monitor, int* widthMM, int* heightMM)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWmonitor*, int*, int*, void>)funcTable[15])(monitor, widthMM, heightMM);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[15])((nint)monitor, (nint)widthMM, (nint)heightMM);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, nint, nint, void> )funcTable[15])((nint)monitor, (nint)widthMM, (nint)heightMM);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the size, in millimetres, of the display area of the<br/>
-		/// specified monitor.<br/>
-		/// Some platforms do not provide accurate monitor size information, either<br/>
-		/// because the monitor [EDID][] data is incorrect or because the driver does<br/>
-		/// not report it accurately.<br/>
-		/// [EDID]: https://en.wikipedia.org/wiki/Extended_display_identification_data<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorPhysicalSize(GLFWmonitorPtr monitor, int* widthMM, int* heightMM)
-		{
-			GetMonitorPhysicalSizeNative((GLFWmonitor*)monitor, widthMM, heightMM);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the size, in millimetres, of the display area of the<br/>
+        /// specified monitor.<br/>
+        /// Some platforms do not provide accurate monitor size information, either<br/>
+        /// because the monitor [EDID][] data is incorrect or because the driver does<br/>
+        /// not report it accurately.<br/>
+        /// [EDID]: https://en.wikipedia.org/wiki/Extended_display_identification_data<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorPhysicalSize(GLFWmonitorPtr monitor, int* widthMM, int* heightMM)
+        {
+            GetMonitorPhysicalSizeNative((GLFWmonitor*)monitor, widthMM, heightMM);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the size, in millimetres, of the display area of the<br/>
-		/// specified monitor.<br/>
-		/// Some platforms do not provide accurate monitor size information, either<br/>
-		/// because the monitor [EDID][] data is incorrect or because the driver does<br/>
-		/// not report it accurately.<br/>
-		/// [EDID]: https://en.wikipedia.org/wiki/Extended_display_identification_data<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorPhysicalSize(ref GLFWmonitor monitor, int* widthMM, int* heightMM)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				GetMonitorPhysicalSizeNative((GLFWmonitor*)pmonitor, widthMM, heightMM);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the size, in millimetres, of the display area of the<br/>
+        /// specified monitor.<br/>
+        /// Some platforms do not provide accurate monitor size information, either<br/>
+        /// because the monitor [EDID][] data is incorrect or because the driver does<br/>
+        /// not report it accurately.<br/>
+        /// [EDID]: https://en.wikipedia.org/wiki/Extended_display_identification_data<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorPhysicalSize(ref GLFWmonitor monitor, int* widthMM, int* heightMM)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                GetMonitorPhysicalSizeNative((GLFWmonitor*)pmonitor, widthMM, heightMM);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the size, in millimetres, of the display area of the<br/>
-		/// specified monitor.<br/>
-		/// Some platforms do not provide accurate monitor size information, either<br/>
-		/// because the monitor [EDID][] data is incorrect or because the driver does<br/>
-		/// not report it accurately.<br/>
-		/// [EDID]: https://en.wikipedia.org/wiki/Extended_display_identification_data<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorPhysicalSize(GLFWmonitorPtr monitor, ref int widthMM, int* heightMM)
-		{
-			fixed (int* pwidthMM = &widthMM)
-			{
-				GetMonitorPhysicalSizeNative((GLFWmonitor*)monitor, (int*)pwidthMM, heightMM);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the size, in millimetres, of the display area of the<br/>
+        /// specified monitor.<br/>
+        /// Some platforms do not provide accurate monitor size information, either<br/>
+        /// because the monitor [EDID][] data is incorrect or because the driver does<br/>
+        /// not report it accurately.<br/>
+        /// [EDID]: https://en.wikipedia.org/wiki/Extended_display_identification_data<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorPhysicalSize(GLFWmonitorPtr monitor, ref int widthMM, int* heightMM)
+        {
+            fixed (int* pwidthMM = &widthMM)
+            {
+                GetMonitorPhysicalSizeNative((GLFWmonitor*)monitor, (int*)pwidthMM, heightMM);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the size, in millimetres, of the display area of the<br/>
-		/// specified monitor.<br/>
-		/// Some platforms do not provide accurate monitor size information, either<br/>
-		/// because the monitor [EDID][] data is incorrect or because the driver does<br/>
-		/// not report it accurately.<br/>
-		/// [EDID]: https://en.wikipedia.org/wiki/Extended_display_identification_data<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorPhysicalSize(ref GLFWmonitor monitor, ref int widthMM, int* heightMM)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pwidthMM = &widthMM)
-				{
-					GetMonitorPhysicalSizeNative((GLFWmonitor*)pmonitor, (int*)pwidthMM, heightMM);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the size, in millimetres, of the display area of the<br/>
+        /// specified monitor.<br/>
+        /// Some platforms do not provide accurate monitor size information, either<br/>
+        /// because the monitor [EDID][] data is incorrect or because the driver does<br/>
+        /// not report it accurately.<br/>
+        /// [EDID]: https://en.wikipedia.org/wiki/Extended_display_identification_data<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorPhysicalSize(ref GLFWmonitor monitor, ref int widthMM, int* heightMM)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pwidthMM = &widthMM)
+                {
+                    GetMonitorPhysicalSizeNative((GLFWmonitor*)pmonitor, (int*)pwidthMM, heightMM);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the size, in millimetres, of the display area of the<br/>
-		/// specified monitor.<br/>
-		/// Some platforms do not provide accurate monitor size information, either<br/>
-		/// because the monitor [EDID][] data is incorrect or because the driver does<br/>
-		/// not report it accurately.<br/>
-		/// [EDID]: https://en.wikipedia.org/wiki/Extended_display_identification_data<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorPhysicalSize(GLFWmonitorPtr monitor, int* widthMM, ref int heightMM)
-		{
-			fixed (int* pheightMM = &heightMM)
-			{
-				GetMonitorPhysicalSizeNative((GLFWmonitor*)monitor, widthMM, (int*)pheightMM);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the size, in millimetres, of the display area of the<br/>
+        /// specified monitor.<br/>
+        /// Some platforms do not provide accurate monitor size information, either<br/>
+        /// because the monitor [EDID][] data is incorrect or because the driver does<br/>
+        /// not report it accurately.<br/>
+        /// [EDID]: https://en.wikipedia.org/wiki/Extended_display_identification_data<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorPhysicalSize(GLFWmonitorPtr monitor, int* widthMM, ref int heightMM)
+        {
+            fixed (int* pheightMM = &heightMM)
+            {
+                GetMonitorPhysicalSizeNative((GLFWmonitor*)monitor, widthMM, (int*)pheightMM);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the size, in millimetres, of the display area of the<br/>
-		/// specified monitor.<br/>
-		/// Some platforms do not provide accurate monitor size information, either<br/>
-		/// because the monitor [EDID][] data is incorrect or because the driver does<br/>
-		/// not report it accurately.<br/>
-		/// [EDID]: https://en.wikipedia.org/wiki/Extended_display_identification_data<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorPhysicalSize(ref GLFWmonitor monitor, int* widthMM, ref int heightMM)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pheightMM = &heightMM)
-				{
-					GetMonitorPhysicalSizeNative((GLFWmonitor*)pmonitor, widthMM, (int*)pheightMM);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the size, in millimetres, of the display area of the<br/>
+        /// specified monitor.<br/>
+        /// Some platforms do not provide accurate monitor size information, either<br/>
+        /// because the monitor [EDID][] data is incorrect or because the driver does<br/>
+        /// not report it accurately.<br/>
+        /// [EDID]: https://en.wikipedia.org/wiki/Extended_display_identification_data<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorPhysicalSize(ref GLFWmonitor monitor, int* widthMM, ref int heightMM)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pheightMM = &heightMM)
+                {
+                    GetMonitorPhysicalSizeNative((GLFWmonitor*)pmonitor, widthMM, (int*)pheightMM);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the size, in millimetres, of the display area of the<br/>
-		/// specified monitor.<br/>
-		/// Some platforms do not provide accurate monitor size information, either<br/>
-		/// because the monitor [EDID][] data is incorrect or because the driver does<br/>
-		/// not report it accurately.<br/>
-		/// [EDID]: https://en.wikipedia.org/wiki/Extended_display_identification_data<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorPhysicalSize(GLFWmonitorPtr monitor, ref int widthMM, ref int heightMM)
-		{
-			fixed (int* pwidthMM = &widthMM)
-			{
-				fixed (int* pheightMM = &heightMM)
-				{
-					GetMonitorPhysicalSizeNative((GLFWmonitor*)monitor, (int*)pwidthMM, (int*)pheightMM);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the size, in millimetres, of the display area of the<br/>
+        /// specified monitor.<br/>
+        /// Some platforms do not provide accurate monitor size information, either<br/>
+        /// because the monitor [EDID][] data is incorrect or because the driver does<br/>
+        /// not report it accurately.<br/>
+        /// [EDID]: https://en.wikipedia.org/wiki/Extended_display_identification_data<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorPhysicalSize(GLFWmonitorPtr monitor, ref int widthMM, ref int heightMM)
+        {
+            fixed (int* pwidthMM = &widthMM)
+            {
+                fixed (int* pheightMM = &heightMM)
+                {
+                    GetMonitorPhysicalSizeNative((GLFWmonitor*)monitor, (int*)pwidthMM, (int*)pheightMM);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the size, in millimetres, of the display area of the<br/>
-		/// specified monitor.<br/>
-		/// Some platforms do not provide accurate monitor size information, either<br/>
-		/// because the monitor [EDID][] data is incorrect or because the driver does<br/>
-		/// not report it accurately.<br/>
-		/// [EDID]: https://en.wikipedia.org/wiki/Extended_display_identification_data<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorPhysicalSize(ref GLFWmonitor monitor, ref int widthMM, ref int heightMM)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pwidthMM = &widthMM)
-				{
-					fixed (int* pheightMM = &heightMM)
-					{
-						GetMonitorPhysicalSizeNative((GLFWmonitor*)pmonitor, (int*)pwidthMM, (int*)pheightMM);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the size, in millimetres, of the display area of the<br/>
+        /// specified monitor.<br/>
+        /// Some platforms do not provide accurate monitor size information, either<br/>
+        /// because the monitor [EDID][] data is incorrect or because the driver does<br/>
+        /// not report it accurately.<br/>
+        /// [EDID]: https://en.wikipedia.org/wiki/Extended_display_identification_data<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorPhysicalSize(ref GLFWmonitor monitor, ref int widthMM, ref int heightMM)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pwidthMM = &widthMM)
+                {
+                    fixed (int* pheightMM = &heightMM)
+                    {
+                        GetMonitorPhysicalSizeNative((GLFWmonitor*)pmonitor, (int*)pwidthMM, (int*)pheightMM);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the content scale for the specified monitor.  The<br/>
-		/// content scale is the ratio between the current DPI and the platform's<br/>
-		/// default DPI.  This is especially important for text and any UI elements.  If<br/>
-		/// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
-		/// machine then it should appear at a reasonable size on other machines<br/>
-		/// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
-		/// and scaling settings being somewhat correct.<br/>
-		/// The content scale may depend on both the monitor resolution and pixel<br/>
-		/// density and on user settings.  It may be very different from the raw DPI<br/>
-		/// calculated from the physical size and current resolution.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void GetMonitorContentScaleNative(GLFWmonitor* monitor, float* xscale, float* yscale)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the content scale for the specified monitor.  The<br/>
+        /// content scale is the ratio between the current DPI and the platform's<br/>
+        /// default DPI.  This is especially important for text and any UI elements.  If<br/>
+        /// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
+        /// machine then it should appear at a reasonable size on other machines<br/>
+        /// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
+        /// and scaling settings being somewhat correct.<br/>
+        /// The content scale may depend on both the monitor resolution and pixel<br/>
+        /// density and on user settings.  It may be very different from the raw DPI<br/>
+        /// calculated from the physical size and current resolution.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void GetMonitorContentScaleNative(GLFWmonitor* monitor, float* xscale, float* yscale)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWmonitor*, float*, float*, void>)funcTable[16])(monitor, xscale, yscale);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[16])((nint)monitor, (nint)xscale, (nint)yscale);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, nint, nint, void> )funcTable[16])((nint)monitor, (nint)xscale, (nint)yscale);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the content scale for the specified monitor.  The<br/>
-		/// content scale is the ratio between the current DPI and the platform's<br/>
-		/// default DPI.  This is especially important for text and any UI elements.  If<br/>
-		/// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
-		/// machine then it should appear at a reasonable size on other machines<br/>
-		/// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
-		/// and scaling settings being somewhat correct.<br/>
-		/// The content scale may depend on both the monitor resolution and pixel<br/>
-		/// density and on user settings.  It may be very different from the raw DPI<br/>
-		/// calculated from the physical size and current resolution.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorContentScale(GLFWmonitorPtr monitor, float* xscale, float* yscale)
-		{
-			GetMonitorContentScaleNative((GLFWmonitor*)monitor, xscale, yscale);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the content scale for the specified monitor.  The<br/>
+        /// content scale is the ratio between the current DPI and the platform's<br/>
+        /// default DPI.  This is especially important for text and any UI elements.  If<br/>
+        /// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
+        /// machine then it should appear at a reasonable size on other machines<br/>
+        /// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
+        /// and scaling settings being somewhat correct.<br/>
+        /// The content scale may depend on both the monitor resolution and pixel<br/>
+        /// density and on user settings.  It may be very different from the raw DPI<br/>
+        /// calculated from the physical size and current resolution.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorContentScale(GLFWmonitorPtr monitor, float* xscale, float* yscale)
+        {
+            GetMonitorContentScaleNative((GLFWmonitor*)monitor, xscale, yscale);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the content scale for the specified monitor.  The<br/>
-		/// content scale is the ratio between the current DPI and the platform's<br/>
-		/// default DPI.  This is especially important for text and any UI elements.  If<br/>
-		/// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
-		/// machine then it should appear at a reasonable size on other machines<br/>
-		/// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
-		/// and scaling settings being somewhat correct.<br/>
-		/// The content scale may depend on both the monitor resolution and pixel<br/>
-		/// density and on user settings.  It may be very different from the raw DPI<br/>
-		/// calculated from the physical size and current resolution.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorContentScale(ref GLFWmonitor monitor, float* xscale, float* yscale)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				GetMonitorContentScaleNative((GLFWmonitor*)pmonitor, xscale, yscale);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the content scale for the specified monitor.  The<br/>
+        /// content scale is the ratio between the current DPI and the platform's<br/>
+        /// default DPI.  This is especially important for text and any UI elements.  If<br/>
+        /// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
+        /// machine then it should appear at a reasonable size on other machines<br/>
+        /// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
+        /// and scaling settings being somewhat correct.<br/>
+        /// The content scale may depend on both the monitor resolution and pixel<br/>
+        /// density and on user settings.  It may be very different from the raw DPI<br/>
+        /// calculated from the physical size and current resolution.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorContentScale(ref GLFWmonitor monitor, float* xscale, float* yscale)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                GetMonitorContentScaleNative((GLFWmonitor*)pmonitor, xscale, yscale);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the content scale for the specified monitor.  The<br/>
-		/// content scale is the ratio between the current DPI and the platform's<br/>
-		/// default DPI.  This is especially important for text and any UI elements.  If<br/>
-		/// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
-		/// machine then it should appear at a reasonable size on other machines<br/>
-		/// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
-		/// and scaling settings being somewhat correct.<br/>
-		/// The content scale may depend on both the monitor resolution and pixel<br/>
-		/// density and on user settings.  It may be very different from the raw DPI<br/>
-		/// calculated from the physical size and current resolution.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorContentScale(GLFWmonitorPtr monitor, ref float xscale, float* yscale)
-		{
-			fixed (float* pxscale = &xscale)
-			{
-				GetMonitorContentScaleNative((GLFWmonitor*)monitor, (float*)pxscale, yscale);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the content scale for the specified monitor.  The<br/>
+        /// content scale is the ratio between the current DPI and the platform's<br/>
+        /// default DPI.  This is especially important for text and any UI elements.  If<br/>
+        /// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
+        /// machine then it should appear at a reasonable size on other machines<br/>
+        /// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
+        /// and scaling settings being somewhat correct.<br/>
+        /// The content scale may depend on both the monitor resolution and pixel<br/>
+        /// density and on user settings.  It may be very different from the raw DPI<br/>
+        /// calculated from the physical size and current resolution.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorContentScale(GLFWmonitorPtr monitor, ref float xscale, float* yscale)
+        {
+            fixed (float* pxscale = &xscale)
+            {
+                GetMonitorContentScaleNative((GLFWmonitor*)monitor, (float*)pxscale, yscale);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the content scale for the specified monitor.  The<br/>
-		/// content scale is the ratio between the current DPI and the platform's<br/>
-		/// default DPI.  This is especially important for text and any UI elements.  If<br/>
-		/// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
-		/// machine then it should appear at a reasonable size on other machines<br/>
-		/// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
-		/// and scaling settings being somewhat correct.<br/>
-		/// The content scale may depend on both the monitor resolution and pixel<br/>
-		/// density and on user settings.  It may be very different from the raw DPI<br/>
-		/// calculated from the physical size and current resolution.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorContentScale(ref GLFWmonitor monitor, ref float xscale, float* yscale)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (float* pxscale = &xscale)
-				{
-					GetMonitorContentScaleNative((GLFWmonitor*)pmonitor, (float*)pxscale, yscale);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the content scale for the specified monitor.  The<br/>
+        /// content scale is the ratio between the current DPI and the platform's<br/>
+        /// default DPI.  This is especially important for text and any UI elements.  If<br/>
+        /// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
+        /// machine then it should appear at a reasonable size on other machines<br/>
+        /// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
+        /// and scaling settings being somewhat correct.<br/>
+        /// The content scale may depend on both the monitor resolution and pixel<br/>
+        /// density and on user settings.  It may be very different from the raw DPI<br/>
+        /// calculated from the physical size and current resolution.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorContentScale(ref GLFWmonitor monitor, ref float xscale, float* yscale)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (float* pxscale = &xscale)
+                {
+                    GetMonitorContentScaleNative((GLFWmonitor*)pmonitor, (float*)pxscale, yscale);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the content scale for the specified monitor.  The<br/>
-		/// content scale is the ratio between the current DPI and the platform's<br/>
-		/// default DPI.  This is especially important for text and any UI elements.  If<br/>
-		/// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
-		/// machine then it should appear at a reasonable size on other machines<br/>
-		/// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
-		/// and scaling settings being somewhat correct.<br/>
-		/// The content scale may depend on both the monitor resolution and pixel<br/>
-		/// density and on user settings.  It may be very different from the raw DPI<br/>
-		/// calculated from the physical size and current resolution.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorContentScale(GLFWmonitorPtr monitor, float* xscale, ref float yscale)
-		{
-			fixed (float* pyscale = &yscale)
-			{
-				GetMonitorContentScaleNative((GLFWmonitor*)monitor, xscale, (float*)pyscale);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the content scale for the specified monitor.  The<br/>
+        /// content scale is the ratio between the current DPI and the platform's<br/>
+        /// default DPI.  This is especially important for text and any UI elements.  If<br/>
+        /// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
+        /// machine then it should appear at a reasonable size on other machines<br/>
+        /// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
+        /// and scaling settings being somewhat correct.<br/>
+        /// The content scale may depend on both the monitor resolution and pixel<br/>
+        /// density and on user settings.  It may be very different from the raw DPI<br/>
+        /// calculated from the physical size and current resolution.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorContentScale(GLFWmonitorPtr monitor, float* xscale, ref float yscale)
+        {
+            fixed (float* pyscale = &yscale)
+            {
+                GetMonitorContentScaleNative((GLFWmonitor*)monitor, xscale, (float*)pyscale);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the content scale for the specified monitor.  The<br/>
-		/// content scale is the ratio between the current DPI and the platform's<br/>
-		/// default DPI.  This is especially important for text and any UI elements.  If<br/>
-		/// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
-		/// machine then it should appear at a reasonable size on other machines<br/>
-		/// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
-		/// and scaling settings being somewhat correct.<br/>
-		/// The content scale may depend on both the monitor resolution and pixel<br/>
-		/// density and on user settings.  It may be very different from the raw DPI<br/>
-		/// calculated from the physical size and current resolution.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorContentScale(ref GLFWmonitor monitor, float* xscale, ref float yscale)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (float* pyscale = &yscale)
-				{
-					GetMonitorContentScaleNative((GLFWmonitor*)pmonitor, xscale, (float*)pyscale);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the content scale for the specified monitor.  The<br/>
+        /// content scale is the ratio between the current DPI and the platform's<br/>
+        /// default DPI.  This is especially important for text and any UI elements.  If<br/>
+        /// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
+        /// machine then it should appear at a reasonable size on other machines<br/>
+        /// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
+        /// and scaling settings being somewhat correct.<br/>
+        /// The content scale may depend on both the monitor resolution and pixel<br/>
+        /// density and on user settings.  It may be very different from the raw DPI<br/>
+        /// calculated from the physical size and current resolution.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorContentScale(ref GLFWmonitor monitor, float* xscale, ref float yscale)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (float* pyscale = &yscale)
+                {
+                    GetMonitorContentScaleNative((GLFWmonitor*)pmonitor, xscale, (float*)pyscale);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the content scale for the specified monitor.  The<br/>
-		/// content scale is the ratio between the current DPI and the platform's<br/>
-		/// default DPI.  This is especially important for text and any UI elements.  If<br/>
-		/// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
-		/// machine then it should appear at a reasonable size on other machines<br/>
-		/// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
-		/// and scaling settings being somewhat correct.<br/>
-		/// The content scale may depend on both the monitor resolution and pixel<br/>
-		/// density and on user settings.  It may be very different from the raw DPI<br/>
-		/// calculated from the physical size and current resolution.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorContentScale(GLFWmonitorPtr monitor, ref float xscale, ref float yscale)
-		{
-			fixed (float* pxscale = &xscale)
-			{
-				fixed (float* pyscale = &yscale)
-				{
-					GetMonitorContentScaleNative((GLFWmonitor*)monitor, (float*)pxscale, (float*)pyscale);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the content scale for the specified monitor.  The<br/>
+        /// content scale is the ratio between the current DPI and the platform's<br/>
+        /// default DPI.  This is especially important for text and any UI elements.  If<br/>
+        /// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
+        /// machine then it should appear at a reasonable size on other machines<br/>
+        /// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
+        /// and scaling settings being somewhat correct.<br/>
+        /// The content scale may depend on both the monitor resolution and pixel<br/>
+        /// density and on user settings.  It may be very different from the raw DPI<br/>
+        /// calculated from the physical size and current resolution.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorContentScale(GLFWmonitorPtr monitor, ref float xscale, ref float yscale)
+        {
+            fixed (float* pxscale = &xscale)
+            {
+                fixed (float* pyscale = &yscale)
+                {
+                    GetMonitorContentScaleNative((GLFWmonitor*)monitor, (float*)pxscale, (float*)pyscale);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the content scale for the specified monitor.  The<br/>
-		/// content scale is the ratio between the current DPI and the platform's<br/>
-		/// default DPI.  This is especially important for text and any UI elements.  If<br/>
-		/// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
-		/// machine then it should appear at a reasonable size on other machines<br/>
-		/// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
-		/// and scaling settings being somewhat correct.<br/>
-		/// The content scale may depend on both the monitor resolution and pixel<br/>
-		/// density and on user settings.  It may be very different from the raw DPI<br/>
-		/// calculated from the physical size and current resolution.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetMonitorContentScale(ref GLFWmonitor monitor, ref float xscale, ref float yscale)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (float* pxscale = &xscale)
-				{
-					fixed (float* pyscale = &yscale)
-					{
-						GetMonitorContentScaleNative((GLFWmonitor*)pmonitor, (float*)pxscale, (float*)pyscale);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the content scale for the specified monitor.  The<br/>
+        /// content scale is the ratio between the current DPI and the platform's<br/>
+        /// default DPI.  This is especially important for text and any UI elements.  If<br/>
+        /// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
+        /// machine then it should appear at a reasonable size on other machines<br/>
+        /// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
+        /// and scaling settings being somewhat correct.<br/>
+        /// The content scale may depend on both the monitor resolution and pixel<br/>
+        /// density and on user settings.  It may be very different from the raw DPI<br/>
+        /// calculated from the physical size and current resolution.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetMonitorContentScale(ref GLFWmonitor monitor, ref float xscale, ref float yscale)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (float* pxscale = &xscale)
+                {
+                    fixed (float* pyscale = &yscale)
+                    {
+                        GetMonitorContentScaleNative((GLFWmonitor*)pmonitor, (float*)pxscale, (float*)pyscale);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns a human-readable name, encoded as UTF-8, of the<br/>
-		/// specified monitor.  The name typically reflects the make and model of the<br/>
-		/// monitor and is not guaranteed to be unique among the connected monitors.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified monitor is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte* GetMonitorNameNative(GLFWmonitor* monitor)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns a human-readable name, encoded as UTF-8, of the<br/>
+        /// specified monitor.  The name typically reflects the make and model of the<br/>
+        /// monitor and is not guaranteed to be unique among the connected monitors.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified monitor is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static byte* GetMonitorNameNative(GLFWmonitor* monitor)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, byte*>)funcTable[17])(monitor);
-			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[17])((nint)monitor);
-			#endif
-		}
+#else
+            return (byte*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[17])((nint)monitor);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns a human-readable name, encoded as UTF-8, of the<br/>
-		/// specified monitor.  The name typically reflects the make and model of the<br/>
-		/// monitor and is not guaranteed to be unique among the connected monitors.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified monitor is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static byte* GetMonitorName(GLFWmonitorPtr monitor)
-		{
-			byte* ret = GetMonitorNameNative((GLFWmonitor*)monitor);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns a human-readable name, encoded as UTF-8, of the<br/>
+        /// specified monitor.  The name typically reflects the make and model of the<br/>
+        /// monitor and is not guaranteed to be unique among the connected monitors.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified monitor is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static byte* GetMonitorName(GLFWmonitorPtr monitor)
+        {
+            byte* ret = GetMonitorNameNative((GLFWmonitor*)monitor);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns a human-readable name, encoded as UTF-8, of the<br/>
-		/// specified monitor.  The name typically reflects the make and model of the<br/>
-		/// monitor and is not guaranteed to be unique among the connected monitors.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified monitor is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static string GetMonitorNameS(GLFWmonitorPtr monitor)
-		{
-			string ret = Utils.DecodeStringUTF8(GetMonitorNameNative((GLFWmonitor*)monitor));
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns a human-readable name, encoded as UTF-8, of the<br/>
+        /// specified monitor.  The name typically reflects the make and model of the<br/>
+        /// monitor and is not guaranteed to be unique among the connected monitors.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified monitor is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static string GetMonitorNameS(GLFWmonitorPtr monitor)
+        {
+            string ret = Utils.DecodeStringUTF8(GetMonitorNameNative((GLFWmonitor*)monitor));
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns a human-readable name, encoded as UTF-8, of the<br/>
-		/// specified monitor.  The name typically reflects the make and model of the<br/>
-		/// monitor and is not guaranteed to be unique among the connected monitors.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified monitor is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static byte* GetMonitorName(ref GLFWmonitor monitor)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				byte* ret = GetMonitorNameNative((GLFWmonitor*)pmonitor);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns a human-readable name, encoded as UTF-8, of the<br/>
+        /// specified monitor.  The name typically reflects the make and model of the<br/>
+        /// monitor and is not guaranteed to be unique among the connected monitors.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified monitor is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static byte* GetMonitorName(ref GLFWmonitor monitor)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                byte* ret = GetMonitorNameNative((GLFWmonitor*)pmonitor);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns a human-readable name, encoded as UTF-8, of the<br/>
-		/// specified monitor.  The name typically reflects the make and model of the<br/>
-		/// monitor and is not guaranteed to be unique among the connected monitors.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified monitor is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static string GetMonitorNameS(ref GLFWmonitor monitor)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				string ret = Utils.DecodeStringUTF8(GetMonitorNameNative((GLFWmonitor*)pmonitor));
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns a human-readable name, encoded as UTF-8, of the<br/>
+        /// specified monitor.  The name typically reflects the make and model of the<br/>
+        /// monitor and is not guaranteed to be unique among the connected monitors.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified monitor is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static string GetMonitorNameS(ref GLFWmonitor monitor)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                string ret = Utils.DecodeStringUTF8(GetMonitorNameNative((GLFWmonitor*)pmonitor));
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the user-defined pointer of the specified monitor.  The<br/>
-		/// current value is retained until the monitor is disconnected.  The initial<br/>
-		/// value is `NULL`.<br/>
-		/// This function may be called from the monitor callback, even for a monitor<br/>
-		/// that is being disconnected.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void SetMonitorUserPointerNative(GLFWmonitor* monitor, void* pointer)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets the user-defined pointer of the specified monitor.  The<br/>
+        /// current value is retained until the monitor is disconnected.  The initial<br/>
+        /// value is `NULL`.<br/>
+        /// This function may be called from the monitor callback, even for a monitor<br/>
+        /// that is being disconnected.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void SetMonitorUserPointerNative(GLFWmonitor* monitor, void* pointer)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWmonitor*, void*, void>)funcTable[18])(monitor, pointer);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[18])((nint)monitor, (nint)pointer);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, nint, void> )funcTable[18])((nint)monitor, (nint)pointer);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the user-defined pointer of the specified monitor.  The<br/>
-		/// current value is retained until the monitor is disconnected.  The initial<br/>
-		/// value is `NULL`.<br/>
-		/// This function may be called from the monitor callback, even for a monitor<br/>
-		/// that is being disconnected.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetMonitorUserPointer(GLFWmonitorPtr monitor, void* pointer)
-		{
-			SetMonitorUserPointerNative((GLFWmonitor*)monitor, pointer);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the user-defined pointer of the specified monitor.  The<br/>
+        /// current value is retained until the monitor is disconnected.  The initial<br/>
+        /// value is `NULL`.<br/>
+        /// This function may be called from the monitor callback, even for a monitor<br/>
+        /// that is being disconnected.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetMonitorUserPointer(GLFWmonitorPtr monitor, void* pointer)
+        {
+            SetMonitorUserPointerNative((GLFWmonitor*)monitor, pointer);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the user-defined pointer of the specified monitor.  The<br/>
-		/// current value is retained until the monitor is disconnected.  The initial<br/>
-		/// value is `NULL`.<br/>
-		/// This function may be called from the monitor callback, even for a monitor<br/>
-		/// that is being disconnected.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetMonitorUserPointer(ref GLFWmonitor monitor, void* pointer)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				SetMonitorUserPointerNative((GLFWmonitor*)pmonitor, pointer);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the user-defined pointer of the specified monitor.  The<br/>
+        /// current value is retained until the monitor is disconnected.  The initial<br/>
+        /// value is `NULL`.<br/>
+        /// This function may be called from the monitor callback, even for a monitor<br/>
+        /// that is being disconnected.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetMonitorUserPointer(ref GLFWmonitor monitor, void* pointer)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                SetMonitorUserPointerNative((GLFWmonitor*)pmonitor, pointer);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the user-defined pointer of the specified monitor.  The<br/>
-		/// current value is retained until the monitor is disconnected.  The initial<br/>
-		/// value is `NULL`.<br/>
-		/// This function may be called from the monitor callback, even for a monitor<br/>
-		/// that is being disconnected.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetMonitorUserPointer(GLFWmonitorPtr monitor, nint pointer)
-		{
-			SetMonitorUserPointerNative((GLFWmonitor*)monitor, (void*)pointer);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the user-defined pointer of the specified monitor.  The<br/>
+        /// current value is retained until the monitor is disconnected.  The initial<br/>
+        /// value is `NULL`.<br/>
+        /// This function may be called from the monitor callback, even for a monitor<br/>
+        /// that is being disconnected.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetMonitorUserPointer(GLFWmonitorPtr monitor, nint pointer)
+        {
+            SetMonitorUserPointerNative((GLFWmonitor*)monitor, (void*)pointer);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the user-defined pointer of the specified monitor.  The<br/>
-		/// current value is retained until the monitor is disconnected.  The initial<br/>
-		/// value is `NULL`.<br/>
-		/// This function may be called from the monitor callback, even for a monitor<br/>
-		/// that is being disconnected.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetMonitorUserPointer(ref GLFWmonitor monitor, nint pointer)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				SetMonitorUserPointerNative((GLFWmonitor*)pmonitor, (void*)pointer);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the user-defined pointer of the specified monitor.  The<br/>
+        /// current value is retained until the monitor is disconnected.  The initial<br/>
+        /// value is `NULL`.<br/>
+        /// This function may be called from the monitor callback, even for a monitor<br/>
+        /// that is being disconnected.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetMonitorUserPointer(ref GLFWmonitor monitor, nint pointer)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                SetMonitorUserPointerNative((GLFWmonitor*)pmonitor, (void*)pointer);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the current value of the user-defined pointer of the<br/>
-		/// specified monitor.  The initial value is `NULL`.<br/>
-		/// This function may be called from the monitor callback, even for a monitor<br/>
-		/// that is being disconnected.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void* GetMonitorUserPointerNative(GLFWmonitor* monitor)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the current value of the user-defined pointer of the<br/>
+        /// specified monitor.  The initial value is `NULL`.<br/>
+        /// This function may be called from the monitor callback, even for a monitor<br/>
+        /// that is being disconnected.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void* GetMonitorUserPointerNative(GLFWmonitor* monitor)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, void*>)funcTable[19])(monitor);
-			#else
-			return (void*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[19])((nint)monitor);
-			#endif
-		}
+#else
+            return (void*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[19])((nint)monitor);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the current value of the user-defined pointer of the<br/>
-		/// specified monitor.  The initial value is `NULL`.<br/>
-		/// This function may be called from the monitor callback, even for a monitor<br/>
-		/// that is being disconnected.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetMonitorUserPointer(GLFWmonitorPtr monitor)
-		{
-			void* ret = GetMonitorUserPointerNative((GLFWmonitor*)monitor);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the current value of the user-defined pointer of the<br/>
+        /// specified monitor.  The initial value is `NULL`.<br/>
+        /// This function may be called from the monitor callback, even for a monitor<br/>
+        /// that is being disconnected.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetMonitorUserPointer(GLFWmonitorPtr monitor)
+        {
+            void* ret = GetMonitorUserPointerNative((GLFWmonitor*)monitor);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the current value of the user-defined pointer of the<br/>
-		/// specified monitor.  The initial value is `NULL`.<br/>
-		/// This function may be called from the monitor callback, even for a monitor<br/>
-		/// that is being disconnected.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetMonitorUserPointer(ref GLFWmonitor monitor)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				void* ret = GetMonitorUserPointerNative((GLFWmonitor*)pmonitor);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the current value of the user-defined pointer of the<br/>
+        /// specified monitor.  The initial value is `NULL`.<br/>
+        /// This function may be called from the monitor callback, even for a monitor<br/>
+        /// that is being disconnected.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetMonitorUserPointer(ref GLFWmonitor monitor)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                void* ret = GetMonitorUserPointerNative((GLFWmonitor*)pmonitor);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the monitor configuration callback, or removes the<br/>
-		/// currently set callback.  This is called when a monitor is connected to or<br/>
-		/// disconnected from the system.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static delegate*<GLFWmonitor*, int, void> SetMonitorCallbackNative(delegate*<GLFWmonitor*, int, void> callback)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets the monitor configuration callback, or removes the<br/>
+        /// currently set callback.  This is called when a monitor is connected to or<br/>
+        /// disconnected from the system.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [function pointer type](<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static delegate*<GLFWmonitor*, int, void> SetMonitorCallbackNative(delegate*<GLFWmonitor*, int, void> callback)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<delegate*<GLFWmonitor*, int, void>, delegate*<GLFWmonitor*, int, void>>)funcTable[20])(callback);
-			#else
-			return (delegate*<GLFWmonitor*, int, void>)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[20])((nint)callback);
-			#endif
-		}
+#else
+            return (delegate*<GLFWmonitor*, int, void> )((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[20])((nint)callback);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the monitor configuration callback, or removes the<br/>
-		/// currently set callback.  This is called when a monitor is connected to or<br/>
-		/// disconnected from the system.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<GLFWmonitor*, int, void> SetMonitorCallback(delegate*<GLFWmonitor*, int, void> callback)
-		{
-			delegate*<GLFWmonitor*, int, void> ret = SetMonitorCallbackNative(callback);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the monitor configuration callback, or removes the<br/>
+        /// currently set callback.  This is called when a monitor is connected to or<br/>
+        /// disconnected from the system.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [function pointer type](<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<GLFWmonitor*, int, void> SetMonitorCallback(delegate*<GLFWmonitor*, int, void> callback)
+        {
+            delegate*<GLFWmonitor*, int, void> ret = SetMonitorCallbackNative(callback);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the monitor configuration callback, or removes the<br/>
-		/// currently set callback.  This is called when a monitor is connected to or<br/>
-		/// disconnected from the system.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<GLFWmonitor*, int, void> SetMonitorCallback(GLFWmonitorfun callback)
-		{
-			delegate*<GLFWmonitor*, int, void> ret = SetMonitorCallbackNative((delegate*<GLFWmonitor*, int, void>)Utils.GetFunctionPointerForDelegate(callback));
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the monitor configuration callback, or removes the<br/>
+        /// currently set callback.  This is called when a monitor is connected to or<br/>
+        /// disconnected from the system.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [function pointer type](<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<GLFWmonitor*, int, void> SetMonitorCallback(GLFWmonitorfun callback)
+        {
+            delegate*<GLFWmonitor*, int, void> ret = SetMonitorCallbackNative((delegate*<GLFWmonitor*, int, void> )Utils.GetFunctionPointerForDelegate(callback));
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns an array of all video modes supported by the specified<br/>
-		/// monitor.  The returned array is sorted in ascending order, first by color<br/>
-		/// bit depth (the sum of all channel depths), then by resolution area (the<br/>
-		/// product of width and height), then resolution width and finally by refresh<br/>
-		/// rate.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified monitor is<br/>
-		/// disconnected, this function is called again for that monitor or the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static GLFWvidmode* GetVideoModesNative(GLFWmonitor* monitor, int* count)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns an array of all video modes supported by the specified<br/>
+        /// monitor.  The returned array is sorted in ascending order, first by color<br/>
+        /// bit depth (the sum of all channel depths), then by resolution area (the<br/>
+        /// product of width and height), then resolution width and finally by refresh<br/>
+        /// rate.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified monitor is<br/>
+        /// disconnected, this function is called again for that monitor or the library<br/>
+        /// is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static GLFWvidmode* GetVideoModesNative(GLFWmonitor* monitor, int* count)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, int*, GLFWvidmode*>)funcTable[21])(monitor, count);
-			#else
-			return (GLFWvidmode*)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[21])((nint)monitor, (nint)count);
-			#endif
-		}
+#else
+            return (GLFWvidmode*)((delegate* unmanaged[Cdecl]<nint, nint, nint> )funcTable[21])((nint)monitor, (nint)count);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns an array of all video modes supported by the specified<br/>
-		/// monitor.  The returned array is sorted in ascending order, first by color<br/>
-		/// bit depth (the sum of all channel depths), then by resolution area (the<br/>
-		/// product of width and height), then resolution width and finally by refresh<br/>
-		/// rate.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified monitor is<br/>
-		/// disconnected, this function is called again for that monitor or the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWvidmodePtr GetVideoModes(GLFWmonitorPtr monitor, int* count)
-		{
-			GLFWvidmodePtr ret = GetVideoModesNative((GLFWmonitor*)monitor, count);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns an array of all video modes supported by the specified<br/>
+        /// monitor.  The returned array is sorted in ascending order, first by color<br/>
+        /// bit depth (the sum of all channel depths), then by resolution area (the<br/>
+        /// product of width and height), then resolution width and finally by refresh<br/>
+        /// rate.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified monitor is<br/>
+        /// disconnected, this function is called again for that monitor or the library<br/>
+        /// is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWvidmodePtr GetVideoModes(GLFWmonitorPtr monitor, int* count)
+        {
+            GLFWvidmodePtr ret = GetVideoModesNative((GLFWmonitor*)monitor, count);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns an array of all video modes supported by the specified<br/>
-		/// monitor.  The returned array is sorted in ascending order, first by color<br/>
-		/// bit depth (the sum of all channel depths), then by resolution area (the<br/>
-		/// product of width and height), then resolution width and finally by refresh<br/>
-		/// rate.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified monitor is<br/>
-		/// disconnected, this function is called again for that monitor or the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWvidmodePtr GetVideoModes(ref GLFWmonitor monitor, int* count)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				GLFWvidmodePtr ret = GetVideoModesNative((GLFWmonitor*)pmonitor, count);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns an array of all video modes supported by the specified<br/>
+        /// monitor.  The returned array is sorted in ascending order, first by color<br/>
+        /// bit depth (the sum of all channel depths), then by resolution area (the<br/>
+        /// product of width and height), then resolution width and finally by refresh<br/>
+        /// rate.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified monitor is<br/>
+        /// disconnected, this function is called again for that monitor or the library<br/>
+        /// is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWvidmodePtr GetVideoModes(ref GLFWmonitor monitor, int* count)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                GLFWvidmodePtr ret = GetVideoModesNative((GLFWmonitor*)pmonitor, count);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns an array of all video modes supported by the specified<br/>
-		/// monitor.  The returned array is sorted in ascending order, first by color<br/>
-		/// bit depth (the sum of all channel depths), then by resolution area (the<br/>
-		/// product of width and height), then resolution width and finally by refresh<br/>
-		/// rate.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified monitor is<br/>
-		/// disconnected, this function is called again for that monitor or the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWvidmodePtr GetVideoModes(GLFWmonitorPtr monitor, ref int count)
-		{
-			fixed (int* pcount = &count)
-			{
-				GLFWvidmodePtr ret = GetVideoModesNative((GLFWmonitor*)monitor, (int*)pcount);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns an array of all video modes supported by the specified<br/>
+        /// monitor.  The returned array is sorted in ascending order, first by color<br/>
+        /// bit depth (the sum of all channel depths), then by resolution area (the<br/>
+        /// product of width and height), then resolution width and finally by refresh<br/>
+        /// rate.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified monitor is<br/>
+        /// disconnected, this function is called again for that monitor or the library<br/>
+        /// is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWvidmodePtr GetVideoModes(GLFWmonitorPtr monitor, ref int count)
+        {
+            fixed (int* pcount = &count)
+            {
+                GLFWvidmodePtr ret = GetVideoModesNative((GLFWmonitor*)monitor, (int*)pcount);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns an array of all video modes supported by the specified<br/>
-		/// monitor.  The returned array is sorted in ascending order, first by color<br/>
-		/// bit depth (the sum of all channel depths), then by resolution area (the<br/>
-		/// product of width and height), then resolution width and finally by refresh<br/>
-		/// rate.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified monitor is<br/>
-		/// disconnected, this function is called again for that monitor or the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWvidmodePtr GetVideoModes(ref GLFWmonitor monitor, ref int count)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (int* pcount = &count)
-				{
-					GLFWvidmodePtr ret = GetVideoModesNative((GLFWmonitor*)pmonitor, (int*)pcount);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns an array of all video modes supported by the specified<br/>
+        /// monitor.  The returned array is sorted in ascending order, first by color<br/>
+        /// bit depth (the sum of all channel depths), then by resolution area (the<br/>
+        /// product of width and height), then resolution width and finally by refresh<br/>
+        /// rate.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified monitor is<br/>
+        /// disconnected, this function is called again for that monitor or the library<br/>
+        /// is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWvidmodePtr GetVideoModes(ref GLFWmonitor monitor, ref int count)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (int* pcount = &count)
+                {
+                    GLFWvidmodePtr ret = GetVideoModesNative((GLFWmonitor*)pmonitor, (int*)pcount);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the current video mode of the specified monitor.  If<br/>
-		/// you have created a full screen window for that monitor, the return value<br/>
-		/// will depend on whether that window is iconified.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified monitor is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static GLFWvidmode* GetVideoModeNative(GLFWmonitor* monitor)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the current video mode of the specified monitor.  If<br/>
+        /// you have created a full screen window for that monitor, the return value<br/>
+        /// will depend on whether that window is iconified.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified monitor is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static GLFWvidmode* GetVideoModeNative(GLFWmonitor* monitor)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, GLFWvidmode*>)funcTable[22])(monitor);
-			#else
-			return (GLFWvidmode*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[22])((nint)monitor);
-			#endif
-		}
+#else
+            return (GLFWvidmode*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[22])((nint)monitor);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the current video mode of the specified monitor.  If<br/>
-		/// you have created a full screen window for that monitor, the return value<br/>
-		/// will depend on whether that window is iconified.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified monitor is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWvidmodePtr GetVideoMode(GLFWmonitorPtr monitor)
-		{
-			GLFWvidmodePtr ret = GetVideoModeNative((GLFWmonitor*)monitor);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the current video mode of the specified monitor.  If<br/>
+        /// you have created a full screen window for that monitor, the return value<br/>
+        /// will depend on whether that window is iconified.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified monitor is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWvidmodePtr GetVideoMode(GLFWmonitorPtr monitor)
+        {
+            GLFWvidmodePtr ret = GetVideoModeNative((GLFWmonitor*)monitor);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the current video mode of the specified monitor.  If<br/>
-		/// you have created a full screen window for that monitor, the return value<br/>
-		/// will depend on whether that window is iconified.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified monitor is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWvidmodePtr GetVideoMode(ref GLFWmonitor monitor)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				GLFWvidmodePtr ret = GetVideoModeNative((GLFWmonitor*)pmonitor);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the current video mode of the specified monitor.  If<br/>
+        /// you have created a full screen window for that monitor, the return value<br/>
+        /// will depend on whether that window is iconified.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified monitor is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWvidmodePtr GetVideoMode(ref GLFWmonitor monitor)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                GLFWvidmodePtr ret = GetVideoModeNative((GLFWmonitor*)pmonitor);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function generates an appropriately sized gamma ramp from the specified<br/>
-		/// exponent and then calls <br/>
-		/// with it.  The value must be<br/>
-		/// a finite number greater than zero.<br/>
-		/// The software controlled gamma ramp is applied _in addition_ to the hardware<br/>
-		/// gamma correction, which today is usually an approximation of sRGB gamma.<br/>
-		/// This means that setting a perfectly linear ramp, or gamma 1.0, will produce<br/>
-		/// the default (usually sRGB-like) behavior.<br/>
-		/// For gamma correct rendering with OpenGL or OpenGL ES, see the <br/>
-		/// hint.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void SetGammaNative(GLFWmonitor* monitor, float gamma)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function generates an appropriately sized gamma ramp from the specified<br/>
+        /// exponent and then calls <br/>
+        /// with it.  The value must be<br/>
+        /// a finite number greater than zero.<br/>
+        /// The software controlled gamma ramp is applied _in addition_ to the hardware<br/>
+        /// gamma correction, which today is usually an approximation of sRGB gamma.<br/>
+        /// This means that setting a perfectly linear ramp, or gamma 1.0, will produce<br/>
+        /// the default (usually sRGB-like) behavior.<br/>
+        /// For gamma correct rendering with OpenGL or OpenGL ES, see the <br/>
+        /// hint.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void SetGammaNative(GLFWmonitor* monitor, float gamma)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWmonitor*, float, void>)funcTable[23])(monitor, gamma);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[23])((nint)monitor, gamma);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, float, void> )funcTable[23])((nint)monitor, gamma);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function generates an appropriately sized gamma ramp from the specified<br/>
-		/// exponent and then calls <br/>
-		/// with it.  The value must be<br/>
-		/// a finite number greater than zero.<br/>
-		/// The software controlled gamma ramp is applied _in addition_ to the hardware<br/>
-		/// gamma correction, which today is usually an approximation of sRGB gamma.<br/>
-		/// This means that setting a perfectly linear ramp, or gamma 1.0, will produce<br/>
-		/// the default (usually sRGB-like) behavior.<br/>
-		/// For gamma correct rendering with OpenGL or OpenGL ES, see the <br/>
-		/// hint.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetGamma(GLFWmonitorPtr monitor, float gamma)
-		{
-			SetGammaNative((GLFWmonitor*)monitor, gamma);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function generates an appropriately sized gamma ramp from the specified<br/>
+        /// exponent and then calls <br/>
+        /// with it.  The value must be<br/>
+        /// a finite number greater than zero.<br/>
+        /// The software controlled gamma ramp is applied _in addition_ to the hardware<br/>
+        /// gamma correction, which today is usually an approximation of sRGB gamma.<br/>
+        /// This means that setting a perfectly linear ramp, or gamma 1.0, will produce<br/>
+        /// the default (usually sRGB-like) behavior.<br/>
+        /// For gamma correct rendering with OpenGL or OpenGL ES, see the <br/>
+        /// hint.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetGamma(GLFWmonitorPtr monitor, float gamma)
+        {
+            SetGammaNative((GLFWmonitor*)monitor, gamma);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function generates an appropriately sized gamma ramp from the specified<br/>
-		/// exponent and then calls <br/>
-		/// with it.  The value must be<br/>
-		/// a finite number greater than zero.<br/>
-		/// The software controlled gamma ramp is applied _in addition_ to the hardware<br/>
-		/// gamma correction, which today is usually an approximation of sRGB gamma.<br/>
-		/// This means that setting a perfectly linear ramp, or gamma 1.0, will produce<br/>
-		/// the default (usually sRGB-like) behavior.<br/>
-		/// For gamma correct rendering with OpenGL or OpenGL ES, see the <br/>
-		/// hint.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetGamma(ref GLFWmonitor monitor, float gamma)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				SetGammaNative((GLFWmonitor*)pmonitor, gamma);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function generates an appropriately sized gamma ramp from the specified<br/>
+        /// exponent and then calls <br/>
+        /// with it.  The value must be<br/>
+        /// a finite number greater than zero.<br/>
+        /// The software controlled gamma ramp is applied _in addition_ to the hardware<br/>
+        /// gamma correction, which today is usually an approximation of sRGB gamma.<br/>
+        /// This means that setting a perfectly linear ramp, or gamma 1.0, will produce<br/>
+        /// the default (usually sRGB-like) behavior.<br/>
+        /// For gamma correct rendering with OpenGL or OpenGL ES, see the <br/>
+        /// hint.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetGamma(ref GLFWmonitor monitor, float gamma)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                SetGammaNative((GLFWmonitor*)pmonitor, gamma);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the current gamma ramp of the specified monitor.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned structure and its arrays are allocated and<br/>
-		/// freed by GLFW.  You should not free them yourself.  They are valid until the<br/>
-		/// specified monitor is disconnected, this function is called again for that<br/>
-		/// monitor or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static GLFWgammaramp* GetGammaRampNative(GLFWmonitor* monitor)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the current gamma ramp of the specified monitor.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned structure and its arrays are allocated and<br/>
+        /// freed by GLFW.  You should not free them yourself.  They are valid until the<br/>
+        /// specified monitor is disconnected, this function is called again for that<br/>
+        /// monitor or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static GLFWgammaramp* GetGammaRampNative(GLFWmonitor* monitor)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, GLFWgammaramp*>)funcTable[24])(monitor);
-			#else
-			return (GLFWgammaramp*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[24])((nint)monitor);
-			#endif
-		}
+#else
+            return (GLFWgammaramp*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[24])((nint)monitor);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the current gamma ramp of the specified monitor.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned structure and its arrays are allocated and<br/>
-		/// freed by GLFW.  You should not free them yourself.  They are valid until the<br/>
-		/// specified monitor is disconnected, this function is called again for that<br/>
-		/// monitor or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWgammarampPtr GetGammaRamp(GLFWmonitorPtr monitor)
-		{
-			GLFWgammarampPtr ret = GetGammaRampNative((GLFWmonitor*)monitor);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the current gamma ramp of the specified monitor.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned structure and its arrays are allocated and<br/>
+        /// freed by GLFW.  You should not free them yourself.  They are valid until the<br/>
+        /// specified monitor is disconnected, this function is called again for that<br/>
+        /// monitor or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWgammarampPtr GetGammaRamp(GLFWmonitorPtr monitor)
+        {
+            GLFWgammarampPtr ret = GetGammaRampNative((GLFWmonitor*)monitor);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the current gamma ramp of the specified monitor.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned structure and its arrays are allocated and<br/>
-		/// freed by GLFW.  You should not free them yourself.  They are valid until the<br/>
-		/// specified monitor is disconnected, this function is called again for that<br/>
-		/// monitor or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWgammarampPtr GetGammaRamp(ref GLFWmonitor monitor)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				GLFWgammarampPtr ret = GetGammaRampNative((GLFWmonitor*)pmonitor);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the current gamma ramp of the specified monitor.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned structure and its arrays are allocated and<br/>
+        /// freed by GLFW.  You should not free them yourself.  They are valid until the<br/>
+        /// specified monitor is disconnected, this function is called again for that<br/>
+        /// monitor or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWgammarampPtr GetGammaRamp(ref GLFWmonitor monitor)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                GLFWgammarampPtr ret = GetGammaRampNative((GLFWmonitor*)pmonitor);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the current gamma ramp for the specified monitor.  The<br/>
-		/// original gamma ramp for that monitor is saved by GLFW the first time this<br/>
-		/// function is called and is restored by <br/>
-		/// The software controlled gamma ramp is applied _in addition_ to the hardware<br/>
-		/// gamma correction, which today is usually an approximation of sRGB gamma.<br/>
-		/// This means that setting a perfectly linear ramp, or gamma 1.0, will produce<br/>
-		/// the default (usually sRGB-like) behavior.<br/>
-		/// For gamma correct rendering with OpenGL or OpenGL ES, see the <br/>
-		/// hint.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The specified gamma ramp is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void SetGammaRampNative(GLFWmonitor* monitor, GLFWgammaramp* ramp)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets the current gamma ramp for the specified monitor.  The<br/>
+        /// original gamma ramp for that monitor is saved by GLFW the first time this<br/>
+        /// function is called and is restored by <br/>
+        /// The software controlled gamma ramp is applied _in addition_ to the hardware<br/>
+        /// gamma correction, which today is usually an approximation of sRGB gamma.<br/>
+        /// This means that setting a perfectly linear ramp, or gamma 1.0, will produce<br/>
+        /// the default (usually sRGB-like) behavior.<br/>
+        /// For gamma correct rendering with OpenGL or OpenGL ES, see the <br/>
+        /// hint.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The specified gamma ramp is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void SetGammaRampNative(GLFWmonitor* monitor, GLFWgammaramp* ramp)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWmonitor*, GLFWgammaramp*, void>)funcTable[25])(monitor, ramp);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[25])((nint)monitor, (nint)ramp);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, nint, void> )funcTable[25])((nint)monitor, (nint)ramp);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the current gamma ramp for the specified monitor.  The<br/>
-		/// original gamma ramp for that monitor is saved by GLFW the first time this<br/>
-		/// function is called and is restored by <br/>
-		/// The software controlled gamma ramp is applied _in addition_ to the hardware<br/>
-		/// gamma correction, which today is usually an approximation of sRGB gamma.<br/>
-		/// This means that setting a perfectly linear ramp, or gamma 1.0, will produce<br/>
-		/// the default (usually sRGB-like) behavior.<br/>
-		/// For gamma correct rendering with OpenGL or OpenGL ES, see the <br/>
-		/// hint.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The specified gamma ramp is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetGammaRamp(GLFWmonitorPtr monitor, GLFWgammarampPtr ramp)
-		{
-			SetGammaRampNative((GLFWmonitor*)monitor, (GLFWgammaramp*)ramp);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the current gamma ramp for the specified monitor.  The<br/>
+        /// original gamma ramp for that monitor is saved by GLFW the first time this<br/>
+        /// function is called and is restored by <br/>
+        /// The software controlled gamma ramp is applied _in addition_ to the hardware<br/>
+        /// gamma correction, which today is usually an approximation of sRGB gamma.<br/>
+        /// This means that setting a perfectly linear ramp, or gamma 1.0, will produce<br/>
+        /// the default (usually sRGB-like) behavior.<br/>
+        /// For gamma correct rendering with OpenGL or OpenGL ES, see the <br/>
+        /// hint.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The specified gamma ramp is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetGammaRamp(GLFWmonitorPtr monitor, GLFWgammarampPtr ramp)
+        {
+            SetGammaRampNative((GLFWmonitor*)monitor, (GLFWgammaramp*)ramp);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the current gamma ramp for the specified monitor.  The<br/>
-		/// original gamma ramp for that monitor is saved by GLFW the first time this<br/>
-		/// function is called and is restored by <br/>
-		/// The software controlled gamma ramp is applied _in addition_ to the hardware<br/>
-		/// gamma correction, which today is usually an approximation of sRGB gamma.<br/>
-		/// This means that setting a perfectly linear ramp, or gamma 1.0, will produce<br/>
-		/// the default (usually sRGB-like) behavior.<br/>
-		/// For gamma correct rendering with OpenGL or OpenGL ES, see the <br/>
-		/// hint.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The specified gamma ramp is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetGammaRamp(ref GLFWmonitor monitor, GLFWgammarampPtr ramp)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				SetGammaRampNative((GLFWmonitor*)pmonitor, (GLFWgammaramp*)ramp);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the current gamma ramp for the specified monitor.  The<br/>
+        /// original gamma ramp for that monitor is saved by GLFW the first time this<br/>
+        /// function is called and is restored by <br/>
+        /// The software controlled gamma ramp is applied _in addition_ to the hardware<br/>
+        /// gamma correction, which today is usually an approximation of sRGB gamma.<br/>
+        /// This means that setting a perfectly linear ramp, or gamma 1.0, will produce<br/>
+        /// the default (usually sRGB-like) behavior.<br/>
+        /// For gamma correct rendering with OpenGL or OpenGL ES, see the <br/>
+        /// hint.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The specified gamma ramp is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetGammaRamp(ref GLFWmonitor monitor, GLFWgammarampPtr ramp)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                SetGammaRampNative((GLFWmonitor*)pmonitor, (GLFWgammaramp*)ramp);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the current gamma ramp for the specified monitor.  The<br/>
-		/// original gamma ramp for that monitor is saved by GLFW the first time this<br/>
-		/// function is called and is restored by <br/>
-		/// The software controlled gamma ramp is applied _in addition_ to the hardware<br/>
-		/// gamma correction, which today is usually an approximation of sRGB gamma.<br/>
-		/// This means that setting a perfectly linear ramp, or gamma 1.0, will produce<br/>
-		/// the default (usually sRGB-like) behavior.<br/>
-		/// For gamma correct rendering with OpenGL or OpenGL ES, see the <br/>
-		/// hint.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The specified gamma ramp is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetGammaRamp(GLFWmonitorPtr monitor, in GLFWgammaramp ramp)
-		{
-			fixed (GLFWgammaramp* pramp = &ramp)
-			{
-				SetGammaRampNative((GLFWmonitor*)monitor, (GLFWgammaramp*)pramp);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the current gamma ramp for the specified monitor.  The<br/>
+        /// original gamma ramp for that monitor is saved by GLFW the first time this<br/>
+        /// function is called and is restored by <br/>
+        /// The software controlled gamma ramp is applied _in addition_ to the hardware<br/>
+        /// gamma correction, which today is usually an approximation of sRGB gamma.<br/>
+        /// This means that setting a perfectly linear ramp, or gamma 1.0, will produce<br/>
+        /// the default (usually sRGB-like) behavior.<br/>
+        /// For gamma correct rendering with OpenGL or OpenGL ES, see the <br/>
+        /// hint.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The specified gamma ramp is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetGammaRamp(GLFWmonitorPtr monitor, in GLFWgammaramp ramp)
+        {
+            fixed (GLFWgammaramp* pramp = &ramp)
+            {
+                SetGammaRampNative((GLFWmonitor*)monitor, (GLFWgammaramp*)pramp);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the current gamma ramp for the specified monitor.  The<br/>
-		/// original gamma ramp for that monitor is saved by GLFW the first time this<br/>
-		/// function is called and is restored by <br/>
-		/// The software controlled gamma ramp is applied _in addition_ to the hardware<br/>
-		/// gamma correction, which today is usually an approximation of sRGB gamma.<br/>
-		/// This means that setting a perfectly linear ramp, or gamma 1.0, will produce<br/>
-		/// the default (usually sRGB-like) behavior.<br/>
-		/// For gamma correct rendering with OpenGL or OpenGL ES, see the <br/>
-		/// hint.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The specified gamma ramp is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetGammaRamp(ref GLFWmonitor monitor, in GLFWgammaramp ramp)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (GLFWgammaramp* pramp = &ramp)
-				{
-					SetGammaRampNative((GLFWmonitor*)pmonitor, (GLFWgammaramp*)pramp);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the current gamma ramp for the specified monitor.  The<br/>
+        /// original gamma ramp for that monitor is saved by GLFW the first time this<br/>
+        /// function is called and is restored by <br/>
+        /// The software controlled gamma ramp is applied _in addition_ to the hardware<br/>
+        /// gamma correction, which today is usually an approximation of sRGB gamma.<br/>
+        /// This means that setting a perfectly linear ramp, or gamma 1.0, will produce<br/>
+        /// the default (usually sRGB-like) behavior.<br/>
+        /// For gamma correct rendering with OpenGL or OpenGL ES, see the <br/>
+        /// hint.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The specified gamma ramp is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetGammaRamp(ref GLFWmonitor monitor, in GLFWgammaramp ramp)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (GLFWgammaramp* pramp = &ramp)
+                {
+                    SetGammaRampNative((GLFWmonitor*)pmonitor, (GLFWgammaramp*)pramp);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function resets all window hints to their<br/>
-		/// [default values](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DefaultWindowHintsNative()
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function resets all window hints to their<br/>
+        /// [default values](<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DefaultWindowHintsNative()
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<void>)funcTable[26])();
-			#else
-			((delegate* unmanaged[Cdecl]<void>)funcTable[26])();
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<void> )funcTable[26])();
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function resets all window hints to their<br/>
-		/// [default values](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DefaultWindowHints()
-		{
-			DefaultWindowHintsNative();
-		}
+        /// <summary>
+        /// <br/>
+        /// This function resets all window hints to their<br/>
+        /// [default values](<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DefaultWindowHints()
+        {
+            DefaultWindowHintsNative();
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets hints for the next call to <br/>
-		/// The<br/>
-		/// hints, once set, retain their values until changed by a call to this<br/>
-		/// function or <br/>
-		/// or until the library is terminated.<br/>
-		/// Only integer value hints can be set with this function.  String value hints<br/>
-		/// are set with <br/>
-		/// This function does not check whether the specified hint values are valid.<br/>
-		/// If you set hints to invalid values this will instead be reported by the next<br/>
-		/// call to <br/>
-		/// Some hints are platform specific.  These may be set on any platform but they<br/>
-		/// will only affect their specific platform.  Other platforms will ignore them.<br/>
-		/// Setting these hints requires no platform specific headers or functions.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void WindowHintNative(int hint, int value)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets hints for the next call to <br/>
+        /// The<br/>
+        /// hints, once set, retain their values until changed by a call to this<br/>
+        /// function or <br/>
+        /// or until the library is terminated.<br/>
+        /// Only integer value hints can be set with this function.  String value hints<br/>
+        /// are set with <br/>
+        /// This function does not check whether the specified hint values are valid.<br/>
+        /// If you set hints to invalid values this will instead be reported by the next<br/>
+        /// call to <br/>
+        /// Some hints are platform specific.  These may be set on any platform but they<br/>
+        /// will only affect their specific platform.  Other platforms will ignore them.<br/>
+        /// Setting these hints requires no platform specific headers or functions.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void WindowHintNative(int hint, int value)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<int, int, void>)funcTable[27])(hint, value);
-			#else
-			((delegate* unmanaged[Cdecl]<int, int, void>)funcTable[27])(hint, value);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<int, int, void> )funcTable[27])(hint, value);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets hints for the next call to <br/>
-		/// The<br/>
-		/// hints, once set, retain their values until changed by a call to this<br/>
-		/// function or <br/>
-		/// or until the library is terminated.<br/>
-		/// Only integer value hints can be set with this function.  String value hints<br/>
-		/// are set with <br/>
-		/// This function does not check whether the specified hint values are valid.<br/>
-		/// If you set hints to invalid values this will instead be reported by the next<br/>
-		/// call to <br/>
-		/// Some hints are platform specific.  These may be set on any platform but they<br/>
-		/// will only affect their specific platform.  Other platforms will ignore them.<br/>
-		/// Setting these hints requires no platform specific headers or functions.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void WindowHint(int hint, int value)
-		{
-			WindowHintNative(hint, value);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets hints for the next call to <br/>
+        /// The<br/>
+        /// hints, once set, retain their values until changed by a call to this<br/>
+        /// function or <br/>
+        /// or until the library is terminated.<br/>
+        /// Only integer value hints can be set with this function.  String value hints<br/>
+        /// are set with <br/>
+        /// This function does not check whether the specified hint values are valid.<br/>
+        /// If you set hints to invalid values this will instead be reported by the next<br/>
+        /// call to <br/>
+        /// Some hints are platform specific.  These may be set on any platform but they<br/>
+        /// will only affect their specific platform.  Other platforms will ignore them.<br/>
+        /// Setting these hints requires no platform specific headers or functions.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void WindowHint(int hint, int value)
+        {
+            WindowHintNative(hint, value);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets hints for the next call to <br/>
-		/// The<br/>
-		/// hints, once set, retain their values until changed by a call to this<br/>
-		/// function or <br/>
-		/// or until the library is terminated.<br/>
-		/// Only string type hints can be set with this function.  Integer value hints<br/>
-		/// are set with <br/>
-		/// This function does not check whether the specified hint values are valid.<br/>
-		/// If you set hints to invalid values this will instead be reported by the next<br/>
-		/// call to <br/>
-		/// Some hints are platform specific.  These may be set on any platform but they<br/>
-		/// will only affect their specific platform.  Other platforms will ignore them.<br/>
-		/// Setting these hints requires no platform specific headers or functions.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The specified string is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void WindowHintStringNative(int hint, byte* value)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets hints for the next call to <br/>
+        /// The<br/>
+        /// hints, once set, retain their values until changed by a call to this<br/>
+        /// function or <br/>
+        /// or until the library is terminated.<br/>
+        /// Only string type hints can be set with this function.  Integer value hints<br/>
+        /// are set with <br/>
+        /// This function does not check whether the specified hint values are valid.<br/>
+        /// If you set hints to invalid values this will instead be reported by the next<br/>
+        /// call to <br/>
+        /// Some hints are platform specific.  These may be set on any platform but they<br/>
+        /// will only affect their specific platform.  Other platforms will ignore them.<br/>
+        /// Setting these hints requires no platform specific headers or functions.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The specified string is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void WindowHintStringNative(int hint, byte* value)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<int, byte*, void>)funcTable[28])(hint, value);
-			#else
-			((delegate* unmanaged[Cdecl]<int, nint, void>)funcTable[28])(hint, (nint)value);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<int, nint, void> )funcTable[28])(hint, (nint)value);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets hints for the next call to <br/>
-		/// The<br/>
-		/// hints, once set, retain their values until changed by a call to this<br/>
-		/// function or <br/>
-		/// or until the library is terminated.<br/>
-		/// Only string type hints can be set with this function.  Integer value hints<br/>
-		/// are set with <br/>
-		/// This function does not check whether the specified hint values are valid.<br/>
-		/// If you set hints to invalid values this will instead be reported by the next<br/>
-		/// call to <br/>
-		/// Some hints are platform specific.  These may be set on any platform but they<br/>
-		/// will only affect their specific platform.  Other platforms will ignore them.<br/>
-		/// Setting these hints requires no platform specific headers or functions.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The specified string is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void WindowHintString(int hint, byte* value)
-		{
-			WindowHintStringNative(hint, value);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets hints for the next call to <br/>
+        /// The<br/>
+        /// hints, once set, retain their values until changed by a call to this<br/>
+        /// function or <br/>
+        /// or until the library is terminated.<br/>
+        /// Only string type hints can be set with this function.  Integer value hints<br/>
+        /// are set with <br/>
+        /// This function does not check whether the specified hint values are valid.<br/>
+        /// If you set hints to invalid values this will instead be reported by the next<br/>
+        /// call to <br/>
+        /// Some hints are platform specific.  These may be set on any platform but they<br/>
+        /// will only affect their specific platform.  Other platforms will ignore them.<br/>
+        /// Setting these hints requires no platform specific headers or functions.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The specified string is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void WindowHintString(int hint, byte* value)
+        {
+            WindowHintStringNative(hint, value);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets hints for the next call to <br/>
-		/// The<br/>
-		/// hints, once set, retain their values until changed by a call to this<br/>
-		/// function or <br/>
-		/// or until the library is terminated.<br/>
-		/// Only string type hints can be set with this function.  Integer value hints<br/>
-		/// are set with <br/>
-		/// This function does not check whether the specified hint values are valid.<br/>
-		/// If you set hints to invalid values this will instead be reported by the next<br/>
-		/// call to <br/>
-		/// Some hints are platform specific.  These may be set on any platform but they<br/>
-		/// will only affect their specific platform.  Other platforms will ignore them.<br/>
-		/// Setting these hints requires no platform specific headers or functions.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The specified string is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void WindowHintString(int hint, in byte value)
-		{
-			fixed (byte* pvalue = &value)
-			{
-				WindowHintStringNative(hint, (byte*)pvalue);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets hints for the next call to <br/>
+        /// The<br/>
+        /// hints, once set, retain their values until changed by a call to this<br/>
+        /// function or <br/>
+        /// or until the library is terminated.<br/>
+        /// Only string type hints can be set with this function.  Integer value hints<br/>
+        /// are set with <br/>
+        /// This function does not check whether the specified hint values are valid.<br/>
+        /// If you set hints to invalid values this will instead be reported by the next<br/>
+        /// call to <br/>
+        /// Some hints are platform specific.  These may be set on any platform but they<br/>
+        /// will only affect their specific platform.  Other platforms will ignore them.<br/>
+        /// Setting these hints requires no platform specific headers or functions.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The specified string is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void WindowHintString(int hint, in byte value)
+        {
+            fixed (byte* pvalue = &value)
+            {
+                WindowHintStringNative(hint, (byte*)pvalue);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets hints for the next call to <br/>
-		/// The<br/>
-		/// hints, once set, retain their values until changed by a call to this<br/>
-		/// function or <br/>
-		/// or until the library is terminated.<br/>
-		/// Only string type hints can be set with this function.  Integer value hints<br/>
-		/// are set with <br/>
-		/// This function does not check whether the specified hint values are valid.<br/>
-		/// If you set hints to invalid values this will instead be reported by the next<br/>
-		/// call to <br/>
-		/// Some hints are platform specific.  These may be set on any platform but they<br/>
-		/// will only affect their specific platform.  Other platforms will ignore them.<br/>
-		/// Setting these hints requires no platform specific headers or functions.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The specified string is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void WindowHintString(int hint, ReadOnlySpan<byte> value)
-		{
-			fixed (byte* pvalue = value)
-			{
-				WindowHintStringNative(hint, (byte*)pvalue);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets hints for the next call to <br/>
+        /// The<br/>
+        /// hints, once set, retain their values until changed by a call to this<br/>
+        /// function or <br/>
+        /// or until the library is terminated.<br/>
+        /// Only string type hints can be set with this function.  Integer value hints<br/>
+        /// are set with <br/>
+        /// This function does not check whether the specified hint values are valid.<br/>
+        /// If you set hints to invalid values this will instead be reported by the next<br/>
+        /// call to <br/>
+        /// Some hints are platform specific.  These may be set on any platform but they<br/>
+        /// will only affect their specific platform.  Other platforms will ignore them.<br/>
+        /// Setting these hints requires no platform specific headers or functions.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The specified string is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void WindowHintString(int hint, ReadOnlySpan<byte> value)
+        {
+            fixed (byte* pvalue = value)
+            {
+                WindowHintStringNative(hint, (byte*)pvalue);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets hints for the next call to <br/>
-		/// The<br/>
-		/// hints, once set, retain their values until changed by a call to this<br/>
-		/// function or <br/>
-		/// or until the library is terminated.<br/>
-		/// Only string type hints can be set with this function.  Integer value hints<br/>
-		/// are set with <br/>
-		/// This function does not check whether the specified hint values are valid.<br/>
-		/// If you set hints to invalid values this will instead be reported by the next<br/>
-		/// call to <br/>
-		/// Some hints are platform specific.  These may be set on any platform but they<br/>
-		/// will only affect their specific platform.  Other platforms will ignore them.<br/>
-		/// Setting these hints requires no platform specific headers or functions.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The specified string is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void WindowHintString(int hint, string value)
-		{
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (value != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(value);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(value, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			WindowHintStringNative(hint, pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets hints for the next call to <br/>
+        /// The<br/>
+        /// hints, once set, retain their values until changed by a call to this<br/>
+        /// function or <br/>
+        /// or until the library is terminated.<br/>
+        /// Only string type hints can be set with this function.  Integer value hints<br/>
+        /// are set with <br/>
+        /// This function does not check whether the specified hint values are valid.<br/>
+        /// If you set hints to invalid values this will instead be reported by the next<br/>
+        /// call to <br/>
+        /// Some hints are platform specific.  These may be set on any platform but they<br/>
+        /// will only affect their specific platform.  Other platforms will ignore them.<br/>
+        /// Setting these hints requires no platform specific headers or functions.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The specified string is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void WindowHintString(int hint, string value)
+        {
+            byte* pStr0 = null;
+            int pStrSize0 = 0;
+            if (value != null)
+            {
+                pStrSize0 = Utils.GetByteCountUTF8(value);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+                }
+                else
+                {
+                    byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+                    pStr0 = pStrStack0;
+                }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a window and its associated OpenGL or OpenGL ES<br/>
-		/// context.  Most of the options controlling how the window and its context<br/>
-		/// should be created are specified with [window hints](<br/>
-		/// Successful creation does not change which context is current.  Before you<br/>
-		/// can use the newly created context, you need to<br/>
-		/// [make it current](<br/>
-		/// For information about the `share`<br/>
-		/// parameter, see <br/>
-		/// The created window, framebuffer and context may differ from what you<br/>
-		/// requested, as not all parameters and hints are<br/>
-		/// [hard constraints](<br/>
-		/// This includes the size of the<br/>
-		/// window, especially for full screen windows.  To query the actual attributes<br/>
-		/// of the created window, framebuffer and context, see <br/>
-		/// <br/>
-		/// and <br/>
-		/// To create a full screen window, you need to specify the monitor the window<br/>
-		/// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
-		/// Unless you have a way for the user to choose a specific monitor, it is<br/>
-		/// recommended that you pick the primary monitor.  For more information on how<br/>
-		/// to query connected monitors, see <br/>
-		/// For full screen windows, the specified size becomes the resolution of the<br/>
-		/// window's _desired video mode_.  As long as a full screen window is not<br/>
-		/// iconified, the supported video mode most closely matching the desired video<br/>
-		/// mode is set for the specified monitor.  For more information about full<br/>
-		/// screen windows, including the creation of so called _windowed full screen_<br/>
-		/// or _borderless full screen_ windows, see <br/>
-		/// Once you have created the window, you can switch it between windowed and<br/>
-		/// full screen mode with <br/>
-		/// This will not affect its<br/>
-		/// OpenGL or OpenGL ES context.<br/>
-		/// By default, newly created windows use the placement recommended by the<br/>
-		/// window system.  To create the window at a specific position, set the <br/>
-		/// and <br/>
-		/// window hints before creation.  To<br/>
-		/// restore the default behavior, set either or both hints back to<br/>
-		/// `GLFW_ANY_POSITION`.<br/>
-		/// As long as at least one full screen window is not iconified, the screensaver<br/>
-		/// is prohibited from starting.<br/>
-		/// Window systems put limits on window sizes.  Very large or very small window<br/>
-		/// dimensions may be overridden by the window system on creation.  Check the<br/>
-		/// actual [size](<br/>
-		/// after creation.<br/>
-		/// The [swap interval](<br/>
-		/// is not set during window creation and<br/>
-		/// the initial value may vary depending on driver settings and defaults.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
-		/// <br/>
-		/// <br/>
-		/// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static GLFWwindow* CreateWindowNative(int width, int height, byte* title, GLFWmonitor* monitor, GLFWwindow* share)
-		{
-			#if NET5_0_OR_GREATER
+                int pStrOffset0 = Utils.EncodeStringUTF8(value, pStr0, pStrSize0);
+                pStr0[pStrOffset0] = 0;
+            }
+
+            WindowHintStringNative(hint, pStr0);
+            if (pStrSize0 >= Utils.MaxStackallocSize)
+            {
+                Utils.Free(pStr0);
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// This function creates a window and its associated OpenGL or OpenGL ES<br/>
+        /// context.  Most of the options controlling how the window and its context<br/>
+        /// should be created are specified with [window hints](<br/>
+        /// Successful creation does not change which context is current.  Before you<br/>
+        /// can use the newly created context, you need to<br/>
+        /// [make it current](<br/>
+        /// For information about the `share`<br/>
+        /// parameter, see <br/>
+        /// The created window, framebuffer and context may differ from what you<br/>
+        /// requested, as not all parameters and hints are<br/>
+        /// [hard constraints](<br/>
+        /// This includes the size of the<br/>
+        /// window, especially for full screen windows.  To query the actual attributes<br/>
+        /// of the created window, framebuffer and context, see <br/>
+        /// <br/>
+        /// and <br/>
+        /// To create a full screen window, you need to specify the monitor the window<br/>
+        /// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
+        /// Unless you have a way for the user to choose a specific monitor, it is<br/>
+        /// recommended that you pick the primary monitor.  For more information on how<br/>
+        /// to query connected monitors, see <br/>
+        /// For full screen windows, the specified size becomes the resolution of the<br/>
+        /// window's _desired video mode_.  As long as a full screen window is not<br/>
+        /// iconified, the supported video mode most closely matching the desired video<br/>
+        /// mode is set for the specified monitor.  For more information about full<br/>
+        /// screen windows, including the creation of so called _windowed full screen_<br/>
+        /// or _borderless full screen_ windows, see <br/>
+        /// Once you have created the window, you can switch it between windowed and<br/>
+        /// full screen mode with <br/>
+        /// This will not affect its<br/>
+        /// OpenGL or OpenGL ES context.<br/>
+        /// By default, newly created windows use the placement recommended by the<br/>
+        /// window system.  To create the window at a specific position, set the <br/>
+        /// and <br/>
+        /// window hints before creation.  To<br/>
+        /// restore the default behavior, set either or both hints back to<br/>
+        /// `GLFW_ANY_POSITION`.<br/>
+        /// As long as at least one full screen window is not iconified, the screensaver<br/>
+        /// is prohibited from starting.<br/>
+        /// Window systems put limits on window sizes.  Very large or very small window<br/>
+        /// dimensions may be overridden by the window system on creation.  Check the<br/>
+        /// actual [size](<br/>
+        /// after creation.<br/>
+        /// The [swap interval](<br/>
+        /// is not set during window creation and<br/>
+        /// the initial value may vary depending on driver settings and defaults.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
+        /// <br/>
+        /// <br/>
+        /// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static GLFWwindow* CreateWindowNative(int width, int height, byte* title, GLFWmonitor* monitor, GLFWwindow* share)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int, int, byte*, GLFWmonitor*, GLFWwindow*, GLFWwindow*>)funcTable[29])(width, height, title, monitor, share);
-			#else
-			return (GLFWwindow*)((delegate* unmanaged[Cdecl]<int, int, nint, nint, nint, nint>)funcTable[29])(width, height, (nint)title, (nint)monitor, (nint)share);
-			#endif
-		}
+#else
+            return (GLFWwindow*)((delegate* unmanaged[Cdecl]<int, int, nint, nint, nint, nint> )funcTable[29])(width, height, (nint)title, (nint)monitor, (nint)share);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a window and its associated OpenGL or OpenGL ES<br/>
-		/// context.  Most of the options controlling how the window and its context<br/>
-		/// should be created are specified with [window hints](<br/>
-		/// Successful creation does not change which context is current.  Before you<br/>
-		/// can use the newly created context, you need to<br/>
-		/// [make it current](<br/>
-		/// For information about the `share`<br/>
-		/// parameter, see <br/>
-		/// The created window, framebuffer and context may differ from what you<br/>
-		/// requested, as not all parameters and hints are<br/>
-		/// [hard constraints](<br/>
-		/// This includes the size of the<br/>
-		/// window, especially for full screen windows.  To query the actual attributes<br/>
-		/// of the created window, framebuffer and context, see <br/>
-		/// <br/>
-		/// and <br/>
-		/// To create a full screen window, you need to specify the monitor the window<br/>
-		/// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
-		/// Unless you have a way for the user to choose a specific monitor, it is<br/>
-		/// recommended that you pick the primary monitor.  For more information on how<br/>
-		/// to query connected monitors, see <br/>
-		/// For full screen windows, the specified size becomes the resolution of the<br/>
-		/// window's _desired video mode_.  As long as a full screen window is not<br/>
-		/// iconified, the supported video mode most closely matching the desired video<br/>
-		/// mode is set for the specified monitor.  For more information about full<br/>
-		/// screen windows, including the creation of so called _windowed full screen_<br/>
-		/// or _borderless full screen_ windows, see <br/>
-		/// Once you have created the window, you can switch it between windowed and<br/>
-		/// full screen mode with <br/>
-		/// This will not affect its<br/>
-		/// OpenGL or OpenGL ES context.<br/>
-		/// By default, newly created windows use the placement recommended by the<br/>
-		/// window system.  To create the window at a specific position, set the <br/>
-		/// and <br/>
-		/// window hints before creation.  To<br/>
-		/// restore the default behavior, set either or both hints back to<br/>
-		/// `GLFW_ANY_POSITION`.<br/>
-		/// As long as at least one full screen window is not iconified, the screensaver<br/>
-		/// is prohibited from starting.<br/>
-		/// Window systems put limits on window sizes.  Very large or very small window<br/>
-		/// dimensions may be overridden by the window system on creation.  Check the<br/>
-		/// actual [size](<br/>
-		/// after creation.<br/>
-		/// The [swap interval](<br/>
-		/// is not set during window creation and<br/>
-		/// the initial value may vary depending on driver settings and defaults.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
-		/// <br/>
-		/// <br/>
-		/// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWwindowPtr CreateWindow(int width, int height, byte* title, GLFWmonitorPtr monitor, GLFWwindowPtr share)
-		{
-			GLFWwindowPtr ret = CreateWindowNative(width, height, title, (GLFWmonitor*)monitor, (GLFWwindow*)share);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function creates a window and its associated OpenGL or OpenGL ES<br/>
+        /// context.  Most of the options controlling how the window and its context<br/>
+        /// should be created are specified with [window hints](<br/>
+        /// Successful creation does not change which context is current.  Before you<br/>
+        /// can use the newly created context, you need to<br/>
+        /// [make it current](<br/>
+        /// For information about the `share`<br/>
+        /// parameter, see <br/>
+        /// The created window, framebuffer and context may differ from what you<br/>
+        /// requested, as not all parameters and hints are<br/>
+        /// [hard constraints](<br/>
+        /// This includes the size of the<br/>
+        /// window, especially for full screen windows.  To query the actual attributes<br/>
+        /// of the created window, framebuffer and context, see <br/>
+        /// <br/>
+        /// and <br/>
+        /// To create a full screen window, you need to specify the monitor the window<br/>
+        /// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
+        /// Unless you have a way for the user to choose a specific monitor, it is<br/>
+        /// recommended that you pick the primary monitor.  For more information on how<br/>
+        /// to query connected monitors, see <br/>
+        /// For full screen windows, the specified size becomes the resolution of the<br/>
+        /// window's _desired video mode_.  As long as a full screen window is not<br/>
+        /// iconified, the supported video mode most closely matching the desired video<br/>
+        /// mode is set for the specified monitor.  For more information about full<br/>
+        /// screen windows, including the creation of so called _windowed full screen_<br/>
+        /// or _borderless full screen_ windows, see <br/>
+        /// Once you have created the window, you can switch it between windowed and<br/>
+        /// full screen mode with <br/>
+        /// This will not affect its<br/>
+        /// OpenGL or OpenGL ES context.<br/>
+        /// By default, newly created windows use the placement recommended by the<br/>
+        /// window system.  To create the window at a specific position, set the <br/>
+        /// and <br/>
+        /// window hints before creation.  To<br/>
+        /// restore the default behavior, set either or both hints back to<br/>
+        /// `GLFW_ANY_POSITION`.<br/>
+        /// As long as at least one full screen window is not iconified, the screensaver<br/>
+        /// is prohibited from starting.<br/>
+        /// Window systems put limits on window sizes.  Very large or very small window<br/>
+        /// dimensions may be overridden by the window system on creation.  Check the<br/>
+        /// actual [size](<br/>
+        /// after creation.<br/>
+        /// The [swap interval](<br/>
+        /// is not set during window creation and<br/>
+        /// the initial value may vary depending on driver settings and defaults.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
+        /// <br/>
+        /// <br/>
+        /// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWwindowPtr CreateWindow(int width, int height, byte* title, GLFWmonitorPtr monitor, GLFWwindowPtr share)
+        {
+            GLFWwindowPtr ret = CreateWindowNative(width, height, title, (GLFWmonitor*)monitor, (GLFWwindow*)share);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a window and its associated OpenGL or OpenGL ES<br/>
-		/// context.  Most of the options controlling how the window and its context<br/>
-		/// should be created are specified with [window hints](<br/>
-		/// Successful creation does not change which context is current.  Before you<br/>
-		/// can use the newly created context, you need to<br/>
-		/// [make it current](<br/>
-		/// For information about the `share`<br/>
-		/// parameter, see <br/>
-		/// The created window, framebuffer and context may differ from what you<br/>
-		/// requested, as not all parameters and hints are<br/>
-		/// [hard constraints](<br/>
-		/// This includes the size of the<br/>
-		/// window, especially for full screen windows.  To query the actual attributes<br/>
-		/// of the created window, framebuffer and context, see <br/>
-		/// <br/>
-		/// and <br/>
-		/// To create a full screen window, you need to specify the monitor the window<br/>
-		/// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
-		/// Unless you have a way for the user to choose a specific monitor, it is<br/>
-		/// recommended that you pick the primary monitor.  For more information on how<br/>
-		/// to query connected monitors, see <br/>
-		/// For full screen windows, the specified size becomes the resolution of the<br/>
-		/// window's _desired video mode_.  As long as a full screen window is not<br/>
-		/// iconified, the supported video mode most closely matching the desired video<br/>
-		/// mode is set for the specified monitor.  For more information about full<br/>
-		/// screen windows, including the creation of so called _windowed full screen_<br/>
-		/// or _borderless full screen_ windows, see <br/>
-		/// Once you have created the window, you can switch it between windowed and<br/>
-		/// full screen mode with <br/>
-		/// This will not affect its<br/>
-		/// OpenGL or OpenGL ES context.<br/>
-		/// By default, newly created windows use the placement recommended by the<br/>
-		/// window system.  To create the window at a specific position, set the <br/>
-		/// and <br/>
-		/// window hints before creation.  To<br/>
-		/// restore the default behavior, set either or both hints back to<br/>
-		/// `GLFW_ANY_POSITION`.<br/>
-		/// As long as at least one full screen window is not iconified, the screensaver<br/>
-		/// is prohibited from starting.<br/>
-		/// Window systems put limits on window sizes.  Very large or very small window<br/>
-		/// dimensions may be overridden by the window system on creation.  Check the<br/>
-		/// actual [size](<br/>
-		/// after creation.<br/>
-		/// The [swap interval](<br/>
-		/// is not set during window creation and<br/>
-		/// the initial value may vary depending on driver settings and defaults.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
-		/// <br/>
-		/// <br/>
-		/// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWwindowPtr CreateWindow(int width, int height, in byte title, GLFWmonitorPtr monitor, GLFWwindowPtr share)
-		{
-			fixed (byte* ptitle = &title)
-			{
-				GLFWwindowPtr ret = CreateWindowNative(width, height, (byte*)ptitle, (GLFWmonitor*)monitor, (GLFWwindow*)share);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function creates a window and its associated OpenGL or OpenGL ES<br/>
+        /// context.  Most of the options controlling how the window and its context<br/>
+        /// should be created are specified with [window hints](<br/>
+        /// Successful creation does not change which context is current.  Before you<br/>
+        /// can use the newly created context, you need to<br/>
+        /// [make it current](<br/>
+        /// For information about the `share`<br/>
+        /// parameter, see <br/>
+        /// The created window, framebuffer and context may differ from what you<br/>
+        /// requested, as not all parameters and hints are<br/>
+        /// [hard constraints](<br/>
+        /// This includes the size of the<br/>
+        /// window, especially for full screen windows.  To query the actual attributes<br/>
+        /// of the created window, framebuffer and context, see <br/>
+        /// <br/>
+        /// and <br/>
+        /// To create a full screen window, you need to specify the monitor the window<br/>
+        /// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
+        /// Unless you have a way for the user to choose a specific monitor, it is<br/>
+        /// recommended that you pick the primary monitor.  For more information on how<br/>
+        /// to query connected monitors, see <br/>
+        /// For full screen windows, the specified size becomes the resolution of the<br/>
+        /// window's _desired video mode_.  As long as a full screen window is not<br/>
+        /// iconified, the supported video mode most closely matching the desired video<br/>
+        /// mode is set for the specified monitor.  For more information about full<br/>
+        /// screen windows, including the creation of so called _windowed full screen_<br/>
+        /// or _borderless full screen_ windows, see <br/>
+        /// Once you have created the window, you can switch it between windowed and<br/>
+        /// full screen mode with <br/>
+        /// This will not affect its<br/>
+        /// OpenGL or OpenGL ES context.<br/>
+        /// By default, newly created windows use the placement recommended by the<br/>
+        /// window system.  To create the window at a specific position, set the <br/>
+        /// and <br/>
+        /// window hints before creation.  To<br/>
+        /// restore the default behavior, set either or both hints back to<br/>
+        /// `GLFW_ANY_POSITION`.<br/>
+        /// As long as at least one full screen window is not iconified, the screensaver<br/>
+        /// is prohibited from starting.<br/>
+        /// Window systems put limits on window sizes.  Very large or very small window<br/>
+        /// dimensions may be overridden by the window system on creation.  Check the<br/>
+        /// actual [size](<br/>
+        /// after creation.<br/>
+        /// The [swap interval](<br/>
+        /// is not set during window creation and<br/>
+        /// the initial value may vary depending on driver settings and defaults.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
+        /// <br/>
+        /// <br/>
+        /// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWwindowPtr CreateWindow(int width, int height, in byte title, GLFWmonitorPtr monitor, GLFWwindowPtr share)
+        {
+            fixed (byte* ptitle = &title)
+            {
+                GLFWwindowPtr ret = CreateWindowNative(width, height, (byte*)ptitle, (GLFWmonitor*)monitor, (GLFWwindow*)share);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a window and its associated OpenGL or OpenGL ES<br/>
-		/// context.  Most of the options controlling how the window and its context<br/>
-		/// should be created are specified with [window hints](<br/>
-		/// Successful creation does not change which context is current.  Before you<br/>
-		/// can use the newly created context, you need to<br/>
-		/// [make it current](<br/>
-		/// For information about the `share`<br/>
-		/// parameter, see <br/>
-		/// The created window, framebuffer and context may differ from what you<br/>
-		/// requested, as not all parameters and hints are<br/>
-		/// [hard constraints](<br/>
-		/// This includes the size of the<br/>
-		/// window, especially for full screen windows.  To query the actual attributes<br/>
-		/// of the created window, framebuffer and context, see <br/>
-		/// <br/>
-		/// and <br/>
-		/// To create a full screen window, you need to specify the monitor the window<br/>
-		/// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
-		/// Unless you have a way for the user to choose a specific monitor, it is<br/>
-		/// recommended that you pick the primary monitor.  For more information on how<br/>
-		/// to query connected monitors, see <br/>
-		/// For full screen windows, the specified size becomes the resolution of the<br/>
-		/// window's _desired video mode_.  As long as a full screen window is not<br/>
-		/// iconified, the supported video mode most closely matching the desired video<br/>
-		/// mode is set for the specified monitor.  For more information about full<br/>
-		/// screen windows, including the creation of so called _windowed full screen_<br/>
-		/// or _borderless full screen_ windows, see <br/>
-		/// Once you have created the window, you can switch it between windowed and<br/>
-		/// full screen mode with <br/>
-		/// This will not affect its<br/>
-		/// OpenGL or OpenGL ES context.<br/>
-		/// By default, newly created windows use the placement recommended by the<br/>
-		/// window system.  To create the window at a specific position, set the <br/>
-		/// and <br/>
-		/// window hints before creation.  To<br/>
-		/// restore the default behavior, set either or both hints back to<br/>
-		/// `GLFW_ANY_POSITION`.<br/>
-		/// As long as at least one full screen window is not iconified, the screensaver<br/>
-		/// is prohibited from starting.<br/>
-		/// Window systems put limits on window sizes.  Very large or very small window<br/>
-		/// dimensions may be overridden by the window system on creation.  Check the<br/>
-		/// actual [size](<br/>
-		/// after creation.<br/>
-		/// The [swap interval](<br/>
-		/// is not set during window creation and<br/>
-		/// the initial value may vary depending on driver settings and defaults.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
-		/// <br/>
-		/// <br/>
-		/// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWwindowPtr CreateWindow(int width, int height, ReadOnlySpan<byte> title, GLFWmonitorPtr monitor, GLFWwindowPtr share)
-		{
-			fixed (byte* ptitle = title)
-			{
-				GLFWwindowPtr ret = CreateWindowNative(width, height, (byte*)ptitle, (GLFWmonitor*)monitor, (GLFWwindow*)share);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function creates a window and its associated OpenGL or OpenGL ES<br/>
+        /// context.  Most of the options controlling how the window and its context<br/>
+        /// should be created are specified with [window hints](<br/>
+        /// Successful creation does not change which context is current.  Before you<br/>
+        /// can use the newly created context, you need to<br/>
+        /// [make it current](<br/>
+        /// For information about the `share`<br/>
+        /// parameter, see <br/>
+        /// The created window, framebuffer and context may differ from what you<br/>
+        /// requested, as not all parameters and hints are<br/>
+        /// [hard constraints](<br/>
+        /// This includes the size of the<br/>
+        /// window, especially for full screen windows.  To query the actual attributes<br/>
+        /// of the created window, framebuffer and context, see <br/>
+        /// <br/>
+        /// and <br/>
+        /// To create a full screen window, you need to specify the monitor the window<br/>
+        /// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
+        /// Unless you have a way for the user to choose a specific monitor, it is<br/>
+        /// recommended that you pick the primary monitor.  For more information on how<br/>
+        /// to query connected monitors, see <br/>
+        /// For full screen windows, the specified size becomes the resolution of the<br/>
+        /// window's _desired video mode_.  As long as a full screen window is not<br/>
+        /// iconified, the supported video mode most closely matching the desired video<br/>
+        /// mode is set for the specified monitor.  For more information about full<br/>
+        /// screen windows, including the creation of so called _windowed full screen_<br/>
+        /// or _borderless full screen_ windows, see <br/>
+        /// Once you have created the window, you can switch it between windowed and<br/>
+        /// full screen mode with <br/>
+        /// This will not affect its<br/>
+        /// OpenGL or OpenGL ES context.<br/>
+        /// By default, newly created windows use the placement recommended by the<br/>
+        /// window system.  To create the window at a specific position, set the <br/>
+        /// and <br/>
+        /// window hints before creation.  To<br/>
+        /// restore the default behavior, set either or both hints back to<br/>
+        /// `GLFW_ANY_POSITION`.<br/>
+        /// As long as at least one full screen window is not iconified, the screensaver<br/>
+        /// is prohibited from starting.<br/>
+        /// Window systems put limits on window sizes.  Very large or very small window<br/>
+        /// dimensions may be overridden by the window system on creation.  Check the<br/>
+        /// actual [size](<br/>
+        /// after creation.<br/>
+        /// The [swap interval](<br/>
+        /// is not set during window creation and<br/>
+        /// the initial value may vary depending on driver settings and defaults.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
+        /// <br/>
+        /// <br/>
+        /// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWwindowPtr CreateWindow(int width, int height, ReadOnlySpan<byte> title, GLFWmonitorPtr monitor, GLFWwindowPtr share)
+        {
+            fixed (byte* ptitle = title)
+            {
+                GLFWwindowPtr ret = CreateWindowNative(width, height, (byte*)ptitle, (GLFWmonitor*)monitor, (GLFWwindow*)share);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a window and its associated OpenGL or OpenGL ES<br/>
-		/// context.  Most of the options controlling how the window and its context<br/>
-		/// should be created are specified with [window hints](<br/>
-		/// Successful creation does not change which context is current.  Before you<br/>
-		/// can use the newly created context, you need to<br/>
-		/// [make it current](<br/>
-		/// For information about the `share`<br/>
-		/// parameter, see <br/>
-		/// The created window, framebuffer and context may differ from what you<br/>
-		/// requested, as not all parameters and hints are<br/>
-		/// [hard constraints](<br/>
-		/// This includes the size of the<br/>
-		/// window, especially for full screen windows.  To query the actual attributes<br/>
-		/// of the created window, framebuffer and context, see <br/>
-		/// <br/>
-		/// and <br/>
-		/// To create a full screen window, you need to specify the monitor the window<br/>
-		/// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
-		/// Unless you have a way for the user to choose a specific monitor, it is<br/>
-		/// recommended that you pick the primary monitor.  For more information on how<br/>
-		/// to query connected monitors, see <br/>
-		/// For full screen windows, the specified size becomes the resolution of the<br/>
-		/// window's _desired video mode_.  As long as a full screen window is not<br/>
-		/// iconified, the supported video mode most closely matching the desired video<br/>
-		/// mode is set for the specified monitor.  For more information about full<br/>
-		/// screen windows, including the creation of so called _windowed full screen_<br/>
-		/// or _borderless full screen_ windows, see <br/>
-		/// Once you have created the window, you can switch it between windowed and<br/>
-		/// full screen mode with <br/>
-		/// This will not affect its<br/>
-		/// OpenGL or OpenGL ES context.<br/>
-		/// By default, newly created windows use the placement recommended by the<br/>
-		/// window system.  To create the window at a specific position, set the <br/>
-		/// and <br/>
-		/// window hints before creation.  To<br/>
-		/// restore the default behavior, set either or both hints back to<br/>
-		/// `GLFW_ANY_POSITION`.<br/>
-		/// As long as at least one full screen window is not iconified, the screensaver<br/>
-		/// is prohibited from starting.<br/>
-		/// Window systems put limits on window sizes.  Very large or very small window<br/>
-		/// dimensions may be overridden by the window system on creation.  Check the<br/>
-		/// actual [size](<br/>
-		/// after creation.<br/>
-		/// The [swap interval](<br/>
-		/// is not set during window creation and<br/>
-		/// the initial value may vary depending on driver settings and defaults.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
-		/// <br/>
-		/// <br/>
-		/// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWwindowPtr CreateWindow(int width, int height, string title, GLFWmonitorPtr monitor, GLFWwindowPtr share)
-		{
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (title != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(title);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(title, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			GLFWwindowPtr ret = CreateWindowNative(width, height, pStr0, (GLFWmonitor*)monitor, (GLFWwindow*)share);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function creates a window and its associated OpenGL or OpenGL ES<br/>
+        /// context.  Most of the options controlling how the window and its context<br/>
+        /// should be created are specified with [window hints](<br/>
+        /// Successful creation does not change which context is current.  Before you<br/>
+        /// can use the newly created context, you need to<br/>
+        /// [make it current](<br/>
+        /// For information about the `share`<br/>
+        /// parameter, see <br/>
+        /// The created window, framebuffer and context may differ from what you<br/>
+        /// requested, as not all parameters and hints are<br/>
+        /// [hard constraints](<br/>
+        /// This includes the size of the<br/>
+        /// window, especially for full screen windows.  To query the actual attributes<br/>
+        /// of the created window, framebuffer and context, see <br/>
+        /// <br/>
+        /// and <br/>
+        /// To create a full screen window, you need to specify the monitor the window<br/>
+        /// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
+        /// Unless you have a way for the user to choose a specific monitor, it is<br/>
+        /// recommended that you pick the primary monitor.  For more information on how<br/>
+        /// to query connected monitors, see <br/>
+        /// For full screen windows, the specified size becomes the resolution of the<br/>
+        /// window's _desired video mode_.  As long as a full screen window is not<br/>
+        /// iconified, the supported video mode most closely matching the desired video<br/>
+        /// mode is set for the specified monitor.  For more information about full<br/>
+        /// screen windows, including the creation of so called _windowed full screen_<br/>
+        /// or _borderless full screen_ windows, see <br/>
+        /// Once you have created the window, you can switch it between windowed and<br/>
+        /// full screen mode with <br/>
+        /// This will not affect its<br/>
+        /// OpenGL or OpenGL ES context.<br/>
+        /// By default, newly created windows use the placement recommended by the<br/>
+        /// window system.  To create the window at a specific position, set the <br/>
+        /// and <br/>
+        /// window hints before creation.  To<br/>
+        /// restore the default behavior, set either or both hints back to<br/>
+        /// `GLFW_ANY_POSITION`.<br/>
+        /// As long as at least one full screen window is not iconified, the screensaver<br/>
+        /// is prohibited from starting.<br/>
+        /// Window systems put limits on window sizes.  Very large or very small window<br/>
+        /// dimensions may be overridden by the window system on creation.  Check the<br/>
+        /// actual [size](<br/>
+        /// after creation.<br/>
+        /// The [swap interval](<br/>
+        /// is not set during window creation and<br/>
+        /// the initial value may vary depending on driver settings and defaults.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
+        /// <br/>
+        /// <br/>
+        /// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWwindowPtr CreateWindow(int width, int height, string title, GLFWmonitorPtr monitor, GLFWwindowPtr share)
+        {
+            byte* pStr0 = null;
+            int pStrSize0 = 0;
+            if (title != null)
+            {
+                pStrSize0 = Utils.GetByteCountUTF8(title);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+                }
+                else
+                {
+                    byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+                    pStr0 = pStrStack0;
+                }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a window and its associated OpenGL or OpenGL ES<br/>
-		/// context.  Most of the options controlling how the window and its context<br/>
-		/// should be created are specified with [window hints](<br/>
-		/// Successful creation does not change which context is current.  Before you<br/>
-		/// can use the newly created context, you need to<br/>
-		/// [make it current](<br/>
-		/// For information about the `share`<br/>
-		/// parameter, see <br/>
-		/// The created window, framebuffer and context may differ from what you<br/>
-		/// requested, as not all parameters and hints are<br/>
-		/// [hard constraints](<br/>
-		/// This includes the size of the<br/>
-		/// window, especially for full screen windows.  To query the actual attributes<br/>
-		/// of the created window, framebuffer and context, see <br/>
-		/// <br/>
-		/// and <br/>
-		/// To create a full screen window, you need to specify the monitor the window<br/>
-		/// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
-		/// Unless you have a way for the user to choose a specific monitor, it is<br/>
-		/// recommended that you pick the primary monitor.  For more information on how<br/>
-		/// to query connected monitors, see <br/>
-		/// For full screen windows, the specified size becomes the resolution of the<br/>
-		/// window's _desired video mode_.  As long as a full screen window is not<br/>
-		/// iconified, the supported video mode most closely matching the desired video<br/>
-		/// mode is set for the specified monitor.  For more information about full<br/>
-		/// screen windows, including the creation of so called _windowed full screen_<br/>
-		/// or _borderless full screen_ windows, see <br/>
-		/// Once you have created the window, you can switch it between windowed and<br/>
-		/// full screen mode with <br/>
-		/// This will not affect its<br/>
-		/// OpenGL or OpenGL ES context.<br/>
-		/// By default, newly created windows use the placement recommended by the<br/>
-		/// window system.  To create the window at a specific position, set the <br/>
-		/// and <br/>
-		/// window hints before creation.  To<br/>
-		/// restore the default behavior, set either or both hints back to<br/>
-		/// `GLFW_ANY_POSITION`.<br/>
-		/// As long as at least one full screen window is not iconified, the screensaver<br/>
-		/// is prohibited from starting.<br/>
-		/// Window systems put limits on window sizes.  Very large or very small window<br/>
-		/// dimensions may be overridden by the window system on creation.  Check the<br/>
-		/// actual [size](<br/>
-		/// after creation.<br/>
-		/// The [swap interval](<br/>
-		/// is not set during window creation and<br/>
-		/// the initial value may vary depending on driver settings and defaults.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
-		/// <br/>
-		/// <br/>
-		/// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWwindowPtr CreateWindow(int width, int height, byte* title, ref GLFWmonitor monitor, GLFWwindowPtr share)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				GLFWwindowPtr ret = CreateWindowNative(width, height, title, (GLFWmonitor*)pmonitor, (GLFWwindow*)share);
-				return ret;
-			}
-		}
-	}
+                int pStrOffset0 = Utils.EncodeStringUTF8(title, pStr0, pStrSize0);
+                pStr0[pStrOffset0] = 0;
+            }
+
+            GLFWwindowPtr ret = CreateWindowNative(width, height, pStr0, (GLFWmonitor*)monitor, (GLFWwindow*)share);
+            if (pStrSize0 >= Utils.MaxStackallocSize)
+            {
+                Utils.Free(pStr0);
+            }
+
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// This function creates a window and its associated OpenGL or OpenGL ES<br/>
+        /// context.  Most of the options controlling how the window and its context<br/>
+        /// should be created are specified with [window hints](<br/>
+        /// Successful creation does not change which context is current.  Before you<br/>
+        /// can use the newly created context, you need to<br/>
+        /// [make it current](<br/>
+        /// For information about the `share`<br/>
+        /// parameter, see <br/>
+        /// The created window, framebuffer and context may differ from what you<br/>
+        /// requested, as not all parameters and hints are<br/>
+        /// [hard constraints](<br/>
+        /// This includes the size of the<br/>
+        /// window, especially for full screen windows.  To query the actual attributes<br/>
+        /// of the created window, framebuffer and context, see <br/>
+        /// <br/>
+        /// and <br/>
+        /// To create a full screen window, you need to specify the monitor the window<br/>
+        /// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
+        /// Unless you have a way for the user to choose a specific monitor, it is<br/>
+        /// recommended that you pick the primary monitor.  For more information on how<br/>
+        /// to query connected monitors, see <br/>
+        /// For full screen windows, the specified size becomes the resolution of the<br/>
+        /// window's _desired video mode_.  As long as a full screen window is not<br/>
+        /// iconified, the supported video mode most closely matching the desired video<br/>
+        /// mode is set for the specified monitor.  For more information about full<br/>
+        /// screen windows, including the creation of so called _windowed full screen_<br/>
+        /// or _borderless full screen_ windows, see <br/>
+        /// Once you have created the window, you can switch it between windowed and<br/>
+        /// full screen mode with <br/>
+        /// This will not affect its<br/>
+        /// OpenGL or OpenGL ES context.<br/>
+        /// By default, newly created windows use the placement recommended by the<br/>
+        /// window system.  To create the window at a specific position, set the <br/>
+        /// and <br/>
+        /// window hints before creation.  To<br/>
+        /// restore the default behavior, set either or both hints back to<br/>
+        /// `GLFW_ANY_POSITION`.<br/>
+        /// As long as at least one full screen window is not iconified, the screensaver<br/>
+        /// is prohibited from starting.<br/>
+        /// Window systems put limits on window sizes.  Very large or very small window<br/>
+        /// dimensions may be overridden by the window system on creation.  Check the<br/>
+        /// actual [size](<br/>
+        /// after creation.<br/>
+        /// The [swap interval](<br/>
+        /// is not set during window creation and<br/>
+        /// the initial value may vary depending on driver settings and defaults.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
+        /// <br/>
+        /// <br/>
+        /// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWwindowPtr CreateWindow(int width, int height, byte* title, ref GLFWmonitor monitor, GLFWwindowPtr share)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                GLFWwindowPtr ret = CreateWindowNative(width, height, title, (GLFWmonitor*)pmonitor, (GLFWwindow*)share);
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// This function creates a window and its associated OpenGL or OpenGL ES<br/>
+        /// context.  Most of the options controlling how the window and its context<br/>
+        /// should be created are specified with [window hints](<br/>
+        /// Successful creation does not change which context is current.  Before you<br/>
+        /// can use the newly created context, you need to<br/>
+        /// [make it current](<br/>
+        /// For information about the `share`<br/>
+        /// parameter, see <br/>
+        /// The created window, framebuffer and context may differ from what you<br/>
+        /// requested, as not all parameters and hints are<br/>
+        /// [hard constraints](<br/>
+        /// This includes the size of the<br/>
+        /// window, especially for full screen windows.  To query the actual attributes<br/>
+        /// of the created window, framebuffer and context, see <br/>
+        /// <br/>
+        /// and <br/>
+        /// To create a full screen window, you need to specify the monitor the window<br/>
+        /// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
+        /// Unless you have a way for the user to choose a specific monitor, it is<br/>
+        /// recommended that you pick the primary monitor.  For more information on how<br/>
+        /// to query connected monitors, see <br/>
+        /// For full screen windows, the specified size becomes the resolution of the<br/>
+        /// window's _desired video mode_.  As long as a full screen window is not<br/>
+        /// iconified, the supported video mode most closely matching the desired video<br/>
+        /// mode is set for the specified monitor.  For more information about full<br/>
+        /// screen windows, including the creation of so called _windowed full screen_<br/>
+        /// or _borderless full screen_ windows, see <br/>
+        /// Once you have created the window, you can switch it between windowed and<br/>
+        /// full screen mode with <br/>
+        /// This will not affect its<br/>
+        /// OpenGL or OpenGL ES context.<br/>
+        /// By default, newly created windows use the placement recommended by the<br/>
+        /// window system.  To create the window at a specific position, set the <br/>
+        /// and <br/>
+        /// window hints before creation.  To<br/>
+        /// restore the default behavior, set either or both hints back to<br/>
+        /// `GLFW_ANY_POSITION`.<br/>
+        /// As long as at least one full screen window is not iconified, the screensaver<br/>
+        /// is prohibited from starting.<br/>
+        /// Window systems put limits on window sizes.  Very large or very small window<br/>
+        /// dimensions may be overridden by the window system on creation.  Check the<br/>
+        /// actual [size](<br/>
+        /// after creation.<br/>
+        /// The [swap interval](<br/>
+        /// is not set during window creation and<br/>
+        /// the initial value may vary depending on driver settings and defaults.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
+        /// <br/>
+        /// <br/>
+        /// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWwindowPtr CreateWindow(int width, int height, in byte title, ref GLFWmonitor monitor, GLFWwindowPtr share)
+        {
+            fixed (byte* ptitle = &title)
+            {
+                fixed (GLFWmonitor* pmonitor = &monitor)
+                {
+                    GLFWwindowPtr ret = CreateWindowNative(width, height, (byte*)ptitle, (GLFWmonitor*)pmonitor, (GLFWwindow*)share);
+                    return ret;
+                }
+            }
+        }
+    }
 }

@@ -6,10 +6,14 @@
   "GeneratePlaceholderComments": false,
   "GenerateMetadata": false,
   "WrapPointersAsHandle": true,
-  "GenerateExtensions": false,
   "ImportType": "FunctionTable",
   "TypeMappings": {
     "Window": "X11Window",
-    "Display": "X11Display"
+    "Display": "X11Display",
+    "VkInstance": "VkInstance",
+    "VkPhysicalDevice": "VkPhysicalDevice",
+    "VkSurfaceKHR": "VkSurfaceKHR",
+    "PFN_vkGetInstanceProcAddr": "PFNVkGetInstanceProcAddr",
+    "PFN_vkVoidFunction": "PFNVkVoidFunction"
   }
 }

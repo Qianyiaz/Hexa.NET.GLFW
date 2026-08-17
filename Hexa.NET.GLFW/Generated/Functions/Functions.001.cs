@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -14,5019 +13,5048 @@ using HexaGen.Runtime;
 
 namespace Hexa.NET.GLFW
 {
-	public unsafe partial class GLFW
-	{
+    public unsafe partial class GLFW
+    {
+        /// <summary>
+        /// <br/>
+        /// This function creates a window and its associated OpenGL or OpenGL ES<br/>
+        /// context.  Most of the options controlling how the window and its context<br/>
+        /// should be created are specified with [window hints](<br/>
+        /// Successful creation does not change which context is current.  Before you<br/>
+        /// can use the newly created context, you need to<br/>
+        /// [make it current](<br/>
+        /// For information about the `share`<br/>
+        /// parameter, see <br/>
+        /// The created window, framebuffer and context may differ from what you<br/>
+        /// requested, as not all parameters and hints are<br/>
+        /// [hard constraints](<br/>
+        /// This includes the size of the<br/>
+        /// window, especially for full screen windows.  To query the actual attributes<br/>
+        /// of the created window, framebuffer and context, see <br/>
+        /// <br/>
+        /// and <br/>
+        /// To create a full screen window, you need to specify the monitor the window<br/>
+        /// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
+        /// Unless you have a way for the user to choose a specific monitor, it is<br/>
+        /// recommended that you pick the primary monitor.  For more information on how<br/>
+        /// to query connected monitors, see <br/>
+        /// For full screen windows, the specified size becomes the resolution of the<br/>
+        /// window's _desired video mode_.  As long as a full screen window is not<br/>
+        /// iconified, the supported video mode most closely matching the desired video<br/>
+        /// mode is set for the specified monitor.  For more information about full<br/>
+        /// screen windows, including the creation of so called _windowed full screen_<br/>
+        /// or _borderless full screen_ windows, see <br/>
+        /// Once you have created the window, you can switch it between windowed and<br/>
+        /// full screen mode with <br/>
+        /// This will not affect its<br/>
+        /// OpenGL or OpenGL ES context.<br/>
+        /// By default, newly created windows use the placement recommended by the<br/>
+        /// window system.  To create the window at a specific position, set the <br/>
+        /// and <br/>
+        /// window hints before creation.  To<br/>
+        /// restore the default behavior, set either or both hints back to<br/>
+        /// `GLFW_ANY_POSITION`.<br/>
+        /// As long as at least one full screen window is not iconified, the screensaver<br/>
+        /// is prohibited from starting.<br/>
+        /// Window systems put limits on window sizes.  Very large or very small window<br/>
+        /// dimensions may be overridden by the window system on creation.  Check the<br/>
+        /// actual [size](<br/>
+        /// after creation.<br/>
+        /// The [swap interval](<br/>
+        /// is not set during window creation and<br/>
+        /// the initial value may vary depending on driver settings and defaults.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
+        /// <br/>
+        /// <br/>
+        /// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWwindowPtr CreateWindow(int width, int height, ReadOnlySpan<byte> title, ref GLFWmonitor monitor, GLFWwindowPtr share)
+        {
+            fixed (byte* ptitle = title)
+            {
+                fixed (GLFWmonitor* pmonitor = &monitor)
+                {
+                    GLFWwindowPtr ret = CreateWindowNative(width, height, (byte*)ptitle, (GLFWmonitor*)pmonitor, (GLFWwindow*)share);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a window and its associated OpenGL or OpenGL ES<br/>
-		/// context.  Most of the options controlling how the window and its context<br/>
-		/// should be created are specified with [window hints](<br/>
-		/// Successful creation does not change which context is current.  Before you<br/>
-		/// can use the newly created context, you need to<br/>
-		/// [make it current](<br/>
-		/// For information about the `share`<br/>
-		/// parameter, see <br/>
-		/// The created window, framebuffer and context may differ from what you<br/>
-		/// requested, as not all parameters and hints are<br/>
-		/// [hard constraints](<br/>
-		/// This includes the size of the<br/>
-		/// window, especially for full screen windows.  To query the actual attributes<br/>
-		/// of the created window, framebuffer and context, see <br/>
-		/// <br/>
-		/// and <br/>
-		/// To create a full screen window, you need to specify the monitor the window<br/>
-		/// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
-		/// Unless you have a way for the user to choose a specific monitor, it is<br/>
-		/// recommended that you pick the primary monitor.  For more information on how<br/>
-		/// to query connected monitors, see <br/>
-		/// For full screen windows, the specified size becomes the resolution of the<br/>
-		/// window's _desired video mode_.  As long as a full screen window is not<br/>
-		/// iconified, the supported video mode most closely matching the desired video<br/>
-		/// mode is set for the specified monitor.  For more information about full<br/>
-		/// screen windows, including the creation of so called _windowed full screen_<br/>
-		/// or _borderless full screen_ windows, see <br/>
-		/// Once you have created the window, you can switch it between windowed and<br/>
-		/// full screen mode with <br/>
-		/// This will not affect its<br/>
-		/// OpenGL or OpenGL ES context.<br/>
-		/// By default, newly created windows use the placement recommended by the<br/>
-		/// window system.  To create the window at a specific position, set the <br/>
-		/// and <br/>
-		/// window hints before creation.  To<br/>
-		/// restore the default behavior, set either or both hints back to<br/>
-		/// `GLFW_ANY_POSITION`.<br/>
-		/// As long as at least one full screen window is not iconified, the screensaver<br/>
-		/// is prohibited from starting.<br/>
-		/// Window systems put limits on window sizes.  Very large or very small window<br/>
-		/// dimensions may be overridden by the window system on creation.  Check the<br/>
-		/// actual [size](<br/>
-		/// after creation.<br/>
-		/// The [swap interval](<br/>
-		/// is not set during window creation and<br/>
-		/// the initial value may vary depending on driver settings and defaults.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
-		/// <br/>
-		/// <br/>
-		/// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWwindowPtr CreateWindow(int width, int height, in byte title, ref GLFWmonitor monitor, GLFWwindowPtr share)
-		{
-			fixed (byte* ptitle = &title)
-			{
-				fixed (GLFWmonitor* pmonitor = &monitor)
-				{
-					GLFWwindowPtr ret = CreateWindowNative(width, height, (byte*)ptitle, (GLFWmonitor*)pmonitor, (GLFWwindow*)share);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function creates a window and its associated OpenGL or OpenGL ES<br/>
+        /// context.  Most of the options controlling how the window and its context<br/>
+        /// should be created are specified with [window hints](<br/>
+        /// Successful creation does not change which context is current.  Before you<br/>
+        /// can use the newly created context, you need to<br/>
+        /// [make it current](<br/>
+        /// For information about the `share`<br/>
+        /// parameter, see <br/>
+        /// The created window, framebuffer and context may differ from what you<br/>
+        /// requested, as not all parameters and hints are<br/>
+        /// [hard constraints](<br/>
+        /// This includes the size of the<br/>
+        /// window, especially for full screen windows.  To query the actual attributes<br/>
+        /// of the created window, framebuffer and context, see <br/>
+        /// <br/>
+        /// and <br/>
+        /// To create a full screen window, you need to specify the monitor the window<br/>
+        /// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
+        /// Unless you have a way for the user to choose a specific monitor, it is<br/>
+        /// recommended that you pick the primary monitor.  For more information on how<br/>
+        /// to query connected monitors, see <br/>
+        /// For full screen windows, the specified size becomes the resolution of the<br/>
+        /// window's _desired video mode_.  As long as a full screen window is not<br/>
+        /// iconified, the supported video mode most closely matching the desired video<br/>
+        /// mode is set for the specified monitor.  For more information about full<br/>
+        /// screen windows, including the creation of so called _windowed full screen_<br/>
+        /// or _borderless full screen_ windows, see <br/>
+        /// Once you have created the window, you can switch it between windowed and<br/>
+        /// full screen mode with <br/>
+        /// This will not affect its<br/>
+        /// OpenGL or OpenGL ES context.<br/>
+        /// By default, newly created windows use the placement recommended by the<br/>
+        /// window system.  To create the window at a specific position, set the <br/>
+        /// and <br/>
+        /// window hints before creation.  To<br/>
+        /// restore the default behavior, set either or both hints back to<br/>
+        /// `GLFW_ANY_POSITION`.<br/>
+        /// As long as at least one full screen window is not iconified, the screensaver<br/>
+        /// is prohibited from starting.<br/>
+        /// Window systems put limits on window sizes.  Very large or very small window<br/>
+        /// dimensions may be overridden by the window system on creation.  Check the<br/>
+        /// actual [size](<br/>
+        /// after creation.<br/>
+        /// The [swap interval](<br/>
+        /// is not set during window creation and<br/>
+        /// the initial value may vary depending on driver settings and defaults.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
+        /// <br/>
+        /// <br/>
+        /// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWwindowPtr CreateWindow(int width, int height, string title, ref GLFWmonitor monitor, GLFWwindowPtr share)
+        {
+            byte* pStr0 = null;
+            int pStrSize0 = 0;
+            if (title != null)
+            {
+                pStrSize0 = Utils.GetByteCountUTF8(title);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+                }
+                else
+                {
+                    byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+                    pStr0 = pStrStack0;
+                }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a window and its associated OpenGL or OpenGL ES<br/>
-		/// context.  Most of the options controlling how the window and its context<br/>
-		/// should be created are specified with [window hints](<br/>
-		/// Successful creation does not change which context is current.  Before you<br/>
-		/// can use the newly created context, you need to<br/>
-		/// [make it current](<br/>
-		/// For information about the `share`<br/>
-		/// parameter, see <br/>
-		/// The created window, framebuffer and context may differ from what you<br/>
-		/// requested, as not all parameters and hints are<br/>
-		/// [hard constraints](<br/>
-		/// This includes the size of the<br/>
-		/// window, especially for full screen windows.  To query the actual attributes<br/>
-		/// of the created window, framebuffer and context, see <br/>
-		/// <br/>
-		/// and <br/>
-		/// To create a full screen window, you need to specify the monitor the window<br/>
-		/// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
-		/// Unless you have a way for the user to choose a specific monitor, it is<br/>
-		/// recommended that you pick the primary monitor.  For more information on how<br/>
-		/// to query connected monitors, see <br/>
-		/// For full screen windows, the specified size becomes the resolution of the<br/>
-		/// window's _desired video mode_.  As long as a full screen window is not<br/>
-		/// iconified, the supported video mode most closely matching the desired video<br/>
-		/// mode is set for the specified monitor.  For more information about full<br/>
-		/// screen windows, including the creation of so called _windowed full screen_<br/>
-		/// or _borderless full screen_ windows, see <br/>
-		/// Once you have created the window, you can switch it between windowed and<br/>
-		/// full screen mode with <br/>
-		/// This will not affect its<br/>
-		/// OpenGL or OpenGL ES context.<br/>
-		/// By default, newly created windows use the placement recommended by the<br/>
-		/// window system.  To create the window at a specific position, set the <br/>
-		/// and <br/>
-		/// window hints before creation.  To<br/>
-		/// restore the default behavior, set either or both hints back to<br/>
-		/// `GLFW_ANY_POSITION`.<br/>
-		/// As long as at least one full screen window is not iconified, the screensaver<br/>
-		/// is prohibited from starting.<br/>
-		/// Window systems put limits on window sizes.  Very large or very small window<br/>
-		/// dimensions may be overridden by the window system on creation.  Check the<br/>
-		/// actual [size](<br/>
-		/// after creation.<br/>
-		/// The [swap interval](<br/>
-		/// is not set during window creation and<br/>
-		/// the initial value may vary depending on driver settings and defaults.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
-		/// <br/>
-		/// <br/>
-		/// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWwindowPtr CreateWindow(int width, int height, ReadOnlySpan<byte> title, ref GLFWmonitor monitor, GLFWwindowPtr share)
-		{
-			fixed (byte* ptitle = title)
-			{
-				fixed (GLFWmonitor* pmonitor = &monitor)
-				{
-					GLFWwindowPtr ret = CreateWindowNative(width, height, (byte*)ptitle, (GLFWmonitor*)pmonitor, (GLFWwindow*)share);
-					return ret;
-				}
-			}
-		}
+                int pStrOffset0 = Utils.EncodeStringUTF8(title, pStr0, pStrSize0);
+                pStr0[pStrOffset0] = 0;
+            }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a window and its associated OpenGL or OpenGL ES<br/>
-		/// context.  Most of the options controlling how the window and its context<br/>
-		/// should be created are specified with [window hints](<br/>
-		/// Successful creation does not change which context is current.  Before you<br/>
-		/// can use the newly created context, you need to<br/>
-		/// [make it current](<br/>
-		/// For information about the `share`<br/>
-		/// parameter, see <br/>
-		/// The created window, framebuffer and context may differ from what you<br/>
-		/// requested, as not all parameters and hints are<br/>
-		/// [hard constraints](<br/>
-		/// This includes the size of the<br/>
-		/// window, especially for full screen windows.  To query the actual attributes<br/>
-		/// of the created window, framebuffer and context, see <br/>
-		/// <br/>
-		/// and <br/>
-		/// To create a full screen window, you need to specify the monitor the window<br/>
-		/// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
-		/// Unless you have a way for the user to choose a specific monitor, it is<br/>
-		/// recommended that you pick the primary monitor.  For more information on how<br/>
-		/// to query connected monitors, see <br/>
-		/// For full screen windows, the specified size becomes the resolution of the<br/>
-		/// window's _desired video mode_.  As long as a full screen window is not<br/>
-		/// iconified, the supported video mode most closely matching the desired video<br/>
-		/// mode is set for the specified monitor.  For more information about full<br/>
-		/// screen windows, including the creation of so called _windowed full screen_<br/>
-		/// or _borderless full screen_ windows, see <br/>
-		/// Once you have created the window, you can switch it between windowed and<br/>
-		/// full screen mode with <br/>
-		/// This will not affect its<br/>
-		/// OpenGL or OpenGL ES context.<br/>
-		/// By default, newly created windows use the placement recommended by the<br/>
-		/// window system.  To create the window at a specific position, set the <br/>
-		/// and <br/>
-		/// window hints before creation.  To<br/>
-		/// restore the default behavior, set either or both hints back to<br/>
-		/// `GLFW_ANY_POSITION`.<br/>
-		/// As long as at least one full screen window is not iconified, the screensaver<br/>
-		/// is prohibited from starting.<br/>
-		/// Window systems put limits on window sizes.  Very large or very small window<br/>
-		/// dimensions may be overridden by the window system on creation.  Check the<br/>
-		/// actual [size](<br/>
-		/// after creation.<br/>
-		/// The [swap interval](<br/>
-		/// is not set during window creation and<br/>
-		/// the initial value may vary depending on driver settings and defaults.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
-		/// <br/>
-		/// <br/>
-		/// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWwindowPtr CreateWindow(int width, int height, string title, ref GLFWmonitor monitor, GLFWwindowPtr share)
-		{
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (title != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(title);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(title, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				GLFWwindowPtr ret = CreateWindowNative(width, height, pStr0, (GLFWmonitor*)pmonitor, (GLFWwindow*)share);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-				return ret;
-			}
-		}
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                GLFWwindowPtr ret = CreateWindowNative(width, height, pStr0, (GLFWmonitor*)pmonitor, (GLFWwindow*)share);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    Utils.Free(pStr0);
+                }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a window and its associated OpenGL or OpenGL ES<br/>
-		/// context.  Most of the options controlling how the window and its context<br/>
-		/// should be created are specified with [window hints](<br/>
-		/// Successful creation does not change which context is current.  Before you<br/>
-		/// can use the newly created context, you need to<br/>
-		/// [make it current](<br/>
-		/// For information about the `share`<br/>
-		/// parameter, see <br/>
-		/// The created window, framebuffer and context may differ from what you<br/>
-		/// requested, as not all parameters and hints are<br/>
-		/// [hard constraints](<br/>
-		/// This includes the size of the<br/>
-		/// window, especially for full screen windows.  To query the actual attributes<br/>
-		/// of the created window, framebuffer and context, see <br/>
-		/// <br/>
-		/// and <br/>
-		/// To create a full screen window, you need to specify the monitor the window<br/>
-		/// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
-		/// Unless you have a way for the user to choose a specific monitor, it is<br/>
-		/// recommended that you pick the primary monitor.  For more information on how<br/>
-		/// to query connected monitors, see <br/>
-		/// For full screen windows, the specified size becomes the resolution of the<br/>
-		/// window's _desired video mode_.  As long as a full screen window is not<br/>
-		/// iconified, the supported video mode most closely matching the desired video<br/>
-		/// mode is set for the specified monitor.  For more information about full<br/>
-		/// screen windows, including the creation of so called _windowed full screen_<br/>
-		/// or _borderless full screen_ windows, see <br/>
-		/// Once you have created the window, you can switch it between windowed and<br/>
-		/// full screen mode with <br/>
-		/// This will not affect its<br/>
-		/// OpenGL or OpenGL ES context.<br/>
-		/// By default, newly created windows use the placement recommended by the<br/>
-		/// window system.  To create the window at a specific position, set the <br/>
-		/// and <br/>
-		/// window hints before creation.  To<br/>
-		/// restore the default behavior, set either or both hints back to<br/>
-		/// `GLFW_ANY_POSITION`.<br/>
-		/// As long as at least one full screen window is not iconified, the screensaver<br/>
-		/// is prohibited from starting.<br/>
-		/// Window systems put limits on window sizes.  Very large or very small window<br/>
-		/// dimensions may be overridden by the window system on creation.  Check the<br/>
-		/// actual [size](<br/>
-		/// after creation.<br/>
-		/// The [swap interval](<br/>
-		/// is not set during window creation and<br/>
-		/// the initial value may vary depending on driver settings and defaults.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
-		/// <br/>
-		/// <br/>
-		/// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWwindowPtr CreateWindow(int width, int height, byte* title, GLFWmonitorPtr monitor, ref GLFWwindow share)
-		{
-			fixed (GLFWwindow* pshare = &share)
-			{
-				GLFWwindowPtr ret = CreateWindowNative(width, height, title, (GLFWmonitor*)monitor, (GLFWwindow*)pshare);
-				return ret;
-			}
-		}
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a window and its associated OpenGL or OpenGL ES<br/>
-		/// context.  Most of the options controlling how the window and its context<br/>
-		/// should be created are specified with [window hints](<br/>
-		/// Successful creation does not change which context is current.  Before you<br/>
-		/// can use the newly created context, you need to<br/>
-		/// [make it current](<br/>
-		/// For information about the `share`<br/>
-		/// parameter, see <br/>
-		/// The created window, framebuffer and context may differ from what you<br/>
-		/// requested, as not all parameters and hints are<br/>
-		/// [hard constraints](<br/>
-		/// This includes the size of the<br/>
-		/// window, especially for full screen windows.  To query the actual attributes<br/>
-		/// of the created window, framebuffer and context, see <br/>
-		/// <br/>
-		/// and <br/>
-		/// To create a full screen window, you need to specify the monitor the window<br/>
-		/// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
-		/// Unless you have a way for the user to choose a specific monitor, it is<br/>
-		/// recommended that you pick the primary monitor.  For more information on how<br/>
-		/// to query connected monitors, see <br/>
-		/// For full screen windows, the specified size becomes the resolution of the<br/>
-		/// window's _desired video mode_.  As long as a full screen window is not<br/>
-		/// iconified, the supported video mode most closely matching the desired video<br/>
-		/// mode is set for the specified monitor.  For more information about full<br/>
-		/// screen windows, including the creation of so called _windowed full screen_<br/>
-		/// or _borderless full screen_ windows, see <br/>
-		/// Once you have created the window, you can switch it between windowed and<br/>
-		/// full screen mode with <br/>
-		/// This will not affect its<br/>
-		/// OpenGL or OpenGL ES context.<br/>
-		/// By default, newly created windows use the placement recommended by the<br/>
-		/// window system.  To create the window at a specific position, set the <br/>
-		/// and <br/>
-		/// window hints before creation.  To<br/>
-		/// restore the default behavior, set either or both hints back to<br/>
-		/// `GLFW_ANY_POSITION`.<br/>
-		/// As long as at least one full screen window is not iconified, the screensaver<br/>
-		/// is prohibited from starting.<br/>
-		/// Window systems put limits on window sizes.  Very large or very small window<br/>
-		/// dimensions may be overridden by the window system on creation.  Check the<br/>
-		/// actual [size](<br/>
-		/// after creation.<br/>
-		/// The [swap interval](<br/>
-		/// is not set during window creation and<br/>
-		/// the initial value may vary depending on driver settings and defaults.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
-		/// <br/>
-		/// <br/>
-		/// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWwindowPtr CreateWindow(int width, int height, in byte title, GLFWmonitorPtr monitor, ref GLFWwindow share)
-		{
-			fixed (byte* ptitle = &title)
-			{
-				fixed (GLFWwindow* pshare = &share)
-				{
-					GLFWwindowPtr ret = CreateWindowNative(width, height, (byte*)ptitle, (GLFWmonitor*)monitor, (GLFWwindow*)pshare);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function creates a window and its associated OpenGL or OpenGL ES<br/>
+        /// context.  Most of the options controlling how the window and its context<br/>
+        /// should be created are specified with [window hints](<br/>
+        /// Successful creation does not change which context is current.  Before you<br/>
+        /// can use the newly created context, you need to<br/>
+        /// [make it current](<br/>
+        /// For information about the `share`<br/>
+        /// parameter, see <br/>
+        /// The created window, framebuffer and context may differ from what you<br/>
+        /// requested, as not all parameters and hints are<br/>
+        /// [hard constraints](<br/>
+        /// This includes the size of the<br/>
+        /// window, especially for full screen windows.  To query the actual attributes<br/>
+        /// of the created window, framebuffer and context, see <br/>
+        /// <br/>
+        /// and <br/>
+        /// To create a full screen window, you need to specify the monitor the window<br/>
+        /// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
+        /// Unless you have a way for the user to choose a specific monitor, it is<br/>
+        /// recommended that you pick the primary monitor.  For more information on how<br/>
+        /// to query connected monitors, see <br/>
+        /// For full screen windows, the specified size becomes the resolution of the<br/>
+        /// window's _desired video mode_.  As long as a full screen window is not<br/>
+        /// iconified, the supported video mode most closely matching the desired video<br/>
+        /// mode is set for the specified monitor.  For more information about full<br/>
+        /// screen windows, including the creation of so called _windowed full screen_<br/>
+        /// or _borderless full screen_ windows, see <br/>
+        /// Once you have created the window, you can switch it between windowed and<br/>
+        /// full screen mode with <br/>
+        /// This will not affect its<br/>
+        /// OpenGL or OpenGL ES context.<br/>
+        /// By default, newly created windows use the placement recommended by the<br/>
+        /// window system.  To create the window at a specific position, set the <br/>
+        /// and <br/>
+        /// window hints before creation.  To<br/>
+        /// restore the default behavior, set either or both hints back to<br/>
+        /// `GLFW_ANY_POSITION`.<br/>
+        /// As long as at least one full screen window is not iconified, the screensaver<br/>
+        /// is prohibited from starting.<br/>
+        /// Window systems put limits on window sizes.  Very large or very small window<br/>
+        /// dimensions may be overridden by the window system on creation.  Check the<br/>
+        /// actual [size](<br/>
+        /// after creation.<br/>
+        /// The [swap interval](<br/>
+        /// is not set during window creation and<br/>
+        /// the initial value may vary depending on driver settings and defaults.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
+        /// <br/>
+        /// <br/>
+        /// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWwindowPtr CreateWindow(int width, int height, byte* title, GLFWmonitorPtr monitor, ref GLFWwindow share)
+        {
+            fixed (GLFWwindow* pshare = &share)
+            {
+                GLFWwindowPtr ret = CreateWindowNative(width, height, title, (GLFWmonitor*)monitor, (GLFWwindow*)pshare);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a window and its associated OpenGL or OpenGL ES<br/>
-		/// context.  Most of the options controlling how the window and its context<br/>
-		/// should be created are specified with [window hints](<br/>
-		/// Successful creation does not change which context is current.  Before you<br/>
-		/// can use the newly created context, you need to<br/>
-		/// [make it current](<br/>
-		/// For information about the `share`<br/>
-		/// parameter, see <br/>
-		/// The created window, framebuffer and context may differ from what you<br/>
-		/// requested, as not all parameters and hints are<br/>
-		/// [hard constraints](<br/>
-		/// This includes the size of the<br/>
-		/// window, especially for full screen windows.  To query the actual attributes<br/>
-		/// of the created window, framebuffer and context, see <br/>
-		/// <br/>
-		/// and <br/>
-		/// To create a full screen window, you need to specify the monitor the window<br/>
-		/// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
-		/// Unless you have a way for the user to choose a specific monitor, it is<br/>
-		/// recommended that you pick the primary monitor.  For more information on how<br/>
-		/// to query connected monitors, see <br/>
-		/// For full screen windows, the specified size becomes the resolution of the<br/>
-		/// window's _desired video mode_.  As long as a full screen window is not<br/>
-		/// iconified, the supported video mode most closely matching the desired video<br/>
-		/// mode is set for the specified monitor.  For more information about full<br/>
-		/// screen windows, including the creation of so called _windowed full screen_<br/>
-		/// or _borderless full screen_ windows, see <br/>
-		/// Once you have created the window, you can switch it between windowed and<br/>
-		/// full screen mode with <br/>
-		/// This will not affect its<br/>
-		/// OpenGL or OpenGL ES context.<br/>
-		/// By default, newly created windows use the placement recommended by the<br/>
-		/// window system.  To create the window at a specific position, set the <br/>
-		/// and <br/>
-		/// window hints before creation.  To<br/>
-		/// restore the default behavior, set either or both hints back to<br/>
-		/// `GLFW_ANY_POSITION`.<br/>
-		/// As long as at least one full screen window is not iconified, the screensaver<br/>
-		/// is prohibited from starting.<br/>
-		/// Window systems put limits on window sizes.  Very large or very small window<br/>
-		/// dimensions may be overridden by the window system on creation.  Check the<br/>
-		/// actual [size](<br/>
-		/// after creation.<br/>
-		/// The [swap interval](<br/>
-		/// is not set during window creation and<br/>
-		/// the initial value may vary depending on driver settings and defaults.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
-		/// <br/>
-		/// <br/>
-		/// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWwindowPtr CreateWindow(int width, int height, ReadOnlySpan<byte> title, GLFWmonitorPtr monitor, ref GLFWwindow share)
-		{
-			fixed (byte* ptitle = title)
-			{
-				fixed (GLFWwindow* pshare = &share)
-				{
-					GLFWwindowPtr ret = CreateWindowNative(width, height, (byte*)ptitle, (GLFWmonitor*)monitor, (GLFWwindow*)pshare);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function creates a window and its associated OpenGL or OpenGL ES<br/>
+        /// context.  Most of the options controlling how the window and its context<br/>
+        /// should be created are specified with [window hints](<br/>
+        /// Successful creation does not change which context is current.  Before you<br/>
+        /// can use the newly created context, you need to<br/>
+        /// [make it current](<br/>
+        /// For information about the `share`<br/>
+        /// parameter, see <br/>
+        /// The created window, framebuffer and context may differ from what you<br/>
+        /// requested, as not all parameters and hints are<br/>
+        /// [hard constraints](<br/>
+        /// This includes the size of the<br/>
+        /// window, especially for full screen windows.  To query the actual attributes<br/>
+        /// of the created window, framebuffer and context, see <br/>
+        /// <br/>
+        /// and <br/>
+        /// To create a full screen window, you need to specify the monitor the window<br/>
+        /// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
+        /// Unless you have a way for the user to choose a specific monitor, it is<br/>
+        /// recommended that you pick the primary monitor.  For more information on how<br/>
+        /// to query connected monitors, see <br/>
+        /// For full screen windows, the specified size becomes the resolution of the<br/>
+        /// window's _desired video mode_.  As long as a full screen window is not<br/>
+        /// iconified, the supported video mode most closely matching the desired video<br/>
+        /// mode is set for the specified monitor.  For more information about full<br/>
+        /// screen windows, including the creation of so called _windowed full screen_<br/>
+        /// or _borderless full screen_ windows, see <br/>
+        /// Once you have created the window, you can switch it between windowed and<br/>
+        /// full screen mode with <br/>
+        /// This will not affect its<br/>
+        /// OpenGL or OpenGL ES context.<br/>
+        /// By default, newly created windows use the placement recommended by the<br/>
+        /// window system.  To create the window at a specific position, set the <br/>
+        /// and <br/>
+        /// window hints before creation.  To<br/>
+        /// restore the default behavior, set either or both hints back to<br/>
+        /// `GLFW_ANY_POSITION`.<br/>
+        /// As long as at least one full screen window is not iconified, the screensaver<br/>
+        /// is prohibited from starting.<br/>
+        /// Window systems put limits on window sizes.  Very large or very small window<br/>
+        /// dimensions may be overridden by the window system on creation.  Check the<br/>
+        /// actual [size](<br/>
+        /// after creation.<br/>
+        /// The [swap interval](<br/>
+        /// is not set during window creation and<br/>
+        /// the initial value may vary depending on driver settings and defaults.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
+        /// <br/>
+        /// <br/>
+        /// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWwindowPtr CreateWindow(int width, int height, in byte title, GLFWmonitorPtr monitor, ref GLFWwindow share)
+        {
+            fixed (byte* ptitle = &title)
+            {
+                fixed (GLFWwindow* pshare = &share)
+                {
+                    GLFWwindowPtr ret = CreateWindowNative(width, height, (byte*)ptitle, (GLFWmonitor*)monitor, (GLFWwindow*)pshare);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a window and its associated OpenGL or OpenGL ES<br/>
-		/// context.  Most of the options controlling how the window and its context<br/>
-		/// should be created are specified with [window hints](<br/>
-		/// Successful creation does not change which context is current.  Before you<br/>
-		/// can use the newly created context, you need to<br/>
-		/// [make it current](<br/>
-		/// For information about the `share`<br/>
-		/// parameter, see <br/>
-		/// The created window, framebuffer and context may differ from what you<br/>
-		/// requested, as not all parameters and hints are<br/>
-		/// [hard constraints](<br/>
-		/// This includes the size of the<br/>
-		/// window, especially for full screen windows.  To query the actual attributes<br/>
-		/// of the created window, framebuffer and context, see <br/>
-		/// <br/>
-		/// and <br/>
-		/// To create a full screen window, you need to specify the monitor the window<br/>
-		/// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
-		/// Unless you have a way for the user to choose a specific monitor, it is<br/>
-		/// recommended that you pick the primary monitor.  For more information on how<br/>
-		/// to query connected monitors, see <br/>
-		/// For full screen windows, the specified size becomes the resolution of the<br/>
-		/// window's _desired video mode_.  As long as a full screen window is not<br/>
-		/// iconified, the supported video mode most closely matching the desired video<br/>
-		/// mode is set for the specified monitor.  For more information about full<br/>
-		/// screen windows, including the creation of so called _windowed full screen_<br/>
-		/// or _borderless full screen_ windows, see <br/>
-		/// Once you have created the window, you can switch it between windowed and<br/>
-		/// full screen mode with <br/>
-		/// This will not affect its<br/>
-		/// OpenGL or OpenGL ES context.<br/>
-		/// By default, newly created windows use the placement recommended by the<br/>
-		/// window system.  To create the window at a specific position, set the <br/>
-		/// and <br/>
-		/// window hints before creation.  To<br/>
-		/// restore the default behavior, set either or both hints back to<br/>
-		/// `GLFW_ANY_POSITION`.<br/>
-		/// As long as at least one full screen window is not iconified, the screensaver<br/>
-		/// is prohibited from starting.<br/>
-		/// Window systems put limits on window sizes.  Very large or very small window<br/>
-		/// dimensions may be overridden by the window system on creation.  Check the<br/>
-		/// actual [size](<br/>
-		/// after creation.<br/>
-		/// The [swap interval](<br/>
-		/// is not set during window creation and<br/>
-		/// the initial value may vary depending on driver settings and defaults.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
-		/// <br/>
-		/// <br/>
-		/// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWwindowPtr CreateWindow(int width, int height, string title, GLFWmonitorPtr monitor, ref GLFWwindow share)
-		{
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (title != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(title);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(title, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			fixed (GLFWwindow* pshare = &share)
-			{
-				GLFWwindowPtr ret = CreateWindowNative(width, height, pStr0, (GLFWmonitor*)monitor, (GLFWwindow*)pshare);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function creates a window and its associated OpenGL or OpenGL ES<br/>
+        /// context.  Most of the options controlling how the window and its context<br/>
+        /// should be created are specified with [window hints](<br/>
+        /// Successful creation does not change which context is current.  Before you<br/>
+        /// can use the newly created context, you need to<br/>
+        /// [make it current](<br/>
+        /// For information about the `share`<br/>
+        /// parameter, see <br/>
+        /// The created window, framebuffer and context may differ from what you<br/>
+        /// requested, as not all parameters and hints are<br/>
+        /// [hard constraints](<br/>
+        /// This includes the size of the<br/>
+        /// window, especially for full screen windows.  To query the actual attributes<br/>
+        /// of the created window, framebuffer and context, see <br/>
+        /// <br/>
+        /// and <br/>
+        /// To create a full screen window, you need to specify the monitor the window<br/>
+        /// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
+        /// Unless you have a way for the user to choose a specific monitor, it is<br/>
+        /// recommended that you pick the primary monitor.  For more information on how<br/>
+        /// to query connected monitors, see <br/>
+        /// For full screen windows, the specified size becomes the resolution of the<br/>
+        /// window's _desired video mode_.  As long as a full screen window is not<br/>
+        /// iconified, the supported video mode most closely matching the desired video<br/>
+        /// mode is set for the specified monitor.  For more information about full<br/>
+        /// screen windows, including the creation of so called _windowed full screen_<br/>
+        /// or _borderless full screen_ windows, see <br/>
+        /// Once you have created the window, you can switch it between windowed and<br/>
+        /// full screen mode with <br/>
+        /// This will not affect its<br/>
+        /// OpenGL or OpenGL ES context.<br/>
+        /// By default, newly created windows use the placement recommended by the<br/>
+        /// window system.  To create the window at a specific position, set the <br/>
+        /// and <br/>
+        /// window hints before creation.  To<br/>
+        /// restore the default behavior, set either or both hints back to<br/>
+        /// `GLFW_ANY_POSITION`.<br/>
+        /// As long as at least one full screen window is not iconified, the screensaver<br/>
+        /// is prohibited from starting.<br/>
+        /// Window systems put limits on window sizes.  Very large or very small window<br/>
+        /// dimensions may be overridden by the window system on creation.  Check the<br/>
+        /// actual [size](<br/>
+        /// after creation.<br/>
+        /// The [swap interval](<br/>
+        /// is not set during window creation and<br/>
+        /// the initial value may vary depending on driver settings and defaults.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
+        /// <br/>
+        /// <br/>
+        /// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWwindowPtr CreateWindow(int width, int height, ReadOnlySpan<byte> title, GLFWmonitorPtr monitor, ref GLFWwindow share)
+        {
+            fixed (byte* ptitle = title)
+            {
+                fixed (GLFWwindow* pshare = &share)
+                {
+                    GLFWwindowPtr ret = CreateWindowNative(width, height, (byte*)ptitle, (GLFWmonitor*)monitor, (GLFWwindow*)pshare);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a window and its associated OpenGL or OpenGL ES<br/>
-		/// context.  Most of the options controlling how the window and its context<br/>
-		/// should be created are specified with [window hints](<br/>
-		/// Successful creation does not change which context is current.  Before you<br/>
-		/// can use the newly created context, you need to<br/>
-		/// [make it current](<br/>
-		/// For information about the `share`<br/>
-		/// parameter, see <br/>
-		/// The created window, framebuffer and context may differ from what you<br/>
-		/// requested, as not all parameters and hints are<br/>
-		/// [hard constraints](<br/>
-		/// This includes the size of the<br/>
-		/// window, especially for full screen windows.  To query the actual attributes<br/>
-		/// of the created window, framebuffer and context, see <br/>
-		/// <br/>
-		/// and <br/>
-		/// To create a full screen window, you need to specify the monitor the window<br/>
-		/// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
-		/// Unless you have a way for the user to choose a specific monitor, it is<br/>
-		/// recommended that you pick the primary monitor.  For more information on how<br/>
-		/// to query connected monitors, see <br/>
-		/// For full screen windows, the specified size becomes the resolution of the<br/>
-		/// window's _desired video mode_.  As long as a full screen window is not<br/>
-		/// iconified, the supported video mode most closely matching the desired video<br/>
-		/// mode is set for the specified monitor.  For more information about full<br/>
-		/// screen windows, including the creation of so called _windowed full screen_<br/>
-		/// or _borderless full screen_ windows, see <br/>
-		/// Once you have created the window, you can switch it between windowed and<br/>
-		/// full screen mode with <br/>
-		/// This will not affect its<br/>
-		/// OpenGL or OpenGL ES context.<br/>
-		/// By default, newly created windows use the placement recommended by the<br/>
-		/// window system.  To create the window at a specific position, set the <br/>
-		/// and <br/>
-		/// window hints before creation.  To<br/>
-		/// restore the default behavior, set either or both hints back to<br/>
-		/// `GLFW_ANY_POSITION`.<br/>
-		/// As long as at least one full screen window is not iconified, the screensaver<br/>
-		/// is prohibited from starting.<br/>
-		/// Window systems put limits on window sizes.  Very large or very small window<br/>
-		/// dimensions may be overridden by the window system on creation.  Check the<br/>
-		/// actual [size](<br/>
-		/// after creation.<br/>
-		/// The [swap interval](<br/>
-		/// is not set during window creation and<br/>
-		/// the initial value may vary depending on driver settings and defaults.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
-		/// <br/>
-		/// <br/>
-		/// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWwindowPtr CreateWindow(int width, int height, byte* title, ref GLFWmonitor monitor, ref GLFWwindow share)
-		{
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (GLFWwindow* pshare = &share)
-				{
-					GLFWwindowPtr ret = CreateWindowNative(width, height, title, (GLFWmonitor*)pmonitor, (GLFWwindow*)pshare);
-					return ret;
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function creates a window and its associated OpenGL or OpenGL ES<br/>
+        /// context.  Most of the options controlling how the window and its context<br/>
+        /// should be created are specified with [window hints](<br/>
+        /// Successful creation does not change which context is current.  Before you<br/>
+        /// can use the newly created context, you need to<br/>
+        /// [make it current](<br/>
+        /// For information about the `share`<br/>
+        /// parameter, see <br/>
+        /// The created window, framebuffer and context may differ from what you<br/>
+        /// requested, as not all parameters and hints are<br/>
+        /// [hard constraints](<br/>
+        /// This includes the size of the<br/>
+        /// window, especially for full screen windows.  To query the actual attributes<br/>
+        /// of the created window, framebuffer and context, see <br/>
+        /// <br/>
+        /// and <br/>
+        /// To create a full screen window, you need to specify the monitor the window<br/>
+        /// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
+        /// Unless you have a way for the user to choose a specific monitor, it is<br/>
+        /// recommended that you pick the primary monitor.  For more information on how<br/>
+        /// to query connected monitors, see <br/>
+        /// For full screen windows, the specified size becomes the resolution of the<br/>
+        /// window's _desired video mode_.  As long as a full screen window is not<br/>
+        /// iconified, the supported video mode most closely matching the desired video<br/>
+        /// mode is set for the specified monitor.  For more information about full<br/>
+        /// screen windows, including the creation of so called _windowed full screen_<br/>
+        /// or _borderless full screen_ windows, see <br/>
+        /// Once you have created the window, you can switch it between windowed and<br/>
+        /// full screen mode with <br/>
+        /// This will not affect its<br/>
+        /// OpenGL or OpenGL ES context.<br/>
+        /// By default, newly created windows use the placement recommended by the<br/>
+        /// window system.  To create the window at a specific position, set the <br/>
+        /// and <br/>
+        /// window hints before creation.  To<br/>
+        /// restore the default behavior, set either or both hints back to<br/>
+        /// `GLFW_ANY_POSITION`.<br/>
+        /// As long as at least one full screen window is not iconified, the screensaver<br/>
+        /// is prohibited from starting.<br/>
+        /// Window systems put limits on window sizes.  Very large or very small window<br/>
+        /// dimensions may be overridden by the window system on creation.  Check the<br/>
+        /// actual [size](<br/>
+        /// after creation.<br/>
+        /// The [swap interval](<br/>
+        /// is not set during window creation and<br/>
+        /// the initial value may vary depending on driver settings and defaults.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
+        /// <br/>
+        /// <br/>
+        /// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWwindowPtr CreateWindow(int width, int height, string title, GLFWmonitorPtr monitor, ref GLFWwindow share)
+        {
+            byte* pStr0 = null;
+            int pStrSize0 = 0;
+            if (title != null)
+            {
+                pStrSize0 = Utils.GetByteCountUTF8(title);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+                }
+                else
+                {
+                    byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+                    pStr0 = pStrStack0;
+                }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a window and its associated OpenGL or OpenGL ES<br/>
-		/// context.  Most of the options controlling how the window and its context<br/>
-		/// should be created are specified with [window hints](<br/>
-		/// Successful creation does not change which context is current.  Before you<br/>
-		/// can use the newly created context, you need to<br/>
-		/// [make it current](<br/>
-		/// For information about the `share`<br/>
-		/// parameter, see <br/>
-		/// The created window, framebuffer and context may differ from what you<br/>
-		/// requested, as not all parameters and hints are<br/>
-		/// [hard constraints](<br/>
-		/// This includes the size of the<br/>
-		/// window, especially for full screen windows.  To query the actual attributes<br/>
-		/// of the created window, framebuffer and context, see <br/>
-		/// <br/>
-		/// and <br/>
-		/// To create a full screen window, you need to specify the monitor the window<br/>
-		/// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
-		/// Unless you have a way for the user to choose a specific monitor, it is<br/>
-		/// recommended that you pick the primary monitor.  For more information on how<br/>
-		/// to query connected monitors, see <br/>
-		/// For full screen windows, the specified size becomes the resolution of the<br/>
-		/// window's _desired video mode_.  As long as a full screen window is not<br/>
-		/// iconified, the supported video mode most closely matching the desired video<br/>
-		/// mode is set for the specified monitor.  For more information about full<br/>
-		/// screen windows, including the creation of so called _windowed full screen_<br/>
-		/// or _borderless full screen_ windows, see <br/>
-		/// Once you have created the window, you can switch it between windowed and<br/>
-		/// full screen mode with <br/>
-		/// This will not affect its<br/>
-		/// OpenGL or OpenGL ES context.<br/>
-		/// By default, newly created windows use the placement recommended by the<br/>
-		/// window system.  To create the window at a specific position, set the <br/>
-		/// and <br/>
-		/// window hints before creation.  To<br/>
-		/// restore the default behavior, set either or both hints back to<br/>
-		/// `GLFW_ANY_POSITION`.<br/>
-		/// As long as at least one full screen window is not iconified, the screensaver<br/>
-		/// is prohibited from starting.<br/>
-		/// Window systems put limits on window sizes.  Very large or very small window<br/>
-		/// dimensions may be overridden by the window system on creation.  Check the<br/>
-		/// actual [size](<br/>
-		/// after creation.<br/>
-		/// The [swap interval](<br/>
-		/// is not set during window creation and<br/>
-		/// the initial value may vary depending on driver settings and defaults.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
-		/// <br/>
-		/// <br/>
-		/// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWwindowPtr CreateWindow(int width, int height, in byte title, ref GLFWmonitor monitor, ref GLFWwindow share)
-		{
-			fixed (byte* ptitle = &title)
-			{
-				fixed (GLFWmonitor* pmonitor = &monitor)
-				{
-					fixed (GLFWwindow* pshare = &share)
-					{
-						GLFWwindowPtr ret = CreateWindowNative(width, height, (byte*)ptitle, (GLFWmonitor*)pmonitor, (GLFWwindow*)pshare);
-						return ret;
-					}
-				}
-			}
-		}
+                int pStrOffset0 = Utils.EncodeStringUTF8(title, pStr0, pStrSize0);
+                pStr0[pStrOffset0] = 0;
+            }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a window and its associated OpenGL or OpenGL ES<br/>
-		/// context.  Most of the options controlling how the window and its context<br/>
-		/// should be created are specified with [window hints](<br/>
-		/// Successful creation does not change which context is current.  Before you<br/>
-		/// can use the newly created context, you need to<br/>
-		/// [make it current](<br/>
-		/// For information about the `share`<br/>
-		/// parameter, see <br/>
-		/// The created window, framebuffer and context may differ from what you<br/>
-		/// requested, as not all parameters and hints are<br/>
-		/// [hard constraints](<br/>
-		/// This includes the size of the<br/>
-		/// window, especially for full screen windows.  To query the actual attributes<br/>
-		/// of the created window, framebuffer and context, see <br/>
-		/// <br/>
-		/// and <br/>
-		/// To create a full screen window, you need to specify the monitor the window<br/>
-		/// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
-		/// Unless you have a way for the user to choose a specific monitor, it is<br/>
-		/// recommended that you pick the primary monitor.  For more information on how<br/>
-		/// to query connected monitors, see <br/>
-		/// For full screen windows, the specified size becomes the resolution of the<br/>
-		/// window's _desired video mode_.  As long as a full screen window is not<br/>
-		/// iconified, the supported video mode most closely matching the desired video<br/>
-		/// mode is set for the specified monitor.  For more information about full<br/>
-		/// screen windows, including the creation of so called _windowed full screen_<br/>
-		/// or _borderless full screen_ windows, see <br/>
-		/// Once you have created the window, you can switch it between windowed and<br/>
-		/// full screen mode with <br/>
-		/// This will not affect its<br/>
-		/// OpenGL or OpenGL ES context.<br/>
-		/// By default, newly created windows use the placement recommended by the<br/>
-		/// window system.  To create the window at a specific position, set the <br/>
-		/// and <br/>
-		/// window hints before creation.  To<br/>
-		/// restore the default behavior, set either or both hints back to<br/>
-		/// `GLFW_ANY_POSITION`.<br/>
-		/// As long as at least one full screen window is not iconified, the screensaver<br/>
-		/// is prohibited from starting.<br/>
-		/// Window systems put limits on window sizes.  Very large or very small window<br/>
-		/// dimensions may be overridden by the window system on creation.  Check the<br/>
-		/// actual [size](<br/>
-		/// after creation.<br/>
-		/// The [swap interval](<br/>
-		/// is not set during window creation and<br/>
-		/// the initial value may vary depending on driver settings and defaults.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
-		/// <br/>
-		/// <br/>
-		/// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWwindowPtr CreateWindow(int width, int height, ReadOnlySpan<byte> title, ref GLFWmonitor monitor, ref GLFWwindow share)
-		{
-			fixed (byte* ptitle = title)
-			{
-				fixed (GLFWmonitor* pmonitor = &monitor)
-				{
-					fixed (GLFWwindow* pshare = &share)
-					{
-						GLFWwindowPtr ret = CreateWindowNative(width, height, (byte*)ptitle, (GLFWmonitor*)pmonitor, (GLFWwindow*)pshare);
-						return ret;
-					}
-				}
-			}
-		}
+            fixed (GLFWwindow* pshare = &share)
+            {
+                GLFWwindowPtr ret = CreateWindowNative(width, height, pStr0, (GLFWmonitor*)monitor, (GLFWwindow*)pshare);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    Utils.Free(pStr0);
+                }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a window and its associated OpenGL or OpenGL ES<br/>
-		/// context.  Most of the options controlling how the window and its context<br/>
-		/// should be created are specified with [window hints](<br/>
-		/// Successful creation does not change which context is current.  Before you<br/>
-		/// can use the newly created context, you need to<br/>
-		/// [make it current](<br/>
-		/// For information about the `share`<br/>
-		/// parameter, see <br/>
-		/// The created window, framebuffer and context may differ from what you<br/>
-		/// requested, as not all parameters and hints are<br/>
-		/// [hard constraints](<br/>
-		/// This includes the size of the<br/>
-		/// window, especially for full screen windows.  To query the actual attributes<br/>
-		/// of the created window, framebuffer and context, see <br/>
-		/// <br/>
-		/// and <br/>
-		/// To create a full screen window, you need to specify the monitor the window<br/>
-		/// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
-		/// Unless you have a way for the user to choose a specific monitor, it is<br/>
-		/// recommended that you pick the primary monitor.  For more information on how<br/>
-		/// to query connected monitors, see <br/>
-		/// For full screen windows, the specified size becomes the resolution of the<br/>
-		/// window's _desired video mode_.  As long as a full screen window is not<br/>
-		/// iconified, the supported video mode most closely matching the desired video<br/>
-		/// mode is set for the specified monitor.  For more information about full<br/>
-		/// screen windows, including the creation of so called _windowed full screen_<br/>
-		/// or _borderless full screen_ windows, see <br/>
-		/// Once you have created the window, you can switch it between windowed and<br/>
-		/// full screen mode with <br/>
-		/// This will not affect its<br/>
-		/// OpenGL or OpenGL ES context.<br/>
-		/// By default, newly created windows use the placement recommended by the<br/>
-		/// window system.  To create the window at a specific position, set the <br/>
-		/// and <br/>
-		/// window hints before creation.  To<br/>
-		/// restore the default behavior, set either or both hints back to<br/>
-		/// `GLFW_ANY_POSITION`.<br/>
-		/// As long as at least one full screen window is not iconified, the screensaver<br/>
-		/// is prohibited from starting.<br/>
-		/// Window systems put limits on window sizes.  Very large or very small window<br/>
-		/// dimensions may be overridden by the window system on creation.  Check the<br/>
-		/// actual [size](<br/>
-		/// after creation.<br/>
-		/// The [swap interval](<br/>
-		/// is not set during window creation and<br/>
-		/// the initial value may vary depending on driver settings and defaults.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
-		/// <br/>
-		/// <br/>
-		/// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWwindowPtr CreateWindow(int width, int height, string title, ref GLFWmonitor monitor, ref GLFWwindow share)
-		{
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (title != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(title);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(title, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			fixed (GLFWmonitor* pmonitor = &monitor)
-			{
-				fixed (GLFWwindow* pshare = &share)
-				{
-					GLFWwindowPtr ret = CreateWindowNative(width, height, pStr0, (GLFWmonitor*)pmonitor, (GLFWwindow*)pshare);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						Utils.Free(pStr0);
-					}
-					return ret;
-				}
-			}
-		}
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function destroys the specified window and its context.  On calling<br/>
-		/// this function, no further callbacks will be called for that window.<br/>
-		/// If the context of the specified window is current on the main thread, it is<br/>
-		/// detached before being destroyed.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// This function must not be called from a callback.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void DestroyWindowNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function creates a window and its associated OpenGL or OpenGL ES<br/>
+        /// context.  Most of the options controlling how the window and its context<br/>
+        /// should be created are specified with [window hints](<br/>
+        /// Successful creation does not change which context is current.  Before you<br/>
+        /// can use the newly created context, you need to<br/>
+        /// [make it current](<br/>
+        /// For information about the `share`<br/>
+        /// parameter, see <br/>
+        /// The created window, framebuffer and context may differ from what you<br/>
+        /// requested, as not all parameters and hints are<br/>
+        /// [hard constraints](<br/>
+        /// This includes the size of the<br/>
+        /// window, especially for full screen windows.  To query the actual attributes<br/>
+        /// of the created window, framebuffer and context, see <br/>
+        /// <br/>
+        /// and <br/>
+        /// To create a full screen window, you need to specify the monitor the window<br/>
+        /// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
+        /// Unless you have a way for the user to choose a specific monitor, it is<br/>
+        /// recommended that you pick the primary monitor.  For more information on how<br/>
+        /// to query connected monitors, see <br/>
+        /// For full screen windows, the specified size becomes the resolution of the<br/>
+        /// window's _desired video mode_.  As long as a full screen window is not<br/>
+        /// iconified, the supported video mode most closely matching the desired video<br/>
+        /// mode is set for the specified monitor.  For more information about full<br/>
+        /// screen windows, including the creation of so called _windowed full screen_<br/>
+        /// or _borderless full screen_ windows, see <br/>
+        /// Once you have created the window, you can switch it between windowed and<br/>
+        /// full screen mode with <br/>
+        /// This will not affect its<br/>
+        /// OpenGL or OpenGL ES context.<br/>
+        /// By default, newly created windows use the placement recommended by the<br/>
+        /// window system.  To create the window at a specific position, set the <br/>
+        /// and <br/>
+        /// window hints before creation.  To<br/>
+        /// restore the default behavior, set either or both hints back to<br/>
+        /// `GLFW_ANY_POSITION`.<br/>
+        /// As long as at least one full screen window is not iconified, the screensaver<br/>
+        /// is prohibited from starting.<br/>
+        /// Window systems put limits on window sizes.  Very large or very small window<br/>
+        /// dimensions may be overridden by the window system on creation.  Check the<br/>
+        /// actual [size](<br/>
+        /// after creation.<br/>
+        /// The [swap interval](<br/>
+        /// is not set during window creation and<br/>
+        /// the initial value may vary depending on driver settings and defaults.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
+        /// <br/>
+        /// <br/>
+        /// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWwindowPtr CreateWindow(int width, int height, byte* title, ref GLFWmonitor monitor, ref GLFWwindow share)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (GLFWwindow* pshare = &share)
+                {
+                    GLFWwindowPtr ret = CreateWindowNative(width, height, title, (GLFWmonitor*)pmonitor, (GLFWwindow*)pshare);
+                    return ret;
+                }
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// This function creates a window and its associated OpenGL or OpenGL ES<br/>
+        /// context.  Most of the options controlling how the window and its context<br/>
+        /// should be created are specified with [window hints](<br/>
+        /// Successful creation does not change which context is current.  Before you<br/>
+        /// can use the newly created context, you need to<br/>
+        /// [make it current](<br/>
+        /// For information about the `share`<br/>
+        /// parameter, see <br/>
+        /// The created window, framebuffer and context may differ from what you<br/>
+        /// requested, as not all parameters and hints are<br/>
+        /// [hard constraints](<br/>
+        /// This includes the size of the<br/>
+        /// window, especially for full screen windows.  To query the actual attributes<br/>
+        /// of the created window, framebuffer and context, see <br/>
+        /// <br/>
+        /// and <br/>
+        /// To create a full screen window, you need to specify the monitor the window<br/>
+        /// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
+        /// Unless you have a way for the user to choose a specific monitor, it is<br/>
+        /// recommended that you pick the primary monitor.  For more information on how<br/>
+        /// to query connected monitors, see <br/>
+        /// For full screen windows, the specified size becomes the resolution of the<br/>
+        /// window's _desired video mode_.  As long as a full screen window is not<br/>
+        /// iconified, the supported video mode most closely matching the desired video<br/>
+        /// mode is set for the specified monitor.  For more information about full<br/>
+        /// screen windows, including the creation of so called _windowed full screen_<br/>
+        /// or _borderless full screen_ windows, see <br/>
+        /// Once you have created the window, you can switch it between windowed and<br/>
+        /// full screen mode with <br/>
+        /// This will not affect its<br/>
+        /// OpenGL or OpenGL ES context.<br/>
+        /// By default, newly created windows use the placement recommended by the<br/>
+        /// window system.  To create the window at a specific position, set the <br/>
+        /// and <br/>
+        /// window hints before creation.  To<br/>
+        /// restore the default behavior, set either or both hints back to<br/>
+        /// `GLFW_ANY_POSITION`.<br/>
+        /// As long as at least one full screen window is not iconified, the screensaver<br/>
+        /// is prohibited from starting.<br/>
+        /// Window systems put limits on window sizes.  Very large or very small window<br/>
+        /// dimensions may be overridden by the window system on creation.  Check the<br/>
+        /// actual [size](<br/>
+        /// after creation.<br/>
+        /// The [swap interval](<br/>
+        /// is not set during window creation and<br/>
+        /// the initial value may vary depending on driver settings and defaults.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
+        /// <br/>
+        /// <br/>
+        /// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWwindowPtr CreateWindow(int width, int height, in byte title, ref GLFWmonitor monitor, ref GLFWwindow share)
+        {
+            fixed (byte* ptitle = &title)
+            {
+                fixed (GLFWmonitor* pmonitor = &monitor)
+                {
+                    fixed (GLFWwindow* pshare = &share)
+                    {
+                        GLFWwindowPtr ret = CreateWindowNative(width, height, (byte*)ptitle, (GLFWmonitor*)pmonitor, (GLFWwindow*)pshare);
+                        return ret;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// This function creates a window and its associated OpenGL or OpenGL ES<br/>
+        /// context.  Most of the options controlling how the window and its context<br/>
+        /// should be created are specified with [window hints](<br/>
+        /// Successful creation does not change which context is current.  Before you<br/>
+        /// can use the newly created context, you need to<br/>
+        /// [make it current](<br/>
+        /// For information about the `share`<br/>
+        /// parameter, see <br/>
+        /// The created window, framebuffer and context may differ from what you<br/>
+        /// requested, as not all parameters and hints are<br/>
+        /// [hard constraints](<br/>
+        /// This includes the size of the<br/>
+        /// window, especially for full screen windows.  To query the actual attributes<br/>
+        /// of the created window, framebuffer and context, see <br/>
+        /// <br/>
+        /// and <br/>
+        /// To create a full screen window, you need to specify the monitor the window<br/>
+        /// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
+        /// Unless you have a way for the user to choose a specific monitor, it is<br/>
+        /// recommended that you pick the primary monitor.  For more information on how<br/>
+        /// to query connected monitors, see <br/>
+        /// For full screen windows, the specified size becomes the resolution of the<br/>
+        /// window's _desired video mode_.  As long as a full screen window is not<br/>
+        /// iconified, the supported video mode most closely matching the desired video<br/>
+        /// mode is set for the specified monitor.  For more information about full<br/>
+        /// screen windows, including the creation of so called _windowed full screen_<br/>
+        /// or _borderless full screen_ windows, see <br/>
+        /// Once you have created the window, you can switch it between windowed and<br/>
+        /// full screen mode with <br/>
+        /// This will not affect its<br/>
+        /// OpenGL or OpenGL ES context.<br/>
+        /// By default, newly created windows use the placement recommended by the<br/>
+        /// window system.  To create the window at a specific position, set the <br/>
+        /// and <br/>
+        /// window hints before creation.  To<br/>
+        /// restore the default behavior, set either or both hints back to<br/>
+        /// `GLFW_ANY_POSITION`.<br/>
+        /// As long as at least one full screen window is not iconified, the screensaver<br/>
+        /// is prohibited from starting.<br/>
+        /// Window systems put limits on window sizes.  Very large or very small window<br/>
+        /// dimensions may be overridden by the window system on creation.  Check the<br/>
+        /// actual [size](<br/>
+        /// after creation.<br/>
+        /// The [swap interval](<br/>
+        /// is not set during window creation and<br/>
+        /// the initial value may vary depending on driver settings and defaults.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
+        /// <br/>
+        /// <br/>
+        /// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWwindowPtr CreateWindow(int width, int height, ReadOnlySpan<byte> title, ref GLFWmonitor monitor, ref GLFWwindow share)
+        {
+            fixed (byte* ptitle = title)
+            {
+                fixed (GLFWmonitor* pmonitor = &monitor)
+                {
+                    fixed (GLFWwindow* pshare = &share)
+                    {
+                        GLFWwindowPtr ret = CreateWindowNative(width, height, (byte*)ptitle, (GLFWmonitor*)pmonitor, (GLFWwindow*)pshare);
+                        return ret;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// This function creates a window and its associated OpenGL or OpenGL ES<br/>
+        /// context.  Most of the options controlling how the window and its context<br/>
+        /// should be created are specified with [window hints](<br/>
+        /// Successful creation does not change which context is current.  Before you<br/>
+        /// can use the newly created context, you need to<br/>
+        /// [make it current](<br/>
+        /// For information about the `share`<br/>
+        /// parameter, see <br/>
+        /// The created window, framebuffer and context may differ from what you<br/>
+        /// requested, as not all parameters and hints are<br/>
+        /// [hard constraints](<br/>
+        /// This includes the size of the<br/>
+        /// window, especially for full screen windows.  To query the actual attributes<br/>
+        /// of the created window, framebuffer and context, see <br/>
+        /// <br/>
+        /// and <br/>
+        /// To create a full screen window, you need to specify the monitor the window<br/>
+        /// will cover.  If no monitor is specified, the window will be windowed mode.<br/>
+        /// Unless you have a way for the user to choose a specific monitor, it is<br/>
+        /// recommended that you pick the primary monitor.  For more information on how<br/>
+        /// to query connected monitors, see <br/>
+        /// For full screen windows, the specified size becomes the resolution of the<br/>
+        /// window's _desired video mode_.  As long as a full screen window is not<br/>
+        /// iconified, the supported video mode most closely matching the desired video<br/>
+        /// mode is set for the specified monitor.  For more information about full<br/>
+        /// screen windows, including the creation of so called _windowed full screen_<br/>
+        /// or _borderless full screen_ windows, see <br/>
+        /// Once you have created the window, you can switch it between windowed and<br/>
+        /// full screen mode with <br/>
+        /// This will not affect its<br/>
+        /// OpenGL or OpenGL ES context.<br/>
+        /// By default, newly created windows use the placement recommended by the<br/>
+        /// window system.  To create the window at a specific position, set the <br/>
+        /// and <br/>
+        /// window hints before creation.  To<br/>
+        /// restore the default behavior, set either or both hints back to<br/>
+        /// `GLFW_ANY_POSITION`.<br/>
+        /// As long as at least one full screen window is not iconified, the screensaver<br/>
+        /// is prohibited from starting.<br/>
+        /// Window systems put limits on window sizes.  Very large or very small window<br/>
+        /// dimensions may be overridden by the window system on creation.  Check the<br/>
+        /// actual [size](<br/>
+        /// after creation.<br/>
+        /// The [swap interval](<br/>
+        /// is not set during window creation and<br/>
+        /// the initial value may vary depending on driver settings and defaults.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// [hidpi-guide]: https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html<br/>
+        /// <br/>
+        /// <br/>
+        /// [libdecor]: https://gitlab.freedesktop.org/libdecor/libdecor<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWwindowPtr CreateWindow(int width, int height, string title, ref GLFWmonitor monitor, ref GLFWwindow share)
+        {
+            byte* pStr0 = null;
+            int pStrSize0 = 0;
+            if (title != null)
+            {
+                pStrSize0 = Utils.GetByteCountUTF8(title);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+                }
+                else
+                {
+                    byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+                    pStr0 = pStrStack0;
+                }
+
+                int pStrOffset0 = Utils.EncodeStringUTF8(title, pStr0, pStrSize0);
+                pStr0[pStrOffset0] = 0;
+            }
+
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                fixed (GLFWwindow* pshare = &share)
+                {
+                    GLFWwindowPtr ret = CreateWindowNative(width, height, pStr0, (GLFWmonitor*)pmonitor, (GLFWwindow*)pshare);
+                    if (pStrSize0 >= Utils.MaxStackallocSize)
+                    {
+                        Utils.Free(pStr0);
+                    }
+
+                    return ret;
+                }
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// This function destroys the specified window and its context.  On calling<br/>
+        /// this function, no further callbacks will be called for that window.<br/>
+        /// If the context of the specified window is current on the main thread, it is<br/>
+        /// detached before being destroyed.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// This function must not be called from a callback.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void DestroyWindowNative(GLFWwindow* window)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[30])(window);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[30])((nint)window);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, void> )funcTable[30])((nint)window);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function destroys the specified window and its context.  On calling<br/>
-		/// this function, no further callbacks will be called for that window.<br/>
-		/// If the context of the specified window is current on the main thread, it is<br/>
-		/// detached before being destroyed.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// This function must not be called from a callback.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DestroyWindow(GLFWwindowPtr window)
-		{
-			DestroyWindowNative((GLFWwindow*)window);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function destroys the specified window and its context.  On calling<br/>
+        /// this function, no further callbacks will be called for that window.<br/>
+        /// If the context of the specified window is current on the main thread, it is<br/>
+        /// detached before being destroyed.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// This function must not be called from a callback.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DestroyWindow(GLFWwindowPtr window)
+        {
+            DestroyWindowNative((GLFWwindow*)window);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function destroys the specified window and its context.  On calling<br/>
-		/// this function, no further callbacks will be called for that window.<br/>
-		/// If the context of the specified window is current on the main thread, it is<br/>
-		/// detached before being destroyed.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// This function must not be called from a callback.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void DestroyWindow(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				DestroyWindowNative((GLFWwindow*)pwindow);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function destroys the specified window and its context.  On calling<br/>
+        /// this function, no further callbacks will be called for that window.<br/>
+        /// If the context of the specified window is current on the main thread, it is<br/>
+        /// detached before being destroyed.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// This function must not be called from a callback.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void DestroyWindow(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                DestroyWindowNative((GLFWwindow*)pwindow);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the value of the close flag of the specified window.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int WindowShouldCloseNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the value of the close flag of the specified window.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static int WindowShouldCloseNative(GLFWwindow* window)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, int>)funcTable[31])(window);
-			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, int>)funcTable[31])((nint)window);
-			#endif
-		}
+#else
+            return (int)((delegate* unmanaged[Cdecl]<nint, int> )funcTable[31])((nint)window);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the value of the close flag of the specified window.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int WindowShouldClose(GLFWwindowPtr window)
-		{
-			int ret = WindowShouldCloseNative((GLFWwindow*)window);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the value of the close flag of the specified window.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int WindowShouldClose(GLFWwindowPtr window)
+        {
+            int ret = WindowShouldCloseNative((GLFWwindow*)window);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the value of the close flag of the specified window.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int WindowShouldClose(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				int ret = WindowShouldCloseNative((GLFWwindow*)pwindow);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the value of the close flag of the specified window.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int WindowShouldClose(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                int ret = WindowShouldCloseNative((GLFWwindow*)pwindow);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the value of the close flag of the specified window.<br/>
-		/// This can be used to override the user's attempt to close the window, or<br/>
-		/// to signal that it should be closed.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void SetWindowShouldCloseNative(GLFWwindow* window, int value)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets the value of the close flag of the specified window.<br/>
+        /// This can be used to override the user's attempt to close the window, or<br/>
+        /// to signal that it should be closed.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void SetWindowShouldCloseNative(GLFWwindow* window, int value)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, void>)funcTable[32])(window, value);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, int, void>)funcTable[32])((nint)window, value);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, int, void> )funcTable[32])((nint)window, value);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the value of the close flag of the specified window.<br/>
-		/// This can be used to override the user's attempt to close the window, or<br/>
-		/// to signal that it should be closed.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowShouldClose(GLFWwindowPtr window, int value)
-		{
-			SetWindowShouldCloseNative((GLFWwindow*)window, value);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the value of the close flag of the specified window.<br/>
+        /// This can be used to override the user's attempt to close the window, or<br/>
+        /// to signal that it should be closed.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowShouldClose(GLFWwindowPtr window, int value)
+        {
+            SetWindowShouldCloseNative((GLFWwindow*)window, value);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the value of the close flag of the specified window.<br/>
-		/// This can be used to override the user's attempt to close the window, or<br/>
-		/// to signal that it should be closed.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowShouldClose(ref GLFWwindow window, int value)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				SetWindowShouldCloseNative((GLFWwindow*)pwindow, value);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the value of the close flag of the specified window.<br/>
+        /// This can be used to override the user's attempt to close the window, or<br/>
+        /// to signal that it should be closed.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowShouldClose(ref GLFWwindow window, int value)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                SetWindowShouldCloseNative((GLFWwindow*)pwindow, value);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the window title, encoded as UTF-8, of the specified<br/>
-		/// window.  This is the title set previously by <br/>
-		/// or <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the next call to <br/>
-		/// or <br/>
-		/// or until the library is<br/>
-		/// terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte* GetWindowTitleNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the window title, encoded as UTF-8, of the specified<br/>
+        /// window.  This is the title set previously by <br/>
+        /// or <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the next call to <br/>
+        /// or <br/>
+        /// or until the library is<br/>
+        /// terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static byte* GetWindowTitleNative(GLFWwindow* window)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, byte*>)funcTable[33])(window);
-			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[33])((nint)window);
-			#endif
-		}
+#else
+            return (byte*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[33])((nint)window);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the window title, encoded as UTF-8, of the specified<br/>
-		/// window.  This is the title set previously by <br/>
-		/// or <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the next call to <br/>
-		/// or <br/>
-		/// or until the library is<br/>
-		/// terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static byte* GetWindowTitle(GLFWwindowPtr window)
-		{
-			byte* ret = GetWindowTitleNative((GLFWwindow*)window);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the window title, encoded as UTF-8, of the specified<br/>
+        /// window.  This is the title set previously by <br/>
+        /// or <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the next call to <br/>
+        /// or <br/>
+        /// or until the library is<br/>
+        /// terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static byte* GetWindowTitle(GLFWwindowPtr window)
+        {
+            byte* ret = GetWindowTitleNative((GLFWwindow*)window);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the window title, encoded as UTF-8, of the specified<br/>
-		/// window.  This is the title set previously by <br/>
-		/// or <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the next call to <br/>
-		/// or <br/>
-		/// or until the library is<br/>
-		/// terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static string GetWindowTitleS(GLFWwindowPtr window)
-		{
-			string ret = Utils.DecodeStringUTF8(GetWindowTitleNative((GLFWwindow*)window));
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the window title, encoded as UTF-8, of the specified<br/>
+        /// window.  This is the title set previously by <br/>
+        /// or <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the next call to <br/>
+        /// or <br/>
+        /// or until the library is<br/>
+        /// terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static string GetWindowTitleS(GLFWwindowPtr window)
+        {
+            string ret = Utils.DecodeStringUTF8(GetWindowTitleNative((GLFWwindow*)window));
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the window title, encoded as UTF-8, of the specified<br/>
-		/// window.  This is the title set previously by <br/>
-		/// or <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the next call to <br/>
-		/// or <br/>
-		/// or until the library is<br/>
-		/// terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static byte* GetWindowTitle(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				byte* ret = GetWindowTitleNative((GLFWwindow*)pwindow);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the window title, encoded as UTF-8, of the specified<br/>
+        /// window.  This is the title set previously by <br/>
+        /// or <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the next call to <br/>
+        /// or <br/>
+        /// or until the library is<br/>
+        /// terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static byte* GetWindowTitle(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                byte* ret = GetWindowTitleNative((GLFWwindow*)pwindow);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the window title, encoded as UTF-8, of the specified<br/>
-		/// window.  This is the title set previously by <br/>
-		/// or <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the next call to <br/>
-		/// or <br/>
-		/// or until the library is<br/>
-		/// terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static string GetWindowTitleS(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				string ret = Utils.DecodeStringUTF8(GetWindowTitleNative((GLFWwindow*)pwindow));
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the window title, encoded as UTF-8, of the specified<br/>
+        /// window.  This is the title set previously by <br/>
+        /// or <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the next call to <br/>
+        /// or <br/>
+        /// or until the library is<br/>
+        /// terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static string GetWindowTitleS(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                string ret = Utils.DecodeStringUTF8(GetWindowTitleNative((GLFWwindow*)pwindow));
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the window title, encoded as UTF-8, of the specified<br/>
-		/// window.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void SetWindowTitleNative(GLFWwindow* window, byte* title)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets the window title, encoded as UTF-8, of the specified<br/>
+        /// window.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void SetWindowTitleNative(GLFWwindow* window, byte* title)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, byte*, void>)funcTable[34])(window, title);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[34])((nint)window, (nint)title);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, nint, void> )funcTable[34])((nint)window, (nint)title);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the window title, encoded as UTF-8, of the specified<br/>
-		/// window.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowTitle(GLFWwindowPtr window, byte* title)
-		{
-			SetWindowTitleNative((GLFWwindow*)window, title);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the window title, encoded as UTF-8, of the specified<br/>
+        /// window.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowTitle(GLFWwindowPtr window, byte* title)
+        {
+            SetWindowTitleNative((GLFWwindow*)window, title);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the window title, encoded as UTF-8, of the specified<br/>
-		/// window.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowTitle(ref GLFWwindow window, byte* title)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				SetWindowTitleNative((GLFWwindow*)pwindow, title);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the window title, encoded as UTF-8, of the specified<br/>
+        /// window.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowTitle(ref GLFWwindow window, byte* title)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                SetWindowTitleNative((GLFWwindow*)pwindow, title);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the window title, encoded as UTF-8, of the specified<br/>
-		/// window.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowTitle(GLFWwindowPtr window, in byte title)
-		{
-			fixed (byte* ptitle = &title)
-			{
-				SetWindowTitleNative((GLFWwindow*)window, (byte*)ptitle);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the window title, encoded as UTF-8, of the specified<br/>
+        /// window.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowTitle(GLFWwindowPtr window, in byte title)
+        {
+            fixed (byte* ptitle = &title)
+            {
+                SetWindowTitleNative((GLFWwindow*)window, (byte*)ptitle);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the window title, encoded as UTF-8, of the specified<br/>
-		/// window.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowTitle(GLFWwindowPtr window, ReadOnlySpan<byte> title)
-		{
-			fixed (byte* ptitle = title)
-			{
-				SetWindowTitleNative((GLFWwindow*)window, (byte*)ptitle);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the window title, encoded as UTF-8, of the specified<br/>
+        /// window.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowTitle(GLFWwindowPtr window, ReadOnlySpan<byte> title)
+        {
+            fixed (byte* ptitle = title)
+            {
+                SetWindowTitleNative((GLFWwindow*)window, (byte*)ptitle);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the window title, encoded as UTF-8, of the specified<br/>
-		/// window.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowTitle(GLFWwindowPtr window, string title)
-		{
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (title != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(title);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(title, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			SetWindowTitleNative((GLFWwindow*)window, pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the window title, encoded as UTF-8, of the specified<br/>
+        /// window.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowTitle(GLFWwindowPtr window, string title)
+        {
+            byte* pStr0 = null;
+            int pStrSize0 = 0;
+            if (title != null)
+            {
+                pStrSize0 = Utils.GetByteCountUTF8(title);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+                }
+                else
+                {
+                    byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+                    pStr0 = pStrStack0;
+                }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the window title, encoded as UTF-8, of the specified<br/>
-		/// window.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowTitle(ref GLFWwindow window, in byte title)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (byte* ptitle = &title)
-				{
-					SetWindowTitleNative((GLFWwindow*)pwindow, (byte*)ptitle);
-				}
-			}
-		}
+                int pStrOffset0 = Utils.EncodeStringUTF8(title, pStr0, pStrSize0);
+                pStr0[pStrOffset0] = 0;
+            }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the window title, encoded as UTF-8, of the specified<br/>
-		/// window.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowTitle(ref GLFWwindow window, ReadOnlySpan<byte> title)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (byte* ptitle = title)
-				{
-					SetWindowTitleNative((GLFWwindow*)pwindow, (byte*)ptitle);
-				}
-			}
-		}
+            SetWindowTitleNative((GLFWwindow*)window, pStr0);
+            if (pStrSize0 >= Utils.MaxStackallocSize)
+            {
+                Utils.Free(pStr0);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the window title, encoded as UTF-8, of the specified<br/>
-		/// window.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowTitle(ref GLFWwindow window, string title)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				byte* pStr0 = null;
-				int pStrSize0 = 0;
-				if (title != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF8(title);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF8(title, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = 0;
-				}
-				SetWindowTitleNative((GLFWwindow*)pwindow, pStr0);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the window title, encoded as UTF-8, of the specified<br/>
+        /// window.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowTitle(ref GLFWwindow window, in byte title)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (byte* ptitle = &title)
+                {
+                    SetWindowTitleNative((GLFWwindow*)pwindow, (byte*)ptitle);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the icon of the specified window.  If passed an array of<br/>
-		/// candidate images, those of or closest to the sizes desired by the system are<br/>
-		/// selected.  If no images are specified, the window reverts to its default<br/>
-		/// icon.<br/>
-		/// The pixels are 32-bit, little-endian, non-premultiplied RGBA, i.e. eight<br/>
-		/// bits per channel with the red channel first.  They are arranged canonically<br/>
-		/// as packed sequential rows, starting from the top-left corner.<br/>
-		/// The desired image sizes varies depending on platform and system settings.<br/>
-		/// The selected images will be rescaled as needed.  Good sizes include 16x16,<br/>
-		/// 32x32 and 48x48.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// _lifetime The specified image data is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void SetWindowIconNative(GLFWwindow* window, int count, GLFWimage* images)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets the window title, encoded as UTF-8, of the specified<br/>
+        /// window.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowTitle(ref GLFWwindow window, ReadOnlySpan<byte> title)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (byte* ptitle = title)
+                {
+                    SetWindowTitleNative((GLFWwindow*)pwindow, (byte*)ptitle);
+                }
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// This function sets the window title, encoded as UTF-8, of the specified<br/>
+        /// window.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowTitle(ref GLFWwindow window, string title)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                byte* pStr0 = null;
+                int pStrSize0 = 0;
+                if (title != null)
+                {
+                    pStrSize0 = Utils.GetByteCountUTF8(title);
+                    if (pStrSize0 >= Utils.MaxStackallocSize)
+                    {
+                        pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+                    }
+                    else
+                    {
+                        byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+                        pStr0 = pStrStack0;
+                    }
+
+                    int pStrOffset0 = Utils.EncodeStringUTF8(title, pStr0, pStrSize0);
+                    pStr0[pStrOffset0] = 0;
+                }
+
+                SetWindowTitleNative((GLFWwindow*)pwindow, pStr0);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    Utils.Free(pStr0);
+                }
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// This function sets the icon of the specified window.  If passed an array of<br/>
+        /// candidate images, those of or closest to the sizes desired by the system are<br/>
+        /// selected.  If no images are specified, the window reverts to its default<br/>
+        /// icon.<br/>
+        /// The pixels are 32-bit, little-endian, non-premultiplied RGBA, i.e. eight<br/>
+        /// bits per channel with the red channel first.  They are arranged canonically<br/>
+        /// as packed sequential rows, starting from the top-left corner.<br/>
+        /// The desired image sizes varies depending on platform and system settings.<br/>
+        /// The selected images will be rescaled as needed.  Good sizes include 16x16,<br/>
+        /// 32x32 and 48x48.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// _lifetime The specified image data is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void SetWindowIconNative(GLFWwindow* window, int count, GLFWimage* images)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, GLFWimage*, void>)funcTable[35])(window, count, images);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, int, nint, void>)funcTable[35])((nint)window, count, (nint)images);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, int, nint, void> )funcTable[35])((nint)window, count, (nint)images);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the icon of the specified window.  If passed an array of<br/>
-		/// candidate images, those of or closest to the sizes desired by the system are<br/>
-		/// selected.  If no images are specified, the window reverts to its default<br/>
-		/// icon.<br/>
-		/// The pixels are 32-bit, little-endian, non-premultiplied RGBA, i.e. eight<br/>
-		/// bits per channel with the red channel first.  They are arranged canonically<br/>
-		/// as packed sequential rows, starting from the top-left corner.<br/>
-		/// The desired image sizes varies depending on platform and system settings.<br/>
-		/// The selected images will be rescaled as needed.  Good sizes include 16x16,<br/>
-		/// 32x32 and 48x48.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// _lifetime The specified image data is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowIcon(GLFWwindowPtr window, int count, GLFWimagePtr images)
-		{
-			SetWindowIconNative((GLFWwindow*)window, count, (GLFWimage*)images);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the icon of the specified window.  If passed an array of<br/>
+        /// candidate images, those of or closest to the sizes desired by the system are<br/>
+        /// selected.  If no images are specified, the window reverts to its default<br/>
+        /// icon.<br/>
+        /// The pixels are 32-bit, little-endian, non-premultiplied RGBA, i.e. eight<br/>
+        /// bits per channel with the red channel first.  They are arranged canonically<br/>
+        /// as packed sequential rows, starting from the top-left corner.<br/>
+        /// The desired image sizes varies depending on platform and system settings.<br/>
+        /// The selected images will be rescaled as needed.  Good sizes include 16x16,<br/>
+        /// 32x32 and 48x48.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// _lifetime The specified image data is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowIcon(GLFWwindowPtr window, int count, GLFWimagePtr images)
+        {
+            SetWindowIconNative((GLFWwindow*)window, count, (GLFWimage*)images);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the icon of the specified window.  If passed an array of<br/>
-		/// candidate images, those of or closest to the sizes desired by the system are<br/>
-		/// selected.  If no images are specified, the window reverts to its default<br/>
-		/// icon.<br/>
-		/// The pixels are 32-bit, little-endian, non-premultiplied RGBA, i.e. eight<br/>
-		/// bits per channel with the red channel first.  They are arranged canonically<br/>
-		/// as packed sequential rows, starting from the top-left corner.<br/>
-		/// The desired image sizes varies depending on platform and system settings.<br/>
-		/// The selected images will be rescaled as needed.  Good sizes include 16x16,<br/>
-		/// 32x32 and 48x48.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// _lifetime The specified image data is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowIcon(ref GLFWwindow window, int count, GLFWimagePtr images)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				SetWindowIconNative((GLFWwindow*)pwindow, count, (GLFWimage*)images);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the icon of the specified window.  If passed an array of<br/>
+        /// candidate images, those of or closest to the sizes desired by the system are<br/>
+        /// selected.  If no images are specified, the window reverts to its default<br/>
+        /// icon.<br/>
+        /// The pixels are 32-bit, little-endian, non-premultiplied RGBA, i.e. eight<br/>
+        /// bits per channel with the red channel first.  They are arranged canonically<br/>
+        /// as packed sequential rows, starting from the top-left corner.<br/>
+        /// The desired image sizes varies depending on platform and system settings.<br/>
+        /// The selected images will be rescaled as needed.  Good sizes include 16x16,<br/>
+        /// 32x32 and 48x48.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// _lifetime The specified image data is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowIcon(ref GLFWwindow window, int count, GLFWimagePtr images)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                SetWindowIconNative((GLFWwindow*)pwindow, count, (GLFWimage*)images);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the icon of the specified window.  If passed an array of<br/>
-		/// candidate images, those of or closest to the sizes desired by the system are<br/>
-		/// selected.  If no images are specified, the window reverts to its default<br/>
-		/// icon.<br/>
-		/// The pixels are 32-bit, little-endian, non-premultiplied RGBA, i.e. eight<br/>
-		/// bits per channel with the red channel first.  They are arranged canonically<br/>
-		/// as packed sequential rows, starting from the top-left corner.<br/>
-		/// The desired image sizes varies depending on platform and system settings.<br/>
-		/// The selected images will be rescaled as needed.  Good sizes include 16x16,<br/>
-		/// 32x32 and 48x48.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// _lifetime The specified image data is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowIcon(GLFWwindowPtr window, int count, in GLFWimage images)
-		{
-			fixed (GLFWimage* pimages = &images)
-			{
-				SetWindowIconNative((GLFWwindow*)window, count, (GLFWimage*)pimages);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the icon of the specified window.  If passed an array of<br/>
+        /// candidate images, those of or closest to the sizes desired by the system are<br/>
+        /// selected.  If no images are specified, the window reverts to its default<br/>
+        /// icon.<br/>
+        /// The pixels are 32-bit, little-endian, non-premultiplied RGBA, i.e. eight<br/>
+        /// bits per channel with the red channel first.  They are arranged canonically<br/>
+        /// as packed sequential rows, starting from the top-left corner.<br/>
+        /// The desired image sizes varies depending on platform and system settings.<br/>
+        /// The selected images will be rescaled as needed.  Good sizes include 16x16,<br/>
+        /// 32x32 and 48x48.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// _lifetime The specified image data is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowIcon(GLFWwindowPtr window, int count, in GLFWimage images)
+        {
+            fixed (GLFWimage* pimages = &images)
+            {
+                SetWindowIconNative((GLFWwindow*)window, count, (GLFWimage*)pimages);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the icon of the specified window.  If passed an array of<br/>
-		/// candidate images, those of or closest to the sizes desired by the system are<br/>
-		/// selected.  If no images are specified, the window reverts to its default<br/>
-		/// icon.<br/>
-		/// The pixels are 32-bit, little-endian, non-premultiplied RGBA, i.e. eight<br/>
-		/// bits per channel with the red channel first.  They are arranged canonically<br/>
-		/// as packed sequential rows, starting from the top-left corner.<br/>
-		/// The desired image sizes varies depending on platform and system settings.<br/>
-		/// The selected images will be rescaled as needed.  Good sizes include 16x16,<br/>
-		/// 32x32 and 48x48.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// _lifetime The specified image data is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowIcon(ref GLFWwindow window, int count, in GLFWimage images)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (GLFWimage* pimages = &images)
-				{
-					SetWindowIconNative((GLFWwindow*)pwindow, count, (GLFWimage*)pimages);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the icon of the specified window.  If passed an array of<br/>
+        /// candidate images, those of or closest to the sizes desired by the system are<br/>
+        /// selected.  If no images are specified, the window reverts to its default<br/>
+        /// icon.<br/>
+        /// The pixels are 32-bit, little-endian, non-premultiplied RGBA, i.e. eight<br/>
+        /// bits per channel with the red channel first.  They are arranged canonically<br/>
+        /// as packed sequential rows, starting from the top-left corner.<br/>
+        /// The desired image sizes varies depending on platform and system settings.<br/>
+        /// The selected images will be rescaled as needed.  Good sizes include 16x16,<br/>
+        /// 32x32 and 48x48.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// _lifetime The specified image data is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// [bundle-guide]: https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowIcon(ref GLFWwindow window, int count, in GLFWimage images)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (GLFWimage* pimages = &images)
+                {
+                    SetWindowIconNative((GLFWwindow*)pwindow, count, (GLFWimage*)pimages);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the position, in screen coordinates, of the<br/>
-		/// upper-left corner of the content area of the specified window.<br/>
-		/// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` position arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void GetWindowPosNative(GLFWwindow* window, int* xpos, int* ypos)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the position, in screen coordinates, of the<br/>
+        /// upper-left corner of the content area of the specified window.<br/>
+        /// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` position arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void GetWindowPosNative(GLFWwindow* window, int* xpos, int* ypos)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, int*, int*, void>)funcTable[36])(window, xpos, ypos);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[36])((nint)window, (nint)xpos, (nint)ypos);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, nint, nint, void> )funcTable[36])((nint)window, (nint)xpos, (nint)ypos);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the position, in screen coordinates, of the<br/>
-		/// upper-left corner of the content area of the specified window.<br/>
-		/// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` position arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowPos(GLFWwindowPtr window, int* xpos, int* ypos)
-		{
-			GetWindowPosNative((GLFWwindow*)window, xpos, ypos);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the position, in screen coordinates, of the<br/>
+        /// upper-left corner of the content area of the specified window.<br/>
+        /// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` position arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowPos(GLFWwindowPtr window, int* xpos, int* ypos)
+        {
+            GetWindowPosNative((GLFWwindow*)window, xpos, ypos);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the position, in screen coordinates, of the<br/>
-		/// upper-left corner of the content area of the specified window.<br/>
-		/// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` position arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowPos(ref GLFWwindow window, int* xpos, int* ypos)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				GetWindowPosNative((GLFWwindow*)pwindow, xpos, ypos);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the position, in screen coordinates, of the<br/>
+        /// upper-left corner of the content area of the specified window.<br/>
+        /// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` position arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowPos(ref GLFWwindow window, int* xpos, int* ypos)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                GetWindowPosNative((GLFWwindow*)pwindow, xpos, ypos);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the position, in screen coordinates, of the<br/>
-		/// upper-left corner of the content area of the specified window.<br/>
-		/// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` position arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowPos(GLFWwindowPtr window, ref int xpos, int* ypos)
-		{
-			fixed (int* pxpos = &xpos)
-			{
-				GetWindowPosNative((GLFWwindow*)window, (int*)pxpos, ypos);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the position, in screen coordinates, of the<br/>
+        /// upper-left corner of the content area of the specified window.<br/>
+        /// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` position arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowPos(GLFWwindowPtr window, ref int xpos, int* ypos)
+        {
+            fixed (int* pxpos = &xpos)
+            {
+                GetWindowPosNative((GLFWwindow*)window, (int*)pxpos, ypos);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the position, in screen coordinates, of the<br/>
-		/// upper-left corner of the content area of the specified window.<br/>
-		/// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` position arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowPos(ref GLFWwindow window, ref int xpos, int* ypos)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* pxpos = &xpos)
-				{
-					GetWindowPosNative((GLFWwindow*)pwindow, (int*)pxpos, ypos);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the position, in screen coordinates, of the<br/>
+        /// upper-left corner of the content area of the specified window.<br/>
+        /// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` position arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowPos(ref GLFWwindow window, ref int xpos, int* ypos)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pxpos = &xpos)
+                {
+                    GetWindowPosNative((GLFWwindow*)pwindow, (int*)pxpos, ypos);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the position, in screen coordinates, of the<br/>
-		/// upper-left corner of the content area of the specified window.<br/>
-		/// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` position arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowPos(GLFWwindowPtr window, int* xpos, ref int ypos)
-		{
-			fixed (int* pypos = &ypos)
-			{
-				GetWindowPosNative((GLFWwindow*)window, xpos, (int*)pypos);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the position, in screen coordinates, of the<br/>
+        /// upper-left corner of the content area of the specified window.<br/>
+        /// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` position arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowPos(GLFWwindowPtr window, int* xpos, ref int ypos)
+        {
+            fixed (int* pypos = &ypos)
+            {
+                GetWindowPosNative((GLFWwindow*)window, xpos, (int*)pypos);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the position, in screen coordinates, of the<br/>
-		/// upper-left corner of the content area of the specified window.<br/>
-		/// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` position arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowPos(ref GLFWwindow window, int* xpos, ref int ypos)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* pypos = &ypos)
-				{
-					GetWindowPosNative((GLFWwindow*)pwindow, xpos, (int*)pypos);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the position, in screen coordinates, of the<br/>
+        /// upper-left corner of the content area of the specified window.<br/>
+        /// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` position arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowPos(ref GLFWwindow window, int* xpos, ref int ypos)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pypos = &ypos)
+                {
+                    GetWindowPosNative((GLFWwindow*)pwindow, xpos, (int*)pypos);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the position, in screen coordinates, of the<br/>
-		/// upper-left corner of the content area of the specified window.<br/>
-		/// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` position arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowPos(GLFWwindowPtr window, ref int xpos, ref int ypos)
-		{
-			fixed (int* pxpos = &xpos)
-			{
-				fixed (int* pypos = &ypos)
-				{
-					GetWindowPosNative((GLFWwindow*)window, (int*)pxpos, (int*)pypos);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the position, in screen coordinates, of the<br/>
+        /// upper-left corner of the content area of the specified window.<br/>
+        /// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` position arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowPos(GLFWwindowPtr window, ref int xpos, ref int ypos)
+        {
+            fixed (int* pxpos = &xpos)
+            {
+                fixed (int* pypos = &ypos)
+                {
+                    GetWindowPosNative((GLFWwindow*)window, (int*)pxpos, (int*)pypos);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the position, in screen coordinates, of the<br/>
-		/// upper-left corner of the content area of the specified window.<br/>
-		/// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` position arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowPos(ref GLFWwindow window, ref int xpos, ref int ypos)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* pxpos = &xpos)
-				{
-					fixed (int* pypos = &ypos)
-					{
-						GetWindowPosNative((GLFWwindow*)pwindow, (int*)pxpos, (int*)pypos);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the position, in screen coordinates, of the<br/>
+        /// upper-left corner of the content area of the specified window.<br/>
+        /// Any or all of the position arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` position arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowPos(ref GLFWwindow window, ref int xpos, ref int ypos)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pxpos = &xpos)
+                {
+                    fixed (int* pypos = &ypos)
+                    {
+                        GetWindowPosNative((GLFWwindow*)pwindow, (int*)pxpos, (int*)pypos);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the content area of the specified windowed mode window.  If the<br/>
-		/// window is a full screen window, this function does nothing.<br/>
-		/// __Do not use this function__ to move an already visible window unless you<br/>
-		/// have very good reasons for doing so, as it will confuse and annoy the user.<br/>
-		/// The window manager may put limits on what positions are allowed.  GLFW<br/>
-		/// cannot and should not override these limits.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void SetWindowPosNative(GLFWwindow* window, int xpos, int ypos)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the content area of the specified windowed mode window.  If the<br/>
+        /// window is a full screen window, this function does nothing.<br/>
+        /// __Do not use this function__ to move an already visible window unless you<br/>
+        /// have very good reasons for doing so, as it will confuse and annoy the user.<br/>
+        /// The window manager may put limits on what positions are allowed.  GLFW<br/>
+        /// cannot and should not override these limits.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void SetWindowPosNative(GLFWwindow* window, int xpos, int ypos)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int, void>)funcTable[37])(window, xpos, ypos);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, int, int, void>)funcTable[37])((nint)window, xpos, ypos);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, int, int, void> )funcTable[37])((nint)window, xpos, ypos);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the content area of the specified windowed mode window.  If the<br/>
-		/// window is a full screen window, this function does nothing.<br/>
-		/// __Do not use this function__ to move an already visible window unless you<br/>
-		/// have very good reasons for doing so, as it will confuse and annoy the user.<br/>
-		/// The window manager may put limits on what positions are allowed.  GLFW<br/>
-		/// cannot and should not override these limits.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowPos(GLFWwindowPtr window, int xpos, int ypos)
-		{
-			SetWindowPosNative((GLFWwindow*)window, xpos, ypos);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the content area of the specified windowed mode window.  If the<br/>
+        /// window is a full screen window, this function does nothing.<br/>
+        /// __Do not use this function__ to move an already visible window unless you<br/>
+        /// have very good reasons for doing so, as it will confuse and annoy the user.<br/>
+        /// The window manager may put limits on what positions are allowed.  GLFW<br/>
+        /// cannot and should not override these limits.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowPos(GLFWwindowPtr window, int xpos, int ypos)
+        {
+            SetWindowPosNative((GLFWwindow*)window, xpos, ypos);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the position, in screen coordinates, of the upper-left<br/>
-		/// corner of the content area of the specified windowed mode window.  If the<br/>
-		/// window is a full screen window, this function does nothing.<br/>
-		/// __Do not use this function__ to move an already visible window unless you<br/>
-		/// have very good reasons for doing so, as it will confuse and annoy the user.<br/>
-		/// The window manager may put limits on what positions are allowed.  GLFW<br/>
-		/// cannot and should not override these limits.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowPos(ref GLFWwindow window, int xpos, int ypos)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				SetWindowPosNative((GLFWwindow*)pwindow, xpos, ypos);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the position, in screen coordinates, of the upper-left<br/>
+        /// corner of the content area of the specified windowed mode window.  If the<br/>
+        /// window is a full screen window, this function does nothing.<br/>
+        /// __Do not use this function__ to move an already visible window unless you<br/>
+        /// have very good reasons for doing so, as it will confuse and annoy the user.<br/>
+        /// The window manager may put limits on what positions are allowed.  GLFW<br/>
+        /// cannot and should not override these limits.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowPos(ref GLFWwindow window, int xpos, int ypos)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                SetWindowPosNative((GLFWwindow*)pwindow, xpos, ypos);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of the content area<br/>
-		/// of the specified window.  If you wish to retrieve the size of the<br/>
-		/// framebuffer of the window in pixels, see <br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void GetWindowSizeNative(GLFWwindow* window, int* width, int* height)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of the content area<br/>
+        /// of the specified window.  If you wish to retrieve the size of the<br/>
+        /// framebuffer of the window in pixels, see <br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void GetWindowSizeNative(GLFWwindow* window, int* width, int* height)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, int*, int*, void>)funcTable[38])(window, width, height);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[38])((nint)window, (nint)width, (nint)height);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, nint, nint, void> )funcTable[38])((nint)window, (nint)width, (nint)height);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of the content area<br/>
-		/// of the specified window.  If you wish to retrieve the size of the<br/>
-		/// framebuffer of the window in pixels, see <br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowSize(GLFWwindowPtr window, int* width, int* height)
-		{
-			GetWindowSizeNative((GLFWwindow*)window, width, height);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of the content area<br/>
+        /// of the specified window.  If you wish to retrieve the size of the<br/>
+        /// framebuffer of the window in pixels, see <br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowSize(GLFWwindowPtr window, int* width, int* height)
+        {
+            GetWindowSizeNative((GLFWwindow*)window, width, height);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of the content area<br/>
-		/// of the specified window.  If you wish to retrieve the size of the<br/>
-		/// framebuffer of the window in pixels, see <br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowSize(ref GLFWwindow window, int* width, int* height)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				GetWindowSizeNative((GLFWwindow*)pwindow, width, height);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of the content area<br/>
+        /// of the specified window.  If you wish to retrieve the size of the<br/>
+        /// framebuffer of the window in pixels, see <br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowSize(ref GLFWwindow window, int* width, int* height)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                GetWindowSizeNative((GLFWwindow*)pwindow, width, height);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of the content area<br/>
-		/// of the specified window.  If you wish to retrieve the size of the<br/>
-		/// framebuffer of the window in pixels, see <br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowSize(GLFWwindowPtr window, ref int width, int* height)
-		{
-			fixed (int* pwidth = &width)
-			{
-				GetWindowSizeNative((GLFWwindow*)window, (int*)pwidth, height);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of the content area<br/>
+        /// of the specified window.  If you wish to retrieve the size of the<br/>
+        /// framebuffer of the window in pixels, see <br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowSize(GLFWwindowPtr window, ref int width, int* height)
+        {
+            fixed (int* pwidth = &width)
+            {
+                GetWindowSizeNative((GLFWwindow*)window, (int*)pwidth, height);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of the content area<br/>
-		/// of the specified window.  If you wish to retrieve the size of the<br/>
-		/// framebuffer of the window in pixels, see <br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowSize(ref GLFWwindow window, ref int width, int* height)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* pwidth = &width)
-				{
-					GetWindowSizeNative((GLFWwindow*)pwindow, (int*)pwidth, height);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of the content area<br/>
+        /// of the specified window.  If you wish to retrieve the size of the<br/>
+        /// framebuffer of the window in pixels, see <br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowSize(ref GLFWwindow window, ref int width, int* height)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pwidth = &width)
+                {
+                    GetWindowSizeNative((GLFWwindow*)pwindow, (int*)pwidth, height);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of the content area<br/>
-		/// of the specified window.  If you wish to retrieve the size of the<br/>
-		/// framebuffer of the window in pixels, see <br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowSize(GLFWwindowPtr window, int* width, ref int height)
-		{
-			fixed (int* pheight = &height)
-			{
-				GetWindowSizeNative((GLFWwindow*)window, width, (int*)pheight);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of the content area<br/>
+        /// of the specified window.  If you wish to retrieve the size of the<br/>
+        /// framebuffer of the window in pixels, see <br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowSize(GLFWwindowPtr window, int* width, ref int height)
+        {
+            fixed (int* pheight = &height)
+            {
+                GetWindowSizeNative((GLFWwindow*)window, width, (int*)pheight);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of the content area<br/>
-		/// of the specified window.  If you wish to retrieve the size of the<br/>
-		/// framebuffer of the window in pixels, see <br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowSize(ref GLFWwindow window, int* width, ref int height)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* pheight = &height)
-				{
-					GetWindowSizeNative((GLFWwindow*)pwindow, width, (int*)pheight);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of the content area<br/>
+        /// of the specified window.  If you wish to retrieve the size of the<br/>
+        /// framebuffer of the window in pixels, see <br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowSize(ref GLFWwindow window, int* width, ref int height)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pheight = &height)
+                {
+                    GetWindowSizeNative((GLFWwindow*)pwindow, width, (int*)pheight);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of the content area<br/>
-		/// of the specified window.  If you wish to retrieve the size of the<br/>
-		/// framebuffer of the window in pixels, see <br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowSize(GLFWwindowPtr window, ref int width, ref int height)
-		{
-			fixed (int* pwidth = &width)
-			{
-				fixed (int* pheight = &height)
-				{
-					GetWindowSizeNative((GLFWwindow*)window, (int*)pwidth, (int*)pheight);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of the content area<br/>
+        /// of the specified window.  If you wish to retrieve the size of the<br/>
+        /// framebuffer of the window in pixels, see <br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowSize(GLFWwindowPtr window, ref int width, ref int height)
+        {
+            fixed (int* pwidth = &width)
+            {
+                fixed (int* pheight = &height)
+                {
+                    GetWindowSizeNative((GLFWwindow*)window, (int*)pwidth, (int*)pheight);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of the content area<br/>
-		/// of the specified window.  If you wish to retrieve the size of the<br/>
-		/// framebuffer of the window in pixels, see <br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowSize(ref GLFWwindow window, ref int width, ref int height)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* pwidth = &width)
-				{
-					fixed (int* pheight = &height)
-					{
-						GetWindowSizeNative((GLFWwindow*)pwindow, (int*)pwidth, (int*)pheight);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of the content area<br/>
+        /// of the specified window.  If you wish to retrieve the size of the<br/>
+        /// framebuffer of the window in pixels, see <br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowSize(ref GLFWwindow window, ref int width, ref int height)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pwidth = &width)
+                {
+                    fixed (int* pheight = &height)
+                    {
+                        GetWindowSizeNative((GLFWwindow*)pwindow, (int*)pwidth, (int*)pheight);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the size limits of the content area of the specified<br/>
-		/// window.  If the window is full screen, the size limits only take effect<br/>
-		/// once it is made windowed.  If the window is not resizable, this function<br/>
-		/// does nothing.<br/>
-		/// The size limits are applied immediately to a windowed mode window and may<br/>
-		/// cause it to be resized.<br/>
-		/// The maximum dimensions must be greater than or equal to the minimum<br/>
-		/// dimensions and all must be greater than or equal to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void SetWindowSizeLimitsNative(GLFWwindow* window, int minwidth, int minheight, int maxwidth, int maxheight)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets the size limits of the content area of the specified<br/>
+        /// window.  If the window is full screen, the size limits only take effect<br/>
+        /// once it is made windowed.  If the window is not resizable, this function<br/>
+        /// does nothing.<br/>
+        /// The size limits are applied immediately to a windowed mode window and may<br/>
+        /// cause it to be resized.<br/>
+        /// The maximum dimensions must be greater than or equal to the minimum<br/>
+        /// dimensions and all must be greater than or equal to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void SetWindowSizeLimitsNative(GLFWwindow* window, int minwidth, int minheight, int maxwidth, int maxheight)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int, int, int, void>)funcTable[39])(window, minwidth, minheight, maxwidth, maxheight);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, int, int, int, int, void>)funcTable[39])((nint)window, minwidth, minheight, maxwidth, maxheight);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, int, int, int, int, void> )funcTable[39])((nint)window, minwidth, minheight, maxwidth, maxheight);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the size limits of the content area of the specified<br/>
-		/// window.  If the window is full screen, the size limits only take effect<br/>
-		/// once it is made windowed.  If the window is not resizable, this function<br/>
-		/// does nothing.<br/>
-		/// The size limits are applied immediately to a windowed mode window and may<br/>
-		/// cause it to be resized.<br/>
-		/// The maximum dimensions must be greater than or equal to the minimum<br/>
-		/// dimensions and all must be greater than or equal to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowSizeLimits(GLFWwindowPtr window, int minwidth, int minheight, int maxwidth, int maxheight)
-		{
-			SetWindowSizeLimitsNative((GLFWwindow*)window, minwidth, minheight, maxwidth, maxheight);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the size limits of the content area of the specified<br/>
+        /// window.  If the window is full screen, the size limits only take effect<br/>
+        /// once it is made windowed.  If the window is not resizable, this function<br/>
+        /// does nothing.<br/>
+        /// The size limits are applied immediately to a windowed mode window and may<br/>
+        /// cause it to be resized.<br/>
+        /// The maximum dimensions must be greater than or equal to the minimum<br/>
+        /// dimensions and all must be greater than or equal to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowSizeLimits(GLFWwindowPtr window, int minwidth, int minheight, int maxwidth, int maxheight)
+        {
+            SetWindowSizeLimitsNative((GLFWwindow*)window, minwidth, minheight, maxwidth, maxheight);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the size limits of the content area of the specified<br/>
-		/// window.  If the window is full screen, the size limits only take effect<br/>
-		/// once it is made windowed.  If the window is not resizable, this function<br/>
-		/// does nothing.<br/>
-		/// The size limits are applied immediately to a windowed mode window and may<br/>
-		/// cause it to be resized.<br/>
-		/// The maximum dimensions must be greater than or equal to the minimum<br/>
-		/// dimensions and all must be greater than or equal to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowSizeLimits(ref GLFWwindow window, int minwidth, int minheight, int maxwidth, int maxheight)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				SetWindowSizeLimitsNative((GLFWwindow*)pwindow, minwidth, minheight, maxwidth, maxheight);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the size limits of the content area of the specified<br/>
+        /// window.  If the window is full screen, the size limits only take effect<br/>
+        /// once it is made windowed.  If the window is not resizable, this function<br/>
+        /// does nothing.<br/>
+        /// The size limits are applied immediately to a windowed mode window and may<br/>
+        /// cause it to be resized.<br/>
+        /// The maximum dimensions must be greater than or equal to the minimum<br/>
+        /// dimensions and all must be greater than or equal to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowSizeLimits(ref GLFWwindow window, int minwidth, int minheight, int maxwidth, int maxheight)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                SetWindowSizeLimitsNative((GLFWwindow*)pwindow, minwidth, minheight, maxwidth, maxheight);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the required aspect ratio of the content area of the<br/>
-		/// specified window.  If the window is full screen, the aspect ratio only takes<br/>
-		/// effect once it is made windowed.  If the window is not resizable, this<br/>
-		/// function does nothing.<br/>
-		/// The aspect ratio is specified as a numerator and a denominator and both<br/>
-		/// values must be greater than zero.  For example, the common 16:9 aspect ratio<br/>
-		/// is specified as 16 and 9, respectively.<br/>
-		/// If the numerator and denominator is set to `GLFW_DONT_CARE` then the aspect<br/>
-		/// ratio limit is disabled.<br/>
-		/// The aspect ratio is applied immediately to a windowed mode window and may<br/>
-		/// cause it to be resized.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void SetWindowAspectRatioNative(GLFWwindow* window, int numer, int denom)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets the required aspect ratio of the content area of the<br/>
+        /// specified window.  If the window is full screen, the aspect ratio only takes<br/>
+        /// effect once it is made windowed.  If the window is not resizable, this<br/>
+        /// function does nothing.<br/>
+        /// The aspect ratio is specified as a numerator and a denominator and both<br/>
+        /// values must be greater than zero.  For example, the common 16:9 aspect ratio<br/>
+        /// is specified as 16 and 9, respectively.<br/>
+        /// If the numerator and denominator is set to `GLFW_DONT_CARE` then the aspect<br/>
+        /// ratio limit is disabled.<br/>
+        /// The aspect ratio is applied immediately to a windowed mode window and may<br/>
+        /// cause it to be resized.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void SetWindowAspectRatioNative(GLFWwindow* window, int numer, int denom)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int, void>)funcTable[40])(window, numer, denom);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, int, int, void>)funcTable[40])((nint)window, numer, denom);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, int, int, void> )funcTable[40])((nint)window, numer, denom);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the required aspect ratio of the content area of the<br/>
-		/// specified window.  If the window is full screen, the aspect ratio only takes<br/>
-		/// effect once it is made windowed.  If the window is not resizable, this<br/>
-		/// function does nothing.<br/>
-		/// The aspect ratio is specified as a numerator and a denominator and both<br/>
-		/// values must be greater than zero.  For example, the common 16:9 aspect ratio<br/>
-		/// is specified as 16 and 9, respectively.<br/>
-		/// If the numerator and denominator is set to `GLFW_DONT_CARE` then the aspect<br/>
-		/// ratio limit is disabled.<br/>
-		/// The aspect ratio is applied immediately to a windowed mode window and may<br/>
-		/// cause it to be resized.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowAspectRatio(GLFWwindowPtr window, int numer, int denom)
-		{
-			SetWindowAspectRatioNative((GLFWwindow*)window, numer, denom);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the required aspect ratio of the content area of the<br/>
+        /// specified window.  If the window is full screen, the aspect ratio only takes<br/>
+        /// effect once it is made windowed.  If the window is not resizable, this<br/>
+        /// function does nothing.<br/>
+        /// The aspect ratio is specified as a numerator and a denominator and both<br/>
+        /// values must be greater than zero.  For example, the common 16:9 aspect ratio<br/>
+        /// is specified as 16 and 9, respectively.<br/>
+        /// If the numerator and denominator is set to `GLFW_DONT_CARE` then the aspect<br/>
+        /// ratio limit is disabled.<br/>
+        /// The aspect ratio is applied immediately to a windowed mode window and may<br/>
+        /// cause it to be resized.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowAspectRatio(GLFWwindowPtr window, int numer, int denom)
+        {
+            SetWindowAspectRatioNative((GLFWwindow*)window, numer, denom);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the required aspect ratio of the content area of the<br/>
-		/// specified window.  If the window is full screen, the aspect ratio only takes<br/>
-		/// effect once it is made windowed.  If the window is not resizable, this<br/>
-		/// function does nothing.<br/>
-		/// The aspect ratio is specified as a numerator and a denominator and both<br/>
-		/// values must be greater than zero.  For example, the common 16:9 aspect ratio<br/>
-		/// is specified as 16 and 9, respectively.<br/>
-		/// If the numerator and denominator is set to `GLFW_DONT_CARE` then the aspect<br/>
-		/// ratio limit is disabled.<br/>
-		/// The aspect ratio is applied immediately to a windowed mode window and may<br/>
-		/// cause it to be resized.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowAspectRatio(ref GLFWwindow window, int numer, int denom)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				SetWindowAspectRatioNative((GLFWwindow*)pwindow, numer, denom);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the required aspect ratio of the content area of the<br/>
+        /// specified window.  If the window is full screen, the aspect ratio only takes<br/>
+        /// effect once it is made windowed.  If the window is not resizable, this<br/>
+        /// function does nothing.<br/>
+        /// The aspect ratio is specified as a numerator and a denominator and both<br/>
+        /// values must be greater than zero.  For example, the common 16:9 aspect ratio<br/>
+        /// is specified as 16 and 9, respectively.<br/>
+        /// If the numerator and denominator is set to `GLFW_DONT_CARE` then the aspect<br/>
+        /// ratio limit is disabled.<br/>
+        /// The aspect ratio is applied immediately to a windowed mode window and may<br/>
+        /// cause it to be resized.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowAspectRatio(ref GLFWwindow window, int numer, int denom)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                SetWindowAspectRatioNative((GLFWwindow*)pwindow, numer, denom);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the size, in screen coordinates, of the content area of<br/>
-		/// the specified window.<br/>
-		/// For full screen windows, this function updates the resolution of its desired<br/>
-		/// video mode and switches to the video mode closest to it, without affecting<br/>
-		/// the window's context.  As the context is unaffected, the bit depths of the<br/>
-		/// framebuffer remain unchanged.<br/>
-		/// If you wish to update the refresh rate of the desired video mode in addition<br/>
-		/// to its resolution, see <br/>
-		/// The window manager may put limits on what sizes are allowed.  GLFW cannot<br/>
-		/// and should not override these limits.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void SetWindowSizeNative(GLFWwindow* window, int width, int height)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets the size, in screen coordinates, of the content area of<br/>
+        /// the specified window.<br/>
+        /// For full screen windows, this function updates the resolution of its desired<br/>
+        /// video mode and switches to the video mode closest to it, without affecting<br/>
+        /// the window's context.  As the context is unaffected, the bit depths of the<br/>
+        /// framebuffer remain unchanged.<br/>
+        /// If you wish to update the refresh rate of the desired video mode in addition<br/>
+        /// to its resolution, see <br/>
+        /// The window manager may put limits on what sizes are allowed.  GLFW cannot<br/>
+        /// and should not override these limits.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void SetWindowSizeNative(GLFWwindow* window, int width, int height)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, int, int, void>)funcTable[41])(window, width, height);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, int, int, void>)funcTable[41])((nint)window, width, height);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, int, int, void> )funcTable[41])((nint)window, width, height);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the size, in screen coordinates, of the content area of<br/>
-		/// the specified window.<br/>
-		/// For full screen windows, this function updates the resolution of its desired<br/>
-		/// video mode and switches to the video mode closest to it, without affecting<br/>
-		/// the window's context.  As the context is unaffected, the bit depths of the<br/>
-		/// framebuffer remain unchanged.<br/>
-		/// If you wish to update the refresh rate of the desired video mode in addition<br/>
-		/// to its resolution, see <br/>
-		/// The window manager may put limits on what sizes are allowed.  GLFW cannot<br/>
-		/// and should not override these limits.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowSize(GLFWwindowPtr window, int width, int height)
-		{
-			SetWindowSizeNative((GLFWwindow*)window, width, height);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the size, in screen coordinates, of the content area of<br/>
+        /// the specified window.<br/>
+        /// For full screen windows, this function updates the resolution of its desired<br/>
+        /// video mode and switches to the video mode closest to it, without affecting<br/>
+        /// the window's context.  As the context is unaffected, the bit depths of the<br/>
+        /// framebuffer remain unchanged.<br/>
+        /// If you wish to update the refresh rate of the desired video mode in addition<br/>
+        /// to its resolution, see <br/>
+        /// The window manager may put limits on what sizes are allowed.  GLFW cannot<br/>
+        /// and should not override these limits.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowSize(GLFWwindowPtr window, int width, int height)
+        {
+            SetWindowSizeNative((GLFWwindow*)window, width, height);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the size, in screen coordinates, of the content area of<br/>
-		/// the specified window.<br/>
-		/// For full screen windows, this function updates the resolution of its desired<br/>
-		/// video mode and switches to the video mode closest to it, without affecting<br/>
-		/// the window's context.  As the context is unaffected, the bit depths of the<br/>
-		/// framebuffer remain unchanged.<br/>
-		/// If you wish to update the refresh rate of the desired video mode in addition<br/>
-		/// to its resolution, see <br/>
-		/// The window manager may put limits on what sizes are allowed.  GLFW cannot<br/>
-		/// and should not override these limits.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowSize(ref GLFWwindow window, int width, int height)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				SetWindowSizeNative((GLFWwindow*)pwindow, width, height);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the size, in screen coordinates, of the content area of<br/>
+        /// the specified window.<br/>
+        /// For full screen windows, this function updates the resolution of its desired<br/>
+        /// video mode and switches to the video mode closest to it, without affecting<br/>
+        /// the window's context.  As the context is unaffected, the bit depths of the<br/>
+        /// framebuffer remain unchanged.<br/>
+        /// If you wish to update the refresh rate of the desired video mode in addition<br/>
+        /// to its resolution, see <br/>
+        /// The window manager may put limits on what sizes are allowed.  GLFW cannot<br/>
+        /// and should not override these limits.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowSize(ref GLFWwindow window, int width, int height)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                SetWindowSizeNative((GLFWwindow*)pwindow, width, height);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in pixels, of the framebuffer of the<br/>
-		/// specified window.  If you wish to retrieve the size of the window in screen<br/>
-		/// coordinates, see <br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void GetFramebufferSizeNative(GLFWwindow* window, int* width, int* height)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in pixels, of the framebuffer of the<br/>
+        /// specified window.  If you wish to retrieve the size of the window in screen<br/>
+        /// coordinates, see <br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void GetFramebufferSizeNative(GLFWwindow* window, int* width, int* height)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, int*, int*, void>)funcTable[42])(window, width, height);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[42])((nint)window, (nint)width, (nint)height);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, nint, nint, void> )funcTable[42])((nint)window, (nint)width, (nint)height);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in pixels, of the framebuffer of the<br/>
-		/// specified window.  If you wish to retrieve the size of the window in screen<br/>
-		/// coordinates, see <br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetFramebufferSize(GLFWwindowPtr window, int* width, int* height)
-		{
-			GetFramebufferSizeNative((GLFWwindow*)window, width, height);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in pixels, of the framebuffer of the<br/>
+        /// specified window.  If you wish to retrieve the size of the window in screen<br/>
+        /// coordinates, see <br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetFramebufferSize(GLFWwindowPtr window, int* width, int* height)
+        {
+            GetFramebufferSizeNative((GLFWwindow*)window, width, height);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in pixels, of the framebuffer of the<br/>
-		/// specified window.  If you wish to retrieve the size of the window in screen<br/>
-		/// coordinates, see <br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetFramebufferSize(ref GLFWwindow window, int* width, int* height)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				GetFramebufferSizeNative((GLFWwindow*)pwindow, width, height);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in pixels, of the framebuffer of the<br/>
+        /// specified window.  If you wish to retrieve the size of the window in screen<br/>
+        /// coordinates, see <br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetFramebufferSize(ref GLFWwindow window, int* width, int* height)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                GetFramebufferSizeNative((GLFWwindow*)pwindow, width, height);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in pixels, of the framebuffer of the<br/>
-		/// specified window.  If you wish to retrieve the size of the window in screen<br/>
-		/// coordinates, see <br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetFramebufferSize(GLFWwindowPtr window, ref int width, int* height)
-		{
-			fixed (int* pwidth = &width)
-			{
-				GetFramebufferSizeNative((GLFWwindow*)window, (int*)pwidth, height);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in pixels, of the framebuffer of the<br/>
+        /// specified window.  If you wish to retrieve the size of the window in screen<br/>
+        /// coordinates, see <br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetFramebufferSize(GLFWwindowPtr window, ref int width, int* height)
+        {
+            fixed (int* pwidth = &width)
+            {
+                GetFramebufferSizeNative((GLFWwindow*)window, (int*)pwidth, height);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in pixels, of the framebuffer of the<br/>
-		/// specified window.  If you wish to retrieve the size of the window in screen<br/>
-		/// coordinates, see <br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetFramebufferSize(ref GLFWwindow window, ref int width, int* height)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* pwidth = &width)
-				{
-					GetFramebufferSizeNative((GLFWwindow*)pwindow, (int*)pwidth, height);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in pixels, of the framebuffer of the<br/>
+        /// specified window.  If you wish to retrieve the size of the window in screen<br/>
+        /// coordinates, see <br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetFramebufferSize(ref GLFWwindow window, ref int width, int* height)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pwidth = &width)
+                {
+                    GetFramebufferSizeNative((GLFWwindow*)pwindow, (int*)pwidth, height);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in pixels, of the framebuffer of the<br/>
-		/// specified window.  If you wish to retrieve the size of the window in screen<br/>
-		/// coordinates, see <br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetFramebufferSize(GLFWwindowPtr window, int* width, ref int height)
-		{
-			fixed (int* pheight = &height)
-			{
-				GetFramebufferSizeNative((GLFWwindow*)window, width, (int*)pheight);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in pixels, of the framebuffer of the<br/>
+        /// specified window.  If you wish to retrieve the size of the window in screen<br/>
+        /// coordinates, see <br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetFramebufferSize(GLFWwindowPtr window, int* width, ref int height)
+        {
+            fixed (int* pheight = &height)
+            {
+                GetFramebufferSizeNative((GLFWwindow*)window, width, (int*)pheight);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in pixels, of the framebuffer of the<br/>
-		/// specified window.  If you wish to retrieve the size of the window in screen<br/>
-		/// coordinates, see <br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetFramebufferSize(ref GLFWwindow window, int* width, ref int height)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* pheight = &height)
-				{
-					GetFramebufferSizeNative((GLFWwindow*)pwindow, width, (int*)pheight);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in pixels, of the framebuffer of the<br/>
+        /// specified window.  If you wish to retrieve the size of the window in screen<br/>
+        /// coordinates, see <br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetFramebufferSize(ref GLFWwindow window, int* width, ref int height)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pheight = &height)
+                {
+                    GetFramebufferSizeNative((GLFWwindow*)pwindow, width, (int*)pheight);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in pixels, of the framebuffer of the<br/>
-		/// specified window.  If you wish to retrieve the size of the window in screen<br/>
-		/// coordinates, see <br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetFramebufferSize(GLFWwindowPtr window, ref int width, ref int height)
-		{
-			fixed (int* pwidth = &width)
-			{
-				fixed (int* pheight = &height)
-				{
-					GetFramebufferSizeNative((GLFWwindow*)window, (int*)pwidth, (int*)pheight);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in pixels, of the framebuffer of the<br/>
+        /// specified window.  If you wish to retrieve the size of the window in screen<br/>
+        /// coordinates, see <br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetFramebufferSize(GLFWwindowPtr window, ref int width, ref int height)
+        {
+            fixed (int* pwidth = &width)
+            {
+                fixed (int* pheight = &height)
+                {
+                    GetFramebufferSizeNative((GLFWwindow*)window, (int*)pwidth, (int*)pheight);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in pixels, of the framebuffer of the<br/>
-		/// specified window.  If you wish to retrieve the size of the window in screen<br/>
-		/// coordinates, see <br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetFramebufferSize(ref GLFWwindow window, ref int width, ref int height)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* pwidth = &width)
-				{
-					fixed (int* pheight = &height)
-					{
-						GetFramebufferSizeNative((GLFWwindow*)pwindow, (int*)pwidth, (int*)pheight);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in pixels, of the framebuffer of the<br/>
+        /// specified window.  If you wish to retrieve the size of the window in screen<br/>
+        /// coordinates, see <br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetFramebufferSize(ref GLFWwindow window, ref int width, ref int height)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pwidth = &width)
+                {
+                    fixed (int* pheight = &height)
+                    {
+                        GetFramebufferSizeNative((GLFWwindow*)pwindow, (int*)pwidth, (int*)pheight);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void GetWindowFrameSizeNative(GLFWwindow* window, int* left, int* top, int* right, int* bottom)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void GetWindowFrameSizeNative(GLFWwindow* window, int* left, int* top, int* right, int* bottom)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, int*, int*, int*, int*, void>)funcTable[43])(window, left, top, right, bottom);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, nint, void>)funcTable[43])((nint)window, (nint)left, (nint)top, (nint)right, (nint)bottom);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, nint, void> )funcTable[43])((nint)window, (nint)left, (nint)top, (nint)right, (nint)bottom);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(GLFWwindowPtr window, int* left, int* top, int* right, int* bottom)
-		{
-			GetWindowFrameSizeNative((GLFWwindow*)window, left, top, right, bottom);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(GLFWwindowPtr window, int* left, int* top, int* right, int* bottom)
+        {
+            GetWindowFrameSizeNative((GLFWwindow*)window, left, top, right, bottom);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(ref GLFWwindow window, int* left, int* top, int* right, int* bottom)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				GetWindowFrameSizeNative((GLFWwindow*)pwindow, left, top, right, bottom);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(ref GLFWwindow window, int* left, int* top, int* right, int* bottom)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                GetWindowFrameSizeNative((GLFWwindow*)pwindow, left, top, right, bottom);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(GLFWwindowPtr window, ref int left, int* top, int* right, int* bottom)
-		{
-			fixed (int* pleft = &left)
-			{
-				GetWindowFrameSizeNative((GLFWwindow*)window, (int*)pleft, top, right, bottom);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(GLFWwindowPtr window, ref int left, int* top, int* right, int* bottom)
+        {
+            fixed (int* pleft = &left)
+            {
+                GetWindowFrameSizeNative((GLFWwindow*)window, (int*)pleft, top, right, bottom);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(ref GLFWwindow window, ref int left, int* top, int* right, int* bottom)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* pleft = &left)
-				{
-					GetWindowFrameSizeNative((GLFWwindow*)pwindow, (int*)pleft, top, right, bottom);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(ref GLFWwindow window, ref int left, int* top, int* right, int* bottom)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pleft = &left)
+                {
+                    GetWindowFrameSizeNative((GLFWwindow*)pwindow, (int*)pleft, top, right, bottom);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(GLFWwindowPtr window, int* left, ref int top, int* right, int* bottom)
-		{
-			fixed (int* ptop = &top)
-			{
-				GetWindowFrameSizeNative((GLFWwindow*)window, left, (int*)ptop, right, bottom);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(GLFWwindowPtr window, int* left, ref int top, int* right, int* bottom)
+        {
+            fixed (int* ptop = &top)
+            {
+                GetWindowFrameSizeNative((GLFWwindow*)window, left, (int*)ptop, right, bottom);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(ref GLFWwindow window, int* left, ref int top, int* right, int* bottom)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* ptop = &top)
-				{
-					GetWindowFrameSizeNative((GLFWwindow*)pwindow, left, (int*)ptop, right, bottom);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(ref GLFWwindow window, int* left, ref int top, int* right, int* bottom)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* ptop = &top)
+                {
+                    GetWindowFrameSizeNative((GLFWwindow*)pwindow, left, (int*)ptop, right, bottom);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(GLFWwindowPtr window, ref int left, ref int top, int* right, int* bottom)
-		{
-			fixed (int* pleft = &left)
-			{
-				fixed (int* ptop = &top)
-				{
-					GetWindowFrameSizeNative((GLFWwindow*)window, (int*)pleft, (int*)ptop, right, bottom);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(GLFWwindowPtr window, ref int left, ref int top, int* right, int* bottom)
+        {
+            fixed (int* pleft = &left)
+            {
+                fixed (int* ptop = &top)
+                {
+                    GetWindowFrameSizeNative((GLFWwindow*)window, (int*)pleft, (int*)ptop, right, bottom);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(ref GLFWwindow window, ref int left, ref int top, int* right, int* bottom)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* pleft = &left)
-				{
-					fixed (int* ptop = &top)
-					{
-						GetWindowFrameSizeNative((GLFWwindow*)pwindow, (int*)pleft, (int*)ptop, right, bottom);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(ref GLFWwindow window, ref int left, ref int top, int* right, int* bottom)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pleft = &left)
+                {
+                    fixed (int* ptop = &top)
+                    {
+                        GetWindowFrameSizeNative((GLFWwindow*)pwindow, (int*)pleft, (int*)ptop, right, bottom);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(GLFWwindowPtr window, int* left, int* top, ref int right, int* bottom)
-		{
-			fixed (int* pright = &right)
-			{
-				GetWindowFrameSizeNative((GLFWwindow*)window, left, top, (int*)pright, bottom);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(GLFWwindowPtr window, int* left, int* top, ref int right, int* bottom)
+        {
+            fixed (int* pright = &right)
+            {
+                GetWindowFrameSizeNative((GLFWwindow*)window, left, top, (int*)pright, bottom);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(ref GLFWwindow window, int* left, int* top, ref int right, int* bottom)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* pright = &right)
-				{
-					GetWindowFrameSizeNative((GLFWwindow*)pwindow, left, top, (int*)pright, bottom);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(ref GLFWwindow window, int* left, int* top, ref int right, int* bottom)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pright = &right)
+                {
+                    GetWindowFrameSizeNative((GLFWwindow*)pwindow, left, top, (int*)pright, bottom);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(GLFWwindowPtr window, ref int left, int* top, ref int right, int* bottom)
-		{
-			fixed (int* pleft = &left)
-			{
-				fixed (int* pright = &right)
-				{
-					GetWindowFrameSizeNative((GLFWwindow*)window, (int*)pleft, top, (int*)pright, bottom);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(GLFWwindowPtr window, ref int left, int* top, ref int right, int* bottom)
+        {
+            fixed (int* pleft = &left)
+            {
+                fixed (int* pright = &right)
+                {
+                    GetWindowFrameSizeNative((GLFWwindow*)window, (int*)pleft, top, (int*)pright, bottom);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(ref GLFWwindow window, ref int left, int* top, ref int right, int* bottom)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* pleft = &left)
-				{
-					fixed (int* pright = &right)
-					{
-						GetWindowFrameSizeNative((GLFWwindow*)pwindow, (int*)pleft, top, (int*)pright, bottom);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(ref GLFWwindow window, ref int left, int* top, ref int right, int* bottom)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pleft = &left)
+                {
+                    fixed (int* pright = &right)
+                    {
+                        GetWindowFrameSizeNative((GLFWwindow*)pwindow, (int*)pleft, top, (int*)pright, bottom);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(GLFWwindowPtr window, int* left, ref int top, ref int right, int* bottom)
-		{
-			fixed (int* ptop = &top)
-			{
-				fixed (int* pright = &right)
-				{
-					GetWindowFrameSizeNative((GLFWwindow*)window, left, (int*)ptop, (int*)pright, bottom);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(GLFWwindowPtr window, int* left, ref int top, ref int right, int* bottom)
+        {
+            fixed (int* ptop = &top)
+            {
+                fixed (int* pright = &right)
+                {
+                    GetWindowFrameSizeNative((GLFWwindow*)window, left, (int*)ptop, (int*)pright, bottom);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(ref GLFWwindow window, int* left, ref int top, ref int right, int* bottom)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* ptop = &top)
-				{
-					fixed (int* pright = &right)
-					{
-						GetWindowFrameSizeNative((GLFWwindow*)pwindow, left, (int*)ptop, (int*)pright, bottom);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(ref GLFWwindow window, int* left, ref int top, ref int right, int* bottom)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* ptop = &top)
+                {
+                    fixed (int* pright = &right)
+                    {
+                        GetWindowFrameSizeNative((GLFWwindow*)pwindow, left, (int*)ptop, (int*)pright, bottom);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(GLFWwindowPtr window, ref int left, ref int top, ref int right, int* bottom)
-		{
-			fixed (int* pleft = &left)
-			{
-				fixed (int* ptop = &top)
-				{
-					fixed (int* pright = &right)
-					{
-						GetWindowFrameSizeNative((GLFWwindow*)window, (int*)pleft, (int*)ptop, (int*)pright, bottom);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(GLFWwindowPtr window, ref int left, ref int top, ref int right, int* bottom)
+        {
+            fixed (int* pleft = &left)
+            {
+                fixed (int* ptop = &top)
+                {
+                    fixed (int* pright = &right)
+                    {
+                        GetWindowFrameSizeNative((GLFWwindow*)window, (int*)pleft, (int*)ptop, (int*)pright, bottom);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(ref GLFWwindow window, ref int left, ref int top, ref int right, int* bottom)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* pleft = &left)
-				{
-					fixed (int* ptop = &top)
-					{
-						fixed (int* pright = &right)
-						{
-							GetWindowFrameSizeNative((GLFWwindow*)pwindow, (int*)pleft, (int*)ptop, (int*)pright, bottom);
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(ref GLFWwindow window, ref int left, ref int top, ref int right, int* bottom)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pleft = &left)
+                {
+                    fixed (int* ptop = &top)
+                    {
+                        fixed (int* pright = &right)
+                        {
+                            GetWindowFrameSizeNative((GLFWwindow*)pwindow, (int*)pleft, (int*)ptop, (int*)pright, bottom);
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(GLFWwindowPtr window, int* left, int* top, int* right, ref int bottom)
-		{
-			fixed (int* pbottom = &bottom)
-			{
-				GetWindowFrameSizeNative((GLFWwindow*)window, left, top, right, (int*)pbottom);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(GLFWwindowPtr window, int* left, int* top, int* right, ref int bottom)
+        {
+            fixed (int* pbottom = &bottom)
+            {
+                GetWindowFrameSizeNative((GLFWwindow*)window, left, top, right, (int*)pbottom);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(ref GLFWwindow window, int* left, int* top, int* right, ref int bottom)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* pbottom = &bottom)
-				{
-					GetWindowFrameSizeNative((GLFWwindow*)pwindow, left, top, right, (int*)pbottom);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(ref GLFWwindow window, int* left, int* top, int* right, ref int bottom)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pbottom = &bottom)
+                {
+                    GetWindowFrameSizeNative((GLFWwindow*)pwindow, left, top, right, (int*)pbottom);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(GLFWwindowPtr window, ref int left, int* top, int* right, ref int bottom)
-		{
-			fixed (int* pleft = &left)
-			{
-				fixed (int* pbottom = &bottom)
-				{
-					GetWindowFrameSizeNative((GLFWwindow*)window, (int*)pleft, top, right, (int*)pbottom);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(GLFWwindowPtr window, ref int left, int* top, int* right, ref int bottom)
+        {
+            fixed (int* pleft = &left)
+            {
+                fixed (int* pbottom = &bottom)
+                {
+                    GetWindowFrameSizeNative((GLFWwindow*)window, (int*)pleft, top, right, (int*)pbottom);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(ref GLFWwindow window, ref int left, int* top, int* right, ref int bottom)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* pleft = &left)
-				{
-					fixed (int* pbottom = &bottom)
-					{
-						GetWindowFrameSizeNative((GLFWwindow*)pwindow, (int*)pleft, top, right, (int*)pbottom);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(ref GLFWwindow window, ref int left, int* top, int* right, ref int bottom)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pleft = &left)
+                {
+                    fixed (int* pbottom = &bottom)
+                    {
+                        GetWindowFrameSizeNative((GLFWwindow*)pwindow, (int*)pleft, top, right, (int*)pbottom);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(GLFWwindowPtr window, int* left, ref int top, int* right, ref int bottom)
-		{
-			fixed (int* ptop = &top)
-			{
-				fixed (int* pbottom = &bottom)
-				{
-					GetWindowFrameSizeNative((GLFWwindow*)window, left, (int*)ptop, right, (int*)pbottom);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(GLFWwindowPtr window, int* left, ref int top, int* right, ref int bottom)
+        {
+            fixed (int* ptop = &top)
+            {
+                fixed (int* pbottom = &bottom)
+                {
+                    GetWindowFrameSizeNative((GLFWwindow*)window, left, (int*)ptop, right, (int*)pbottom);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(ref GLFWwindow window, int* left, ref int top, int* right, ref int bottom)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* ptop = &top)
-				{
-					fixed (int* pbottom = &bottom)
-					{
-						GetWindowFrameSizeNative((GLFWwindow*)pwindow, left, (int*)ptop, right, (int*)pbottom);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(ref GLFWwindow window, int* left, ref int top, int* right, ref int bottom)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* ptop = &top)
+                {
+                    fixed (int* pbottom = &bottom)
+                    {
+                        GetWindowFrameSizeNative((GLFWwindow*)pwindow, left, (int*)ptop, right, (int*)pbottom);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(GLFWwindowPtr window, ref int left, ref int top, int* right, ref int bottom)
-		{
-			fixed (int* pleft = &left)
-			{
-				fixed (int* ptop = &top)
-				{
-					fixed (int* pbottom = &bottom)
-					{
-						GetWindowFrameSizeNative((GLFWwindow*)window, (int*)pleft, (int*)ptop, right, (int*)pbottom);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(GLFWwindowPtr window, ref int left, ref int top, int* right, ref int bottom)
+        {
+            fixed (int* pleft = &left)
+            {
+                fixed (int* ptop = &top)
+                {
+                    fixed (int* pbottom = &bottom)
+                    {
+                        GetWindowFrameSizeNative((GLFWwindow*)window, (int*)pleft, (int*)ptop, right, (int*)pbottom);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(ref GLFWwindow window, ref int left, ref int top, int* right, ref int bottom)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* pleft = &left)
-				{
-					fixed (int* ptop = &top)
-					{
-						fixed (int* pbottom = &bottom)
-						{
-							GetWindowFrameSizeNative((GLFWwindow*)pwindow, (int*)pleft, (int*)ptop, right, (int*)pbottom);
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(ref GLFWwindow window, ref int left, ref int top, int* right, ref int bottom)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pleft = &left)
+                {
+                    fixed (int* ptop = &top)
+                    {
+                        fixed (int* pbottom = &bottom)
+                        {
+                            GetWindowFrameSizeNative((GLFWwindow*)pwindow, (int*)pleft, (int*)ptop, right, (int*)pbottom);
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(GLFWwindowPtr window, int* left, int* top, ref int right, ref int bottom)
-		{
-			fixed (int* pright = &right)
-			{
-				fixed (int* pbottom = &bottom)
-				{
-					GetWindowFrameSizeNative((GLFWwindow*)window, left, top, (int*)pright, (int*)pbottom);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(GLFWwindowPtr window, int* left, int* top, ref int right, ref int bottom)
+        {
+            fixed (int* pright = &right)
+            {
+                fixed (int* pbottom = &bottom)
+                {
+                    GetWindowFrameSizeNative((GLFWwindow*)window, left, top, (int*)pright, (int*)pbottom);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(ref GLFWwindow window, int* left, int* top, ref int right, ref int bottom)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* pright = &right)
-				{
-					fixed (int* pbottom = &bottom)
-					{
-						GetWindowFrameSizeNative((GLFWwindow*)pwindow, left, top, (int*)pright, (int*)pbottom);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(ref GLFWwindow window, int* left, int* top, ref int right, ref int bottom)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pright = &right)
+                {
+                    fixed (int* pbottom = &bottom)
+                    {
+                        GetWindowFrameSizeNative((GLFWwindow*)pwindow, left, top, (int*)pright, (int*)pbottom);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(GLFWwindowPtr window, ref int left, int* top, ref int right, ref int bottom)
-		{
-			fixed (int* pleft = &left)
-			{
-				fixed (int* pright = &right)
-				{
-					fixed (int* pbottom = &bottom)
-					{
-						GetWindowFrameSizeNative((GLFWwindow*)window, (int*)pleft, top, (int*)pright, (int*)pbottom);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(GLFWwindowPtr window, ref int left, int* top, ref int right, ref int bottom)
+        {
+            fixed (int* pleft = &left)
+            {
+                fixed (int* pright = &right)
+                {
+                    fixed (int* pbottom = &bottom)
+                    {
+                        GetWindowFrameSizeNative((GLFWwindow*)window, (int*)pleft, top, (int*)pright, (int*)pbottom);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(ref GLFWwindow window, ref int left, int* top, ref int right, ref int bottom)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* pleft = &left)
-				{
-					fixed (int* pright = &right)
-					{
-						fixed (int* pbottom = &bottom)
-						{
-							GetWindowFrameSizeNative((GLFWwindow*)pwindow, (int*)pleft, top, (int*)pright, (int*)pbottom);
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(ref GLFWwindow window, ref int left, int* top, ref int right, ref int bottom)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pleft = &left)
+                {
+                    fixed (int* pright = &right)
+                    {
+                        fixed (int* pbottom = &bottom)
+                        {
+                            GetWindowFrameSizeNative((GLFWwindow*)pwindow, (int*)pleft, top, (int*)pright, (int*)pbottom);
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(GLFWwindowPtr window, int* left, ref int top, ref int right, ref int bottom)
-		{
-			fixed (int* ptop = &top)
-			{
-				fixed (int* pright = &right)
-				{
-					fixed (int* pbottom = &bottom)
-					{
-						GetWindowFrameSizeNative((GLFWwindow*)window, left, (int*)ptop, (int*)pright, (int*)pbottom);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(GLFWwindowPtr window, int* left, ref int top, ref int right, ref int bottom)
+        {
+            fixed (int* ptop = &top)
+            {
+                fixed (int* pright = &right)
+                {
+                    fixed (int* pbottom = &bottom)
+                    {
+                        GetWindowFrameSizeNative((GLFWwindow*)window, left, (int*)ptop, (int*)pright, (int*)pbottom);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(ref GLFWwindow window, int* left, ref int top, ref int right, ref int bottom)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* ptop = &top)
-				{
-					fixed (int* pright = &right)
-					{
-						fixed (int* pbottom = &bottom)
-						{
-							GetWindowFrameSizeNative((GLFWwindow*)pwindow, left, (int*)ptop, (int*)pright, (int*)pbottom);
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(ref GLFWwindow window, int* left, ref int top, ref int right, ref int bottom)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* ptop = &top)
+                {
+                    fixed (int* pright = &right)
+                    {
+                        fixed (int* pbottom = &bottom)
+                        {
+                            GetWindowFrameSizeNative((GLFWwindow*)pwindow, left, (int*)ptop, (int*)pright, (int*)pbottom);
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(GLFWwindowPtr window, ref int left, ref int top, ref int right, ref int bottom)
-		{
-			fixed (int* pleft = &left)
-			{
-				fixed (int* ptop = &top)
-				{
-					fixed (int* pright = &right)
-					{
-						fixed (int* pbottom = &bottom)
-						{
-							GetWindowFrameSizeNative((GLFWwindow*)window, (int*)pleft, (int*)ptop, (int*)pright, (int*)pbottom);
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(GLFWwindowPtr window, ref int left, ref int top, ref int right, ref int bottom)
+        {
+            fixed (int* pleft = &left)
+            {
+                fixed (int* ptop = &top)
+                {
+                    fixed (int* pright = &right)
+                    {
+                        fixed (int* pbottom = &bottom)
+                        {
+                            GetWindowFrameSizeNative((GLFWwindow*)window, (int*)pleft, (int*)ptop, (int*)pright, (int*)pbottom);
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the size, in screen coordinates, of each edge of the<br/>
-		/// frame of the specified window.  This size includes the title bar, if the<br/>
-		/// window has one.  The size of the frame may vary depending on the<br/>
-		/// [window-related hints](<br/>
-		/// used to create it.<br/>
-		/// Because this function retrieves the size of each window frame edge and not<br/>
-		/// the offset along a particular coordinate axis, the retrieved values will<br/>
-		/// always be zero or positive.<br/>
-		/// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
-		/// non-`NULL` size arguments will be set to zero.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowFrameSize(ref GLFWwindow window, ref int left, ref int top, ref int right, ref int bottom)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (int* pleft = &left)
-				{
-					fixed (int* ptop = &top)
-					{
-						fixed (int* pright = &right)
-						{
-							fixed (int* pbottom = &bottom)
-							{
-								GetWindowFrameSizeNative((GLFWwindow*)pwindow, (int*)pleft, (int*)ptop, (int*)pright, (int*)pbottom);
-							}
-						}
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the size, in screen coordinates, of each edge of the<br/>
+        /// frame of the specified window.  This size includes the title bar, if the<br/>
+        /// window has one.  The size of the frame may vary depending on the<br/>
+        /// [window-related hints](<br/>
+        /// used to create it.<br/>
+        /// Because this function retrieves the size of each window frame edge and not<br/>
+        /// the offset along a particular coordinate axis, the retrieved values will<br/>
+        /// always be zero or positive.<br/>
+        /// Any or all of the size arguments may be `NULL`.  If an error occurs, all<br/>
+        /// non-`NULL` size arguments will be set to zero.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowFrameSize(ref GLFWwindow window, ref int left, ref int top, ref int right, ref int bottom)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pleft = &left)
+                {
+                    fixed (int* ptop = &top)
+                    {
+                        fixed (int* pright = &right)
+                        {
+                            fixed (int* pbottom = &bottom)
+                            {
+                                GetWindowFrameSizeNative((GLFWwindow*)pwindow, (int*)pleft, (int*)ptop, (int*)pright, (int*)pbottom);
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the content scale for the specified window.  The<br/>
-		/// content scale is the ratio between the current DPI and the platform's<br/>
-		/// default DPI.  This is especially important for text and any UI elements.  If<br/>
-		/// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
-		/// machine then it should appear at a reasonable size on other machines<br/>
-		/// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
-		/// and scaling settings being somewhat correct.<br/>
-		/// On platforms where each monitors can have its own content scale, the window<br/>
-		/// content scale will depend on which monitor the system considers the window<br/>
-		/// to be on.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void GetWindowContentScaleNative(GLFWwindow* window, float* xscale, float* yscale)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the content scale for the specified window.  The<br/>
+        /// content scale is the ratio between the current DPI and the platform's<br/>
+        /// default DPI.  This is especially important for text and any UI elements.  If<br/>
+        /// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
+        /// machine then it should appear at a reasonable size on other machines<br/>
+        /// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
+        /// and scaling settings being somewhat correct.<br/>
+        /// On platforms where each monitors can have its own content scale, the window<br/>
+        /// content scale will depend on which monitor the system considers the window<br/>
+        /// to be on.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void GetWindowContentScaleNative(GLFWwindow* window, float* xscale, float* yscale)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, float*, float*, void>)funcTable[44])(window, xscale, yscale);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, nint, void>)funcTable[44])((nint)window, (nint)xscale, (nint)yscale);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, nint, nint, void> )funcTable[44])((nint)window, (nint)xscale, (nint)yscale);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the content scale for the specified window.  The<br/>
-		/// content scale is the ratio between the current DPI and the platform's<br/>
-		/// default DPI.  This is especially important for text and any UI elements.  If<br/>
-		/// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
-		/// machine then it should appear at a reasonable size on other machines<br/>
-		/// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
-		/// and scaling settings being somewhat correct.<br/>
-		/// On platforms where each monitors can have its own content scale, the window<br/>
-		/// content scale will depend on which monitor the system considers the window<br/>
-		/// to be on.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowContentScale(GLFWwindowPtr window, float* xscale, float* yscale)
-		{
-			GetWindowContentScaleNative((GLFWwindow*)window, xscale, yscale);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the content scale for the specified window.  The<br/>
+        /// content scale is the ratio between the current DPI and the platform's<br/>
+        /// default DPI.  This is especially important for text and any UI elements.  If<br/>
+        /// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
+        /// machine then it should appear at a reasonable size on other machines<br/>
+        /// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
+        /// and scaling settings being somewhat correct.<br/>
+        /// On platforms where each monitors can have its own content scale, the window<br/>
+        /// content scale will depend on which monitor the system considers the window<br/>
+        /// to be on.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowContentScale(GLFWwindowPtr window, float* xscale, float* yscale)
+        {
+            GetWindowContentScaleNative((GLFWwindow*)window, xscale, yscale);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the content scale for the specified window.  The<br/>
-		/// content scale is the ratio between the current DPI and the platform's<br/>
-		/// default DPI.  This is especially important for text and any UI elements.  If<br/>
-		/// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
-		/// machine then it should appear at a reasonable size on other machines<br/>
-		/// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
-		/// and scaling settings being somewhat correct.<br/>
-		/// On platforms where each monitors can have its own content scale, the window<br/>
-		/// content scale will depend on which monitor the system considers the window<br/>
-		/// to be on.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowContentScale(ref GLFWwindow window, float* xscale, float* yscale)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				GetWindowContentScaleNative((GLFWwindow*)pwindow, xscale, yscale);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the content scale for the specified window.  The<br/>
+        /// content scale is the ratio between the current DPI and the platform's<br/>
+        /// default DPI.  This is especially important for text and any UI elements.  If<br/>
+        /// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
+        /// machine then it should appear at a reasonable size on other machines<br/>
+        /// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
+        /// and scaling settings being somewhat correct.<br/>
+        /// On platforms where each monitors can have its own content scale, the window<br/>
+        /// content scale will depend on which monitor the system considers the window<br/>
+        /// to be on.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowContentScale(ref GLFWwindow window, float* xscale, float* yscale)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                GetWindowContentScaleNative((GLFWwindow*)pwindow, xscale, yscale);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the content scale for the specified window.  The<br/>
-		/// content scale is the ratio between the current DPI and the platform's<br/>
-		/// default DPI.  This is especially important for text and any UI elements.  If<br/>
-		/// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
-		/// machine then it should appear at a reasonable size on other machines<br/>
-		/// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
-		/// and scaling settings being somewhat correct.<br/>
-		/// On platforms where each monitors can have its own content scale, the window<br/>
-		/// content scale will depend on which monitor the system considers the window<br/>
-		/// to be on.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowContentScale(GLFWwindowPtr window, ref float xscale, float* yscale)
-		{
-			fixed (float* pxscale = &xscale)
-			{
-				GetWindowContentScaleNative((GLFWwindow*)window, (float*)pxscale, yscale);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the content scale for the specified window.  The<br/>
+        /// content scale is the ratio between the current DPI and the platform's<br/>
+        /// default DPI.  This is especially important for text and any UI elements.  If<br/>
+        /// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
+        /// machine then it should appear at a reasonable size on other machines<br/>
+        /// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
+        /// and scaling settings being somewhat correct.<br/>
+        /// On platforms where each monitors can have its own content scale, the window<br/>
+        /// content scale will depend on which monitor the system considers the window<br/>
+        /// to be on.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowContentScale(GLFWwindowPtr window, ref float xscale, float* yscale)
+        {
+            fixed (float* pxscale = &xscale)
+            {
+                GetWindowContentScaleNative((GLFWwindow*)window, (float*)pxscale, yscale);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the content scale for the specified window.  The<br/>
-		/// content scale is the ratio between the current DPI and the platform's<br/>
-		/// default DPI.  This is especially important for text and any UI elements.  If<br/>
-		/// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
-		/// machine then it should appear at a reasonable size on other machines<br/>
-		/// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
-		/// and scaling settings being somewhat correct.<br/>
-		/// On platforms where each monitors can have its own content scale, the window<br/>
-		/// content scale will depend on which monitor the system considers the window<br/>
-		/// to be on.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowContentScale(ref GLFWwindow window, ref float xscale, float* yscale)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (float* pxscale = &xscale)
-				{
-					GetWindowContentScaleNative((GLFWwindow*)pwindow, (float*)pxscale, yscale);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the content scale for the specified window.  The<br/>
+        /// content scale is the ratio between the current DPI and the platform's<br/>
+        /// default DPI.  This is especially important for text and any UI elements.  If<br/>
+        /// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
+        /// machine then it should appear at a reasonable size on other machines<br/>
+        /// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
+        /// and scaling settings being somewhat correct.<br/>
+        /// On platforms where each monitors can have its own content scale, the window<br/>
+        /// content scale will depend on which monitor the system considers the window<br/>
+        /// to be on.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowContentScale(ref GLFWwindow window, ref float xscale, float* yscale)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (float* pxscale = &xscale)
+                {
+                    GetWindowContentScaleNative((GLFWwindow*)pwindow, (float*)pxscale, yscale);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the content scale for the specified window.  The<br/>
-		/// content scale is the ratio between the current DPI and the platform's<br/>
-		/// default DPI.  This is especially important for text and any UI elements.  If<br/>
-		/// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
-		/// machine then it should appear at a reasonable size on other machines<br/>
-		/// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
-		/// and scaling settings being somewhat correct.<br/>
-		/// On platforms where each monitors can have its own content scale, the window<br/>
-		/// content scale will depend on which monitor the system considers the window<br/>
-		/// to be on.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowContentScale(GLFWwindowPtr window, float* xscale, ref float yscale)
-		{
-			fixed (float* pyscale = &yscale)
-			{
-				GetWindowContentScaleNative((GLFWwindow*)window, xscale, (float*)pyscale);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the content scale for the specified window.  The<br/>
+        /// content scale is the ratio between the current DPI and the platform's<br/>
+        /// default DPI.  This is especially important for text and any UI elements.  If<br/>
+        /// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
+        /// machine then it should appear at a reasonable size on other machines<br/>
+        /// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
+        /// and scaling settings being somewhat correct.<br/>
+        /// On platforms where each monitors can have its own content scale, the window<br/>
+        /// content scale will depend on which monitor the system considers the window<br/>
+        /// to be on.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowContentScale(GLFWwindowPtr window, float* xscale, ref float yscale)
+        {
+            fixed (float* pyscale = &yscale)
+            {
+                GetWindowContentScaleNative((GLFWwindow*)window, xscale, (float*)pyscale);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the content scale for the specified window.  The<br/>
-		/// content scale is the ratio between the current DPI and the platform's<br/>
-		/// default DPI.  This is especially important for text and any UI elements.  If<br/>
-		/// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
-		/// machine then it should appear at a reasonable size on other machines<br/>
-		/// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
-		/// and scaling settings being somewhat correct.<br/>
-		/// On platforms where each monitors can have its own content scale, the window<br/>
-		/// content scale will depend on which monitor the system considers the window<br/>
-		/// to be on.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowContentScale(ref GLFWwindow window, float* xscale, ref float yscale)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (float* pyscale = &yscale)
-				{
-					GetWindowContentScaleNative((GLFWwindow*)pwindow, xscale, (float*)pyscale);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the content scale for the specified window.  The<br/>
+        /// content scale is the ratio between the current DPI and the platform's<br/>
+        /// default DPI.  This is especially important for text and any UI elements.  If<br/>
+        /// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
+        /// machine then it should appear at a reasonable size on other machines<br/>
+        /// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
+        /// and scaling settings being somewhat correct.<br/>
+        /// On platforms where each monitors can have its own content scale, the window<br/>
+        /// content scale will depend on which monitor the system considers the window<br/>
+        /// to be on.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowContentScale(ref GLFWwindow window, float* xscale, ref float yscale)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (float* pyscale = &yscale)
+                {
+                    GetWindowContentScaleNative((GLFWwindow*)pwindow, xscale, (float*)pyscale);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the content scale for the specified window.  The<br/>
-		/// content scale is the ratio between the current DPI and the platform's<br/>
-		/// default DPI.  This is especially important for text and any UI elements.  If<br/>
-		/// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
-		/// machine then it should appear at a reasonable size on other machines<br/>
-		/// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
-		/// and scaling settings being somewhat correct.<br/>
-		/// On platforms where each monitors can have its own content scale, the window<br/>
-		/// content scale will depend on which monitor the system considers the window<br/>
-		/// to be on.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowContentScale(GLFWwindowPtr window, ref float xscale, ref float yscale)
-		{
-			fixed (float* pxscale = &xscale)
-			{
-				fixed (float* pyscale = &yscale)
-				{
-					GetWindowContentScaleNative((GLFWwindow*)window, (float*)pxscale, (float*)pyscale);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the content scale for the specified window.  The<br/>
+        /// content scale is the ratio between the current DPI and the platform's<br/>
+        /// default DPI.  This is especially important for text and any UI elements.  If<br/>
+        /// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
+        /// machine then it should appear at a reasonable size on other machines<br/>
+        /// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
+        /// and scaling settings being somewhat correct.<br/>
+        /// On platforms where each monitors can have its own content scale, the window<br/>
+        /// content scale will depend on which monitor the system considers the window<br/>
+        /// to be on.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowContentScale(GLFWwindowPtr window, ref float xscale, ref float yscale)
+        {
+            fixed (float* pxscale = &xscale)
+            {
+                fixed (float* pyscale = &yscale)
+                {
+                    GetWindowContentScaleNative((GLFWwindow*)window, (float*)pxscale, (float*)pyscale);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the content scale for the specified window.  The<br/>
-		/// content scale is the ratio between the current DPI and the platform's<br/>
-		/// default DPI.  This is especially important for text and any UI elements.  If<br/>
-		/// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
-		/// machine then it should appear at a reasonable size on other machines<br/>
-		/// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
-		/// and scaling settings being somewhat correct.<br/>
-		/// On platforms where each monitors can have its own content scale, the window<br/>
-		/// content scale will depend on which monitor the system considers the window<br/>
-		/// to be on.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void GetWindowContentScale(ref GLFWwindow window, ref float xscale, ref float yscale)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (float* pxscale = &xscale)
-				{
-					fixed (float* pyscale = &yscale)
-					{
-						GetWindowContentScaleNative((GLFWwindow*)pwindow, (float*)pxscale, (float*)pyscale);
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the content scale for the specified window.  The<br/>
+        /// content scale is the ratio between the current DPI and the platform's<br/>
+        /// default DPI.  This is especially important for text and any UI elements.  If<br/>
+        /// the pixel dimensions of your UI scaled by this look appropriate on your<br/>
+        /// machine then it should appear at a reasonable size on other machines<br/>
+        /// regardless of their DPI and scaling settings.  This relies on the system DPI<br/>
+        /// and scaling settings being somewhat correct.<br/>
+        /// On platforms where each monitors can have its own content scale, the window<br/>
+        /// content scale will depend on which monitor the system considers the window<br/>
+        /// to be on.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void GetWindowContentScale(ref GLFWwindow window, ref float xscale, ref float yscale)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (float* pxscale = &xscale)
+                {
+                    fixed (float* pyscale = &yscale)
+                    {
+                        GetWindowContentScaleNative((GLFWwindow*)pwindow, (float*)pxscale, (float*)pyscale);
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the opacity of the window, including any decorations.<br/>
-		/// The opacity (or alpha) value is a positive finite number between zero and<br/>
-		/// one, where zero is fully transparent and one is fully opaque.  If the system<br/>
-		/// does not support whole window transparency, this function always returns one.<br/>
-		/// The initial opacity value for newly created windows is one.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float GetWindowOpacityNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the opacity of the window, including any decorations.<br/>
+        /// The opacity (or alpha) value is a positive finite number between zero and<br/>
+        /// one, where zero is fully transparent and one is fully opaque.  If the system<br/>
+        /// does not support whole window transparency, this function always returns one.<br/>
+        /// The initial opacity value for newly created windows is one.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static float GetWindowOpacityNative(GLFWwindow* window)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, float>)funcTable[45])(window);
-			#else
-			return (float)((delegate* unmanaged[Cdecl]<nint, float>)funcTable[45])((nint)window);
-			#endif
-		}
+#else
+            return (float)((delegate* unmanaged[Cdecl]<nint, float> )funcTable[45])((nint)window);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the opacity of the window, including any decorations.<br/>
-		/// The opacity (or alpha) value is a positive finite number between zero and<br/>
-		/// one, where zero is fully transparent and one is fully opaque.  If the system<br/>
-		/// does not support whole window transparency, this function always returns one.<br/>
-		/// The initial opacity value for newly created windows is one.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static float GetWindowOpacity(GLFWwindowPtr window)
-		{
-			float ret = GetWindowOpacityNative((GLFWwindow*)window);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the opacity of the window, including any decorations.<br/>
+        /// The opacity (or alpha) value is a positive finite number between zero and<br/>
+        /// one, where zero is fully transparent and one is fully opaque.  If the system<br/>
+        /// does not support whole window transparency, this function always returns one.<br/>
+        /// The initial opacity value for newly created windows is one.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static float GetWindowOpacity(GLFWwindowPtr window)
+        {
+            float ret = GetWindowOpacityNative((GLFWwindow*)window);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the opacity of the window, including any decorations.<br/>
-		/// The opacity (or alpha) value is a positive finite number between zero and<br/>
-		/// one, where zero is fully transparent and one is fully opaque.  If the system<br/>
-		/// does not support whole window transparency, this function always returns one.<br/>
-		/// The initial opacity value for newly created windows is one.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static float GetWindowOpacity(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				float ret = GetWindowOpacityNative((GLFWwindow*)pwindow);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the opacity of the window, including any decorations.<br/>
+        /// The opacity (or alpha) value is a positive finite number between zero and<br/>
+        /// one, where zero is fully transparent and one is fully opaque.  If the system<br/>
+        /// does not support whole window transparency, this function always returns one.<br/>
+        /// The initial opacity value for newly created windows is one.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static float GetWindowOpacity(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                float ret = GetWindowOpacityNative((GLFWwindow*)pwindow);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the opacity of the window, including any decorations.<br/>
-		/// The opacity (or alpha) value is a positive finite number between zero and<br/>
-		/// one, where zero is fully transparent and one is fully opaque.<br/>
-		/// The initial opacity value for newly created windows is one.<br/>
-		/// A window created with framebuffer transparency may not use whole window<br/>
-		/// transparency.  The results of doing this are undefined.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void SetWindowOpacityNative(GLFWwindow* window, float opacity)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets the opacity of the window, including any decorations.<br/>
+        /// The opacity (or alpha) value is a positive finite number between zero and<br/>
+        /// one, where zero is fully transparent and one is fully opaque.<br/>
+        /// The initial opacity value for newly created windows is one.<br/>
+        /// A window created with framebuffer transparency may not use whole window<br/>
+        /// transparency.  The results of doing this are undefined.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void SetWindowOpacityNative(GLFWwindow* window, float opacity)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, float, void>)funcTable[46])(window, opacity);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, float, void>)funcTable[46])((nint)window, opacity);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, float, void> )funcTable[46])((nint)window, opacity);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the opacity of the window, including any decorations.<br/>
-		/// The opacity (or alpha) value is a positive finite number between zero and<br/>
-		/// one, where zero is fully transparent and one is fully opaque.<br/>
-		/// The initial opacity value for newly created windows is one.<br/>
-		/// A window created with framebuffer transparency may not use whole window<br/>
-		/// transparency.  The results of doing this are undefined.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowOpacity(GLFWwindowPtr window, float opacity)
-		{
-			SetWindowOpacityNative((GLFWwindow*)window, opacity);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the opacity of the window, including any decorations.<br/>
+        /// The opacity (or alpha) value is a positive finite number between zero and<br/>
+        /// one, where zero is fully transparent and one is fully opaque.<br/>
+        /// The initial opacity value for newly created windows is one.<br/>
+        /// A window created with framebuffer transparency may not use whole window<br/>
+        /// transparency.  The results of doing this are undefined.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowOpacity(GLFWwindowPtr window, float opacity)
+        {
+            SetWindowOpacityNative((GLFWwindow*)window, opacity);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the opacity of the window, including any decorations.<br/>
-		/// The opacity (or alpha) value is a positive finite number between zero and<br/>
-		/// one, where zero is fully transparent and one is fully opaque.<br/>
-		/// The initial opacity value for newly created windows is one.<br/>
-		/// A window created with framebuffer transparency may not use whole window<br/>
-		/// transparency.  The results of doing this are undefined.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// (see remarks).<br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetWindowOpacity(ref GLFWwindow window, float opacity)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				SetWindowOpacityNative((GLFWwindow*)pwindow, opacity);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the opacity of the window, including any decorations.<br/>
+        /// The opacity (or alpha) value is a positive finite number between zero and<br/>
+        /// one, where zero is fully transparent and one is fully opaque.<br/>
+        /// The initial opacity value for newly created windows is one.<br/>
+        /// A window created with framebuffer transparency may not use whole window<br/>
+        /// transparency.  The results of doing this are undefined.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// (see remarks).<br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetWindowOpacity(ref GLFWwindow window, float opacity)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                SetWindowOpacityNative((GLFWwindow*)pwindow, opacity);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function iconifies (minimizes) the specified window if it was<br/>
-		/// previously restored.  If the window is already iconified, this function does<br/>
-		/// nothing.<br/>
-		/// If the specified window is a full screen window, GLFW restores the original<br/>
-		/// video mode of the monitor.  The window's desired video mode is set again<br/>
-		/// when the window is restored.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void IconifyWindowNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function iconifies (minimizes) the specified window if it was<br/>
+        /// previously restored.  If the window is already iconified, this function does<br/>
+        /// nothing.<br/>
+        /// If the specified window is a full screen window, GLFW restores the original<br/>
+        /// video mode of the monitor.  The window's desired video mode is set again<br/>
+        /// when the window is restored.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void IconifyWindowNative(GLFWwindow* window)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[47])(window);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[47])((nint)window);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, void> )funcTable[47])((nint)window);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function iconifies (minimizes) the specified window if it was<br/>
-		/// previously restored.  If the window is already iconified, this function does<br/>
-		/// nothing.<br/>
-		/// If the specified window is a full screen window, GLFW restores the original<br/>
-		/// video mode of the monitor.  The window's desired video mode is set again<br/>
-		/// when the window is restored.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void IconifyWindow(GLFWwindowPtr window)
-		{
-			IconifyWindowNative((GLFWwindow*)window);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function iconifies (minimizes) the specified window if it was<br/>
+        /// previously restored.  If the window is already iconified, this function does<br/>
+        /// nothing.<br/>
+        /// If the specified window is a full screen window, GLFW restores the original<br/>
+        /// video mode of the monitor.  The window's desired video mode is set again<br/>
+        /// when the window is restored.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void IconifyWindow(GLFWwindowPtr window)
+        {
+            IconifyWindowNative((GLFWwindow*)window);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function iconifies (minimizes) the specified window if it was<br/>
-		/// previously restored.  If the window is already iconified, this function does<br/>
-		/// nothing.<br/>
-		/// If the specified window is a full screen window, GLFW restores the original<br/>
-		/// video mode of the monitor.  The window's desired video mode is set again<br/>
-		/// when the window is restored.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void IconifyWindow(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				IconifyWindowNative((GLFWwindow*)pwindow);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function iconifies (minimizes) the specified window if it was<br/>
+        /// previously restored.  If the window is already iconified, this function does<br/>
+        /// nothing.<br/>
+        /// If the specified window is a full screen window, GLFW restores the original<br/>
+        /// video mode of the monitor.  The window's desired video mode is set again<br/>
+        /// when the window is restored.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void IconifyWindow(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                IconifyWindowNative((GLFWwindow*)pwindow);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function restores the specified window if it was previously iconified<br/>
-		/// (minimized) or maximized.  If the window is already restored, this function<br/>
-		/// does nothing.<br/>
-		/// If the specified window is an iconified full screen window, its desired<br/>
-		/// video mode is set again for its monitor when the window is restored.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void RestoreWindowNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function restores the specified window if it was previously iconified<br/>
+        /// (minimized) or maximized.  If the window is already restored, this function<br/>
+        /// does nothing.<br/>
+        /// If the specified window is an iconified full screen window, its desired<br/>
+        /// video mode is set again for its monitor when the window is restored.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void RestoreWindowNative(GLFWwindow* window)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[48])(window);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[48])((nint)window);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, void> )funcTable[48])((nint)window);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function restores the specified window if it was previously iconified<br/>
-		/// (minimized) or maximized.  If the window is already restored, this function<br/>
-		/// does nothing.<br/>
-		/// If the specified window is an iconified full screen window, its desired<br/>
-		/// video mode is set again for its monitor when the window is restored.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void RestoreWindow(GLFWwindowPtr window)
-		{
-			RestoreWindowNative((GLFWwindow*)window);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function restores the specified window if it was previously iconified<br/>
+        /// (minimized) or maximized.  If the window is already restored, this function<br/>
+        /// does nothing.<br/>
+        /// If the specified window is an iconified full screen window, its desired<br/>
+        /// video mode is set again for its monitor when the window is restored.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void RestoreWindow(GLFWwindowPtr window)
+        {
+            RestoreWindowNative((GLFWwindow*)window);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function restores the specified window if it was previously iconified<br/>
-		/// (minimized) or maximized.  If the window is already restored, this function<br/>
-		/// does nothing.<br/>
-		/// If the specified window is an iconified full screen window, its desired<br/>
-		/// video mode is set again for its monitor when the window is restored.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void RestoreWindow(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				RestoreWindowNative((GLFWwindow*)pwindow);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function restores the specified window if it was previously iconified<br/>
+        /// (minimized) or maximized.  If the window is already restored, this function<br/>
+        /// does nothing.<br/>
+        /// If the specified window is an iconified full screen window, its desired<br/>
+        /// video mode is set again for its monitor when the window is restored.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void RestoreWindow(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                RestoreWindowNative((GLFWwindow*)pwindow);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function maximizes the specified window if it was previously not<br/>
-		/// maximized.  If the window is already maximized, this function does nothing.<br/>
-		/// If the specified window is a full screen window, this function does nothing.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MaximizeWindowNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function maximizes the specified window if it was previously not<br/>
+        /// maximized.  If the window is already maximized, this function does nothing.<br/>
+        /// If the specified window is a full screen window, this function does nothing.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void MaximizeWindowNative(GLFWwindow* window)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[49])(window);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[49])((nint)window);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, void> )funcTable[49])((nint)window);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function maximizes the specified window if it was previously not<br/>
-		/// maximized.  If the window is already maximized, this function does nothing.<br/>
-		/// If the specified window is a full screen window, this function does nothing.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void MaximizeWindow(GLFWwindowPtr window)
-		{
-			MaximizeWindowNative((GLFWwindow*)window);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function maximizes the specified window if it was previously not<br/>
+        /// maximized.  If the window is already maximized, this function does nothing.<br/>
+        /// If the specified window is a full screen window, this function does nothing.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void MaximizeWindow(GLFWwindowPtr window)
+        {
+            MaximizeWindowNative((GLFWwindow*)window);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function maximizes the specified window if it was previously not<br/>
-		/// maximized.  If the window is already maximized, this function does nothing.<br/>
-		/// If the specified window is a full screen window, this function does nothing.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void MaximizeWindow(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				MaximizeWindowNative((GLFWwindow*)pwindow);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function maximizes the specified window if it was previously not<br/>
+        /// maximized.  If the window is already maximized, this function does nothing.<br/>
+        /// If the specified window is a full screen window, this function does nothing.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void MaximizeWindow(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                MaximizeWindowNative((GLFWwindow*)pwindow);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function makes the specified window visible if it was previously<br/>
-		/// hidden.  If the window is already visible or is in full screen mode, this<br/>
-		/// function does nothing.<br/>
-		/// By default, windowed mode windows are focused when shown<br/>
-		/// Set the [GLFW_FOCUS_ON_SHOW](<br/>
-		/// window hint<br/>
-		/// to change this behavior for all newly created windows, or change the<br/>
-		/// behavior for an existing window with <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void ShowWindowNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function makes the specified window visible if it was previously<br/>
+        /// hidden.  If the window is already visible or is in full screen mode, this<br/>
+        /// function does nothing.<br/>
+        /// By default, windowed mode windows are focused when shown<br/>
+        /// Set the [GLFW_FOCUS_ON_SHOW](<br/>
+        /// window hint<br/>
+        /// to change this behavior for all newly created windows, or change the<br/>
+        /// behavior for an existing window with <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void ShowWindowNative(GLFWwindow* window)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[50])(window);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[50])((nint)window);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, void> )funcTable[50])((nint)window);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function makes the specified window visible if it was previously<br/>
-		/// hidden.  If the window is already visible or is in full screen mode, this<br/>
-		/// function does nothing.<br/>
-		/// By default, windowed mode windows are focused when shown<br/>
-		/// Set the [GLFW_FOCUS_ON_SHOW](<br/>
-		/// window hint<br/>
-		/// to change this behavior for all newly created windows, or change the<br/>
-		/// behavior for an existing window with <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ShowWindow(GLFWwindowPtr window)
-		{
-			ShowWindowNative((GLFWwindow*)window);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function makes the specified window visible if it was previously<br/>
+        /// hidden.  If the window is already visible or is in full screen mode, this<br/>
+        /// function does nothing.<br/>
+        /// By default, windowed mode windows are focused when shown<br/>
+        /// Set the [GLFW_FOCUS_ON_SHOW](<br/>
+        /// window hint<br/>
+        /// to change this behavior for all newly created windows, or change the<br/>
+        /// behavior for an existing window with <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ShowWindow(GLFWwindowPtr window)
+        {
+            ShowWindowNative((GLFWwindow*)window);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function makes the specified window visible if it was previously<br/>
-		/// hidden.  If the window is already visible or is in full screen mode, this<br/>
-		/// function does nothing.<br/>
-		/// By default, windowed mode windows are focused when shown<br/>
-		/// Set the [GLFW_FOCUS_ON_SHOW](<br/>
-		/// window hint<br/>
-		/// to change this behavior for all newly created windows, or change the<br/>
-		/// behavior for an existing window with <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void ShowWindow(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				ShowWindowNative((GLFWwindow*)pwindow);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function makes the specified window visible if it was previously<br/>
+        /// hidden.  If the window is already visible or is in full screen mode, this<br/>
+        /// function does nothing.<br/>
+        /// By default, windowed mode windows are focused when shown<br/>
+        /// Set the [GLFW_FOCUS_ON_SHOW](<br/>
+        /// window hint<br/>
+        /// to change this behavior for all newly created windows, or change the<br/>
+        /// behavior for an existing window with <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void ShowWindow(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                ShowWindowNative((GLFWwindow*)pwindow);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function hides the specified window if it was previously visible.  If<br/>
-		/// the window is already hidden or is in full screen mode, this function does<br/>
-		/// nothing.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void HideWindowNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function hides the specified window if it was previously visible.  If<br/>
+        /// the window is already hidden or is in full screen mode, this function does<br/>
+        /// nothing.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void HideWindowNative(GLFWwindow* window)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[51])(window);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[51])((nint)window);
-			#endif
-		}
-	}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, void> )funcTable[51])((nint)window);
+#endif
+        }
+
+        /// <summary>
+        /// <br/>
+        /// This function hides the specified window if it was previously visible.  If<br/>
+        /// the window is already hidden or is in full screen mode, this function does<br/>
+        /// nothing.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void HideWindow(GLFWwindowPtr window)
+        {
+            HideWindowNative((GLFWwindow*)window);
+        }
+
+        /// <summary>
+        /// <br/>
+        /// This function hides the specified window if it was previously visible.  If<br/>
+        /// the window is already hidden or is in full screen mode, this function does<br/>
+        /// nothing.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void HideWindow(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                HideWindowNative((GLFWwindow*)pwindow);
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// This function brings the specified window to front and sets input focus.<br/>
+        /// The window should already be visible and not iconified.<br/>
+        /// By default, both windowed and full screen mode windows are focused when<br/>
+        /// initially created.  Set the [GLFW_FOCUSED](<br/>
+        /// to<br/>
+        /// disable this behavior.<br/>
+        /// Also by default, windowed mode windows are focused when shown<br/>
+        /// with <br/>
+        /// Set the<br/>
+        /// [GLFW_FOCUS_ON_SHOW](<br/>
+        /// to disable this behavior.<br/>
+        /// __Do not use this function__ to steal focus from other applications unless<br/>
+        /// you are certain that is what the user wants.  Focus stealing can be<br/>
+        /// extremely disruptive.<br/>
+        /// For a less disruptive way of getting the user's attention, see<br/>
+        /// [attention requests](<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void FocusWindowNative(GLFWwindow* window)
+        {
+#if NET5_0_OR_GREATER
+			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[52])(window);
+#else
+            ((delegate* unmanaged[Cdecl]<nint, void> )funcTable[52])((nint)window);
+#endif
+        }
+    }
 }

@@ -6,7 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -14,5024 +13,5076 @@ using HexaGen.Runtime;
 
 namespace Hexa.NET.GLFW
 {
-	public unsafe partial class GLFW
-	{
+    public unsafe partial class GLFW
+    {
+        /// <summary>
+        /// <br/>
+        /// This function sets the cursor boundary crossing callback of the specified<br/>
+        /// window, which is called when the cursor enters or leaves the content area of<br/>
+        /// the window.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [function pointer type](<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<GLFWwindow*, int, void> SetCursorEnterCallback(ref GLFWwindow window, delegate*<GLFWwindow*, int, void> callback)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                delegate*<GLFWwindow*, int, void> ret = SetCursorEnterCallbackNative((GLFWwindow*)pwindow, callback);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the cursor position callback of the specified window,<br/>
-		/// which is called when the cursor is moved.  The callback is provided with the<br/>
-		/// position, in screen coordinates, relative to the upper-left corner of the<br/>
-		/// content area of the window.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<GLFWwindow*, double, double, void> SetCursorPosCallback(ref GLFWwindow window, GLFWcursorposfun callback)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				delegate*<GLFWwindow*, double, double, void> ret = SetCursorPosCallbackNative((GLFWwindow*)pwindow, (delegate*<GLFWwindow*, double, double, void>)Utils.GetFunctionPointerForDelegate(callback));
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the cursor boundary crossing callback of the specified<br/>
+        /// window, which is called when the cursor enters or leaves the content area of<br/>
+        /// the window.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [function pointer type](<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<GLFWwindow*, int, void> SetCursorEnterCallback(GLFWwindowPtr window, GLFWcursorenterfun callback)
+        {
+            delegate*<GLFWwindow*, int, void> ret = SetCursorEnterCallbackNative((GLFWwindow*)window, (delegate*<GLFWwindow*, int, void> )Utils.GetFunctionPointerForDelegate(callback));
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the cursor boundary crossing callback of the specified<br/>
-		/// window, which is called when the cursor enters or leaves the content area of<br/>
-		/// the window.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static delegate*<GLFWwindow*, int, void> SetCursorEnterCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, int, void> callback)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, void>, delegate*<GLFWwindow*, int, void>>)funcTable[91])(window, callback);
-			#else
-			return (delegate*<GLFWwindow*, int, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[91])((nint)window, (nint)callback);
-			#endif
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the cursor boundary crossing callback of the specified<br/>
+        /// window, which is called when the cursor enters or leaves the content area of<br/>
+        /// the window.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [function pointer type](<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<GLFWwindow*, int, void> SetCursorEnterCallback(ref GLFWwindow window, GLFWcursorenterfun callback)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                delegate*<GLFWwindow*, int, void> ret = SetCursorEnterCallbackNative((GLFWwindow*)pwindow, (delegate*<GLFWwindow*, int, void> )Utils.GetFunctionPointerForDelegate(callback));
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the cursor boundary crossing callback of the specified<br/>
-		/// window, which is called when the cursor enters or leaves the content area of<br/>
-		/// the window.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<GLFWwindow*, int, void> SetCursorEnterCallback(GLFWwindowPtr window, delegate*<GLFWwindow*, int, void> callback)
-		{
-			delegate*<GLFWwindow*, int, void> ret = SetCursorEnterCallbackNative((GLFWwindow*)window, callback);
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function sets the cursor boundary crossing callback of the specified<br/>
-		/// window, which is called when the cursor enters or leaves the content area of<br/>
-		/// the window.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<GLFWwindow*, int, void> SetCursorEnterCallback(ref GLFWwindow window, delegate*<GLFWwindow*, int, void> callback)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				delegate*<GLFWwindow*, int, void> ret = SetCursorEnterCallbackNative((GLFWwindow*)pwindow, callback);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function sets the cursor boundary crossing callback of the specified<br/>
-		/// window, which is called when the cursor enters or leaves the content area of<br/>
-		/// the window.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<GLFWwindow*, int, void> SetCursorEnterCallback(GLFWwindowPtr window, GLFWcursorenterfun callback)
-		{
-			delegate*<GLFWwindow*, int, void> ret = SetCursorEnterCallbackNative((GLFWwindow*)window, (delegate*<GLFWwindow*, int, void>)Utils.GetFunctionPointerForDelegate(callback));
-			return ret;
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function sets the cursor boundary crossing callback of the specified<br/>
-		/// window, which is called when the cursor enters or leaves the content area of<br/>
-		/// the window.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<GLFWwindow*, int, void> SetCursorEnterCallback(ref GLFWwindow window, GLFWcursorenterfun callback)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				delegate*<GLFWwindow*, int, void> ret = SetCursorEnterCallbackNative((GLFWwindow*)pwindow, (delegate*<GLFWwindow*, int, void>)Utils.GetFunctionPointerForDelegate(callback));
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function sets the scroll callback of the specified window, which is<br/>
-		/// called when a scrolling device is used, such as a mouse wheel or scrolling<br/>
-		/// area of a touchpad.<br/>
-		/// The scroll callback receives all scrolling input, like that from a mouse<br/>
-		/// wheel or a touchpad scrolling area.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static delegate*<GLFWwindow*, double, double, void> SetScrollCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, double, double, void> callback)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets the scroll callback of the specified window, which is<br/>
+        /// called when a scrolling device is used, such as a mouse wheel or scrolling<br/>
+        /// area of a touchpad.<br/>
+        /// The scroll callback receives all scrolling input, like that from a mouse<br/>
+        /// wheel or a touchpad scrolling area.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [function pointer type](<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static delegate*<GLFWwindow*, double, double, void> SetScrollCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, double, double, void> callback)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, double, double, void>, delegate*<GLFWwindow*, double, double, void>>)funcTable[92])(window, callback);
-			#else
-			return (delegate*<GLFWwindow*, double, double, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[92])((nint)window, (nint)callback);
-			#endif
-		}
+#else
+            return (delegate*<GLFWwindow*, double, double, void> )((delegate* unmanaged[Cdecl]<nint, nint, nint> )funcTable[92])((nint)window, (nint)callback);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the scroll callback of the specified window, which is<br/>
-		/// called when a scrolling device is used, such as a mouse wheel or scrolling<br/>
-		/// area of a touchpad.<br/>
-		/// The scroll callback receives all scrolling input, like that from a mouse<br/>
-		/// wheel or a touchpad scrolling area.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<GLFWwindow*, double, double, void> SetScrollCallback(GLFWwindowPtr window, delegate*<GLFWwindow*, double, double, void> callback)
-		{
-			delegate*<GLFWwindow*, double, double, void> ret = SetScrollCallbackNative((GLFWwindow*)window, callback);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the scroll callback of the specified window, which is<br/>
+        /// called when a scrolling device is used, such as a mouse wheel or scrolling<br/>
+        /// area of a touchpad.<br/>
+        /// The scroll callback receives all scrolling input, like that from a mouse<br/>
+        /// wheel or a touchpad scrolling area.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [function pointer type](<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<GLFWwindow*, double, double, void> SetScrollCallback(GLFWwindowPtr window, delegate*<GLFWwindow*, double, double, void> callback)
+        {
+            delegate*<GLFWwindow*, double, double, void> ret = SetScrollCallbackNative((GLFWwindow*)window, callback);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the scroll callback of the specified window, which is<br/>
-		/// called when a scrolling device is used, such as a mouse wheel or scrolling<br/>
-		/// area of a touchpad.<br/>
-		/// The scroll callback receives all scrolling input, like that from a mouse<br/>
-		/// wheel or a touchpad scrolling area.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<GLFWwindow*, double, double, void> SetScrollCallback(ref GLFWwindow window, delegate*<GLFWwindow*, double, double, void> callback)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				delegate*<GLFWwindow*, double, double, void> ret = SetScrollCallbackNative((GLFWwindow*)pwindow, callback);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the scroll callback of the specified window, which is<br/>
+        /// called when a scrolling device is used, such as a mouse wheel or scrolling<br/>
+        /// area of a touchpad.<br/>
+        /// The scroll callback receives all scrolling input, like that from a mouse<br/>
+        /// wheel or a touchpad scrolling area.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [function pointer type](<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<GLFWwindow*, double, double, void> SetScrollCallback(ref GLFWwindow window, delegate*<GLFWwindow*, double, double, void> callback)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                delegate*<GLFWwindow*, double, double, void> ret = SetScrollCallbackNative((GLFWwindow*)pwindow, callback);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the scroll callback of the specified window, which is<br/>
-		/// called when a scrolling device is used, such as a mouse wheel or scrolling<br/>
-		/// area of a touchpad.<br/>
-		/// The scroll callback receives all scrolling input, like that from a mouse<br/>
-		/// wheel or a touchpad scrolling area.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<GLFWwindow*, double, double, void> SetScrollCallback(GLFWwindowPtr window, GLFWscrollfun callback)
-		{
-			delegate*<GLFWwindow*, double, double, void> ret = SetScrollCallbackNative((GLFWwindow*)window, (delegate*<GLFWwindow*, double, double, void>)Utils.GetFunctionPointerForDelegate(callback));
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the scroll callback of the specified window, which is<br/>
+        /// called when a scrolling device is used, such as a mouse wheel or scrolling<br/>
+        /// area of a touchpad.<br/>
+        /// The scroll callback receives all scrolling input, like that from a mouse<br/>
+        /// wheel or a touchpad scrolling area.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [function pointer type](<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<GLFWwindow*, double, double, void> SetScrollCallback(GLFWwindowPtr window, GLFWscrollfun callback)
+        {
+            delegate*<GLFWwindow*, double, double, void> ret = SetScrollCallbackNative((GLFWwindow*)window, (delegate*<GLFWwindow*, double, double, void> )Utils.GetFunctionPointerForDelegate(callback));
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the scroll callback of the specified window, which is<br/>
-		/// called when a scrolling device is used, such as a mouse wheel or scrolling<br/>
-		/// area of a touchpad.<br/>
-		/// The scroll callback receives all scrolling input, like that from a mouse<br/>
-		/// wheel or a touchpad scrolling area.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<GLFWwindow*, double, double, void> SetScrollCallback(ref GLFWwindow window, GLFWscrollfun callback)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				delegate*<GLFWwindow*, double, double, void> ret = SetScrollCallbackNative((GLFWwindow*)pwindow, (delegate*<GLFWwindow*, double, double, void>)Utils.GetFunctionPointerForDelegate(callback));
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the scroll callback of the specified window, which is<br/>
+        /// called when a scrolling device is used, such as a mouse wheel or scrolling<br/>
+        /// area of a touchpad.<br/>
+        /// The scroll callback receives all scrolling input, like that from a mouse<br/>
+        /// wheel or a touchpad scrolling area.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [function pointer type](<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<GLFWwindow*, double, double, void> SetScrollCallback(ref GLFWwindow window, GLFWscrollfun callback)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                delegate*<GLFWwindow*, double, double, void> ret = SetScrollCallbackNative((GLFWwindow*)pwindow, (delegate*<GLFWwindow*, double, double, void> )Utils.GetFunctionPointerForDelegate(callback));
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the path drop callback of the specified window, which is<br/>
-		/// called when one or more dragged paths are dropped on the window.<br/>
-		/// Because the path array and its strings may have been generated specifically<br/>
-		/// for that event, they are not guaranteed to be valid after the callback has<br/>
-		/// returned.  If you wish to use them after the callback returns, you need to<br/>
-		/// make a deep copy.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static delegate*<GLFWwindow*, int, byte**, void> SetDropCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, int, byte**, void> callback)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets the path drop callback of the specified window, which is<br/>
+        /// called when one or more dragged paths are dropped on the window.<br/>
+        /// Because the path array and its strings may have been generated specifically<br/>
+        /// for that event, they are not guaranteed to be valid after the callback has<br/>
+        /// returned.  If you wish to use them after the callback returns, you need to<br/>
+        /// make a deep copy.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [function pointer type](<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static delegate*<GLFWwindow*, int, byte**, void> SetDropCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, int, byte**, void> callback)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, byte**, void>, delegate*<GLFWwindow*, int, byte**, void>>)funcTable[93])(window, callback);
-			#else
-			return (delegate*<GLFWwindow*, int, byte**, void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[93])((nint)window, (nint)callback);
-			#endif
-		}
+#else
+            return (delegate*<GLFWwindow*, int, byte**, void> )((delegate* unmanaged[Cdecl]<nint, nint, nint> )funcTable[93])((nint)window, (nint)callback);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the path drop callback of the specified window, which is<br/>
-		/// called when one or more dragged paths are dropped on the window.<br/>
-		/// Because the path array and its strings may have been generated specifically<br/>
-		/// for that event, they are not guaranteed to be valid after the callback has<br/>
-		/// returned.  If you wish to use them after the callback returns, you need to<br/>
-		/// make a deep copy.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<GLFWwindow*, int, byte**, void> SetDropCallback(GLFWwindowPtr window, delegate*<GLFWwindow*, int, byte**, void> callback)
-		{
-			delegate*<GLFWwindow*, int, byte**, void> ret = SetDropCallbackNative((GLFWwindow*)window, callback);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the path drop callback of the specified window, which is<br/>
+        /// called when one or more dragged paths are dropped on the window.<br/>
+        /// Because the path array and its strings may have been generated specifically<br/>
+        /// for that event, they are not guaranteed to be valid after the callback has<br/>
+        /// returned.  If you wish to use them after the callback returns, you need to<br/>
+        /// make a deep copy.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [function pointer type](<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<GLFWwindow*, int, byte**, void> SetDropCallback(GLFWwindowPtr window, delegate*<GLFWwindow*, int, byte**, void> callback)
+        {
+            delegate*<GLFWwindow*, int, byte**, void> ret = SetDropCallbackNative((GLFWwindow*)window, callback);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the path drop callback of the specified window, which is<br/>
-		/// called when one or more dragged paths are dropped on the window.<br/>
-		/// Because the path array and its strings may have been generated specifically<br/>
-		/// for that event, they are not guaranteed to be valid after the callback has<br/>
-		/// returned.  If you wish to use them after the callback returns, you need to<br/>
-		/// make a deep copy.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<GLFWwindow*, int, byte**, void> SetDropCallback(ref GLFWwindow window, delegate*<GLFWwindow*, int, byte**, void> callback)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				delegate*<GLFWwindow*, int, byte**, void> ret = SetDropCallbackNative((GLFWwindow*)pwindow, callback);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the path drop callback of the specified window, which is<br/>
+        /// called when one or more dragged paths are dropped on the window.<br/>
+        /// Because the path array and its strings may have been generated specifically<br/>
+        /// for that event, they are not guaranteed to be valid after the callback has<br/>
+        /// returned.  If you wish to use them after the callback returns, you need to<br/>
+        /// make a deep copy.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [function pointer type](<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<GLFWwindow*, int, byte**, void> SetDropCallback(ref GLFWwindow window, delegate*<GLFWwindow*, int, byte**, void> callback)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                delegate*<GLFWwindow*, int, byte**, void> ret = SetDropCallbackNative((GLFWwindow*)pwindow, callback);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the path drop callback of the specified window, which is<br/>
-		/// called when one or more dragged paths are dropped on the window.<br/>
-		/// Because the path array and its strings may have been generated specifically<br/>
-		/// for that event, they are not guaranteed to be valid after the callback has<br/>
-		/// returned.  If you wish to use them after the callback returns, you need to<br/>
-		/// make a deep copy.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<GLFWwindow*, int, byte**, void> SetDropCallback(GLFWwindowPtr window, GLFWdropfun callback)
-		{
-			delegate*<GLFWwindow*, int, byte**, void> ret = SetDropCallbackNative((GLFWwindow*)window, (delegate*<GLFWwindow*, int, byte**, void>)Utils.GetFunctionPointerForDelegate(callback));
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the path drop callback of the specified window, which is<br/>
+        /// called when one or more dragged paths are dropped on the window.<br/>
+        /// Because the path array and its strings may have been generated specifically<br/>
+        /// for that event, they are not guaranteed to be valid after the callback has<br/>
+        /// returned.  If you wish to use them after the callback returns, you need to<br/>
+        /// make a deep copy.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [function pointer type](<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<GLFWwindow*, int, byte**, void> SetDropCallback(GLFWwindowPtr window, GLFWdropfun callback)
+        {
+            delegate*<GLFWwindow*, int, byte**, void> ret = SetDropCallbackNative((GLFWwindow*)window, (delegate*<GLFWwindow*, int, byte**, void> )Utils.GetFunctionPointerForDelegate(callback));
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the path drop callback of the specified window, which is<br/>
-		/// called when one or more dragged paths are dropped on the window.<br/>
-		/// Because the path array and its strings may have been generated specifically<br/>
-		/// for that event, they are not guaranteed to be valid after the callback has<br/>
-		/// returned.  If you wish to use them after the callback returns, you need to<br/>
-		/// make a deep copy.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<GLFWwindow*, int, byte**, void> SetDropCallback(ref GLFWwindow window, GLFWdropfun callback)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				delegate*<GLFWwindow*, int, byte**, void> ret = SetDropCallbackNative((GLFWwindow*)pwindow, (delegate*<GLFWwindow*, int, byte**, void>)Utils.GetFunctionPointerForDelegate(callback));
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the path drop callback of the specified window, which is<br/>
+        /// called when one or more dragged paths are dropped on the window.<br/>
+        /// Because the path array and its strings may have been generated specifically<br/>
+        /// for that event, they are not guaranteed to be valid after the callback has<br/>
+        /// returned.  If you wish to use them after the callback returns, you need to<br/>
+        /// make a deep copy.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [function pointer type](<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<GLFWwindow*, int, byte**, void> SetDropCallback(ref GLFWwindow window, GLFWdropfun callback)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                delegate*<GLFWwindow*, int, byte**, void> ret = SetDropCallbackNative((GLFWwindow*)pwindow, (delegate*<GLFWwindow*, int, byte**, void> )Utils.GetFunctionPointerForDelegate(callback));
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns whether the specified joystick is present.<br/>
-		/// There is no need to call this function before other functions that accept<br/>
-		/// a joystick ID, as they all check for presence before performing any other<br/>
-		/// work.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int JoystickPresentNative(int jid)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns whether the specified joystick is present.<br/>
+        /// There is no need to call this function before other functions that accept<br/>
+        /// a joystick ID, as they all check for presence before performing any other<br/>
+        /// work.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static int JoystickPresentNative(int jid)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int, int>)funcTable[94])(jid);
-			#else
-			return (int)((delegate* unmanaged[Cdecl]<int, int>)funcTable[94])(jid);
-			#endif
-		}
+#else
+            return (int)((delegate* unmanaged[Cdecl]<int, int> )funcTable[94])(jid);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns whether the specified joystick is present.<br/>
-		/// There is no need to call this function before other functions that accept<br/>
-		/// a joystick ID, as they all check for presence before performing any other<br/>
-		/// work.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int JoystickPresent(int jid)
-		{
-			int ret = JoystickPresentNative(jid);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns whether the specified joystick is present.<br/>
+        /// There is no need to call this function before other functions that accept<br/>
+        /// a joystick ID, as they all check for presence before performing any other<br/>
+        /// work.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int JoystickPresent(int jid)
+        {
+            int ret = JoystickPresentNative(jid);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the values of all axes of the specified joystick.<br/>
-		/// Each element in the array is a value between -1.0 and 1.0.<br/>
-		/// If the specified joystick is not present this function will return `NULL`<br/>
-		/// but will not generate an error.  This can be used instead of first calling<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static float* GetJoystickAxesNative(int jid, int* count)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the values of all axes of the specified joystick.<br/>
+        /// Each element in the array is a value between -1.0 and 1.0.<br/>
+        /// If the specified joystick is not present this function will return `NULL`<br/>
+        /// but will not generate an error.  This can be used instead of first calling<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static float* GetJoystickAxesNative(int jid, int* count)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int, int*, float*>)funcTable[95])(jid, count);
-			#else
-			return (float*)((delegate* unmanaged[Cdecl]<int, nint, nint>)funcTable[95])(jid, (nint)count);
-			#endif
-		}
+#else
+            return (float*)((delegate* unmanaged[Cdecl]<int, nint, nint> )funcTable[95])(jid, (nint)count);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the values of all axes of the specified joystick.<br/>
-		/// Each element in the array is a value between -1.0 and 1.0.<br/>
-		/// If the specified joystick is not present this function will return `NULL`<br/>
-		/// but will not generate an error.  This can be used instead of first calling<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static float* GetJoystickAxes(int jid, int* count)
-		{
-			float* ret = GetJoystickAxesNative(jid, count);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the values of all axes of the specified joystick.<br/>
+        /// Each element in the array is a value between -1.0 and 1.0.<br/>
+        /// If the specified joystick is not present this function will return `NULL`<br/>
+        /// but will not generate an error.  This can be used instead of first calling<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static float* GetJoystickAxes(int jid, int* count)
+        {
+            float* ret = GetJoystickAxesNative(jid, count);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the values of all axes of the specified joystick.<br/>
-		/// Each element in the array is a value between -1.0 and 1.0.<br/>
-		/// If the specified joystick is not present this function will return `NULL`<br/>
-		/// but will not generate an error.  This can be used instead of first calling<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static float* GetJoystickAxes(int jid, ref int count)
-		{
-			fixed (int* pcount = &count)
-			{
-				float* ret = GetJoystickAxesNative(jid, (int*)pcount);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the values of all axes of the specified joystick.<br/>
+        /// Each element in the array is a value between -1.0 and 1.0.<br/>
+        /// If the specified joystick is not present this function will return `NULL`<br/>
+        /// but will not generate an error.  This can be used instead of first calling<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static float* GetJoystickAxes(int jid, ref int count)
+        {
+            fixed (int* pcount = &count)
+            {
+                float* ret = GetJoystickAxesNative(jid, (int*)pcount);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the state of all buttons of the specified joystick.<br/>
-		/// Each element in the array is either `GLFW_PRESS` or `GLFW_RELEASE`.<br/>
-		/// For backward compatibility with earlier versions that did not have <br/>
-		/// the button array also includes all hats, each<br/>
-		/// represented as four buttons.  The hats are in the same order as returned by<br/>
-		/// __glfwGetJoystickHats__ and are in the order _up_, _right_, _down_ and<br/>
-		/// _left_.  To disable these extra buttons, set the <br/>
-		/// init hint before initialization.<br/>
-		/// If the specified joystick is not present this function will return `NULL`<br/>
-		/// but will not generate an error.  This can be used instead of first calling<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte* GetJoystickButtonsNative(int jid, int* count)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the state of all buttons of the specified joystick.<br/>
+        /// Each element in the array is either `GLFW_PRESS` or `GLFW_RELEASE`.<br/>
+        /// For backward compatibility with earlier versions that did not have <br/>
+        /// the button array also includes all hats, each<br/>
+        /// represented as four buttons.  The hats are in the same order as returned by<br/>
+        /// __glfwGetJoystickHats__ and are in the order _up_, _right_, _down_ and<br/>
+        /// _left_.  To disable these extra buttons, set the <br/>
+        /// init hint before initialization.<br/>
+        /// If the specified joystick is not present this function will return `NULL`<br/>
+        /// but will not generate an error.  This can be used instead of first calling<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static byte* GetJoystickButtonsNative(int jid, int* count)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int, int*, byte*>)funcTable[96])(jid, count);
-			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<int, nint, nint>)funcTable[96])(jid, (nint)count);
-			#endif
-		}
+#else
+            return (byte*)((delegate* unmanaged[Cdecl]<int, nint, nint> )funcTable[96])(jid, (nint)count);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the state of all buttons of the specified joystick.<br/>
-		/// Each element in the array is either `GLFW_PRESS` or `GLFW_RELEASE`.<br/>
-		/// For backward compatibility with earlier versions that did not have <br/>
-		/// the button array also includes all hats, each<br/>
-		/// represented as four buttons.  The hats are in the same order as returned by<br/>
-		/// __glfwGetJoystickHats__ and are in the order _up_, _right_, _down_ and<br/>
-		/// _left_.  To disable these extra buttons, set the <br/>
-		/// init hint before initialization.<br/>
-		/// If the specified joystick is not present this function will return `NULL`<br/>
-		/// but will not generate an error.  This can be used instead of first calling<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static byte* GetJoystickButtons(int jid, int* count)
-		{
-			byte* ret = GetJoystickButtonsNative(jid, count);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the state of all buttons of the specified joystick.<br/>
+        /// Each element in the array is either `GLFW_PRESS` or `GLFW_RELEASE`.<br/>
+        /// For backward compatibility with earlier versions that did not have <br/>
+        /// the button array also includes all hats, each<br/>
+        /// represented as four buttons.  The hats are in the same order as returned by<br/>
+        /// __glfwGetJoystickHats__ and are in the order _up_, _right_, _down_ and<br/>
+        /// _left_.  To disable these extra buttons, set the <br/>
+        /// init hint before initialization.<br/>
+        /// If the specified joystick is not present this function will return `NULL`<br/>
+        /// but will not generate an error.  This can be used instead of first calling<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static byte* GetJoystickButtons(int jid, int* count)
+        {
+            byte* ret = GetJoystickButtonsNative(jid, count);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the state of all buttons of the specified joystick.<br/>
-		/// Each element in the array is either `GLFW_PRESS` or `GLFW_RELEASE`.<br/>
-		/// For backward compatibility with earlier versions that did not have <br/>
-		/// the button array also includes all hats, each<br/>
-		/// represented as four buttons.  The hats are in the same order as returned by<br/>
-		/// __glfwGetJoystickHats__ and are in the order _up_, _right_, _down_ and<br/>
-		/// _left_.  To disable these extra buttons, set the <br/>
-		/// init hint before initialization.<br/>
-		/// If the specified joystick is not present this function will return `NULL`<br/>
-		/// but will not generate an error.  This can be used instead of first calling<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static string GetJoystickButtonsS(int jid, int* count)
-		{
-			string ret = Utils.DecodeStringUTF8(GetJoystickButtonsNative(jid, count));
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the state of all buttons of the specified joystick.<br/>
+        /// Each element in the array is either `GLFW_PRESS` or `GLFW_RELEASE`.<br/>
+        /// For backward compatibility with earlier versions that did not have <br/>
+        /// the button array also includes all hats, each<br/>
+        /// represented as four buttons.  The hats are in the same order as returned by<br/>
+        /// __glfwGetJoystickHats__ and are in the order _up_, _right_, _down_ and<br/>
+        /// _left_.  To disable these extra buttons, set the <br/>
+        /// init hint before initialization.<br/>
+        /// If the specified joystick is not present this function will return `NULL`<br/>
+        /// but will not generate an error.  This can be used instead of first calling<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static string GetJoystickButtonsS(int jid, int* count)
+        {
+            string ret = Utils.DecodeStringUTF8(GetJoystickButtonsNative(jid, count));
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the state of all buttons of the specified joystick.<br/>
-		/// Each element in the array is either `GLFW_PRESS` or `GLFW_RELEASE`.<br/>
-		/// For backward compatibility with earlier versions that did not have <br/>
-		/// the button array also includes all hats, each<br/>
-		/// represented as four buttons.  The hats are in the same order as returned by<br/>
-		/// __glfwGetJoystickHats__ and are in the order _up_, _right_, _down_ and<br/>
-		/// _left_.  To disable these extra buttons, set the <br/>
-		/// init hint before initialization.<br/>
-		/// If the specified joystick is not present this function will return `NULL`<br/>
-		/// but will not generate an error.  This can be used instead of first calling<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static byte* GetJoystickButtons(int jid, ref int count)
-		{
-			fixed (int* pcount = &count)
-			{
-				byte* ret = GetJoystickButtonsNative(jid, (int*)pcount);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the state of all buttons of the specified joystick.<br/>
+        /// Each element in the array is either `GLFW_PRESS` or `GLFW_RELEASE`.<br/>
+        /// For backward compatibility with earlier versions that did not have <br/>
+        /// the button array also includes all hats, each<br/>
+        /// represented as four buttons.  The hats are in the same order as returned by<br/>
+        /// __glfwGetJoystickHats__ and are in the order _up_, _right_, _down_ and<br/>
+        /// _left_.  To disable these extra buttons, set the <br/>
+        /// init hint before initialization.<br/>
+        /// If the specified joystick is not present this function will return `NULL`<br/>
+        /// but will not generate an error.  This can be used instead of first calling<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static byte* GetJoystickButtons(int jid, ref int count)
+        {
+            fixed (int* pcount = &count)
+            {
+                byte* ret = GetJoystickButtonsNative(jid, (int*)pcount);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the state of all buttons of the specified joystick.<br/>
-		/// Each element in the array is either `GLFW_PRESS` or `GLFW_RELEASE`.<br/>
-		/// For backward compatibility with earlier versions that did not have <br/>
-		/// the button array also includes all hats, each<br/>
-		/// represented as four buttons.  The hats are in the same order as returned by<br/>
-		/// __glfwGetJoystickHats__ and are in the order _up_, _right_, _down_ and<br/>
-		/// _left_.  To disable these extra buttons, set the <br/>
-		/// init hint before initialization.<br/>
-		/// If the specified joystick is not present this function will return `NULL`<br/>
-		/// but will not generate an error.  This can be used instead of first calling<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static string GetJoystickButtonsS(int jid, ref int count)
-		{
-			fixed (int* pcount = &count)
-			{
-				string ret = Utils.DecodeStringUTF8(GetJoystickButtonsNative(jid, (int*)pcount));
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the state of all buttons of the specified joystick.<br/>
+        /// Each element in the array is either `GLFW_PRESS` or `GLFW_RELEASE`.<br/>
+        /// For backward compatibility with earlier versions that did not have <br/>
+        /// the button array also includes all hats, each<br/>
+        /// represented as four buttons.  The hats are in the same order as returned by<br/>
+        /// __glfwGetJoystickHats__ and are in the order _up_, _right_, _down_ and<br/>
+        /// _left_.  To disable these extra buttons, set the <br/>
+        /// init hint before initialization.<br/>
+        /// If the specified joystick is not present this function will return `NULL`<br/>
+        /// but will not generate an error.  This can be used instead of first calling<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static string GetJoystickButtonsS(int jid, ref int count)
+        {
+            fixed (int* pcount = &count)
+            {
+                string ret = Utils.DecodeStringUTF8(GetJoystickButtonsNative(jid, (int*)pcount));
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the state of all hats of the specified joystick.<br/>
-		/// Each element in the array is one of the following values:<br/>
-		/// Name                  | Value<br/>
-		/// ----                  | -----<br/>
-		/// `GLFW_HAT_CENTERED`   | 0<br/>
-		/// `GLFW_HAT_UP`         | 1<br/>
-		/// `GLFW_HAT_RIGHT`      | 2<br/>
-		/// `GLFW_HAT_DOWN`       | 4<br/>
-		/// `GLFW_HAT_LEFT`       | 8<br/>
-		/// `GLFW_HAT_RIGHT_UP`   | `GLFW_HAT_RIGHT` <br/>
-		/// \<br/>
-		/// | `GLFW_HAT_UP`<br/>
-		/// `GLFW_HAT_RIGHT_DOWN` | `GLFW_HAT_RIGHT` <br/>
-		/// \<br/>
-		/// | `GLFW_HAT_DOWN`<br/>
-		/// `GLFW_HAT_LEFT_UP`    | `GLFW_HAT_LEFT` <br/>
-		/// \<br/>
-		/// | `GLFW_HAT_UP`<br/>
-		/// `GLFW_HAT_LEFT_DOWN`  | `GLFW_HAT_LEFT` <br/>
-		/// \<br/>
-		/// | `GLFW_HAT_DOWN`<br/>
-		/// The diagonal directions are bitwise combinations of the primary (up, right,<br/>
-		/// down and left) directions and you can test for these individually by ANDing<br/>
-		/// it with the corresponding direction.<br/>
-		/// <br/>
-		/// If the specified joystick is not present this function will return `NULL`<br/>
-		/// but will not generate an error.  This can be used instead of first calling<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected, this function is called again for that joystick or the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte* GetJoystickHatsNative(int jid, int* count)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the state of all hats of the specified joystick.<br/>
+        /// Each element in the array is one of the following values:<br/>
+        /// Name                  | Value<br/>
+        /// ----                  | -----<br/>
+        /// `GLFW_HAT_CENTERED`   | 0<br/>
+        /// `GLFW_HAT_UP`         | 1<br/>
+        /// `GLFW_HAT_RIGHT`      | 2<br/>
+        /// `GLFW_HAT_DOWN`       | 4<br/>
+        /// `GLFW_HAT_LEFT`       | 8<br/>
+        /// `GLFW_HAT_RIGHT_UP`   | `GLFW_HAT_RIGHT` <br/>
+        /// \<br/>
+        /// | `GLFW_HAT_UP`<br/>
+        /// `GLFW_HAT_RIGHT_DOWN` | `GLFW_HAT_RIGHT` <br/>
+        /// \<br/>
+        /// | `GLFW_HAT_DOWN`<br/>
+        /// `GLFW_HAT_LEFT_UP`    | `GLFW_HAT_LEFT` <br/>
+        /// \<br/>
+        /// | `GLFW_HAT_UP`<br/>
+        /// `GLFW_HAT_LEFT_DOWN`  | `GLFW_HAT_LEFT` <br/>
+        /// \<br/>
+        /// | `GLFW_HAT_DOWN`<br/>
+        /// The diagonal directions are bitwise combinations of the primary (up, right,<br/>
+        /// down and left) directions and you can test for these individually by ANDing<br/>
+        /// it with the corresponding direction.<br/>
+        /// <br/>
+        /// If the specified joystick is not present this function will return `NULL`<br/>
+        /// but will not generate an error.  This can be used instead of first calling<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected, this function is called again for that joystick or the library<br/>
+        /// is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static byte* GetJoystickHatsNative(int jid, int* count)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int, int*, byte*>)funcTable[97])(jid, count);
-			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<int, nint, nint>)funcTable[97])(jid, (nint)count);
-			#endif
-		}
+#else
+            return (byte*)((delegate* unmanaged[Cdecl]<int, nint, nint> )funcTable[97])(jid, (nint)count);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the state of all hats of the specified joystick.<br/>
-		/// Each element in the array is one of the following values:<br/>
-		/// Name                  | Value<br/>
-		/// ----                  | -----<br/>
-		/// `GLFW_HAT_CENTERED`   | 0<br/>
-		/// `GLFW_HAT_UP`         | 1<br/>
-		/// `GLFW_HAT_RIGHT`      | 2<br/>
-		/// `GLFW_HAT_DOWN`       | 4<br/>
-		/// `GLFW_HAT_LEFT`       | 8<br/>
-		/// `GLFW_HAT_RIGHT_UP`   | `GLFW_HAT_RIGHT` <br/>
-		/// \<br/>
-		/// | `GLFW_HAT_UP`<br/>
-		/// `GLFW_HAT_RIGHT_DOWN` | `GLFW_HAT_RIGHT` <br/>
-		/// \<br/>
-		/// | `GLFW_HAT_DOWN`<br/>
-		/// `GLFW_HAT_LEFT_UP`    | `GLFW_HAT_LEFT` <br/>
-		/// \<br/>
-		/// | `GLFW_HAT_UP`<br/>
-		/// `GLFW_HAT_LEFT_DOWN`  | `GLFW_HAT_LEFT` <br/>
-		/// \<br/>
-		/// | `GLFW_HAT_DOWN`<br/>
-		/// The diagonal directions are bitwise combinations of the primary (up, right,<br/>
-		/// down and left) directions and you can test for these individually by ANDing<br/>
-		/// it with the corresponding direction.<br/>
-		/// <br/>
-		/// If the specified joystick is not present this function will return `NULL`<br/>
-		/// but will not generate an error.  This can be used instead of first calling<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected, this function is called again for that joystick or the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static byte* GetJoystickHats(int jid, int* count)
-		{
-			byte* ret = GetJoystickHatsNative(jid, count);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the state of all hats of the specified joystick.<br/>
+        /// Each element in the array is one of the following values:<br/>
+        /// Name                  | Value<br/>
+        /// ----                  | -----<br/>
+        /// `GLFW_HAT_CENTERED`   | 0<br/>
+        /// `GLFW_HAT_UP`         | 1<br/>
+        /// `GLFW_HAT_RIGHT`      | 2<br/>
+        /// `GLFW_HAT_DOWN`       | 4<br/>
+        /// `GLFW_HAT_LEFT`       | 8<br/>
+        /// `GLFW_HAT_RIGHT_UP`   | `GLFW_HAT_RIGHT` <br/>
+        /// \<br/>
+        /// | `GLFW_HAT_UP`<br/>
+        /// `GLFW_HAT_RIGHT_DOWN` | `GLFW_HAT_RIGHT` <br/>
+        /// \<br/>
+        /// | `GLFW_HAT_DOWN`<br/>
+        /// `GLFW_HAT_LEFT_UP`    | `GLFW_HAT_LEFT` <br/>
+        /// \<br/>
+        /// | `GLFW_HAT_UP`<br/>
+        /// `GLFW_HAT_LEFT_DOWN`  | `GLFW_HAT_LEFT` <br/>
+        /// \<br/>
+        /// | `GLFW_HAT_DOWN`<br/>
+        /// The diagonal directions are bitwise combinations of the primary (up, right,<br/>
+        /// down and left) directions and you can test for these individually by ANDing<br/>
+        /// it with the corresponding direction.<br/>
+        /// <br/>
+        /// If the specified joystick is not present this function will return `NULL`<br/>
+        /// but will not generate an error.  This can be used instead of first calling<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected, this function is called again for that joystick or the library<br/>
+        /// is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static byte* GetJoystickHats(int jid, int* count)
+        {
+            byte* ret = GetJoystickHatsNative(jid, count);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the state of all hats of the specified joystick.<br/>
-		/// Each element in the array is one of the following values:<br/>
-		/// Name                  | Value<br/>
-		/// ----                  | -----<br/>
-		/// `GLFW_HAT_CENTERED`   | 0<br/>
-		/// `GLFW_HAT_UP`         | 1<br/>
-		/// `GLFW_HAT_RIGHT`      | 2<br/>
-		/// `GLFW_HAT_DOWN`       | 4<br/>
-		/// `GLFW_HAT_LEFT`       | 8<br/>
-		/// `GLFW_HAT_RIGHT_UP`   | `GLFW_HAT_RIGHT` <br/>
-		/// \<br/>
-		/// | `GLFW_HAT_UP`<br/>
-		/// `GLFW_HAT_RIGHT_DOWN` | `GLFW_HAT_RIGHT` <br/>
-		/// \<br/>
-		/// | `GLFW_HAT_DOWN`<br/>
-		/// `GLFW_HAT_LEFT_UP`    | `GLFW_HAT_LEFT` <br/>
-		/// \<br/>
-		/// | `GLFW_HAT_UP`<br/>
-		/// `GLFW_HAT_LEFT_DOWN`  | `GLFW_HAT_LEFT` <br/>
-		/// \<br/>
-		/// | `GLFW_HAT_DOWN`<br/>
-		/// The diagonal directions are bitwise combinations of the primary (up, right,<br/>
-		/// down and left) directions and you can test for these individually by ANDing<br/>
-		/// it with the corresponding direction.<br/>
-		/// <br/>
-		/// If the specified joystick is not present this function will return `NULL`<br/>
-		/// but will not generate an error.  This can be used instead of first calling<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected, this function is called again for that joystick or the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static string GetJoystickHatsS(int jid, int* count)
-		{
-			string ret = Utils.DecodeStringUTF8(GetJoystickHatsNative(jid, count));
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the state of all hats of the specified joystick.<br/>
+        /// Each element in the array is one of the following values:<br/>
+        /// Name                  | Value<br/>
+        /// ----                  | -----<br/>
+        /// `GLFW_HAT_CENTERED`   | 0<br/>
+        /// `GLFW_HAT_UP`         | 1<br/>
+        /// `GLFW_HAT_RIGHT`      | 2<br/>
+        /// `GLFW_HAT_DOWN`       | 4<br/>
+        /// `GLFW_HAT_LEFT`       | 8<br/>
+        /// `GLFW_HAT_RIGHT_UP`   | `GLFW_HAT_RIGHT` <br/>
+        /// \<br/>
+        /// | `GLFW_HAT_UP`<br/>
+        /// `GLFW_HAT_RIGHT_DOWN` | `GLFW_HAT_RIGHT` <br/>
+        /// \<br/>
+        /// | `GLFW_HAT_DOWN`<br/>
+        /// `GLFW_HAT_LEFT_UP`    | `GLFW_HAT_LEFT` <br/>
+        /// \<br/>
+        /// | `GLFW_HAT_UP`<br/>
+        /// `GLFW_HAT_LEFT_DOWN`  | `GLFW_HAT_LEFT` <br/>
+        /// \<br/>
+        /// | `GLFW_HAT_DOWN`<br/>
+        /// The diagonal directions are bitwise combinations of the primary (up, right,<br/>
+        /// down and left) directions and you can test for these individually by ANDing<br/>
+        /// it with the corresponding direction.<br/>
+        /// <br/>
+        /// If the specified joystick is not present this function will return `NULL`<br/>
+        /// but will not generate an error.  This can be used instead of first calling<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected, this function is called again for that joystick or the library<br/>
+        /// is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static string GetJoystickHatsS(int jid, int* count)
+        {
+            string ret = Utils.DecodeStringUTF8(GetJoystickHatsNative(jid, count));
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the state of all hats of the specified joystick.<br/>
-		/// Each element in the array is one of the following values:<br/>
-		/// Name                  | Value<br/>
-		/// ----                  | -----<br/>
-		/// `GLFW_HAT_CENTERED`   | 0<br/>
-		/// `GLFW_HAT_UP`         | 1<br/>
-		/// `GLFW_HAT_RIGHT`      | 2<br/>
-		/// `GLFW_HAT_DOWN`       | 4<br/>
-		/// `GLFW_HAT_LEFT`       | 8<br/>
-		/// `GLFW_HAT_RIGHT_UP`   | `GLFW_HAT_RIGHT` <br/>
-		/// \<br/>
-		/// | `GLFW_HAT_UP`<br/>
-		/// `GLFW_HAT_RIGHT_DOWN` | `GLFW_HAT_RIGHT` <br/>
-		/// \<br/>
-		/// | `GLFW_HAT_DOWN`<br/>
-		/// `GLFW_HAT_LEFT_UP`    | `GLFW_HAT_LEFT` <br/>
-		/// \<br/>
-		/// | `GLFW_HAT_UP`<br/>
-		/// `GLFW_HAT_LEFT_DOWN`  | `GLFW_HAT_LEFT` <br/>
-		/// \<br/>
-		/// | `GLFW_HAT_DOWN`<br/>
-		/// The diagonal directions are bitwise combinations of the primary (up, right,<br/>
-		/// down and left) directions and you can test for these individually by ANDing<br/>
-		/// it with the corresponding direction.<br/>
-		/// <br/>
-		/// If the specified joystick is not present this function will return `NULL`<br/>
-		/// but will not generate an error.  This can be used instead of first calling<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected, this function is called again for that joystick or the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static byte* GetJoystickHats(int jid, ref int count)
-		{
-			fixed (int* pcount = &count)
-			{
-				byte* ret = GetJoystickHatsNative(jid, (int*)pcount);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the state of all hats of the specified joystick.<br/>
+        /// Each element in the array is one of the following values:<br/>
+        /// Name                  | Value<br/>
+        /// ----                  | -----<br/>
+        /// `GLFW_HAT_CENTERED`   | 0<br/>
+        /// `GLFW_HAT_UP`         | 1<br/>
+        /// `GLFW_HAT_RIGHT`      | 2<br/>
+        /// `GLFW_HAT_DOWN`       | 4<br/>
+        /// `GLFW_HAT_LEFT`       | 8<br/>
+        /// `GLFW_HAT_RIGHT_UP`   | `GLFW_HAT_RIGHT` <br/>
+        /// \<br/>
+        /// | `GLFW_HAT_UP`<br/>
+        /// `GLFW_HAT_RIGHT_DOWN` | `GLFW_HAT_RIGHT` <br/>
+        /// \<br/>
+        /// | `GLFW_HAT_DOWN`<br/>
+        /// `GLFW_HAT_LEFT_UP`    | `GLFW_HAT_LEFT` <br/>
+        /// \<br/>
+        /// | `GLFW_HAT_UP`<br/>
+        /// `GLFW_HAT_LEFT_DOWN`  | `GLFW_HAT_LEFT` <br/>
+        /// \<br/>
+        /// | `GLFW_HAT_DOWN`<br/>
+        /// The diagonal directions are bitwise combinations of the primary (up, right,<br/>
+        /// down and left) directions and you can test for these individually by ANDing<br/>
+        /// it with the corresponding direction.<br/>
+        /// <br/>
+        /// If the specified joystick is not present this function will return `NULL`<br/>
+        /// but will not generate an error.  This can be used instead of first calling<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected, this function is called again for that joystick or the library<br/>
+        /// is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static byte* GetJoystickHats(int jid, ref int count)
+        {
+            fixed (int* pcount = &count)
+            {
+                byte* ret = GetJoystickHatsNative(jid, (int*)pcount);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the state of all hats of the specified joystick.<br/>
-		/// Each element in the array is one of the following values:<br/>
-		/// Name                  | Value<br/>
-		/// ----                  | -----<br/>
-		/// `GLFW_HAT_CENTERED`   | 0<br/>
-		/// `GLFW_HAT_UP`         | 1<br/>
-		/// `GLFW_HAT_RIGHT`      | 2<br/>
-		/// `GLFW_HAT_DOWN`       | 4<br/>
-		/// `GLFW_HAT_LEFT`       | 8<br/>
-		/// `GLFW_HAT_RIGHT_UP`   | `GLFW_HAT_RIGHT` <br/>
-		/// \<br/>
-		/// | `GLFW_HAT_UP`<br/>
-		/// `GLFW_HAT_RIGHT_DOWN` | `GLFW_HAT_RIGHT` <br/>
-		/// \<br/>
-		/// | `GLFW_HAT_DOWN`<br/>
-		/// `GLFW_HAT_LEFT_UP`    | `GLFW_HAT_LEFT` <br/>
-		/// \<br/>
-		/// | `GLFW_HAT_UP`<br/>
-		/// `GLFW_HAT_LEFT_DOWN`  | `GLFW_HAT_LEFT` <br/>
-		/// \<br/>
-		/// | `GLFW_HAT_DOWN`<br/>
-		/// The diagonal directions are bitwise combinations of the primary (up, right,<br/>
-		/// down and left) directions and you can test for these individually by ANDing<br/>
-		/// it with the corresponding direction.<br/>
-		/// <br/>
-		/// If the specified joystick is not present this function will return `NULL`<br/>
-		/// but will not generate an error.  This can be used instead of first calling<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected, this function is called again for that joystick or the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static string GetJoystickHatsS(int jid, ref int count)
-		{
-			fixed (int* pcount = &count)
-			{
-				string ret = Utils.DecodeStringUTF8(GetJoystickHatsNative(jid, (int*)pcount));
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the state of all hats of the specified joystick.<br/>
+        /// Each element in the array is one of the following values:<br/>
+        /// Name                  | Value<br/>
+        /// ----                  | -----<br/>
+        /// `GLFW_HAT_CENTERED`   | 0<br/>
+        /// `GLFW_HAT_UP`         | 1<br/>
+        /// `GLFW_HAT_RIGHT`      | 2<br/>
+        /// `GLFW_HAT_DOWN`       | 4<br/>
+        /// `GLFW_HAT_LEFT`       | 8<br/>
+        /// `GLFW_HAT_RIGHT_UP`   | `GLFW_HAT_RIGHT` <br/>
+        /// \<br/>
+        /// | `GLFW_HAT_UP`<br/>
+        /// `GLFW_HAT_RIGHT_DOWN` | `GLFW_HAT_RIGHT` <br/>
+        /// \<br/>
+        /// | `GLFW_HAT_DOWN`<br/>
+        /// `GLFW_HAT_LEFT_UP`    | `GLFW_HAT_LEFT` <br/>
+        /// \<br/>
+        /// | `GLFW_HAT_UP`<br/>
+        /// `GLFW_HAT_LEFT_DOWN`  | `GLFW_HAT_LEFT` <br/>
+        /// \<br/>
+        /// | `GLFW_HAT_DOWN`<br/>
+        /// The diagonal directions are bitwise combinations of the primary (up, right,<br/>
+        /// down and left) directions and you can test for these individually by ANDing<br/>
+        /// it with the corresponding direction.<br/>
+        /// <br/>
+        /// If the specified joystick is not present this function will return `NULL`<br/>
+        /// but will not generate an error.  This can be used instead of first calling<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected, this function is called again for that joystick or the library<br/>
+        /// is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static string GetJoystickHatsS(int jid, ref int count)
+        {
+            fixed (int* pcount = &count)
+            {
+                string ret = Utils.DecodeStringUTF8(GetJoystickHatsNative(jid, (int*)pcount));
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the name, encoded as UTF-8, of the specified joystick.<br/>
-		/// The returned string is allocated and freed by GLFW.  You should not free it<br/>
-		/// yourself.<br/>
-		/// If the specified joystick is not present this function will return `NULL`<br/>
-		/// but will not generate an error.  This can be used instead of first calling<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte* GetJoystickNameNative(int jid)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the name, encoded as UTF-8, of the specified joystick.<br/>
+        /// The returned string is allocated and freed by GLFW.  You should not free it<br/>
+        /// yourself.<br/>
+        /// If the specified joystick is not present this function will return `NULL`<br/>
+        /// but will not generate an error.  This can be used instead of first calling<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static byte* GetJoystickNameNative(int jid)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int, byte*>)funcTable[98])(jid);
-			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<int, nint>)funcTable[98])(jid);
-			#endif
-		}
+#else
+            return (byte*)((delegate* unmanaged[Cdecl]<int, nint> )funcTable[98])(jid);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the name, encoded as UTF-8, of the specified joystick.<br/>
-		/// The returned string is allocated and freed by GLFW.  You should not free it<br/>
-		/// yourself.<br/>
-		/// If the specified joystick is not present this function will return `NULL`<br/>
-		/// but will not generate an error.  This can be used instead of first calling<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static byte* GetJoystickName(int jid)
-		{
-			byte* ret = GetJoystickNameNative(jid);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the name, encoded as UTF-8, of the specified joystick.<br/>
+        /// The returned string is allocated and freed by GLFW.  You should not free it<br/>
+        /// yourself.<br/>
+        /// If the specified joystick is not present this function will return `NULL`<br/>
+        /// but will not generate an error.  This can be used instead of first calling<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static byte* GetJoystickName(int jid)
+        {
+            byte* ret = GetJoystickNameNative(jid);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the name, encoded as UTF-8, of the specified joystick.<br/>
-		/// The returned string is allocated and freed by GLFW.  You should not free it<br/>
-		/// yourself.<br/>
-		/// If the specified joystick is not present this function will return `NULL`<br/>
-		/// but will not generate an error.  This can be used instead of first calling<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static string GetJoystickNameS(int jid)
-		{
-			string ret = Utils.DecodeStringUTF8(GetJoystickNameNative(jid));
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the name, encoded as UTF-8, of the specified joystick.<br/>
+        /// The returned string is allocated and freed by GLFW.  You should not free it<br/>
+        /// yourself.<br/>
+        /// If the specified joystick is not present this function will return `NULL`<br/>
+        /// but will not generate an error.  This can be used instead of first calling<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static string GetJoystickNameS(int jid)
+        {
+            string ret = Utils.DecodeStringUTF8(GetJoystickNameNative(jid));
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the SDL compatible GUID, as a UTF-8 encoded<br/>
-		/// hexadecimal string, of the specified joystick.  The returned string is<br/>
-		/// allocated and freed by GLFW.  You should not free it yourself.<br/>
-		/// The GUID is what connects a joystick to a gamepad mapping.  A connected<br/>
-		/// joystick will always have a GUID even if there is no gamepad mapping<br/>
-		/// assigned to it.<br/>
-		/// If the specified joystick is not present this function will return `NULL`<br/>
-		/// but will not generate an error.  This can be used instead of first calling<br/>
-		/// <br/>
-		/// The GUID uses the format introduced in SDL 2.0.5.  This GUID tries to<br/>
-		/// uniquely identify the make and model of a joystick but does not identify<br/>
-		/// a specific unit, e.g. all wired Xbox 360 controllers will have the same<br/>
-		/// GUID on that platform.  The GUID for a unit may vary between platforms<br/>
-		/// depending on what hardware information the platform specific APIs provide.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte* GetJoystickGUIDNative(int jid)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the SDL compatible GUID, as a UTF-8 encoded<br/>
+        /// hexadecimal string, of the specified joystick.  The returned string is<br/>
+        /// allocated and freed by GLFW.  You should not free it yourself.<br/>
+        /// The GUID is what connects a joystick to a gamepad mapping.  A connected<br/>
+        /// joystick will always have a GUID even if there is no gamepad mapping<br/>
+        /// assigned to it.<br/>
+        /// If the specified joystick is not present this function will return `NULL`<br/>
+        /// but will not generate an error.  This can be used instead of first calling<br/>
+        /// <br/>
+        /// The GUID uses the format introduced in SDL 2.0.5.  This GUID tries to<br/>
+        /// uniquely identify the make and model of a joystick but does not identify<br/>
+        /// a specific unit, e.g. all wired Xbox 360 controllers will have the same<br/>
+        /// GUID on that platform.  The GUID for a unit may vary between platforms<br/>
+        /// depending on what hardware information the platform specific APIs provide.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static byte* GetJoystickGUIDNative(int jid)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int, byte*>)funcTable[99])(jid);
-			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<int, nint>)funcTable[99])(jid);
-			#endif
-		}
+#else
+            return (byte*)((delegate* unmanaged[Cdecl]<int, nint> )funcTable[99])(jid);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the SDL compatible GUID, as a UTF-8 encoded<br/>
-		/// hexadecimal string, of the specified joystick.  The returned string is<br/>
-		/// allocated and freed by GLFW.  You should not free it yourself.<br/>
-		/// The GUID is what connects a joystick to a gamepad mapping.  A connected<br/>
-		/// joystick will always have a GUID even if there is no gamepad mapping<br/>
-		/// assigned to it.<br/>
-		/// If the specified joystick is not present this function will return `NULL`<br/>
-		/// but will not generate an error.  This can be used instead of first calling<br/>
-		/// <br/>
-		/// The GUID uses the format introduced in SDL 2.0.5.  This GUID tries to<br/>
-		/// uniquely identify the make and model of a joystick but does not identify<br/>
-		/// a specific unit, e.g. all wired Xbox 360 controllers will have the same<br/>
-		/// GUID on that platform.  The GUID for a unit may vary between platforms<br/>
-		/// depending on what hardware information the platform specific APIs provide.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static byte* GetJoystickGUID(int jid)
-		{
-			byte* ret = GetJoystickGUIDNative(jid);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the SDL compatible GUID, as a UTF-8 encoded<br/>
+        /// hexadecimal string, of the specified joystick.  The returned string is<br/>
+        /// allocated and freed by GLFW.  You should not free it yourself.<br/>
+        /// The GUID is what connects a joystick to a gamepad mapping.  A connected<br/>
+        /// joystick will always have a GUID even if there is no gamepad mapping<br/>
+        /// assigned to it.<br/>
+        /// If the specified joystick is not present this function will return `NULL`<br/>
+        /// but will not generate an error.  This can be used instead of first calling<br/>
+        /// <br/>
+        /// The GUID uses the format introduced in SDL 2.0.5.  This GUID tries to<br/>
+        /// uniquely identify the make and model of a joystick but does not identify<br/>
+        /// a specific unit, e.g. all wired Xbox 360 controllers will have the same<br/>
+        /// GUID on that platform.  The GUID for a unit may vary between platforms<br/>
+        /// depending on what hardware information the platform specific APIs provide.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static byte* GetJoystickGUID(int jid)
+        {
+            byte* ret = GetJoystickGUIDNative(jid);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the SDL compatible GUID, as a UTF-8 encoded<br/>
-		/// hexadecimal string, of the specified joystick.  The returned string is<br/>
-		/// allocated and freed by GLFW.  You should not free it yourself.<br/>
-		/// The GUID is what connects a joystick to a gamepad mapping.  A connected<br/>
-		/// joystick will always have a GUID even if there is no gamepad mapping<br/>
-		/// assigned to it.<br/>
-		/// If the specified joystick is not present this function will return `NULL`<br/>
-		/// but will not generate an error.  This can be used instead of first calling<br/>
-		/// <br/>
-		/// The GUID uses the format introduced in SDL 2.0.5.  This GUID tries to<br/>
-		/// uniquely identify the make and model of a joystick but does not identify<br/>
-		/// a specific unit, e.g. all wired Xbox 360 controllers will have the same<br/>
-		/// GUID on that platform.  The GUID for a unit may vary between platforms<br/>
-		/// depending on what hardware information the platform specific APIs provide.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static string GetJoystickGUIDS(int jid)
-		{
-			string ret = Utils.DecodeStringUTF8(GetJoystickGUIDNative(jid));
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the SDL compatible GUID, as a UTF-8 encoded<br/>
+        /// hexadecimal string, of the specified joystick.  The returned string is<br/>
+        /// allocated and freed by GLFW.  You should not free it yourself.<br/>
+        /// The GUID is what connects a joystick to a gamepad mapping.  A connected<br/>
+        /// joystick will always have a GUID even if there is no gamepad mapping<br/>
+        /// assigned to it.<br/>
+        /// If the specified joystick is not present this function will return `NULL`<br/>
+        /// but will not generate an error.  This can be used instead of first calling<br/>
+        /// <br/>
+        /// The GUID uses the format introduced in SDL 2.0.5.  This GUID tries to<br/>
+        /// uniquely identify the make and model of a joystick but does not identify<br/>
+        /// a specific unit, e.g. all wired Xbox 360 controllers will have the same<br/>
+        /// GUID on that platform.  The GUID for a unit may vary between platforms<br/>
+        /// depending on what hardware information the platform specific APIs provide.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static string GetJoystickGUIDS(int jid)
+        {
+            string ret = Utils.DecodeStringUTF8(GetJoystickGUIDNative(jid));
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the user-defined pointer of the specified joystick.  The<br/>
-		/// current value is retained until the joystick is disconnected.  The initial<br/>
-		/// value is `NULL`.<br/>
-		/// This function may be called from the joystick callback, even for a joystick<br/>
-		/// that is being disconnected.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void SetJoystickUserPointerNative(int jid, void* pointer)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets the user-defined pointer of the specified joystick.  The<br/>
+        /// current value is retained until the joystick is disconnected.  The initial<br/>
+        /// value is `NULL`.<br/>
+        /// This function may be called from the joystick callback, even for a joystick<br/>
+        /// that is being disconnected.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void SetJoystickUserPointerNative(int jid, void* pointer)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<int, void*, void>)funcTable[100])(jid, pointer);
-			#else
-			((delegate* unmanaged[Cdecl]<int, nint, void>)funcTable[100])(jid, (nint)pointer);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<int, nint, void> )funcTable[100])(jid, (nint)pointer);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the user-defined pointer of the specified joystick.  The<br/>
-		/// current value is retained until the joystick is disconnected.  The initial<br/>
-		/// value is `NULL`.<br/>
-		/// This function may be called from the joystick callback, even for a joystick<br/>
-		/// that is being disconnected.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetJoystickUserPointer(int jid, void* pointer)
-		{
-			SetJoystickUserPointerNative(jid, pointer);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the user-defined pointer of the specified joystick.  The<br/>
+        /// current value is retained until the joystick is disconnected.  The initial<br/>
+        /// value is `NULL`.<br/>
+        /// This function may be called from the joystick callback, even for a joystick<br/>
+        /// that is being disconnected.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetJoystickUserPointer(int jid, void* pointer)
+        {
+            SetJoystickUserPointerNative(jid, pointer);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the user-defined pointer of the specified joystick.  The<br/>
-		/// current value is retained until the joystick is disconnected.  The initial<br/>
-		/// value is `NULL`.<br/>
-		/// This function may be called from the joystick callback, even for a joystick<br/>
-		/// that is being disconnected.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetJoystickUserPointer(int jid, nint pointer)
-		{
-			SetJoystickUserPointerNative(jid, (void*)pointer);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the user-defined pointer of the specified joystick.  The<br/>
+        /// current value is retained until the joystick is disconnected.  The initial<br/>
+        /// value is `NULL`.<br/>
+        /// This function may be called from the joystick callback, even for a joystick<br/>
+        /// that is being disconnected.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetJoystickUserPointer(int jid, nint pointer)
+        {
+            SetJoystickUserPointerNative(jid, (void*)pointer);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the current value of the user-defined pointer of the<br/>
-		/// specified joystick.  The initial value is `NULL`.<br/>
-		/// This function may be called from the joystick callback, even for a joystick<br/>
-		/// that is being disconnected.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void* GetJoystickUserPointerNative(int jid)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the current value of the user-defined pointer of the<br/>
+        /// specified joystick.  The initial value is `NULL`.<br/>
+        /// This function may be called from the joystick callback, even for a joystick<br/>
+        /// that is being disconnected.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void* GetJoystickUserPointerNative(int jid)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int, void*>)funcTable[101])(jid);
-			#else
-			return (void*)((delegate* unmanaged[Cdecl]<int, nint>)funcTable[101])(jid);
-			#endif
-		}
+#else
+            return (void*)((delegate* unmanaged[Cdecl]<int, nint> )funcTable[101])(jid);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the current value of the user-defined pointer of the<br/>
-		/// specified joystick.  The initial value is `NULL`.<br/>
-		/// This function may be called from the joystick callback, even for a joystick<br/>
-		/// that is being disconnected.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void* GetJoystickUserPointer(int jid)
-		{
-			void* ret = GetJoystickUserPointerNative(jid);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the current value of the user-defined pointer of the<br/>
+        /// specified joystick.  The initial value is `NULL`.<br/>
+        /// This function may be called from the joystick callback, even for a joystick<br/>
+        /// that is being disconnected.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetJoystickUserPointer(int jid)
+        {
+            void* ret = GetJoystickUserPointerNative(jid);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns whether the specified joystick is both present and has<br/>
-		/// a gamepad mapping.<br/>
-		/// If the specified joystick is present but does not have a gamepad mapping<br/>
-		/// this function will return `GLFW_FALSE` but will not generate an error.  Call<br/>
-		/// <br/>
-		/// to check if a joystick is present regardless of<br/>
-		/// whether it has a mapping.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int JoystickIsGamepadNative(int jid)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns whether the specified joystick is both present and has<br/>
+        /// a gamepad mapping.<br/>
+        /// If the specified joystick is present but does not have a gamepad mapping<br/>
+        /// this function will return `GLFW_FALSE` but will not generate an error.  Call<br/>
+        /// <br/>
+        /// to check if a joystick is present regardless of<br/>
+        /// whether it has a mapping.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static int JoystickIsGamepadNative(int jid)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int, int>)funcTable[102])(jid);
-			#else
-			return (int)((delegate* unmanaged[Cdecl]<int, int>)funcTable[102])(jid);
-			#endif
-		}
+#else
+            return (int)((delegate* unmanaged[Cdecl]<int, int> )funcTable[102])(jid);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns whether the specified joystick is both present and has<br/>
-		/// a gamepad mapping.<br/>
-		/// If the specified joystick is present but does not have a gamepad mapping<br/>
-		/// this function will return `GLFW_FALSE` but will not generate an error.  Call<br/>
-		/// <br/>
-		/// to check if a joystick is present regardless of<br/>
-		/// whether it has a mapping.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int JoystickIsGamepad(int jid)
-		{
-			int ret = JoystickIsGamepadNative(jid);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns whether the specified joystick is both present and has<br/>
+        /// a gamepad mapping.<br/>
+        /// If the specified joystick is present but does not have a gamepad mapping<br/>
+        /// this function will return `GLFW_FALSE` but will not generate an error.  Call<br/>
+        /// <br/>
+        /// to check if a joystick is present regardless of<br/>
+        /// whether it has a mapping.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int JoystickIsGamepad(int jid)
+        {
+            int ret = JoystickIsGamepadNative(jid);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the joystick configuration callback, or removes the<br/>
-		/// currently set callback.  This is called when a joystick is connected to or<br/>
-		/// disconnected from the system.<br/>
-		/// For joystick connection and disconnection events to be delivered on all<br/>
-		/// platforms, you need to call one of the [event processing](<br/>
-		/// functions.  Joystick disconnection may also be detected and the callback<br/>
-		/// called by joystick functions.  The function will then return whatever it<br/>
-		/// returns if the joystick is not present.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static delegate*<int, int, void> SetJoystickCallbackNative(delegate*<int, int, void> callback)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets the joystick configuration callback, or removes the<br/>
+        /// currently set callback.  This is called when a joystick is connected to or<br/>
+        /// disconnected from the system.<br/>
+        /// For joystick connection and disconnection events to be delivered on all<br/>
+        /// platforms, you need to call one of the [event processing](<br/>
+        /// functions.  Joystick disconnection may also be detected and the callback<br/>
+        /// called by joystick functions.  The function will then return whatever it<br/>
+        /// returns if the joystick is not present.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [function pointer type](<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static delegate*<int, int, void> SetJoystickCallbackNative(delegate*<int, int, void> callback)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<delegate*<int, int, void>, delegate*<int, int, void>>)funcTable[103])(callback);
-			#else
-			return (delegate*<int, int, void>)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[103])((nint)callback);
-			#endif
-		}
+#else
+            return (delegate*<int, int, void> )((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[103])((nint)callback);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the joystick configuration callback, or removes the<br/>
-		/// currently set callback.  This is called when a joystick is connected to or<br/>
-		/// disconnected from the system.<br/>
-		/// For joystick connection and disconnection events to be delivered on all<br/>
-		/// platforms, you need to call one of the [event processing](<br/>
-		/// functions.  Joystick disconnection may also be detected and the callback<br/>
-		/// called by joystick functions.  The function will then return whatever it<br/>
-		/// returns if the joystick is not present.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<int, int, void> SetJoystickCallback(delegate*<int, int, void> callback)
-		{
-			delegate*<int, int, void> ret = SetJoystickCallbackNative(callback);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the joystick configuration callback, or removes the<br/>
+        /// currently set callback.  This is called when a joystick is connected to or<br/>
+        /// disconnected from the system.<br/>
+        /// For joystick connection and disconnection events to be delivered on all<br/>
+        /// platforms, you need to call one of the [event processing](<br/>
+        /// functions.  Joystick disconnection may also be detected and the callback<br/>
+        /// called by joystick functions.  The function will then return whatever it<br/>
+        /// returns if the joystick is not present.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [function pointer type](<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<int, int, void> SetJoystickCallback(delegate*<int, int, void> callback)
+        {
+            delegate*<int, int, void> ret = SetJoystickCallbackNative(callback);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the joystick configuration callback, or removes the<br/>
-		/// currently set callback.  This is called when a joystick is connected to or<br/>
-		/// disconnected from the system.<br/>
-		/// For joystick connection and disconnection events to be delivered on all<br/>
-		/// platforms, you need to call one of the [event processing](<br/>
-		/// functions.  Joystick disconnection may also be detected and the callback<br/>
-		/// called by joystick functions.  The function will then return whatever it<br/>
-		/// returns if the joystick is not present.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// For more information about the callback parameters, see the<br/>
-		/// [function pointer type](<br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<int, int, void> SetJoystickCallback(GLFWjoystickfun callback)
-		{
-			delegate*<int, int, void> ret = SetJoystickCallbackNative((delegate*<int, int, void>)Utils.GetFunctionPointerForDelegate(callback));
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the joystick configuration callback, or removes the<br/>
+        /// currently set callback.  This is called when a joystick is connected to or<br/>
+        /// disconnected from the system.<br/>
+        /// For joystick connection and disconnection events to be delivered on all<br/>
+        /// platforms, you need to call one of the [event processing](<br/>
+        /// functions.  Joystick disconnection may also be detected and the callback<br/>
+        /// called by joystick functions.  The function will then return whatever it<br/>
+        /// returns if the joystick is not present.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// For more information about the callback parameters, see the<br/>
+        /// [function pointer type](<br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<int, int, void> SetJoystickCallback(GLFWjoystickfun callback)
+        {
+            delegate*<int, int, void> ret = SetJoystickCallbackNative((delegate*<int, int, void> )Utils.GetFunctionPointerForDelegate(callback));
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function parses the specified ASCII encoded string and updates the<br/>
-		/// internal list with any gamepad mappings it finds.  This string may<br/>
-		/// contain either a single gamepad mapping or many mappings separated by<br/>
-		/// newlines.  The parser supports the full format of the `gamecontrollerdb.txt`<br/>
-		/// source file including empty lines and comments.<br/>
-		/// See <br/>
-		/// for a description of the format.<br/>
-		/// If there is already a gamepad mapping for a given GUID in the internal list,<br/>
-		/// it will be replaced by the one passed to this function.  If the library is<br/>
-		/// terminated and re-initialized the internal list will revert to the built-in<br/>
-		/// default.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int UpdateGamepadMappingsNative(byte* str)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function parses the specified ASCII encoded string and updates the<br/>
+        /// internal list with any gamepad mappings it finds.  This string may<br/>
+        /// contain either a single gamepad mapping or many mappings separated by<br/>
+        /// newlines.  The parser supports the full format of the `gamecontrollerdb.txt`<br/>
+        /// source file including empty lines and comments.<br/>
+        /// See <br/>
+        /// for a description of the format.<br/>
+        /// If there is already a gamepad mapping for a given GUID in the internal list,<br/>
+        /// it will be replaced by the one passed to this function.  If the library is<br/>
+        /// terminated and re-initialized the internal list will revert to the built-in<br/>
+        /// default.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static int UpdateGamepadMappingsNative(byte* str)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<byte*, int>)funcTable[104])(str);
-			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, int>)funcTable[104])((nint)str);
-			#endif
-		}
+#else
+            return (int)((delegate* unmanaged[Cdecl]<nint, int> )funcTable[104])((nint)str);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function parses the specified ASCII encoded string and updates the<br/>
-		/// internal list with any gamepad mappings it finds.  This string may<br/>
-		/// contain either a single gamepad mapping or many mappings separated by<br/>
-		/// newlines.  The parser supports the full format of the `gamecontrollerdb.txt`<br/>
-		/// source file including empty lines and comments.<br/>
-		/// See <br/>
-		/// for a description of the format.<br/>
-		/// If there is already a gamepad mapping for a given GUID in the internal list,<br/>
-		/// it will be replaced by the one passed to this function.  If the library is<br/>
-		/// terminated and re-initialized the internal list will revert to the built-in<br/>
-		/// default.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int UpdateGamepadMappings(byte* str)
-		{
-			int ret = UpdateGamepadMappingsNative(str);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function parses the specified ASCII encoded string and updates the<br/>
+        /// internal list with any gamepad mappings it finds.  This string may<br/>
+        /// contain either a single gamepad mapping or many mappings separated by<br/>
+        /// newlines.  The parser supports the full format of the `gamecontrollerdb.txt`<br/>
+        /// source file including empty lines and comments.<br/>
+        /// See <br/>
+        /// for a description of the format.<br/>
+        /// If there is already a gamepad mapping for a given GUID in the internal list,<br/>
+        /// it will be replaced by the one passed to this function.  If the library is<br/>
+        /// terminated and re-initialized the internal list will revert to the built-in<br/>
+        /// default.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int UpdateGamepadMappings(byte* str)
+        {
+            int ret = UpdateGamepadMappingsNative(str);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function parses the specified ASCII encoded string and updates the<br/>
-		/// internal list with any gamepad mappings it finds.  This string may<br/>
-		/// contain either a single gamepad mapping or many mappings separated by<br/>
-		/// newlines.  The parser supports the full format of the `gamecontrollerdb.txt`<br/>
-		/// source file including empty lines and comments.<br/>
-		/// See <br/>
-		/// for a description of the format.<br/>
-		/// If there is already a gamepad mapping for a given GUID in the internal list,<br/>
-		/// it will be replaced by the one passed to this function.  If the library is<br/>
-		/// terminated and re-initialized the internal list will revert to the built-in<br/>
-		/// default.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int UpdateGamepadMappings(in byte str)
-		{
-			fixed (byte* pstr = &str)
-			{
-				int ret = UpdateGamepadMappingsNative((byte*)pstr);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function parses the specified ASCII encoded string and updates the<br/>
+        /// internal list with any gamepad mappings it finds.  This string may<br/>
+        /// contain either a single gamepad mapping or many mappings separated by<br/>
+        /// newlines.  The parser supports the full format of the `gamecontrollerdb.txt`<br/>
+        /// source file including empty lines and comments.<br/>
+        /// See <br/>
+        /// for a description of the format.<br/>
+        /// If there is already a gamepad mapping for a given GUID in the internal list,<br/>
+        /// it will be replaced by the one passed to this function.  If the library is<br/>
+        /// terminated and re-initialized the internal list will revert to the built-in<br/>
+        /// default.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int UpdateGamepadMappings(in byte str)
+        {
+            fixed (byte* pstr = &str)
+            {
+                int ret = UpdateGamepadMappingsNative((byte*)pstr);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function parses the specified ASCII encoded string and updates the<br/>
-		/// internal list with any gamepad mappings it finds.  This string may<br/>
-		/// contain either a single gamepad mapping or many mappings separated by<br/>
-		/// newlines.  The parser supports the full format of the `gamecontrollerdb.txt`<br/>
-		/// source file including empty lines and comments.<br/>
-		/// See <br/>
-		/// for a description of the format.<br/>
-		/// If there is already a gamepad mapping for a given GUID in the internal list,<br/>
-		/// it will be replaced by the one passed to this function.  If the library is<br/>
-		/// terminated and re-initialized the internal list will revert to the built-in<br/>
-		/// default.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int UpdateGamepadMappings(ReadOnlySpan<byte> str)
-		{
-			fixed (byte* pstr = str)
-			{
-				int ret = UpdateGamepadMappingsNative((byte*)pstr);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function parses the specified ASCII encoded string and updates the<br/>
+        /// internal list with any gamepad mappings it finds.  This string may<br/>
+        /// contain either a single gamepad mapping or many mappings separated by<br/>
+        /// newlines.  The parser supports the full format of the `gamecontrollerdb.txt`<br/>
+        /// source file including empty lines and comments.<br/>
+        /// See <br/>
+        /// for a description of the format.<br/>
+        /// If there is already a gamepad mapping for a given GUID in the internal list,<br/>
+        /// it will be replaced by the one passed to this function.  If the library is<br/>
+        /// terminated and re-initialized the internal list will revert to the built-in<br/>
+        /// default.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int UpdateGamepadMappings(ReadOnlySpan<byte> str)
+        {
+            fixed (byte* pstr = str)
+            {
+                int ret = UpdateGamepadMappingsNative((byte*)pstr);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function parses the specified ASCII encoded string and updates the<br/>
-		/// internal list with any gamepad mappings it finds.  This string may<br/>
-		/// contain either a single gamepad mapping or many mappings separated by<br/>
-		/// newlines.  The parser supports the full format of the `gamecontrollerdb.txt`<br/>
-		/// source file including empty lines and comments.<br/>
-		/// See <br/>
-		/// for a description of the format.<br/>
-		/// If there is already a gamepad mapping for a given GUID in the internal list,<br/>
-		/// it will be replaced by the one passed to this function.  If the library is<br/>
-		/// terminated and re-initialized the internal list will revert to the built-in<br/>
-		/// default.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int UpdateGamepadMappings(string str)
-		{
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (str != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(str);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(str, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			int ret = UpdateGamepadMappingsNative(pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function parses the specified ASCII encoded string and updates the<br/>
+        /// internal list with any gamepad mappings it finds.  This string may<br/>
+        /// contain either a single gamepad mapping or many mappings separated by<br/>
+        /// newlines.  The parser supports the full format of the `gamecontrollerdb.txt`<br/>
+        /// source file including empty lines and comments.<br/>
+        /// See <br/>
+        /// for a description of the format.<br/>
+        /// If there is already a gamepad mapping for a given GUID in the internal list,<br/>
+        /// it will be replaced by the one passed to this function.  If the library is<br/>
+        /// terminated and re-initialized the internal list will revert to the built-in<br/>
+        /// default.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int UpdateGamepadMappings(string str)
+        {
+            byte* pStr0 = null;
+            int pStrSize0 = 0;
+            if (str != null)
+            {
+                pStrSize0 = Utils.GetByteCountUTF8(str);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+                }
+                else
+                {
+                    byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+                    pStr0 = pStrStack0;
+                }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the human-readable name of the gamepad from the<br/>
-		/// gamepad mapping assigned to the specified joystick.<br/>
-		/// If the specified joystick is not present or does not have a gamepad mapping<br/>
-		/// this function will return `NULL` but will not generate an error.  Call<br/>
-		/// <br/>
-		/// to check whether it is present regardless of<br/>
-		/// whether it has a mapping.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected, the gamepad mappings are updated or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte* GetGamepadNameNative(int jid)
-		{
-			#if NET5_0_OR_GREATER
+                int pStrOffset0 = Utils.EncodeStringUTF8(str, pStr0, pStrSize0);
+                pStr0[pStrOffset0] = 0;
+            }
+
+            int ret = UpdateGamepadMappingsNative(pStr0);
+            if (pStrSize0 >= Utils.MaxStackallocSize)
+            {
+                Utils.Free(pStr0);
+            }
+
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// This function returns the human-readable name of the gamepad from the<br/>
+        /// gamepad mapping assigned to the specified joystick.<br/>
+        /// If the specified joystick is not present or does not have a gamepad mapping<br/>
+        /// this function will return `NULL` but will not generate an error.  Call<br/>
+        /// <br/>
+        /// to check whether it is present regardless of<br/>
+        /// whether it has a mapping.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected, the gamepad mappings are updated or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static byte* GetGamepadNameNative(int jid)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int, byte*>)funcTable[105])(jid);
-			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<int, nint>)funcTable[105])(jid);
-			#endif
-		}
+#else
+            return (byte*)((delegate* unmanaged[Cdecl]<int, nint> )funcTable[105])(jid);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the human-readable name of the gamepad from the<br/>
-		/// gamepad mapping assigned to the specified joystick.<br/>
-		/// If the specified joystick is not present or does not have a gamepad mapping<br/>
-		/// this function will return `NULL` but will not generate an error.  Call<br/>
-		/// <br/>
-		/// to check whether it is present regardless of<br/>
-		/// whether it has a mapping.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected, the gamepad mappings are updated or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static byte* GetGamepadName(int jid)
-		{
-			byte* ret = GetGamepadNameNative(jid);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the human-readable name of the gamepad from the<br/>
+        /// gamepad mapping assigned to the specified joystick.<br/>
+        /// If the specified joystick is not present or does not have a gamepad mapping<br/>
+        /// this function will return `NULL` but will not generate an error.  Call<br/>
+        /// <br/>
+        /// to check whether it is present regardless of<br/>
+        /// whether it has a mapping.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected, the gamepad mappings are updated or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static byte* GetGamepadName(int jid)
+        {
+            byte* ret = GetGamepadNameNative(jid);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the human-readable name of the gamepad from the<br/>
-		/// gamepad mapping assigned to the specified joystick.<br/>
-		/// If the specified joystick is not present or does not have a gamepad mapping<br/>
-		/// this function will return `NULL` but will not generate an error.  Call<br/>
-		/// <br/>
-		/// to check whether it is present regardless of<br/>
-		/// whether it has a mapping.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the specified joystick is<br/>
-		/// disconnected, the gamepad mappings are updated or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static string GetGamepadNameS(int jid)
-		{
-			string ret = Utils.DecodeStringUTF8(GetGamepadNameNative(jid));
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the human-readable name of the gamepad from the<br/>
+        /// gamepad mapping assigned to the specified joystick.<br/>
+        /// If the specified joystick is not present or does not have a gamepad mapping<br/>
+        /// this function will return `NULL` but will not generate an error.  Call<br/>
+        /// <br/>
+        /// to check whether it is present regardless of<br/>
+        /// whether it has a mapping.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the specified joystick is<br/>
+        /// disconnected, the gamepad mappings are updated or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static string GetGamepadNameS(int jid)
+        {
+            string ret = Utils.DecodeStringUTF8(GetGamepadNameNative(jid));
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the state of the specified joystick remapped to<br/>
-		/// an Xbox-like gamepad.<br/>
-		/// If the specified joystick is not present or does not have a gamepad mapping<br/>
-		/// this function will return `GLFW_FALSE` but will not generate an error.  Call<br/>
-		/// <br/>
-		/// to check whether it is present regardless of<br/>
-		/// whether it has a mapping.<br/>
-		/// The Guide button may not be available for input as it is often hooked by the<br/>
-		/// system or the Steam client.<br/>
-		/// Not all devices have all the buttons or axes provided by <br/>
-		/// Unavailable buttons and axes will always report<br/>
-		/// `GLFW_RELEASE` and 0.0 respectively.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int GetGamepadStateNative(int jid, GLFWgamepadstate* state)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the state of the specified joystick remapped to<br/>
+        /// an Xbox-like gamepad.<br/>
+        /// If the specified joystick is not present or does not have a gamepad mapping<br/>
+        /// this function will return `GLFW_FALSE` but will not generate an error.  Call<br/>
+        /// <br/>
+        /// to check whether it is present regardless of<br/>
+        /// whether it has a mapping.<br/>
+        /// The Guide button may not be available for input as it is often hooked by the<br/>
+        /// system or the Steam client.<br/>
+        /// Not all devices have all the buttons or axes provided by <br/>
+        /// Unavailable buttons and axes will always report<br/>
+        /// `GLFW_RELEASE` and 0.0 respectively.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static int GetGamepadStateNative(int jid, GLFWgamepadstate* state)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int, GLFWgamepadstate*, int>)funcTable[106])(jid, state);
-			#else
-			return (int)((delegate* unmanaged[Cdecl]<int, nint, int>)funcTable[106])(jid, (nint)state);
-			#endif
-		}
+#else
+            return (int)((delegate* unmanaged[Cdecl]<int, nint, int> )funcTable[106])(jid, (nint)state);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the state of the specified joystick remapped to<br/>
-		/// an Xbox-like gamepad.<br/>
-		/// If the specified joystick is not present or does not have a gamepad mapping<br/>
-		/// this function will return `GLFW_FALSE` but will not generate an error.  Call<br/>
-		/// <br/>
-		/// to check whether it is present regardless of<br/>
-		/// whether it has a mapping.<br/>
-		/// The Guide button may not be available for input as it is often hooked by the<br/>
-		/// system or the Steam client.<br/>
-		/// Not all devices have all the buttons or axes provided by <br/>
-		/// Unavailable buttons and axes will always report<br/>
-		/// `GLFW_RELEASE` and 0.0 respectively.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int GetGamepadState(int jid, GLFWgamepadstatePtr state)
-		{
-			int ret = GetGamepadStateNative(jid, (GLFWgamepadstate*)state);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the state of the specified joystick remapped to<br/>
+        /// an Xbox-like gamepad.<br/>
+        /// If the specified joystick is not present or does not have a gamepad mapping<br/>
+        /// this function will return `GLFW_FALSE` but will not generate an error.  Call<br/>
+        /// <br/>
+        /// to check whether it is present regardless of<br/>
+        /// whether it has a mapping.<br/>
+        /// The Guide button may not be available for input as it is often hooked by the<br/>
+        /// system or the Steam client.<br/>
+        /// Not all devices have all the buttons or axes provided by <br/>
+        /// Unavailable buttons and axes will always report<br/>
+        /// `GLFW_RELEASE` and 0.0 respectively.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int GetGamepadState(int jid, GLFWgamepadstatePtr state)
+        {
+            int ret = GetGamepadStateNative(jid, (GLFWgamepadstate*)state);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function retrieves the state of the specified joystick remapped to<br/>
-		/// an Xbox-like gamepad.<br/>
-		/// If the specified joystick is not present or does not have a gamepad mapping<br/>
-		/// this function will return `GLFW_FALSE` but will not generate an error.  Call<br/>
-		/// <br/>
-		/// to check whether it is present regardless of<br/>
-		/// whether it has a mapping.<br/>
-		/// The Guide button may not be available for input as it is often hooked by the<br/>
-		/// system or the Steam client.<br/>
-		/// Not all devices have all the buttons or axes provided by <br/>
-		/// Unavailable buttons and axes will always report<br/>
-		/// `GLFW_RELEASE` and 0.0 respectively.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int GetGamepadState(int jid, ref GLFWgamepadstate state)
-		{
-			fixed (GLFWgamepadstate* pstate = &state)
-			{
-				int ret = GetGamepadStateNative(jid, (GLFWgamepadstate*)pstate);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function retrieves the state of the specified joystick remapped to<br/>
+        /// an Xbox-like gamepad.<br/>
+        /// If the specified joystick is not present or does not have a gamepad mapping<br/>
+        /// this function will return `GLFW_FALSE` but will not generate an error.  Call<br/>
+        /// <br/>
+        /// to check whether it is present regardless of<br/>
+        /// whether it has a mapping.<br/>
+        /// The Guide button may not be available for input as it is often hooked by the<br/>
+        /// system or the Steam client.<br/>
+        /// Not all devices have all the buttons or axes provided by <br/>
+        /// Unavailable buttons and axes will always report<br/>
+        /// `GLFW_RELEASE` and 0.0 respectively.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int GetGamepadState(int jid, ref GLFWgamepadstate state)
+        {
+            fixed (GLFWgamepadstate* pstate = &state)
+            {
+                int ret = GetGamepadStateNative(jid, (GLFWgamepadstate*)pstate);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the system clipboard to the specified, UTF-8 encoded<br/>
-		/// string.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The specified string is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void SetClipboardStringNative(GLFWwindow* window, byte* str)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets the system clipboard to the specified, UTF-8 encoded<br/>
+        /// string.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The specified string is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void SetClipboardStringNative(GLFWwindow* window, byte* str)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, byte*, void>)funcTable[107])(window, str);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, nint, void>)funcTable[107])((nint)window, (nint)str);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, nint, void> )funcTable[107])((nint)window, (nint)str);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the system clipboard to the specified, UTF-8 encoded<br/>
-		/// string.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The specified string is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetClipboardString(GLFWwindowPtr window, byte* str)
-		{
-			SetClipboardStringNative((GLFWwindow*)window, str);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the system clipboard to the specified, UTF-8 encoded<br/>
+        /// string.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The specified string is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetClipboardString(GLFWwindowPtr window, byte* str)
+        {
+            SetClipboardStringNative((GLFWwindow*)window, str);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the system clipboard to the specified, UTF-8 encoded<br/>
-		/// string.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The specified string is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetClipboardString(ref GLFWwindow window, byte* str)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				SetClipboardStringNative((GLFWwindow*)pwindow, str);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the system clipboard to the specified, UTF-8 encoded<br/>
+        /// string.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The specified string is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetClipboardString(ref GLFWwindow window, byte* str)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                SetClipboardStringNative((GLFWwindow*)pwindow, str);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the system clipboard to the specified, UTF-8 encoded<br/>
-		/// string.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The specified string is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetClipboardString(GLFWwindowPtr window, in byte str)
-		{
-			fixed (byte* pstr = &str)
-			{
-				SetClipboardStringNative((GLFWwindow*)window, (byte*)pstr);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the system clipboard to the specified, UTF-8 encoded<br/>
+        /// string.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The specified string is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetClipboardString(GLFWwindowPtr window, in byte str)
+        {
+            fixed (byte* pstr = &str)
+            {
+                SetClipboardStringNative((GLFWwindow*)window, (byte*)pstr);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the system clipboard to the specified, UTF-8 encoded<br/>
-		/// string.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The specified string is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetClipboardString(GLFWwindowPtr window, ReadOnlySpan<byte> str)
-		{
-			fixed (byte* pstr = str)
-			{
-				SetClipboardStringNative((GLFWwindow*)window, (byte*)pstr);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the system clipboard to the specified, UTF-8 encoded<br/>
+        /// string.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The specified string is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetClipboardString(GLFWwindowPtr window, ReadOnlySpan<byte> str)
+        {
+            fixed (byte* pstr = str)
+            {
+                SetClipboardStringNative((GLFWwindow*)window, (byte*)pstr);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the system clipboard to the specified, UTF-8 encoded<br/>
-		/// string.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The specified string is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetClipboardString(GLFWwindowPtr window, string str)
-		{
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (str != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(str);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(str, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			SetClipboardStringNative((GLFWwindow*)window, pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the system clipboard to the specified, UTF-8 encoded<br/>
+        /// string.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The specified string is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetClipboardString(GLFWwindowPtr window, string str)
+        {
+            byte* pStr0 = null;
+            int pStrSize0 = 0;
+            if (str != null)
+            {
+                pStrSize0 = Utils.GetByteCountUTF8(str);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+                }
+                else
+                {
+                    byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+                    pStr0 = pStrStack0;
+                }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the system clipboard to the specified, UTF-8 encoded<br/>
-		/// string.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The specified string is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetClipboardString(ref GLFWwindow window, in byte str)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (byte* pstr = &str)
-				{
-					SetClipboardStringNative((GLFWwindow*)pwindow, (byte*)pstr);
-				}
-			}
-		}
+                int pStrOffset0 = Utils.EncodeStringUTF8(str, pStr0, pStrSize0);
+                pStr0[pStrOffset0] = 0;
+            }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the system clipboard to the specified, UTF-8 encoded<br/>
-		/// string.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The specified string is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetClipboardString(ref GLFWwindow window, ReadOnlySpan<byte> str)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (byte* pstr = str)
-				{
-					SetClipboardStringNative((GLFWwindow*)pwindow, (byte*)pstr);
-				}
-			}
-		}
+            SetClipboardStringNative((GLFWwindow*)window, pStr0);
+            if (pStrSize0 >= Utils.MaxStackallocSize)
+            {
+                Utils.Free(pStr0);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the system clipboard to the specified, UTF-8 encoded<br/>
-		/// string.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The specified string is copied before this function<br/>
-		/// returns.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetClipboardString(ref GLFWwindow window, string str)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				byte* pStr0 = null;
-				int pStrSize0 = 0;
-				if (str != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF8(str);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF8(str, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = 0;
-				}
-				SetClipboardStringNative((GLFWwindow*)pwindow, pStr0);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the system clipboard to the specified, UTF-8 encoded<br/>
+        /// string.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The specified string is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetClipboardString(ref GLFWwindow window, in byte str)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (byte* pstr = &str)
+                {
+                    SetClipboardStringNative((GLFWwindow*)pwindow, (byte*)pstr);
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the contents of the system clipboard, if it contains<br/>
-		/// or is convertible to a UTF-8 encoded string.  If the clipboard is empty or<br/>
-		/// if its contents cannot be converted, `NULL` is returned and a <br/>
-		/// error is generated.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the next call to <br/>
-		/// or <br/>
-		/// or until the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte* GetClipboardStringNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets the system clipboard to the specified, UTF-8 encoded<br/>
+        /// string.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The specified string is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetClipboardString(ref GLFWwindow window, ReadOnlySpan<byte> str)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (byte* pstr = str)
+                {
+                    SetClipboardStringNative((GLFWwindow*)pwindow, (byte*)pstr);
+                }
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// This function sets the system clipboard to the specified, UTF-8 encoded<br/>
+        /// string.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The specified string is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetClipboardString(ref GLFWwindow window, string str)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                byte* pStr0 = null;
+                int pStrSize0 = 0;
+                if (str != null)
+                {
+                    pStrSize0 = Utils.GetByteCountUTF8(str);
+                    if (pStrSize0 >= Utils.MaxStackallocSize)
+                    {
+                        pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+                    }
+                    else
+                    {
+                        byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+                        pStr0 = pStrStack0;
+                    }
+
+                    int pStrOffset0 = Utils.EncodeStringUTF8(str, pStr0, pStrSize0);
+                    pStr0[pStrOffset0] = 0;
+                }
+
+                SetClipboardStringNative((GLFWwindow*)pwindow, pStr0);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    Utils.Free(pStr0);
+                }
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// This function returns the contents of the system clipboard, if it contains<br/>
+        /// or is convertible to a UTF-8 encoded string.  If the clipboard is empty or<br/>
+        /// if its contents cannot be converted, `NULL` is returned and a <br/>
+        /// error is generated.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the next call to <br/>
+        /// or <br/>
+        /// or until the library<br/>
+        /// is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static byte* GetClipboardStringNative(GLFWwindow* window)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, byte*>)funcTable[108])(window);
-			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[108])((nint)window);
-			#endif
-		}
+#else
+            return (byte*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[108])((nint)window);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the contents of the system clipboard, if it contains<br/>
-		/// or is convertible to a UTF-8 encoded string.  If the clipboard is empty or<br/>
-		/// if its contents cannot be converted, `NULL` is returned and a <br/>
-		/// error is generated.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the next call to <br/>
-		/// or <br/>
-		/// or until the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static byte* GetClipboardString(GLFWwindowPtr window)
-		{
-			byte* ret = GetClipboardStringNative((GLFWwindow*)window);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the contents of the system clipboard, if it contains<br/>
+        /// or is convertible to a UTF-8 encoded string.  If the clipboard is empty or<br/>
+        /// if its contents cannot be converted, `NULL` is returned and a <br/>
+        /// error is generated.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the next call to <br/>
+        /// or <br/>
+        /// or until the library<br/>
+        /// is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static byte* GetClipboardString(GLFWwindowPtr window)
+        {
+            byte* ret = GetClipboardStringNative((GLFWwindow*)window);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the contents of the system clipboard, if it contains<br/>
-		/// or is convertible to a UTF-8 encoded string.  If the clipboard is empty or<br/>
-		/// if its contents cannot be converted, `NULL` is returned and a <br/>
-		/// error is generated.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the next call to <br/>
-		/// or <br/>
-		/// or until the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static string GetClipboardStringS(GLFWwindowPtr window)
-		{
-			string ret = Utils.DecodeStringUTF8(GetClipboardStringNative((GLFWwindow*)window));
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the contents of the system clipboard, if it contains<br/>
+        /// or is convertible to a UTF-8 encoded string.  If the clipboard is empty or<br/>
+        /// if its contents cannot be converted, `NULL` is returned and a <br/>
+        /// error is generated.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the next call to <br/>
+        /// or <br/>
+        /// or until the library<br/>
+        /// is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static string GetClipboardStringS(GLFWwindowPtr window)
+        {
+            string ret = Utils.DecodeStringUTF8(GetClipboardStringNative((GLFWwindow*)window));
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the contents of the system clipboard, if it contains<br/>
-		/// or is convertible to a UTF-8 encoded string.  If the clipboard is empty or<br/>
-		/// if its contents cannot be converted, `NULL` is returned and a <br/>
-		/// error is generated.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the next call to <br/>
-		/// or <br/>
-		/// or until the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static byte* GetClipboardString(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				byte* ret = GetClipboardStringNative((GLFWwindow*)pwindow);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the contents of the system clipboard, if it contains<br/>
+        /// or is convertible to a UTF-8 encoded string.  If the clipboard is empty or<br/>
+        /// if its contents cannot be converted, `NULL` is returned and a <br/>
+        /// error is generated.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the next call to <br/>
+        /// or <br/>
+        /// or until the library<br/>
+        /// is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static byte* GetClipboardString(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                byte* ret = GetClipboardStringNative((GLFWwindow*)pwindow);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the contents of the system clipboard, if it contains<br/>
-		/// or is convertible to a UTF-8 encoded string.  If the clipboard is empty or<br/>
-		/// if its contents cannot be converted, `NULL` is returned and a <br/>
-		/// error is generated.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is valid until the next call to <br/>
-		/// or <br/>
-		/// or until the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function must only be called from the main thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static string GetClipboardStringS(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				string ret = Utils.DecodeStringUTF8(GetClipboardStringNative((GLFWwindow*)pwindow));
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the contents of the system clipboard, if it contains<br/>
+        /// or is convertible to a UTF-8 encoded string.  If the clipboard is empty or<br/>
+        /// if its contents cannot be converted, `NULL` is returned and a <br/>
+        /// error is generated.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is valid until the next call to <br/>
+        /// or <br/>
+        /// or until the library<br/>
+        /// is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static string GetClipboardStringS(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                string ret = Utils.DecodeStringUTF8(GetClipboardStringNative((GLFWwindow*)pwindow));
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the current GLFW time, in seconds.  Unless the time<br/>
-		/// has been set using <br/>
-		/// it measures time elapsed since GLFW was<br/>
-		/// initialized.<br/>
-		/// This function and <br/>
-		/// are helper functions on top of <br/>
-		/// and <br/>
-		/// The resolution of the timer is system dependent, but is usually on the order<br/>
-		/// of a few micro- or nanoseconds.  It uses the highest-resolution monotonic<br/>
-		/// time source on each operating system.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Reading and<br/>
-		/// writing of the internal base time is not atomic, so it needs to be<br/>
-		/// externally synchronized with calls to <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static double GetTimeNative()
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the current GLFW time, in seconds.  Unless the time<br/>
+        /// has been set using <br/>
+        /// it measures time elapsed since GLFW was<br/>
+        /// initialized.<br/>
+        /// This function and <br/>
+        /// are helper functions on top of <br/>
+        /// and <br/>
+        /// The resolution of the timer is system dependent, but is usually on the order<br/>
+        /// of a few micro- or nanoseconds.  It uses the highest-resolution monotonic<br/>
+        /// time source on each operating system.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Reading and<br/>
+        /// writing of the internal base time is not atomic, so it needs to be<br/>
+        /// externally synchronized with calls to <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static double GetTimeNative()
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<double>)funcTable[109])();
-			#else
-			return (double)((delegate* unmanaged[Cdecl]<double>)funcTable[109])();
-			#endif
-		}
+#else
+            return (double)((delegate* unmanaged[Cdecl]<double> )funcTable[109])();
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the current GLFW time, in seconds.  Unless the time<br/>
-		/// has been set using <br/>
-		/// it measures time elapsed since GLFW was<br/>
-		/// initialized.<br/>
-		/// This function and <br/>
-		/// are helper functions on top of <br/>
-		/// and <br/>
-		/// The resolution of the timer is system dependent, but is usually on the order<br/>
-		/// of a few micro- or nanoseconds.  It uses the highest-resolution monotonic<br/>
-		/// time source on each operating system.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Reading and<br/>
-		/// writing of the internal base time is not atomic, so it needs to be<br/>
-		/// externally synchronized with calls to <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static double GetTime()
-		{
-			double ret = GetTimeNative();
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the current GLFW time, in seconds.  Unless the time<br/>
+        /// has been set using <br/>
+        /// it measures time elapsed since GLFW was<br/>
+        /// initialized.<br/>
+        /// This function and <br/>
+        /// are helper functions on top of <br/>
+        /// and <br/>
+        /// The resolution of the timer is system dependent, but is usually on the order<br/>
+        /// of a few micro- or nanoseconds.  It uses the highest-resolution monotonic<br/>
+        /// time source on each operating system.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Reading and<br/>
+        /// writing of the internal base time is not atomic, so it needs to be<br/>
+        /// externally synchronized with calls to <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static double GetTime()
+        {
+            double ret = GetTimeNative();
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the current GLFW time, in seconds.  The value must be<br/>
-		/// a positive finite number less than or equal to 18446744073.0, which is<br/>
-		/// approximately 584.5 years.<br/>
-		/// This function and <br/>
-		/// are helper functions on top of <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Reading and<br/>
-		/// writing of the internal base time is not atomic, so it needs to be<br/>
-		/// externally synchronized with calls to <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void SetTimeNative(double time)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets the current GLFW time, in seconds.  The value must be<br/>
+        /// a positive finite number less than or equal to 18446744073.0, which is<br/>
+        /// approximately 584.5 years.<br/>
+        /// This function and <br/>
+        /// are helper functions on top of <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Reading and<br/>
+        /// writing of the internal base time is not atomic, so it needs to be<br/>
+        /// externally synchronized with calls to <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void SetTimeNative(double time)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<double, void>)funcTable[110])(time);
-			#else
-			((delegate* unmanaged[Cdecl]<double, void>)funcTable[110])(time);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<double, void> )funcTable[110])(time);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the current GLFW time, in seconds.  The value must be<br/>
-		/// a positive finite number less than or equal to 18446744073.0, which is<br/>
-		/// approximately 584.5 years.<br/>
-		/// This function and <br/>
-		/// are helper functions on top of <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Reading and<br/>
-		/// writing of the internal base time is not atomic, so it needs to be<br/>
-		/// externally synchronized with calls to <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SetTime(double time)
-		{
-			SetTimeNative(time);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the current GLFW time, in seconds.  The value must be<br/>
+        /// a positive finite number less than or equal to 18446744073.0, which is<br/>
+        /// approximately 584.5 years.<br/>
+        /// This function and <br/>
+        /// are helper functions on top of <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Reading and<br/>
+        /// writing of the internal base time is not atomic, so it needs to be<br/>
+        /// externally synchronized with calls to <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetTime(double time)
+        {
+            SetTimeNative(time);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the current value of the raw timer, measured in<br/>
-		/// 1<br/>
-		/// <br/>
-		/// /<br/>
-		/// <br/>
-		/// frequency seconds.  To get the frequency, call <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ulong GetTimerValueNative()
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the current value of the raw timer, measured in<br/>
+        /// 1<br/>
+        /// <br/>
+        /// /<br/>
+        /// <br/>
+        /// frequency seconds.  To get the frequency, call <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ulong GetTimerValueNative()
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ulong>)funcTable[111])();
-			#else
-			return (ulong)((delegate* unmanaged[Cdecl]<ulong>)funcTable[111])();
-			#endif
-		}
+#else
+            return (ulong)((delegate* unmanaged[Cdecl]<ulong> )funcTable[111])();
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the current value of the raw timer, measured in<br/>
-		/// 1<br/>
-		/// <br/>
-		/// /<br/>
-		/// <br/>
-		/// frequency seconds.  To get the frequency, call <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ulong GetTimerValue()
-		{
-			ulong ret = GetTimerValueNative();
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the current value of the raw timer, measured in<br/>
+        /// 1<br/>
+        /// <br/>
+        /// /<br/>
+        /// <br/>
+        /// frequency seconds.  To get the frequency, call <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ulong GetTimerValue()
+        {
+            ulong ret = GetTimerValueNative();
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the frequency, in Hz, of the raw timer.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static ulong GetTimerFrequencyNative()
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the frequency, in Hz, of the raw timer.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static ulong GetTimerFrequencyNative()
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<ulong>)funcTable[112])();
-			#else
-			return (ulong)((delegate* unmanaged[Cdecl]<ulong>)funcTable[112])();
-			#endif
-		}
+#else
+            return (ulong)((delegate* unmanaged[Cdecl]<ulong> )funcTable[112])();
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the frequency, in Hz, of the raw timer.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static ulong GetTimerFrequency()
-		{
-			ulong ret = GetTimerFrequencyNative();
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the frequency, in Hz, of the raw timer.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static ulong GetTimerFrequency()
+        {
+            ulong ret = GetTimerFrequencyNative();
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function makes the OpenGL or OpenGL ES context of the specified window<br/>
-		/// current on the calling thread.  It can also detach the current context from<br/>
-		/// the calling thread without making a new one current by passing in `NULL`.<br/>
-		/// A context must only be made current on a single thread at a time and each<br/>
-		/// thread can have only a single current context at a time.  Making a context<br/>
-		/// current detaches any previously current context on the calling thread.<br/>
-		/// When moving a context between threads, you must detach it (make it<br/>
-		/// non-current) on the old thread before making it current on the new one.<br/>
-		/// By default, making a context non-current implicitly forces a pipeline flush.<br/>
-		/// On machines that support `GL_KHR_context_flush_control`, you can control<br/>
-		/// whether a context performs this flush by setting the<br/>
-		/// [GLFW_CONTEXT_RELEASE_BEHAVIOR](<br/>
-		/// hint.<br/>
-		/// The specified window must have an OpenGL or OpenGL ES context.  Specifying<br/>
-		/// a window without a context will generate a <br/>
-		/// error.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void MakeContextCurrentNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function makes the OpenGL or OpenGL ES context of the specified window<br/>
+        /// current on the calling thread.  It can also detach the current context from<br/>
+        /// the calling thread without making a new one current by passing in `NULL`.<br/>
+        /// A context must only be made current on a single thread at a time and each<br/>
+        /// thread can have only a single current context at a time.  Making a context<br/>
+        /// current detaches any previously current context on the calling thread.<br/>
+        /// When moving a context between threads, you must detach it (make it<br/>
+        /// non-current) on the old thread before making it current on the new one.<br/>
+        /// By default, making a context non-current implicitly forces a pipeline flush.<br/>
+        /// On machines that support `GL_KHR_context_flush_control`, you can control<br/>
+        /// whether a context performs this flush by setting the<br/>
+        /// [GLFW_CONTEXT_RELEASE_BEHAVIOR](<br/>
+        /// hint.<br/>
+        /// The specified window must have an OpenGL or OpenGL ES context.  Specifying<br/>
+        /// a window without a context will generate a <br/>
+        /// error.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void MakeContextCurrentNative(GLFWwindow* window)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[113])(window);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[113])((nint)window);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, void> )funcTable[113])((nint)window);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function makes the OpenGL or OpenGL ES context of the specified window<br/>
-		/// current on the calling thread.  It can also detach the current context from<br/>
-		/// the calling thread without making a new one current by passing in `NULL`.<br/>
-		/// A context must only be made current on a single thread at a time and each<br/>
-		/// thread can have only a single current context at a time.  Making a context<br/>
-		/// current detaches any previously current context on the calling thread.<br/>
-		/// When moving a context between threads, you must detach it (make it<br/>
-		/// non-current) on the old thread before making it current on the new one.<br/>
-		/// By default, making a context non-current implicitly forces a pipeline flush.<br/>
-		/// On machines that support `GL_KHR_context_flush_control`, you can control<br/>
-		/// whether a context performs this flush by setting the<br/>
-		/// [GLFW_CONTEXT_RELEASE_BEHAVIOR](<br/>
-		/// hint.<br/>
-		/// The specified window must have an OpenGL or OpenGL ES context.  Specifying<br/>
-		/// a window without a context will generate a <br/>
-		/// error.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void MakeContextCurrent(GLFWwindowPtr window)
-		{
-			MakeContextCurrentNative((GLFWwindow*)window);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function makes the OpenGL or OpenGL ES context of the specified window<br/>
+        /// current on the calling thread.  It can also detach the current context from<br/>
+        /// the calling thread without making a new one current by passing in `NULL`.<br/>
+        /// A context must only be made current on a single thread at a time and each<br/>
+        /// thread can have only a single current context at a time.  Making a context<br/>
+        /// current detaches any previously current context on the calling thread.<br/>
+        /// When moving a context between threads, you must detach it (make it<br/>
+        /// non-current) on the old thread before making it current on the new one.<br/>
+        /// By default, making a context non-current implicitly forces a pipeline flush.<br/>
+        /// On machines that support `GL_KHR_context_flush_control`, you can control<br/>
+        /// whether a context performs this flush by setting the<br/>
+        /// [GLFW_CONTEXT_RELEASE_BEHAVIOR](<br/>
+        /// hint.<br/>
+        /// The specified window must have an OpenGL or OpenGL ES context.  Specifying<br/>
+        /// a window without a context will generate a <br/>
+        /// error.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void MakeContextCurrent(GLFWwindowPtr window)
+        {
+            MakeContextCurrentNative((GLFWwindow*)window);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function makes the OpenGL or OpenGL ES context of the specified window<br/>
-		/// current on the calling thread.  It can also detach the current context from<br/>
-		/// the calling thread without making a new one current by passing in `NULL`.<br/>
-		/// A context must only be made current on a single thread at a time and each<br/>
-		/// thread can have only a single current context at a time.  Making a context<br/>
-		/// current detaches any previously current context on the calling thread.<br/>
-		/// When moving a context between threads, you must detach it (make it<br/>
-		/// non-current) on the old thread before making it current on the new one.<br/>
-		/// By default, making a context non-current implicitly forces a pipeline flush.<br/>
-		/// On machines that support `GL_KHR_context_flush_control`, you can control<br/>
-		/// whether a context performs this flush by setting the<br/>
-		/// [GLFW_CONTEXT_RELEASE_BEHAVIOR](<br/>
-		/// hint.<br/>
-		/// The specified window must have an OpenGL or OpenGL ES context.  Specifying<br/>
-		/// a window without a context will generate a <br/>
-		/// error.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void MakeContextCurrent(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				MakeContextCurrentNative((GLFWwindow*)pwindow);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function makes the OpenGL or OpenGL ES context of the specified window<br/>
+        /// current on the calling thread.  It can also detach the current context from<br/>
+        /// the calling thread without making a new one current by passing in `NULL`.<br/>
+        /// A context must only be made current on a single thread at a time and each<br/>
+        /// thread can have only a single current context at a time.  Making a context<br/>
+        /// current detaches any previously current context on the calling thread.<br/>
+        /// When moving a context between threads, you must detach it (make it<br/>
+        /// non-current) on the old thread before making it current on the new one.<br/>
+        /// By default, making a context non-current implicitly forces a pipeline flush.<br/>
+        /// On machines that support `GL_KHR_context_flush_control`, you can control<br/>
+        /// whether a context performs this flush by setting the<br/>
+        /// [GLFW_CONTEXT_RELEASE_BEHAVIOR](<br/>
+        /// hint.<br/>
+        /// The specified window must have an OpenGL or OpenGL ES context.  Specifying<br/>
+        /// a window without a context will generate a <br/>
+        /// error.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void MakeContextCurrent(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                MakeContextCurrentNative((GLFWwindow*)pwindow);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the window whose OpenGL or OpenGL ES context is<br/>
-		/// current on the calling thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static GLFWwindow* GetCurrentContextNative()
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns the window whose OpenGL or OpenGL ES context is<br/>
+        /// current on the calling thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static GLFWwindow* GetCurrentContextNative()
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<GLFWwindow*>)funcTable[114])();
-			#else
-			return (GLFWwindow*)((delegate* unmanaged[Cdecl]<nint>)funcTable[114])();
-			#endif
-		}
+#else
+            return (GLFWwindow*)((delegate* unmanaged[Cdecl]<nint> )funcTable[114])();
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the window whose OpenGL or OpenGL ES context is<br/>
-		/// current on the calling thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static GLFWwindowPtr GetCurrentContext()
-		{
-			GLFWwindowPtr ret = GetCurrentContextNative();
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the window whose OpenGL or OpenGL ES context is<br/>
+        /// current on the calling thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static GLFWwindowPtr GetCurrentContext()
+        {
+            GLFWwindowPtr ret = GetCurrentContextNative();
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function swaps the front and back buffers of the specified window when<br/>
-		/// rendering with OpenGL or OpenGL ES.  If the swap interval is greater than<br/>
-		/// zero, the GPU driver waits the specified number of screen updates before<br/>
-		/// swapping the buffers.<br/>
-		/// The specified window must have an OpenGL or OpenGL ES context.  Specifying<br/>
-		/// a window without a context will generate a <br/>
-		/// error.<br/>
-		/// This function does not apply to Vulkan.  If you are rendering with Vulkan,<br/>
-		/// see `vkQueuePresentKHR` instead.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void SwapBuffersNative(GLFWwindow* window)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function swaps the front and back buffers of the specified window when<br/>
+        /// rendering with OpenGL or OpenGL ES.  If the swap interval is greater than<br/>
+        /// zero, the GPU driver waits the specified number of screen updates before<br/>
+        /// swapping the buffers.<br/>
+        /// The specified window must have an OpenGL or OpenGL ES context.  Specifying<br/>
+        /// a window without a context will generate a <br/>
+        /// error.<br/>
+        /// This function does not apply to Vulkan.  If you are rendering with Vulkan,<br/>
+        /// see `vkQueuePresentKHR` instead.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void SwapBuffersNative(GLFWwindow* window)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[115])(window);
-			#else
-			((delegate* unmanaged[Cdecl]<nint, void>)funcTable[115])((nint)window);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<nint, void> )funcTable[115])((nint)window);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function swaps the front and back buffers of the specified window when<br/>
-		/// rendering with OpenGL or OpenGL ES.  If the swap interval is greater than<br/>
-		/// zero, the GPU driver waits the specified number of screen updates before<br/>
-		/// swapping the buffers.<br/>
-		/// The specified window must have an OpenGL or OpenGL ES context.  Specifying<br/>
-		/// a window without a context will generate a <br/>
-		/// error.<br/>
-		/// This function does not apply to Vulkan.  If you are rendering with Vulkan,<br/>
-		/// see `vkQueuePresentKHR` instead.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SwapBuffers(GLFWwindowPtr window)
-		{
-			SwapBuffersNative((GLFWwindow*)window);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function swaps the front and back buffers of the specified window when<br/>
+        /// rendering with OpenGL or OpenGL ES.  If the swap interval is greater than<br/>
+        /// zero, the GPU driver waits the specified number of screen updates before<br/>
+        /// swapping the buffers.<br/>
+        /// The specified window must have an OpenGL or OpenGL ES context.  Specifying<br/>
+        /// a window without a context will generate a <br/>
+        /// error.<br/>
+        /// This function does not apply to Vulkan.  If you are rendering with Vulkan,<br/>
+        /// see `vkQueuePresentKHR` instead.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SwapBuffers(GLFWwindowPtr window)
+        {
+            SwapBuffersNative((GLFWwindow*)window);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function swaps the front and back buffers of the specified window when<br/>
-		/// rendering with OpenGL or OpenGL ES.  If the swap interval is greater than<br/>
-		/// zero, the GPU driver waits the specified number of screen updates before<br/>
-		/// swapping the buffers.<br/>
-		/// The specified window must have an OpenGL or OpenGL ES context.  Specifying<br/>
-		/// a window without a context will generate a <br/>
-		/// error.<br/>
-		/// This function does not apply to Vulkan.  If you are rendering with Vulkan,<br/>
-		/// see `vkQueuePresentKHR` instead.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SwapBuffers(ref GLFWwindow window)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				SwapBuffersNative((GLFWwindow*)pwindow);
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function swaps the front and back buffers of the specified window when<br/>
+        /// rendering with OpenGL or OpenGL ES.  If the swap interval is greater than<br/>
+        /// zero, the GPU driver waits the specified number of screen updates before<br/>
+        /// swapping the buffers.<br/>
+        /// The specified window must have an OpenGL or OpenGL ES context.  Specifying<br/>
+        /// a window without a context will generate a <br/>
+        /// error.<br/>
+        /// This function does not apply to Vulkan.  If you are rendering with Vulkan,<br/>
+        /// see `vkQueuePresentKHR` instead.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SwapBuffers(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                SwapBuffersNative((GLFWwindow*)pwindow);
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the swap interval for the current OpenGL or OpenGL ES<br/>
-		/// context, i.e. the number of screen updates to wait from the time <br/>
-		/// was called before swapping the buffers and returning.  This<br/>
-		/// is sometimes called _vertical synchronization_, _vertical retrace<br/>
-		/// synchronization_ or just _vsync_.<br/>
-		/// A context that supports either of the `WGL_EXT_swap_control_tear` and<br/>
-		/// `GLX_EXT_swap_control_tear` extensions also accepts _negative_ swap<br/>
-		/// intervals, which allows the driver to swap immediately even if a frame<br/>
-		/// arrives a little bit late.  You can check for these extensions with <br/>
-		/// A context must be current on the calling thread.  Calling this function<br/>
-		/// without a current context will cause a <br/>
-		/// error.<br/>
-		/// This function does not apply to Vulkan.  If you are rendering with Vulkan,<br/>
-		/// see the present mode of your swapchain instead.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static void SwapIntervalNative(int interval)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function sets the swap interval for the current OpenGL or OpenGL ES<br/>
+        /// context, i.e. the number of screen updates to wait from the time <br/>
+        /// was called before swapping the buffers and returning.  This<br/>
+        /// is sometimes called _vertical synchronization_, _vertical retrace<br/>
+        /// synchronization_ or just _vsync_.<br/>
+        /// A context that supports either of the `WGL_EXT_swap_control_tear` and<br/>
+        /// `GLX_EXT_swap_control_tear` extensions also accepts _negative_ swap<br/>
+        /// intervals, which allows the driver to swap immediately even if a frame<br/>
+        /// arrives a little bit late.  You can check for these extensions with <br/>
+        /// A context must be current on the calling thread.  Calling this function<br/>
+        /// without a current context will cause a <br/>
+        /// error.<br/>
+        /// This function does not apply to Vulkan.  If you are rendering with Vulkan,<br/>
+        /// see the present mode of your swapchain instead.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void SwapIntervalNative(int interval)
+        {
+#if NET5_0_OR_GREATER
 			((delegate* unmanaged[Cdecl]<int, void>)funcTable[116])(interval);
-			#else
-			((delegate* unmanaged[Cdecl]<int, void>)funcTable[116])(interval);
-			#endif
-		}
+#else
+            ((delegate* unmanaged[Cdecl]<int, void> )funcTable[116])(interval);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function sets the swap interval for the current OpenGL or OpenGL ES<br/>
-		/// context, i.e. the number of screen updates to wait from the time <br/>
-		/// was called before swapping the buffers and returning.  This<br/>
-		/// is sometimes called _vertical synchronization_, _vertical retrace<br/>
-		/// synchronization_ or just _vsync_.<br/>
-		/// A context that supports either of the `WGL_EXT_swap_control_tear` and<br/>
-		/// `GLX_EXT_swap_control_tear` extensions also accepts _negative_ swap<br/>
-		/// intervals, which allows the driver to swap immediately even if a frame<br/>
-		/// arrives a little bit late.  You can check for these extensions with <br/>
-		/// A context must be current on the calling thread.  Calling this function<br/>
-		/// without a current context will cause a <br/>
-		/// error.<br/>
-		/// This function does not apply to Vulkan.  If you are rendering with Vulkan,<br/>
-		/// see the present mode of your swapchain instead.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static void SwapInterval(int interval)
-		{
-			SwapIntervalNative(interval);
-		}
+        /// <summary>
+        /// <br/>
+        /// This function sets the swap interval for the current OpenGL or OpenGL ES<br/>
+        /// context, i.e. the number of screen updates to wait from the time <br/>
+        /// was called before swapping the buffers and returning.  This<br/>
+        /// is sometimes called _vertical synchronization_, _vertical retrace<br/>
+        /// synchronization_ or just _vsync_.<br/>
+        /// A context that supports either of the `WGL_EXT_swap_control_tear` and<br/>
+        /// `GLX_EXT_swap_control_tear` extensions also accepts _negative_ swap<br/>
+        /// intervals, which allows the driver to swap immediately even if a frame<br/>
+        /// arrives a little bit late.  You can check for these extensions with <br/>
+        /// A context must be current on the calling thread.  Calling this function<br/>
+        /// without a current context will cause a <br/>
+        /// error.<br/>
+        /// This function does not apply to Vulkan.  If you are rendering with Vulkan,<br/>
+        /// see the present mode of your swapchain instead.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SwapInterval(int interval)
+        {
+            SwapIntervalNative(interval);
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns whether the specified<br/>
-		/// [API extension](<br/>
-		/// is supported by the current OpenGL or<br/>
-		/// OpenGL ES context.  It searches both for client API extension and context<br/>
-		/// creation API extensions.<br/>
-		/// A context must be current on the calling thread.  Calling this function<br/>
-		/// without a current context will cause a <br/>
-		/// error.<br/>
-		/// As this functions retrieves and searches one or more extension strings each<br/>
-		/// call, it is recommended that you cache its results if it is going to be used<br/>
-		/// frequently.  The extension strings will not change during the lifetime of<br/>
-		/// a context, so there is no danger in doing this.<br/>
-		/// This function does not apply to Vulkan.  If you are using Vulkan, see <br/>
-		/// `vkEnumerateInstanceExtensionProperties`<br/>
-		/// and `vkEnumerateDeviceExtensionProperties` instead.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int ExtensionSupportedNative(byte* extension)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns whether the specified<br/>
+        /// [API extension](<br/>
+        /// is supported by the current OpenGL or<br/>
+        /// OpenGL ES context.  It searches both for client API extension and context<br/>
+        /// creation API extensions.<br/>
+        /// A context must be current on the calling thread.  Calling this function<br/>
+        /// without a current context will cause a <br/>
+        /// error.<br/>
+        /// As this functions retrieves and searches one or more extension strings each<br/>
+        /// call, it is recommended that you cache its results if it is going to be used<br/>
+        /// frequently.  The extension strings will not change during the lifetime of<br/>
+        /// a context, so there is no danger in doing this.<br/>
+        /// This function does not apply to Vulkan.  If you are using Vulkan, see <br/>
+        /// `vkEnumerateInstanceExtensionProperties`<br/>
+        /// and `vkEnumerateDeviceExtensionProperties` instead.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static int ExtensionSupportedNative(byte* extension)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<byte*, int>)funcTable[117])(extension);
-			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, int>)funcTable[117])((nint)extension);
-			#endif
-		}
+#else
+            return (int)((delegate* unmanaged[Cdecl]<nint, int> )funcTable[117])((nint)extension);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns whether the specified<br/>
-		/// [API extension](<br/>
-		/// is supported by the current OpenGL or<br/>
-		/// OpenGL ES context.  It searches both for client API extension and context<br/>
-		/// creation API extensions.<br/>
-		/// A context must be current on the calling thread.  Calling this function<br/>
-		/// without a current context will cause a <br/>
-		/// error.<br/>
-		/// As this functions retrieves and searches one or more extension strings each<br/>
-		/// call, it is recommended that you cache its results if it is going to be used<br/>
-		/// frequently.  The extension strings will not change during the lifetime of<br/>
-		/// a context, so there is no danger in doing this.<br/>
-		/// This function does not apply to Vulkan.  If you are using Vulkan, see <br/>
-		/// `vkEnumerateInstanceExtensionProperties`<br/>
-		/// and `vkEnumerateDeviceExtensionProperties` instead.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int ExtensionSupported(byte* extension)
-		{
-			int ret = ExtensionSupportedNative(extension);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns whether the specified<br/>
+        /// [API extension](<br/>
+        /// is supported by the current OpenGL or<br/>
+        /// OpenGL ES context.  It searches both for client API extension and context<br/>
+        /// creation API extensions.<br/>
+        /// A context must be current on the calling thread.  Calling this function<br/>
+        /// without a current context will cause a <br/>
+        /// error.<br/>
+        /// As this functions retrieves and searches one or more extension strings each<br/>
+        /// call, it is recommended that you cache its results if it is going to be used<br/>
+        /// frequently.  The extension strings will not change during the lifetime of<br/>
+        /// a context, so there is no danger in doing this.<br/>
+        /// This function does not apply to Vulkan.  If you are using Vulkan, see <br/>
+        /// `vkEnumerateInstanceExtensionProperties`<br/>
+        /// and `vkEnumerateDeviceExtensionProperties` instead.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int ExtensionSupported(byte* extension)
+        {
+            int ret = ExtensionSupportedNative(extension);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns whether the specified<br/>
-		/// [API extension](<br/>
-		/// is supported by the current OpenGL or<br/>
-		/// OpenGL ES context.  It searches both for client API extension and context<br/>
-		/// creation API extensions.<br/>
-		/// A context must be current on the calling thread.  Calling this function<br/>
-		/// without a current context will cause a <br/>
-		/// error.<br/>
-		/// As this functions retrieves and searches one or more extension strings each<br/>
-		/// call, it is recommended that you cache its results if it is going to be used<br/>
-		/// frequently.  The extension strings will not change during the lifetime of<br/>
-		/// a context, so there is no danger in doing this.<br/>
-		/// This function does not apply to Vulkan.  If you are using Vulkan, see <br/>
-		/// `vkEnumerateInstanceExtensionProperties`<br/>
-		/// and `vkEnumerateDeviceExtensionProperties` instead.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int ExtensionSupported(in byte extension)
-		{
-			fixed (byte* pextension = &extension)
-			{
-				int ret = ExtensionSupportedNative((byte*)pextension);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns whether the specified<br/>
+        /// [API extension](<br/>
+        /// is supported by the current OpenGL or<br/>
+        /// OpenGL ES context.  It searches both for client API extension and context<br/>
+        /// creation API extensions.<br/>
+        /// A context must be current on the calling thread.  Calling this function<br/>
+        /// without a current context will cause a <br/>
+        /// error.<br/>
+        /// As this functions retrieves and searches one or more extension strings each<br/>
+        /// call, it is recommended that you cache its results if it is going to be used<br/>
+        /// frequently.  The extension strings will not change during the lifetime of<br/>
+        /// a context, so there is no danger in doing this.<br/>
+        /// This function does not apply to Vulkan.  If you are using Vulkan, see <br/>
+        /// `vkEnumerateInstanceExtensionProperties`<br/>
+        /// and `vkEnumerateDeviceExtensionProperties` instead.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int ExtensionSupported(in byte extension)
+        {
+            fixed (byte* pextension = &extension)
+            {
+                int ret = ExtensionSupportedNative((byte*)pextension);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns whether the specified<br/>
-		/// [API extension](<br/>
-		/// is supported by the current OpenGL or<br/>
-		/// OpenGL ES context.  It searches both for client API extension and context<br/>
-		/// creation API extensions.<br/>
-		/// A context must be current on the calling thread.  Calling this function<br/>
-		/// without a current context will cause a <br/>
-		/// error.<br/>
-		/// As this functions retrieves and searches one or more extension strings each<br/>
-		/// call, it is recommended that you cache its results if it is going to be used<br/>
-		/// frequently.  The extension strings will not change during the lifetime of<br/>
-		/// a context, so there is no danger in doing this.<br/>
-		/// This function does not apply to Vulkan.  If you are using Vulkan, see <br/>
-		/// `vkEnumerateInstanceExtensionProperties`<br/>
-		/// and `vkEnumerateDeviceExtensionProperties` instead.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int ExtensionSupported(ReadOnlySpan<byte> extension)
-		{
-			fixed (byte* pextension = extension)
-			{
-				int ret = ExtensionSupportedNative((byte*)pextension);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns whether the specified<br/>
+        /// [API extension](<br/>
+        /// is supported by the current OpenGL or<br/>
+        /// OpenGL ES context.  It searches both for client API extension and context<br/>
+        /// creation API extensions.<br/>
+        /// A context must be current on the calling thread.  Calling this function<br/>
+        /// without a current context will cause a <br/>
+        /// error.<br/>
+        /// As this functions retrieves and searches one or more extension strings each<br/>
+        /// call, it is recommended that you cache its results if it is going to be used<br/>
+        /// frequently.  The extension strings will not change during the lifetime of<br/>
+        /// a context, so there is no danger in doing this.<br/>
+        /// This function does not apply to Vulkan.  If you are using Vulkan, see <br/>
+        /// `vkEnumerateInstanceExtensionProperties`<br/>
+        /// and `vkEnumerateDeviceExtensionProperties` instead.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int ExtensionSupported(ReadOnlySpan<byte> extension)
+        {
+            fixed (byte* pextension = extension)
+            {
+                int ret = ExtensionSupportedNative((byte*)pextension);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns whether the specified<br/>
-		/// [API extension](<br/>
-		/// is supported by the current OpenGL or<br/>
-		/// OpenGL ES context.  It searches both for client API extension and context<br/>
-		/// creation API extensions.<br/>
-		/// A context must be current on the calling thread.  Calling this function<br/>
-		/// without a current context will cause a <br/>
-		/// error.<br/>
-		/// As this functions retrieves and searches one or more extension strings each<br/>
-		/// call, it is recommended that you cache its results if it is going to be used<br/>
-		/// frequently.  The extension strings will not change during the lifetime of<br/>
-		/// a context, so there is no danger in doing this.<br/>
-		/// This function does not apply to Vulkan.  If you are using Vulkan, see <br/>
-		/// `vkEnumerateInstanceExtensionProperties`<br/>
-		/// and `vkEnumerateDeviceExtensionProperties` instead.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int ExtensionSupported(string extension)
-		{
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (extension != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(extension);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(extension, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			int ret = ExtensionSupportedNative(pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns whether the specified<br/>
+        /// [API extension](<br/>
+        /// is supported by the current OpenGL or<br/>
+        /// OpenGL ES context.  It searches both for client API extension and context<br/>
+        /// creation API extensions.<br/>
+        /// A context must be current on the calling thread.  Calling this function<br/>
+        /// without a current context will cause a <br/>
+        /// error.<br/>
+        /// As this functions retrieves and searches one or more extension strings each<br/>
+        /// call, it is recommended that you cache its results if it is going to be used<br/>
+        /// frequently.  The extension strings will not change during the lifetime of<br/>
+        /// a context, so there is no danger in doing this.<br/>
+        /// This function does not apply to Vulkan.  If you are using Vulkan, see <br/>
+        /// `vkEnumerateInstanceExtensionProperties`<br/>
+        /// and `vkEnumerateDeviceExtensionProperties` instead.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int ExtensionSupported(string extension)
+        {
+            byte* pStr0 = null;
+            int pStrSize0 = 0;
+            if (extension != null)
+            {
+                pStrSize0 = Utils.GetByteCountUTF8(extension);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+                }
+                else
+                {
+                    byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+                    pStr0 = pStrStack0;
+                }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the address of the specified OpenGL or OpenGL ES<br/>
-		/// [core or extension function](<br/>
-		/// if it is supported<br/>
-		/// by the current context.<br/>
-		/// A context must be current on the calling thread.  Calling this function<br/>
-		/// without a current context will cause a <br/>
-		/// error.<br/>
-		/// This function does not apply to Vulkan.  If you are rendering with Vulkan,<br/>
-		/// see <br/>
-		/// `vkGetInstanceProcAddr` and<br/>
-		/// `vkGetDeviceProcAddr` instead.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned function pointer is valid until the context<br/>
-		/// is destroyed or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static delegate*<void> GetProcAddressNative(byte* procname)
-		{
-			#if NET5_0_OR_GREATER
+                int pStrOffset0 = Utils.EncodeStringUTF8(extension, pStr0, pStrSize0);
+                pStr0[pStrOffset0] = 0;
+            }
+
+            int ret = ExtensionSupportedNative(pStr0);
+            if (pStrSize0 >= Utils.MaxStackallocSize)
+            {
+                Utils.Free(pStr0);
+            }
+
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// This function returns the address of the specified OpenGL or OpenGL ES<br/>
+        /// [core or extension function](<br/>
+        /// if it is supported<br/>
+        /// by the current context.<br/>
+        /// A context must be current on the calling thread.  Calling this function<br/>
+        /// without a current context will cause a <br/>
+        /// error.<br/>
+        /// This function does not apply to Vulkan.  If you are rendering with Vulkan,<br/>
+        /// see <br/>
+        /// `vkGetInstanceProcAddr` and<br/>
+        /// `vkGetDeviceProcAddr` instead.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned function pointer is valid until the context<br/>
+        /// is destroyed or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static delegate*<void> GetProcAddressNative(byte* procname)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<byte*, delegate*<void>>)funcTable[118])(procname);
-			#else
-			return (delegate*<void>)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[118])((nint)procname);
-			#endif
-		}
+#else
+            return (delegate*<void> )((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[118])((nint)procname);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the address of the specified OpenGL or OpenGL ES<br/>
-		/// [core or extension function](<br/>
-		/// if it is supported<br/>
-		/// by the current context.<br/>
-		/// A context must be current on the calling thread.  Calling this function<br/>
-		/// without a current context will cause a <br/>
-		/// error.<br/>
-		/// This function does not apply to Vulkan.  If you are rendering with Vulkan,<br/>
-		/// see <br/>
-		/// `vkGetInstanceProcAddr` and<br/>
-		/// `vkGetDeviceProcAddr` instead.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned function pointer is valid until the context<br/>
-		/// is destroyed or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<void> GetProcAddress(byte* procname)
-		{
-			delegate*<void> ret = GetProcAddressNative(procname);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the address of the specified OpenGL or OpenGL ES<br/>
+        /// [core or extension function](<br/>
+        /// if it is supported<br/>
+        /// by the current context.<br/>
+        /// A context must be current on the calling thread.  Calling this function<br/>
+        /// without a current context will cause a <br/>
+        /// error.<br/>
+        /// This function does not apply to Vulkan.  If you are rendering with Vulkan,<br/>
+        /// see <br/>
+        /// `vkGetInstanceProcAddr` and<br/>
+        /// `vkGetDeviceProcAddr` instead.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned function pointer is valid until the context<br/>
+        /// is destroyed or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<void> GetProcAddress(byte* procname)
+        {
+            delegate*<void> ret = GetProcAddressNative(procname);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the address of the specified OpenGL or OpenGL ES<br/>
-		/// [core or extension function](<br/>
-		/// if it is supported<br/>
-		/// by the current context.<br/>
-		/// A context must be current on the calling thread.  Calling this function<br/>
-		/// without a current context will cause a <br/>
-		/// error.<br/>
-		/// This function does not apply to Vulkan.  If you are rendering with Vulkan,<br/>
-		/// see <br/>
-		/// `vkGetInstanceProcAddr` and<br/>
-		/// `vkGetDeviceProcAddr` instead.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned function pointer is valid until the context<br/>
-		/// is destroyed or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<void> GetProcAddress(in byte procname)
-		{
-			fixed (byte* pprocname = &procname)
-			{
-				delegate*<void> ret = GetProcAddressNative((byte*)pprocname);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the address of the specified OpenGL or OpenGL ES<br/>
+        /// [core or extension function](<br/>
+        /// if it is supported<br/>
+        /// by the current context.<br/>
+        /// A context must be current on the calling thread.  Calling this function<br/>
+        /// without a current context will cause a <br/>
+        /// error.<br/>
+        /// This function does not apply to Vulkan.  If you are rendering with Vulkan,<br/>
+        /// see <br/>
+        /// `vkGetInstanceProcAddr` and<br/>
+        /// `vkGetDeviceProcAddr` instead.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned function pointer is valid until the context<br/>
+        /// is destroyed or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<void> GetProcAddress(in byte procname)
+        {
+            fixed (byte* pprocname = &procname)
+            {
+                delegate*<void> ret = GetProcAddressNative((byte*)pprocname);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the address of the specified OpenGL or OpenGL ES<br/>
-		/// [core or extension function](<br/>
-		/// if it is supported<br/>
-		/// by the current context.<br/>
-		/// A context must be current on the calling thread.  Calling this function<br/>
-		/// without a current context will cause a <br/>
-		/// error.<br/>
-		/// This function does not apply to Vulkan.  If you are rendering with Vulkan,<br/>
-		/// see <br/>
-		/// `vkGetInstanceProcAddr` and<br/>
-		/// `vkGetDeviceProcAddr` instead.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned function pointer is valid until the context<br/>
-		/// is destroyed or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<void> GetProcAddress(ReadOnlySpan<byte> procname)
-		{
-			fixed (byte* pprocname = procname)
-			{
-				delegate*<void> ret = GetProcAddressNative((byte*)pprocname);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the address of the specified OpenGL or OpenGL ES<br/>
+        /// [core or extension function](<br/>
+        /// if it is supported<br/>
+        /// by the current context.<br/>
+        /// A context must be current on the calling thread.  Calling this function<br/>
+        /// without a current context will cause a <br/>
+        /// error.<br/>
+        /// This function does not apply to Vulkan.  If you are rendering with Vulkan,<br/>
+        /// see <br/>
+        /// `vkGetInstanceProcAddr` and<br/>
+        /// `vkGetDeviceProcAddr` instead.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned function pointer is valid until the context<br/>
+        /// is destroyed or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<void> GetProcAddress(ReadOnlySpan<byte> procname)
+        {
+            fixed (byte* pprocname = procname)
+            {
+                delegate*<void> ret = GetProcAddressNative((byte*)pprocname);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the address of the specified OpenGL or OpenGL ES<br/>
-		/// [core or extension function](<br/>
-		/// if it is supported<br/>
-		/// by the current context.<br/>
-		/// A context must be current on the calling thread.  Calling this function<br/>
-		/// without a current context will cause a <br/>
-		/// error.<br/>
-		/// This function does not apply to Vulkan.  If you are rendering with Vulkan,<br/>
-		/// see <br/>
-		/// `vkGetInstanceProcAddr` and<br/>
-		/// `vkGetDeviceProcAddr` instead.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned function pointer is valid until the context<br/>
-		/// is destroyed or the library is terminated.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<void> GetProcAddress(string procname)
-		{
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (procname != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(procname);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(procname, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			delegate*<void> ret = GetProcAddressNative(pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the address of the specified OpenGL or OpenGL ES<br/>
+        /// [core or extension function](<br/>
+        /// if it is supported<br/>
+        /// by the current context.<br/>
+        /// A context must be current on the calling thread.  Calling this function<br/>
+        /// without a current context will cause a <br/>
+        /// error.<br/>
+        /// This function does not apply to Vulkan.  If you are rendering with Vulkan,<br/>
+        /// see <br/>
+        /// `vkGetInstanceProcAddr` and<br/>
+        /// `vkGetDeviceProcAddr` instead.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned function pointer is valid until the context<br/>
+        /// is destroyed or the library is terminated.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<void> GetProcAddress(string procname)
+        {
+            byte* pStr0 = null;
+            int pStrSize0 = 0;
+            if (procname != null)
+            {
+                pStrSize0 = Utils.GetByteCountUTF8(procname);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+                }
+                else
+                {
+                    byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+                    pStr0 = pStrStack0;
+                }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns whether the Vulkan loader and any minimally functional<br/>
-		/// ICD have been found.<br/>
-		/// The availability of a Vulkan loader and even an ICD does not by itself guarantee that<br/>
-		/// surface creation or even instance creation is possible.  Call <br/>
-		/// to check whether the extensions necessary for Vulkan<br/>
-		/// surface creation are available and <br/>
-		/// to<br/>
-		/// check whether a queue family of a physical device supports image presentation.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int VulkanSupportedNative()
-		{
-			#if NET5_0_OR_GREATER
+                int pStrOffset0 = Utils.EncodeStringUTF8(procname, pStr0, pStrSize0);
+                pStr0[pStrOffset0] = 0;
+            }
+
+            delegate*<void> ret = GetProcAddressNative(pStr0);
+            if (pStrSize0 >= Utils.MaxStackallocSize)
+            {
+                Utils.Free(pStr0);
+            }
+
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// This function returns whether the Vulkan loader and any minimally functional<br/>
+        /// ICD have been found.<br/>
+        /// The availability of a Vulkan loader and even an ICD does not by itself guarantee that<br/>
+        /// surface creation or even instance creation is possible.  Call <br/>
+        /// to check whether the extensions necessary for Vulkan<br/>
+        /// surface creation are available and <br/>
+        /// to<br/>
+        /// check whether a queue family of a physical device supports image presentation.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static int VulkanSupportedNative()
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int>)funcTable[119])();
-			#else
-			return (int)((delegate* unmanaged[Cdecl]<int>)funcTable[119])();
-			#endif
-		}
+#else
+            return (int)((delegate* unmanaged[Cdecl]<int> )funcTable[119])();
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns whether the Vulkan loader and any minimally functional<br/>
-		/// ICD have been found.<br/>
-		/// The availability of a Vulkan loader and even an ICD does not by itself guarantee that<br/>
-		/// surface creation or even instance creation is possible.  Call <br/>
-		/// to check whether the extensions necessary for Vulkan<br/>
-		/// surface creation are available and <br/>
-		/// to<br/>
-		/// check whether a queue family of a physical device supports image presentation.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int VulkanSupported()
-		{
-			int ret = VulkanSupportedNative();
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns whether the Vulkan loader and any minimally functional<br/>
+        /// ICD have been found.<br/>
+        /// The availability of a Vulkan loader and even an ICD does not by itself guarantee that<br/>
+        /// surface creation or even instance creation is possible.  Call <br/>
+        /// to check whether the extensions necessary for Vulkan<br/>
+        /// surface creation are available and <br/>
+        /// to<br/>
+        /// check whether a queue family of a physical device supports image presentation.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int VulkanSupported()
+        {
+            int ret = VulkanSupportedNative();
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns an array of names of Vulkan instance extensions required<br/>
-		/// by GLFW for creating Vulkan surfaces for GLFW windows.  If successful, the<br/>
-		/// list will always contain `VK_KHR_surface`, so if you don't require any<br/>
-		/// additional extensions you can pass this list directly to the<br/>
-		/// `VkInstanceCreateInfo` struct.<br/>
-		/// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether Vulkan is at least minimally available.<br/>
-		/// If Vulkan is available but no set of extensions allowing window surface<br/>
-		/// creation was found, this function returns `NULL`.  You may still use Vulkan<br/>
-		/// for off-screen rendering and compute work.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is guaranteed to be valid only until the<br/>
-		/// library is terminated.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte** GetRequiredInstanceExtensionsNative(uint* count)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// This function returns an array of names of Vulkan instance extensions required<br/>
+        /// by GLFW for creating Vulkan surfaces for GLFW windows.  If successful, the<br/>
+        /// list will always contain `VK_KHR_surface`, so if you don't require any<br/>
+        /// additional extensions you can pass this list directly to the<br/>
+        /// `VkInstanceCreateInfo` struct.<br/>
+        /// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
+        /// generates a <br/>
+        /// error.  Call <br/>
+        /// to check whether Vulkan is at least minimally available.<br/>
+        /// If Vulkan is available but no set of extensions allowing window surface<br/>
+        /// creation was found, this function returns `NULL`.  You may still use Vulkan<br/>
+        /// for off-screen rendering and compute work.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is guaranteed to be valid only until the<br/>
+        /// library is terminated.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static byte** GetRequiredInstanceExtensionsNative(uint* count)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<uint*, byte**>)funcTable[120])(count);
-			#else
-			return (byte**)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[120])((nint)count);
-			#endif
-		}
+#else
+            return (byte**)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[120])((nint)count);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns an array of names of Vulkan instance extensions required<br/>
-		/// by GLFW for creating Vulkan surfaces for GLFW windows.  If successful, the<br/>
-		/// list will always contain `VK_KHR_surface`, so if you don't require any<br/>
-		/// additional extensions you can pass this list directly to the<br/>
-		/// `VkInstanceCreateInfo` struct.<br/>
-		/// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether Vulkan is at least minimally available.<br/>
-		/// If Vulkan is available but no set of extensions allowing window surface<br/>
-		/// creation was found, this function returns `NULL`.  You may still use Vulkan<br/>
-		/// for off-screen rendering and compute work.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is guaranteed to be valid only until the<br/>
-		/// library is terminated.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static byte** GetRequiredInstanceExtensions(uint* count)
-		{
-			byte** ret = GetRequiredInstanceExtensionsNative(count);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns an array of names of Vulkan instance extensions required<br/>
+        /// by GLFW for creating Vulkan surfaces for GLFW windows.  If successful, the<br/>
+        /// list will always contain `VK_KHR_surface`, so if you don't require any<br/>
+        /// additional extensions you can pass this list directly to the<br/>
+        /// `VkInstanceCreateInfo` struct.<br/>
+        /// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
+        /// generates a <br/>
+        /// error.  Call <br/>
+        /// to check whether Vulkan is at least minimally available.<br/>
+        /// If Vulkan is available but no set of extensions allowing window surface<br/>
+        /// creation was found, this function returns `NULL`.  You may still use Vulkan<br/>
+        /// for off-screen rendering and compute work.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is guaranteed to be valid only until the<br/>
+        /// library is terminated.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static byte** GetRequiredInstanceExtensions(uint* count)
+        {
+            byte** ret = GetRequiredInstanceExtensionsNative(count);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns an array of names of Vulkan instance extensions required<br/>
-		/// by GLFW for creating Vulkan surfaces for GLFW windows.  If successful, the<br/>
-		/// list will always contain `VK_KHR_surface`, so if you don't require any<br/>
-		/// additional extensions you can pass this list directly to the<br/>
-		/// `VkInstanceCreateInfo` struct.<br/>
-		/// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether Vulkan is at least minimally available.<br/>
-		/// If Vulkan is available but no set of extensions allowing window surface<br/>
-		/// creation was found, this function returns `NULL`.  You may still use Vulkan<br/>
-		/// for off-screen rendering and compute work.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-		/// should not free it yourself.  It is guaranteed to be valid only until the<br/>
-		/// library is terminated.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static byte** GetRequiredInstanceExtensions(ref uint count)
-		{
-			fixed (uint* pcount = &count)
-			{
-				byte** ret = GetRequiredInstanceExtensionsNative((uint*)pcount);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns an array of names of Vulkan instance extensions required<br/>
+        /// by GLFW for creating Vulkan surfaces for GLFW windows.  If successful, the<br/>
+        /// list will always contain `VK_KHR_surface`, so if you don't require any<br/>
+        /// additional extensions you can pass this list directly to the<br/>
+        /// `VkInstanceCreateInfo` struct.<br/>
+        /// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
+        /// generates a <br/>
+        /// error.  Call <br/>
+        /// to check whether Vulkan is at least minimally available.<br/>
+        /// If Vulkan is available but no set of extensions allowing window surface<br/>
+        /// creation was found, this function returns `NULL`.  You may still use Vulkan<br/>
+        /// for off-screen rendering and compute work.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
+        /// should not free it yourself.  It is guaranteed to be valid only until the<br/>
+        /// library is terminated.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static byte** GetRequiredInstanceExtensions(ref uint count)
+        {
+            fixed (uint* pcount = &count)
+            {
+                byte** ret = GetRequiredInstanceExtensionsNative((uint*)pcount);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the address of the specified Vulkan core or extension<br/>
-		/// function for the specified instance.  If instance is set to `NULL` it can<br/>
-		/// return any function exported from the Vulkan loader, including at least the<br/>
-		/// following functions:<br/>
-		/// - `vkEnumerateInstanceExtensionProperties`<br/>
-		/// - `vkEnumerateInstanceLayerProperties`<br/>
-		/// - `vkCreateInstance`<br/>
-		/// - `vkGetInstanceProcAddr`<br/>
-		/// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether Vulkan is at least minimally available.<br/>
-		/// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
-		/// a platform-specific query of the Vulkan loader as a fallback.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned function pointer is valid until the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static delegate*<void> GetInstanceProcAddressNative(void* instance, byte* procname)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*, byte*, delegate*<void>>)funcTable[121])(instance, procname);
-			#else
-			return (delegate*<void>)((delegate* unmanaged[Cdecl]<nint, nint, nint>)funcTable[121])((nint)instance, (nint)procname);
-			#endif
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the address of the specified Vulkan core or extension<br/>
+        /// function for the specified instance.  If instance is set to `NULL` it can<br/>
+        /// return any function exported from the Vulkan loader, including at least the<br/>
+        /// following functions:<br/>
+        /// - `vkEnumerateInstanceExtensionProperties`<br/>
+        /// - `vkEnumerateInstanceLayerProperties`<br/>
+        /// - `vkCreateInstance`<br/>
+        /// - `vkGetInstanceProcAddr`<br/>
+        /// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
+        /// generates a <br/>
+        /// error.  Call <br/>
+        /// to check whether Vulkan is at least minimally available.<br/>
+        /// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
+        /// a platform-specific query of the Vulkan loader as a fallback.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned function pointer is valid until the library<br/>
+        /// is terminated.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static delegate*<void> GetInstanceProcAddressNative(VkInstance instance, byte* procname)
+        {
+#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<VkInstance, byte*, delegate*<void>>)funcTable[121])(instance, procname);
+#else
+            return (delegate*<void> )((delegate* unmanaged[Cdecl]<VkInstance, nint, nint> )funcTable[121])(instance, (nint)procname);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the address of the specified Vulkan core or extension<br/>
-		/// function for the specified instance.  If instance is set to `NULL` it can<br/>
-		/// return any function exported from the Vulkan loader, including at least the<br/>
-		/// following functions:<br/>
-		/// - `vkEnumerateInstanceExtensionProperties`<br/>
-		/// - `vkEnumerateInstanceLayerProperties`<br/>
-		/// - `vkCreateInstance`<br/>
-		/// - `vkGetInstanceProcAddr`<br/>
-		/// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether Vulkan is at least minimally available.<br/>
-		/// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
-		/// a platform-specific query of the Vulkan loader as a fallback.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned function pointer is valid until the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<void> GetInstanceProcAddress(void* instance, byte* procname)
-		{
-			delegate*<void> ret = GetInstanceProcAddressNative(instance, procname);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the address of the specified Vulkan core or extension<br/>
+        /// function for the specified instance.  If instance is set to `NULL` it can<br/>
+        /// return any function exported from the Vulkan loader, including at least the<br/>
+        /// following functions:<br/>
+        /// - `vkEnumerateInstanceExtensionProperties`<br/>
+        /// - `vkEnumerateInstanceLayerProperties`<br/>
+        /// - `vkCreateInstance`<br/>
+        /// - `vkGetInstanceProcAddr`<br/>
+        /// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
+        /// generates a <br/>
+        /// error.  Call <br/>
+        /// to check whether Vulkan is at least minimally available.<br/>
+        /// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
+        /// a platform-specific query of the Vulkan loader as a fallback.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned function pointer is valid until the library<br/>
+        /// is terminated.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<void> GetInstanceProcAddress(VkInstance instance, byte* procname)
+        {
+            delegate*<void> ret = GetInstanceProcAddressNative(instance, procname);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the address of the specified Vulkan core or extension<br/>
-		/// function for the specified instance.  If instance is set to `NULL` it can<br/>
-		/// return any function exported from the Vulkan loader, including at least the<br/>
-		/// following functions:<br/>
-		/// - `vkEnumerateInstanceExtensionProperties`<br/>
-		/// - `vkEnumerateInstanceLayerProperties`<br/>
-		/// - `vkCreateInstance`<br/>
-		/// - `vkGetInstanceProcAddr`<br/>
-		/// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether Vulkan is at least minimally available.<br/>
-		/// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
-		/// a platform-specific query of the Vulkan loader as a fallback.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned function pointer is valid until the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<void> GetInstanceProcAddress(nint instance, byte* procname)
-		{
-			delegate*<void> ret = GetInstanceProcAddressNative((void*)instance, procname);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the address of the specified Vulkan core or extension<br/>
+        /// function for the specified instance.  If instance is set to `NULL` it can<br/>
+        /// return any function exported from the Vulkan loader, including at least the<br/>
+        /// following functions:<br/>
+        /// - `vkEnumerateInstanceExtensionProperties`<br/>
+        /// - `vkEnumerateInstanceLayerProperties`<br/>
+        /// - `vkCreateInstance`<br/>
+        /// - `vkGetInstanceProcAddr`<br/>
+        /// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
+        /// generates a <br/>
+        /// error.  Call <br/>
+        /// to check whether Vulkan is at least minimally available.<br/>
+        /// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
+        /// a platform-specific query of the Vulkan loader as a fallback.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned function pointer is valid until the library<br/>
+        /// is terminated.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<void> GetInstanceProcAddress(VkInstance instance, in byte procname)
+        {
+            fixed (byte* pprocname = &procname)
+            {
+                delegate*<void> ret = GetInstanceProcAddressNative(instance, (byte*)pprocname);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the address of the specified Vulkan core or extension<br/>
-		/// function for the specified instance.  If instance is set to `NULL` it can<br/>
-		/// return any function exported from the Vulkan loader, including at least the<br/>
-		/// following functions:<br/>
-		/// - `vkEnumerateInstanceExtensionProperties`<br/>
-		/// - `vkEnumerateInstanceLayerProperties`<br/>
-		/// - `vkCreateInstance`<br/>
-		/// - `vkGetInstanceProcAddr`<br/>
-		/// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether Vulkan is at least minimally available.<br/>
-		/// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
-		/// a platform-specific query of the Vulkan loader as a fallback.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned function pointer is valid until the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<void> GetInstanceProcAddress(void* instance, in byte procname)
-		{
-			fixed (byte* pprocname = &procname)
-			{
-				delegate*<void> ret = GetInstanceProcAddressNative(instance, (byte*)pprocname);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the address of the specified Vulkan core or extension<br/>
+        /// function for the specified instance.  If instance is set to `NULL` it can<br/>
+        /// return any function exported from the Vulkan loader, including at least the<br/>
+        /// following functions:<br/>
+        /// - `vkEnumerateInstanceExtensionProperties`<br/>
+        /// - `vkEnumerateInstanceLayerProperties`<br/>
+        /// - `vkCreateInstance`<br/>
+        /// - `vkGetInstanceProcAddr`<br/>
+        /// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
+        /// generates a <br/>
+        /// error.  Call <br/>
+        /// to check whether Vulkan is at least minimally available.<br/>
+        /// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
+        /// a platform-specific query of the Vulkan loader as a fallback.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned function pointer is valid until the library<br/>
+        /// is terminated.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<void> GetInstanceProcAddress(VkInstance instance, ReadOnlySpan<byte> procname)
+        {
+            fixed (byte* pprocname = procname)
+            {
+                delegate*<void> ret = GetInstanceProcAddressNative(instance, (byte*)pprocname);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the address of the specified Vulkan core or extension<br/>
-		/// function for the specified instance.  If instance is set to `NULL` it can<br/>
-		/// return any function exported from the Vulkan loader, including at least the<br/>
-		/// following functions:<br/>
-		/// - `vkEnumerateInstanceExtensionProperties`<br/>
-		/// - `vkEnumerateInstanceLayerProperties`<br/>
-		/// - `vkCreateInstance`<br/>
-		/// - `vkGetInstanceProcAddr`<br/>
-		/// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether Vulkan is at least minimally available.<br/>
-		/// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
-		/// a platform-specific query of the Vulkan loader as a fallback.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned function pointer is valid until the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<void> GetInstanceProcAddress(void* instance, ReadOnlySpan<byte> procname)
-		{
-			fixed (byte* pprocname = procname)
-			{
-				delegate*<void> ret = GetInstanceProcAddressNative(instance, (byte*)pprocname);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns the address of the specified Vulkan core or extension<br/>
+        /// function for the specified instance.  If instance is set to `NULL` it can<br/>
+        /// return any function exported from the Vulkan loader, including at least the<br/>
+        /// following functions:<br/>
+        /// - `vkEnumerateInstanceExtensionProperties`<br/>
+        /// - `vkEnumerateInstanceLayerProperties`<br/>
+        /// - `vkCreateInstance`<br/>
+        /// - `vkGetInstanceProcAddr`<br/>
+        /// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
+        /// generates a <br/>
+        /// error.  Call <br/>
+        /// to check whether Vulkan is at least minimally available.<br/>
+        /// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
+        /// a platform-specific query of the Vulkan loader as a fallback.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned function pointer is valid until the library<br/>
+        /// is terminated.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static delegate*<void> GetInstanceProcAddress(VkInstance instance, string procname)
+        {
+            byte* pStr0 = null;
+            int pStrSize0 = 0;
+            if (procname != null)
+            {
+                pStrSize0 = Utils.GetByteCountUTF8(procname);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+                }
+                else
+                {
+                    byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+                    pStr0 = pStrStack0;
+                }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the address of the specified Vulkan core or extension<br/>
-		/// function for the specified instance.  If instance is set to `NULL` it can<br/>
-		/// return any function exported from the Vulkan loader, including at least the<br/>
-		/// following functions:<br/>
-		/// - `vkEnumerateInstanceExtensionProperties`<br/>
-		/// - `vkEnumerateInstanceLayerProperties`<br/>
-		/// - `vkCreateInstance`<br/>
-		/// - `vkGetInstanceProcAddr`<br/>
-		/// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether Vulkan is at least minimally available.<br/>
-		/// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
-		/// a platform-specific query of the Vulkan loader as a fallback.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned function pointer is valid until the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<void> GetInstanceProcAddress(void* instance, string procname)
-		{
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (procname != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(procname);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(procname, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			delegate*<void> ret = GetInstanceProcAddressNative(instance, pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
-		}
+                int pStrOffset0 = Utils.EncodeStringUTF8(procname, pStr0, pStrSize0);
+                pStr0[pStrOffset0] = 0;
+            }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the address of the specified Vulkan core or extension<br/>
-		/// function for the specified instance.  If instance is set to `NULL` it can<br/>
-		/// return any function exported from the Vulkan loader, including at least the<br/>
-		/// following functions:<br/>
-		/// - `vkEnumerateInstanceExtensionProperties`<br/>
-		/// - `vkEnumerateInstanceLayerProperties`<br/>
-		/// - `vkCreateInstance`<br/>
-		/// - `vkGetInstanceProcAddr`<br/>
-		/// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether Vulkan is at least minimally available.<br/>
-		/// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
-		/// a platform-specific query of the Vulkan loader as a fallback.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned function pointer is valid until the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<void> GetInstanceProcAddress(nint instance, in byte procname)
-		{
-			fixed (byte* pprocname = &procname)
-			{
-				delegate*<void> ret = GetInstanceProcAddressNative((void*)instance, (byte*)pprocname);
-				return ret;
-			}
-		}
+            delegate*<void> ret = GetInstanceProcAddressNative(instance, pStr0);
+            if (pStrSize0 >= Utils.MaxStackallocSize)
+            {
+                Utils.Free(pStr0);
+            }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the address of the specified Vulkan core or extension<br/>
-		/// function for the specified instance.  If instance is set to `NULL` it can<br/>
-		/// return any function exported from the Vulkan loader, including at least the<br/>
-		/// following functions:<br/>
-		/// - `vkEnumerateInstanceExtensionProperties`<br/>
-		/// - `vkEnumerateInstanceLayerProperties`<br/>
-		/// - `vkCreateInstance`<br/>
-		/// - `vkGetInstanceProcAddr`<br/>
-		/// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether Vulkan is at least minimally available.<br/>
-		/// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
-		/// a platform-specific query of the Vulkan loader as a fallback.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned function pointer is valid until the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<void> GetInstanceProcAddress(nint instance, ReadOnlySpan<byte> procname)
-		{
-			fixed (byte* pprocname = procname)
-			{
-				delegate*<void> ret = GetInstanceProcAddressNative((void*)instance, (byte*)pprocname);
-				return ret;
-			}
-		}
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns the address of the specified Vulkan core or extension<br/>
-		/// function for the specified instance.  If instance is set to `NULL` it can<br/>
-		/// return any function exported from the Vulkan loader, including at least the<br/>
-		/// following functions:<br/>
-		/// - `vkEnumerateInstanceExtensionProperties`<br/>
-		/// - `vkEnumerateInstanceLayerProperties`<br/>
-		/// - `vkCreateInstance`<br/>
-		/// - `vkGetInstanceProcAddr`<br/>
-		/// If Vulkan is not available on the machine, this function returns `NULL` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether Vulkan is at least minimally available.<br/>
-		/// This function is equivalent to calling `vkGetInstanceProcAddr` with<br/>
-		/// a platform-specific query of the Vulkan loader as a fallback.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _lifetime The returned function pointer is valid until the library<br/>
-		/// is terminated.<br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static delegate*<void> GetInstanceProcAddress(nint instance, string procname)
-		{
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (procname != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(procname);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(procname, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			delegate*<void> ret = GetInstanceProcAddressNative((void*)instance, pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns whether the specified queue family of the specified<br/>
+        /// physical device supports presentation to the platform GLFW was built for.<br/>
+        /// If Vulkan or the required window surface creation instance extensions are<br/>
+        /// not available on the machine, or if the specified instance was not created<br/>
+        /// with the required extensions, this function returns `GLFW_FALSE` and<br/>
+        /// generates a <br/>
+        /// error.  Call <br/>
+        /// to check whether Vulkan is at least minimally available and <br/>
+        /// to check what instance extensions are<br/>
+        /// required.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  For<br/>
+        /// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static int GetPhysicalDevicePresentationSupportNative(VkInstance instance, VkPhysicalDevice device, uint queuefamily)
+        {
+#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<VkInstance, VkPhysicalDevice, uint, int>)funcTable[122])(instance, device, queuefamily);
+#else
+            return (int)((delegate* unmanaged[Cdecl]<VkInstance, VkPhysicalDevice, uint, int> )funcTable[122])(instance, device, queuefamily);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns whether the specified queue family of the specified<br/>
-		/// physical device supports presentation to the platform GLFW was built for.<br/>
-		/// If Vulkan or the required window surface creation instance extensions are<br/>
-		/// not available on the machine, or if the specified instance was not created<br/>
-		/// with the required extensions, this function returns `GLFW_FALSE` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether Vulkan is at least minimally available and <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int GetPhysicalDevicePresentationSupportNative(void* instance, void* device, uint queuefamily)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*, void*, uint, int>)funcTable[122])(instance, device, queuefamily);
-			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nint, uint, int>)funcTable[122])((nint)instance, (nint)device, queuefamily);
-			#endif
-		}
+        /// <summary>
+        /// <br/>
+        /// This function returns whether the specified queue family of the specified<br/>
+        /// physical device supports presentation to the platform GLFW was built for.<br/>
+        /// If Vulkan or the required window surface creation instance extensions are<br/>
+        /// not available on the machine, or if the specified instance was not created<br/>
+        /// with the required extensions, this function returns `GLFW_FALSE` and<br/>
+        /// generates a <br/>
+        /// error.  Call <br/>
+        /// to check whether Vulkan is at least minimally available and <br/>
+        /// to check what instance extensions are<br/>
+        /// required.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  For<br/>
+        /// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int GetPhysicalDevicePresentationSupport(VkInstance instance, VkPhysicalDevice device, uint queuefamily)
+        {
+            int ret = GetPhysicalDevicePresentationSupportNative(instance, device, queuefamily);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns whether the specified queue family of the specified<br/>
-		/// physical device supports presentation to the platform GLFW was built for.<br/>
-		/// If Vulkan or the required window surface creation instance extensions are<br/>
-		/// not available on the machine, or if the specified instance was not created<br/>
-		/// with the required extensions, this function returns `GLFW_FALSE` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether Vulkan is at least minimally available and <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int GetPhysicalDevicePresentationSupport(void* instance, void* device, uint queuefamily)
-		{
-			int ret = GetPhysicalDevicePresentationSupportNative(instance, device, queuefamily);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function creates a Vulkan surface for the specified window.<br/>
+        /// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+        /// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+        /// error.  Call <br/>
+        /// to check whether<br/>
+        /// Vulkan is at least minimally available.<br/>
+        /// If the required window surface creation instance extensions are not<br/>
+        /// available or if the specified instance was not created with these extensions<br/>
+        /// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+        /// generates a <br/>
+        /// error.  Call <br/>
+        /// to check what instance extensions are<br/>
+        /// required.<br/>
+        /// The window surface cannot be shared with another API so the window must<br/>
+        /// have been created with the [client api hint](<br/>
+        /// set to `GLFW_NO_API` otherwise it generates a <br/>
+        /// error<br/>
+        /// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+        /// The window surface must be destroyed before the specified Vulkan instance.<br/>
+        /// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+        /// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+        /// surface.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  For<br/>
+        /// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static int CreateWindowSurfaceNative(VkInstance instance, GLFWwindow* window, void** allocator, VkSurfaceKHR* surface)
+        {
+#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<VkInstance, GLFWwindow*, void**, VkSurfaceKHR*, int>)funcTable[123])(instance, window, allocator, surface);
+#else
+            return (int)((delegate* unmanaged[Cdecl]<VkInstance, nint, nint, nint, int> )funcTable[123])(instance, (nint)window, (nint)allocator, (nint)surface);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns whether the specified queue family of the specified<br/>
-		/// physical device supports presentation to the platform GLFW was built for.<br/>
-		/// If Vulkan or the required window surface creation instance extensions are<br/>
-		/// not available on the machine, or if the specified instance was not created<br/>
-		/// with the required extensions, this function returns `GLFW_FALSE` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether Vulkan is at least minimally available and <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int GetPhysicalDevicePresentationSupport(nint instance, void* device, uint queuefamily)
-		{
-			int ret = GetPhysicalDevicePresentationSupportNative((void*)instance, device, queuefamily);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function creates a Vulkan surface for the specified window.<br/>
+        /// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+        /// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+        /// error.  Call <br/>
+        /// to check whether<br/>
+        /// Vulkan is at least minimally available.<br/>
+        /// If the required window surface creation instance extensions are not<br/>
+        /// available or if the specified instance was not created with these extensions<br/>
+        /// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+        /// generates a <br/>
+        /// error.  Call <br/>
+        /// to check what instance extensions are<br/>
+        /// required.<br/>
+        /// The window surface cannot be shared with another API so the window must<br/>
+        /// have been created with the [client api hint](<br/>
+        /// set to `GLFW_NO_API` otherwise it generates a <br/>
+        /// error<br/>
+        /// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+        /// The window surface must be destroyed before the specified Vulkan instance.<br/>
+        /// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+        /// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+        /// surface.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  For<br/>
+        /// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int CreateWindowSurface(VkInstance instance, GLFWwindowPtr window, void** allocator, VkSurfaceKHR* surface)
+        {
+            int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)window, allocator, surface);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns whether the specified queue family of the specified<br/>
-		/// physical device supports presentation to the platform GLFW was built for.<br/>
-		/// If Vulkan or the required window surface creation instance extensions are<br/>
-		/// not available on the machine, or if the specified instance was not created<br/>
-		/// with the required extensions, this function returns `GLFW_FALSE` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether Vulkan is at least minimally available and <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int GetPhysicalDevicePresentationSupport(void* instance, nint device, uint queuefamily)
-		{
-			int ret = GetPhysicalDevicePresentationSupportNative(instance, (void*)device, queuefamily);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function creates a Vulkan surface for the specified window.<br/>
+        /// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+        /// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+        /// error.  Call <br/>
+        /// to check whether<br/>
+        /// Vulkan is at least minimally available.<br/>
+        /// If the required window surface creation instance extensions are not<br/>
+        /// available or if the specified instance was not created with these extensions<br/>
+        /// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+        /// generates a <br/>
+        /// error.  Call <br/>
+        /// to check what instance extensions are<br/>
+        /// required.<br/>
+        /// The window surface cannot be shared with another API so the window must<br/>
+        /// have been created with the [client api hint](<br/>
+        /// set to `GLFW_NO_API` otherwise it generates a <br/>
+        /// error<br/>
+        /// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+        /// The window surface must be destroyed before the specified Vulkan instance.<br/>
+        /// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+        /// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+        /// surface.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  For<br/>
+        /// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int CreateWindowSurface(VkInstance instance, ref GLFWwindow window, void** allocator, VkSurfaceKHR* surface)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)pwindow, allocator, surface);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function returns whether the specified queue family of the specified<br/>
-		/// physical device supports presentation to the platform GLFW was built for.<br/>
-		/// If Vulkan or the required window surface creation instance extensions are<br/>
-		/// not available on the machine, or if the specified instance was not created<br/>
-		/// with the required extensions, this function returns `GLFW_FALSE` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether Vulkan is at least minimally available and <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int GetPhysicalDevicePresentationSupport(nint instance, nint device, uint queuefamily)
-		{
-			int ret = GetPhysicalDevicePresentationSupportNative((void*)instance, (void*)device, queuefamily);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function creates a Vulkan surface for the specified window.<br/>
+        /// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+        /// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+        /// error.  Call <br/>
+        /// to check whether<br/>
+        /// Vulkan is at least minimally available.<br/>
+        /// If the required window surface creation instance extensions are not<br/>
+        /// available or if the specified instance was not created with these extensions<br/>
+        /// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+        /// generates a <br/>
+        /// error.  Call <br/>
+        /// to check what instance extensions are<br/>
+        /// required.<br/>
+        /// The window surface cannot be shared with another API so the window must<br/>
+        /// have been created with the [client api hint](<br/>
+        /// set to `GLFW_NO_API` otherwise it generates a <br/>
+        /// error<br/>
+        /// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+        /// The window surface must be destroyed before the specified Vulkan instance.<br/>
+        /// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+        /// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+        /// surface.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  For<br/>
+        /// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int CreateWindowSurface(VkInstance instance, GLFWwindowPtr window, in nint allocator, VkSurfaceKHR* surface)
+        {
+            fixed (nint* pallocator = &allocator)
+            {
+                int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)window, (void**)pallocator, surface);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a Vulkan surface for the specified window.<br/>
-		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
-		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether<br/>
-		/// Vulkan is at least minimally available.<br/>
-		/// If the required window surface creation instance extensions are not<br/>
-		/// available or if the specified instance was not created with these extensions<br/>
-		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// The window surface cannot be shared with another API so the window must<br/>
-		/// have been created with the [client api hint](<br/>
-		/// set to `GLFW_NO_API` otherwise it generates a <br/>
-		/// error<br/>
-		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
-		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
-		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
-		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
-		/// surface.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CreateWindowSurfaceNative(void* instance, GLFWwindow* window, void** allocator, void** surface)
-		{
-			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*, GLFWwindow*, void**, void**, int>)funcTable[123])(instance, window, allocator, surface);
-			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, int>)funcTable[123])((nint)instance, (nint)window, (nint)allocator, (nint)surface);
-			#endif
-		}
+        /// <summary>
+        /// <br/>
+        /// This function creates a Vulkan surface for the specified window.<br/>
+        /// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+        /// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+        /// error.  Call <br/>
+        /// to check whether<br/>
+        /// Vulkan is at least minimally available.<br/>
+        /// If the required window surface creation instance extensions are not<br/>
+        /// available or if the specified instance was not created with these extensions<br/>
+        /// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+        /// generates a <br/>
+        /// error.  Call <br/>
+        /// to check what instance extensions are<br/>
+        /// required.<br/>
+        /// The window surface cannot be shared with another API so the window must<br/>
+        /// have been created with the [client api hint](<br/>
+        /// set to `GLFW_NO_API` otherwise it generates a <br/>
+        /// error<br/>
+        /// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+        /// The window surface must be destroyed before the specified Vulkan instance.<br/>
+        /// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+        /// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+        /// surface.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  For<br/>
+        /// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int CreateWindowSurface(VkInstance instance, ref GLFWwindow window, in nint allocator, VkSurfaceKHR* surface)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (nint* pallocator = &allocator)
+                {
+                    int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)pwindow, (void**)pallocator, surface);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a Vulkan surface for the specified window.<br/>
-		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
-		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether<br/>
-		/// Vulkan is at least minimally available.<br/>
-		/// If the required window surface creation instance extensions are not<br/>
-		/// available or if the specified instance was not created with these extensions<br/>
-		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// The window surface cannot be shared with another API so the window must<br/>
-		/// have been created with the [client api hint](<br/>
-		/// set to `GLFW_NO_API` otherwise it generates a <br/>
-		/// error<br/>
-		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
-		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
-		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
-		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
-		/// surface.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int CreateWindowSurface(void* instance, GLFWwindowPtr window, void** allocator, void** surface)
-		{
-			int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)window, allocator, surface);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function creates a Vulkan surface for the specified window.<br/>
+        /// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+        /// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+        /// error.  Call <br/>
+        /// to check whether<br/>
+        /// Vulkan is at least minimally available.<br/>
+        /// If the required window surface creation instance extensions are not<br/>
+        /// available or if the specified instance was not created with these extensions<br/>
+        /// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+        /// generates a <br/>
+        /// error.  Call <br/>
+        /// to check what instance extensions are<br/>
+        /// required.<br/>
+        /// The window surface cannot be shared with another API so the window must<br/>
+        /// have been created with the [client api hint](<br/>
+        /// set to `GLFW_NO_API` otherwise it generates a <br/>
+        /// error<br/>
+        /// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+        /// The window surface must be destroyed before the specified Vulkan instance.<br/>
+        /// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+        /// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+        /// surface.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  For<br/>
+        /// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int CreateWindowSurface(VkInstance instance, GLFWwindowPtr window, void** allocator, ref VkSurfaceKHR surface)
+        {
+            fixed (VkSurfaceKHR* psurface = &surface)
+            {
+                int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)window, allocator, (VkSurfaceKHR*)psurface);
+                return ret;
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a Vulkan surface for the specified window.<br/>
-		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
-		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether<br/>
-		/// Vulkan is at least minimally available.<br/>
-		/// If the required window surface creation instance extensions are not<br/>
-		/// available or if the specified instance was not created with these extensions<br/>
-		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// The window surface cannot be shared with another API so the window must<br/>
-		/// have been created with the [client api hint](<br/>
-		/// set to `GLFW_NO_API` otherwise it generates a <br/>
-		/// error<br/>
-		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
-		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
-		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
-		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
-		/// surface.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int CreateWindowSurface(nint instance, GLFWwindowPtr window, void** allocator, void** surface)
-		{
-			int ret = CreateWindowSurfaceNative((void*)instance, (GLFWwindow*)window, allocator, surface);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// This function creates a Vulkan surface for the specified window.<br/>
+        /// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+        /// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+        /// error.  Call <br/>
+        /// to check whether<br/>
+        /// Vulkan is at least minimally available.<br/>
+        /// If the required window surface creation instance extensions are not<br/>
+        /// available or if the specified instance was not created with these extensions<br/>
+        /// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+        /// generates a <br/>
+        /// error.  Call <br/>
+        /// to check what instance extensions are<br/>
+        /// required.<br/>
+        /// The window surface cannot be shared with another API so the window must<br/>
+        /// have been created with the [client api hint](<br/>
+        /// set to `GLFW_NO_API` otherwise it generates a <br/>
+        /// error<br/>
+        /// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+        /// The window surface must be destroyed before the specified Vulkan instance.<br/>
+        /// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+        /// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+        /// surface.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  For<br/>
+        /// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int CreateWindowSurface(VkInstance instance, ref GLFWwindow window, void** allocator, ref VkSurfaceKHR surface)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (VkSurfaceKHR* psurface = &surface)
+                {
+                    int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)pwindow, allocator, (VkSurfaceKHR*)psurface);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a Vulkan surface for the specified window.<br/>
-		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
-		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether<br/>
-		/// Vulkan is at least minimally available.<br/>
-		/// If the required window surface creation instance extensions are not<br/>
-		/// available or if the specified instance was not created with these extensions<br/>
-		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// The window surface cannot be shared with another API so the window must<br/>
-		/// have been created with the [client api hint](<br/>
-		/// set to `GLFW_NO_API` otherwise it generates a <br/>
-		/// error<br/>
-		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
-		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
-		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
-		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
-		/// surface.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int CreateWindowSurface(void* instance, ref GLFWwindow window, void** allocator, void** surface)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)pwindow, allocator, surface);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function creates a Vulkan surface for the specified window.<br/>
+        /// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+        /// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+        /// error.  Call <br/>
+        /// to check whether<br/>
+        /// Vulkan is at least minimally available.<br/>
+        /// If the required window surface creation instance extensions are not<br/>
+        /// available or if the specified instance was not created with these extensions<br/>
+        /// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+        /// generates a <br/>
+        /// error.  Call <br/>
+        /// to check what instance extensions are<br/>
+        /// required.<br/>
+        /// The window surface cannot be shared with another API so the window must<br/>
+        /// have been created with the [client api hint](<br/>
+        /// set to `GLFW_NO_API` otherwise it generates a <br/>
+        /// error<br/>
+        /// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+        /// The window surface must be destroyed before the specified Vulkan instance.<br/>
+        /// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+        /// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+        /// surface.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  For<br/>
+        /// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int CreateWindowSurface(VkInstance instance, GLFWwindowPtr window, in nint allocator, ref VkSurfaceKHR surface)
+        {
+            fixed (nint* pallocator = &allocator)
+            {
+                fixed (VkSurfaceKHR* psurface = &surface)
+                {
+                    int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)window, (void**)pallocator, (VkSurfaceKHR*)psurface);
+                    return ret;
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a Vulkan surface for the specified window.<br/>
-		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
-		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether<br/>
-		/// Vulkan is at least minimally available.<br/>
-		/// If the required window surface creation instance extensions are not<br/>
-		/// available or if the specified instance was not created with these extensions<br/>
-		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// The window surface cannot be shared with another API so the window must<br/>
-		/// have been created with the [client api hint](<br/>
-		/// set to `GLFW_NO_API` otherwise it generates a <br/>
-		/// error<br/>
-		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
-		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
-		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
-		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
-		/// surface.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int CreateWindowSurface(nint instance, ref GLFWwindow window, void** allocator, void** surface)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				int ret = CreateWindowSurfaceNative((void*)instance, (GLFWwindow*)pwindow, allocator, surface);
-				return ret;
-			}
-		}
+        /// <summary>
+        /// <br/>
+        /// This function creates a Vulkan surface for the specified window.<br/>
+        /// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
+        /// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
+        /// error.  Call <br/>
+        /// to check whether<br/>
+        /// Vulkan is at least minimally available.<br/>
+        /// If the required window surface creation instance extensions are not<br/>
+        /// available or if the specified instance was not created with these extensions<br/>
+        /// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
+        /// generates a <br/>
+        /// error.  Call <br/>
+        /// to check what instance extensions are<br/>
+        /// required.<br/>
+        /// The window surface cannot be shared with another API so the window must<br/>
+        /// have been created with the [client api hint](<br/>
+        /// set to `GLFW_NO_API` otherwise it generates a <br/>
+        /// error<br/>
+        /// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
+        /// The window surface must be destroyed before the specified Vulkan instance.<br/>
+        /// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
+        /// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
+        /// surface.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  For<br/>
+        /// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int CreateWindowSurface(VkInstance instance, ref GLFWwindow window, in nint allocator, ref VkSurfaceKHR surface)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (nint* pallocator = &allocator)
+                {
+                    fixed (VkSurfaceKHR* psurface = &surface)
+                    {
+                        int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)pwindow, (void**)pallocator, (VkSurfaceKHR*)psurface);
+                        return ret;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// <br/>
-		/// This function creates a Vulkan surface for the specified window.<br/>
-		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
-		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether<br/>
-		/// Vulkan is at least minimally available.<br/>
-		/// If the required window surface creation instance extensions are not<br/>
-		/// available or if the specified instance was not created with these extensions<br/>
-		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// The window surface cannot be shared with another API so the window must<br/>
-		/// have been created with the [client api hint](<br/>
-		/// set to `GLFW_NO_API` otherwise it generates a <br/>
-		/// error<br/>
-		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
-		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
-		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
-		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
-		/// surface.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int CreateWindowSurface(void* instance, GLFWwindowPtr window, in nint allocator, void** surface)
-		{
-			fixed (nint* pallocator = &allocator)
-			{
-				int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)window, (void**)pallocator, surface);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function creates a Vulkan surface for the specified window.<br/>
-		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
-		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether<br/>
-		/// Vulkan is at least minimally available.<br/>
-		/// If the required window surface creation instance extensions are not<br/>
-		/// available or if the specified instance was not created with these extensions<br/>
-		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// The window surface cannot be shared with another API so the window must<br/>
-		/// have been created with the [client api hint](<br/>
-		/// set to `GLFW_NO_API` otherwise it generates a <br/>
-		/// error<br/>
-		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
-		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
-		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
-		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
-		/// surface.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int CreateWindowSurface(nint instance, GLFWwindowPtr window, in nint allocator, void** surface)
-		{
-			fixed (nint* pallocator = &allocator)
-			{
-				int ret = CreateWindowSurfaceNative((void*)instance, (GLFWwindow*)window, (void**)pallocator, surface);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function creates a Vulkan surface for the specified window.<br/>
-		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
-		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether<br/>
-		/// Vulkan is at least minimally available.<br/>
-		/// If the required window surface creation instance extensions are not<br/>
-		/// available or if the specified instance was not created with these extensions<br/>
-		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// The window surface cannot be shared with another API so the window must<br/>
-		/// have been created with the [client api hint](<br/>
-		/// set to `GLFW_NO_API` otherwise it generates a <br/>
-		/// error<br/>
-		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
-		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
-		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
-		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
-		/// surface.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int CreateWindowSurface(void* instance, ref GLFWwindow window, in nint allocator, void** surface)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (nint* pallocator = &allocator)
-				{
-					int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)pwindow, (void**)pallocator, surface);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function creates a Vulkan surface for the specified window.<br/>
-		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
-		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether<br/>
-		/// Vulkan is at least minimally available.<br/>
-		/// If the required window surface creation instance extensions are not<br/>
-		/// available or if the specified instance was not created with these extensions<br/>
-		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// The window surface cannot be shared with another API so the window must<br/>
-		/// have been created with the [client api hint](<br/>
-		/// set to `GLFW_NO_API` otherwise it generates a <br/>
-		/// error<br/>
-		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
-		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
-		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
-		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
-		/// surface.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int CreateWindowSurface(nint instance, ref GLFWwindow window, in nint allocator, void** surface)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (nint* pallocator = &allocator)
-				{
-					int ret = CreateWindowSurfaceNative((void*)instance, (GLFWwindow*)pwindow, (void**)pallocator, surface);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function creates a Vulkan surface for the specified window.<br/>
-		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
-		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether<br/>
-		/// Vulkan is at least minimally available.<br/>
-		/// If the required window surface creation instance extensions are not<br/>
-		/// available or if the specified instance was not created with these extensions<br/>
-		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// The window surface cannot be shared with another API so the window must<br/>
-		/// have been created with the [client api hint](<br/>
-		/// set to `GLFW_NO_API` otherwise it generates a <br/>
-		/// error<br/>
-		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
-		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
-		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
-		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
-		/// surface.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int CreateWindowSurface(void* instance, GLFWwindowPtr window, void** allocator, ref nint surface)
-		{
-			fixed (nint* psurface = &surface)
-			{
-				int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)window, allocator, (void**)psurface);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function creates a Vulkan surface for the specified window.<br/>
-		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
-		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether<br/>
-		/// Vulkan is at least minimally available.<br/>
-		/// If the required window surface creation instance extensions are not<br/>
-		/// available or if the specified instance was not created with these extensions<br/>
-		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// The window surface cannot be shared with another API so the window must<br/>
-		/// have been created with the [client api hint](<br/>
-		/// set to `GLFW_NO_API` otherwise it generates a <br/>
-		/// error<br/>
-		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
-		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
-		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
-		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
-		/// surface.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int CreateWindowSurface(nint instance, GLFWwindowPtr window, void** allocator, ref nint surface)
-		{
-			fixed (nint* psurface = &surface)
-			{
-				int ret = CreateWindowSurfaceNative((void*)instance, (GLFWwindow*)window, allocator, (void**)psurface);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function creates a Vulkan surface for the specified window.<br/>
-		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
-		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether<br/>
-		/// Vulkan is at least minimally available.<br/>
-		/// If the required window surface creation instance extensions are not<br/>
-		/// available or if the specified instance was not created with these extensions<br/>
-		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// The window surface cannot be shared with another API so the window must<br/>
-		/// have been created with the [client api hint](<br/>
-		/// set to `GLFW_NO_API` otherwise it generates a <br/>
-		/// error<br/>
-		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
-		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
-		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
-		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
-		/// surface.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int CreateWindowSurface(void* instance, ref GLFWwindow window, void** allocator, ref nint surface)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (nint* psurface = &surface)
-				{
-					int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)pwindow, allocator, (void**)psurface);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function creates a Vulkan surface for the specified window.<br/>
-		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
-		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether<br/>
-		/// Vulkan is at least minimally available.<br/>
-		/// If the required window surface creation instance extensions are not<br/>
-		/// available or if the specified instance was not created with these extensions<br/>
-		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// The window surface cannot be shared with another API so the window must<br/>
-		/// have been created with the [client api hint](<br/>
-		/// set to `GLFW_NO_API` otherwise it generates a <br/>
-		/// error<br/>
-		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
-		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
-		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
-		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
-		/// surface.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int CreateWindowSurface(nint instance, ref GLFWwindow window, void** allocator, ref nint surface)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (nint* psurface = &surface)
-				{
-					int ret = CreateWindowSurfaceNative((void*)instance, (GLFWwindow*)pwindow, allocator, (void**)psurface);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function creates a Vulkan surface for the specified window.<br/>
-		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
-		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether<br/>
-		/// Vulkan is at least minimally available.<br/>
-		/// If the required window surface creation instance extensions are not<br/>
-		/// available or if the specified instance was not created with these extensions<br/>
-		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// The window surface cannot be shared with another API so the window must<br/>
-		/// have been created with the [client api hint](<br/>
-		/// set to `GLFW_NO_API` otherwise it generates a <br/>
-		/// error<br/>
-		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
-		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
-		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
-		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
-		/// surface.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int CreateWindowSurface(void* instance, GLFWwindowPtr window, in nint allocator, ref nint surface)
-		{
-			fixed (nint* pallocator = &allocator)
-			{
-				fixed (nint* psurface = &surface)
-				{
-					int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)window, (void**)pallocator, (void**)psurface);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function creates a Vulkan surface for the specified window.<br/>
-		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
-		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether<br/>
-		/// Vulkan is at least minimally available.<br/>
-		/// If the required window surface creation instance extensions are not<br/>
-		/// available or if the specified instance was not created with these extensions<br/>
-		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// The window surface cannot be shared with another API so the window must<br/>
-		/// have been created with the [client api hint](<br/>
-		/// set to `GLFW_NO_API` otherwise it generates a <br/>
-		/// error<br/>
-		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
-		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
-		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
-		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
-		/// surface.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int CreateWindowSurface(nint instance, GLFWwindowPtr window, in nint allocator, ref nint surface)
-		{
-			fixed (nint* pallocator = &allocator)
-			{
-				fixed (nint* psurface = &surface)
-				{
-					int ret = CreateWindowSurfaceNative((void*)instance, (GLFWwindow*)window, (void**)pallocator, (void**)psurface);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function creates a Vulkan surface for the specified window.<br/>
-		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
-		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether<br/>
-		/// Vulkan is at least minimally available.<br/>
-		/// If the required window surface creation instance extensions are not<br/>
-		/// available or if the specified instance was not created with these extensions<br/>
-		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// The window surface cannot be shared with another API so the window must<br/>
-		/// have been created with the [client api hint](<br/>
-		/// set to `GLFW_NO_API` otherwise it generates a <br/>
-		/// error<br/>
-		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
-		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
-		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
-		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
-		/// surface.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int CreateWindowSurface(void* instance, ref GLFWwindow window, in nint allocator, ref nint surface)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (nint* pallocator = &allocator)
-				{
-					fixed (nint* psurface = &surface)
-					{
-						int ret = CreateWindowSurfaceNative(instance, (GLFWwindow*)pwindow, (void**)pallocator, (void**)psurface);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// This function creates a Vulkan surface for the specified window.<br/>
-		/// If the Vulkan loader or at least one minimally functional ICD were not found,<br/>
-		/// this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a <br/>
-		/// error.  Call <br/>
-		/// to check whether<br/>
-		/// Vulkan is at least minimally available.<br/>
-		/// If the required window surface creation instance extensions are not<br/>
-		/// available or if the specified instance was not created with these extensions<br/>
-		/// enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and<br/>
-		/// generates a <br/>
-		/// error.  Call <br/>
-		/// to check what instance extensions are<br/>
-		/// required.<br/>
-		/// The window surface cannot be shared with another API so the window must<br/>
-		/// have been created with the [client api hint](<br/>
-		/// set to `GLFW_NO_API` otherwise it generates a <br/>
-		/// error<br/>
-		/// and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.<br/>
-		/// The window surface must be destroyed before the specified Vulkan instance.<br/>
-		/// It is the responsibility of the caller to destroy the window surface.  GLFW<br/>
-		/// does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the<br/>
-		/// surface.<br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// <br/>
-		/// <br/>
-		/// and <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  For<br/>
-		/// synchronization details of Vulkan objects, see the Vulkan specification.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static int CreateWindowSurface(nint instance, ref GLFWwindow window, in nint allocator, ref nint surface)
-		{
-			fixed (GLFWwindow* pwindow = &window)
-			{
-				fixed (nint* pallocator = &allocator)
-				{
-					fixed (nint* psurface = &surface)
-					{
-						int ret = CreateWindowSurfaceNative((void*)instance, (GLFWwindow*)pwindow, (void**)pallocator, (void**)psurface);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static byte* GetWin32AdapterNative(GLFWmonitor* monitor)
-		{
-			#if NET5_0_OR_GREATER
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static byte* GetWin32AdapterNative(GLFWmonitor* monitor)
+        {
+#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, byte*>)funcTable[124])(monitor);
-			#else
-			return (byte*)((delegate* unmanaged[Cdecl]<nint, nint>)funcTable[124])((nint)monitor);
-			#endif
-		}
+#else
+            return (byte*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[124])((nint)monitor);
+#endif
+        }
 
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static byte* GetWin32Adapter(GLFWmonitorPtr monitor)
-		{
-			byte* ret = GetWin32AdapterNative((GLFWmonitor*)monitor);
-			return ret;
-		}
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static byte* GetWin32Adapter(GLFWmonitorPtr monitor)
+        {
+            byte* ret = GetWin32AdapterNative((GLFWmonitor*)monitor);
+            return ret;
+        }
 
-		/// <summary>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// Possible errors include <br/>
-		/// and <br/>
-		/// <br/>
-		/// _safety This function may be called from any thread.  Access is not<br/>
-		/// synchronized.<br/>
-		/// <br/>
-		/// <br/>
-		/// <br/>
-		/// </summary>
-		public static string GetWin32AdapterS(GLFWmonitorPtr monitor)
-		{
-			string ret = Utils.DecodeStringUTF8(GetWin32AdapterNative((GLFWmonitor*)monitor));
-			return ret;
-		}
-	}
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static string GetWin32AdapterS(GLFWmonitorPtr monitor)
+        {
+            string ret = Utils.DecodeStringUTF8(GetWin32AdapterNative((GLFWmonitor*)monitor));
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static byte* GetWin32Adapter(ref GLFWmonitor monitor)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                byte* ret = GetWin32AdapterNative((GLFWmonitor*)pmonitor);
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static string GetWin32AdapterS(ref GLFWmonitor monitor)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                string ret = Utils.DecodeStringUTF8(GetWin32AdapterNative((GLFWmonitor*)pmonitor));
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static byte* GetWin32MonitorNative(GLFWmonitor* monitor)
+        {
+#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, byte*>)funcTable[125])(monitor);
+#else
+            return (byte*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[125])((nint)monitor);
+#endif
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static byte* GetWin32Monitor(GLFWmonitorPtr monitor)
+        {
+            byte* ret = GetWin32MonitorNative((GLFWmonitor*)monitor);
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static string GetWin32MonitorS(GLFWmonitorPtr monitor)
+        {
+            string ret = Utils.DecodeStringUTF8(GetWin32MonitorNative((GLFWmonitor*)monitor));
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static byte* GetWin32Monitor(ref GLFWmonitor monitor)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                byte* ret = GetWin32MonitorNative((GLFWmonitor*)pmonitor);
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static string GetWin32MonitorS(ref GLFWmonitor monitor)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                string ret = Utils.DecodeStringUTF8(GetWin32MonitorNative((GLFWmonitor*)pmonitor));
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// This DC is private and does not need to be released.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static nint GetWin32WindowNative(GLFWwindow* window)
+        {
+#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, nint>)funcTable[126])(window);
+#else
+            return (nint)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[126])((nint)window);
+#endif
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// This DC is private and does not need to be released.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static nint GetWin32Window(GLFWwindowPtr window)
+        {
+            nint ret = GetWin32WindowNative((GLFWwindow*)window);
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// This DC is private and does not need to be released.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static nint GetWin32Window(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                nint ret = GetWin32WindowNative((GLFWwindow*)pwindow);
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// This DC is private and does not need to be released.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void* GetWGLContextNative(GLFWwindow* window)
+        {
+#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[127])(window);
+#else
+            return (void*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[127])((nint)window);
+#endif
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// This DC is private and does not need to be released.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetWGLContext(GLFWwindowPtr window)
+        {
+            void* ret = GetWGLContextNative((GLFWwindow*)window);
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// This DC is private and does not need to be released.<br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetWGLContext(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                void* ret = GetWGLContextNative((GLFWwindow*)pwindow);
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static uint GetCocoaMonitorNative(GLFWmonitor* monitor)
+        {
+#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, uint>)funcTable[128])(monitor);
+#else
+            return (uint)((delegate* unmanaged[Cdecl]<nint, uint> )funcTable[128])((nint)monitor);
+#endif
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static uint GetCocoaMonitor(GLFWmonitorPtr monitor)
+        {
+            uint ret = GetCocoaMonitorNative((GLFWmonitor*)monitor);
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static uint GetCocoaMonitor(ref GLFWmonitor monitor)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                uint ret = GetCocoaMonitorNative((GLFWmonitor*)pmonitor);
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void* GetCocoaWindowNative(GLFWwindow* window)
+        {
+#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[129])(window);
+#else
+            return (void*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[129])((nint)window);
+#endif
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetCocoaWindow(GLFWwindowPtr window)
+        {
+            void* ret = GetCocoaWindowNative((GLFWwindow*)window);
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetCocoaWindow(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                void* ret = GetCocoaWindowNative((GLFWwindow*)pwindow);
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void* GetCocoaViewNative(GLFWwindow* window)
+        {
+#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[130])(window);
+#else
+            return (void*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[130])((nint)window);
+#endif
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetCocoaView(GLFWwindowPtr window)
+        {
+            void* ret = GetCocoaViewNative((GLFWwindow*)window);
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetCocoaView(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                void* ret = GetCocoaViewNative((GLFWwindow*)pwindow);
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void* GetNSGLContextNative(GLFWwindow* window)
+        {
+#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[131])(window);
+#else
+            return (void*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[131])((nint)window);
+#endif
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetNSGLContext(GLFWwindowPtr window)
+        {
+            void* ret = GetNSGLContextNative((GLFWwindow*)window);
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetNSGLContext(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                void* ret = GetNSGLContextNative((GLFWwindow*)pwindow);
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static X11Display* GetX11DisplayNative()
+        {
+#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<X11Display*>)funcTable[132])();
+#else
+            return (X11Display*)((delegate* unmanaged[Cdecl]<nint> )funcTable[132])();
+#endif
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static X11Display* GetX11Display()
+        {
+            X11Display* ret = GetX11DisplayNative();
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void* GetX11AdapterNative(GLFWmonitor* monitor)
+        {
+#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, void*>)funcTable[133])(monitor);
+#else
+            return (void*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[133])((nint)monitor);
+#endif
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetX11Adapter(GLFWmonitorPtr monitor)
+        {
+            void* ret = GetX11AdapterNative((GLFWmonitor*)monitor);
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetX11Adapter(ref GLFWmonitor monitor)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                void* ret = GetX11AdapterNative((GLFWmonitor*)pmonitor);
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static void* GetX11MonitorNative(GLFWmonitor* monitor)
+        {
+#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, void*>)funcTable[134])(monitor);
+#else
+            return (void*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[134])((nint)monitor);
+#endif
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetX11Monitor(GLFWmonitorPtr monitor)
+        {
+            void* ret = GetX11MonitorNative((GLFWmonitor*)monitor);
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetX11Monitor(ref GLFWmonitor monitor)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                void* ret = GetX11MonitorNative((GLFWmonitor*)pmonitor);
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [SuppressGCTransition]
+        internal static X11Window GetX11WindowNative(GLFWwindow* window)
+        {
+#if NET5_0_OR_GREATER
+			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, X11Window>)funcTable[135])(window);
+#else
+            return (X11Window)((delegate* unmanaged[Cdecl]<nint, X11Window> )funcTable[135])((nint)window);
+#endif
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static X11Window GetX11Window(GLFWwindowPtr window)
+        {
+            X11Window ret = GetX11WindowNative((GLFWwindow*)window);
+            return ret;
+        }
+    }
 }

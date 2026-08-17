@@ -1,4 +1,5 @@
-﻿using HexaGen;
+﻿using Generator.Patching;
+using HexaGen;
 using HexaGen.Patching;
 
 BatchGenerator batch = new();
@@ -11,5 +12,6 @@ batch.Start()
     .AddPrePatch(new ConstantsToEnumPatch("GLFW_HAT_", "GlfwHat", "int"))
     .AddPrePatch(new ConstantsToEnumPatch("GLFW_JOYSTICK_", "GlfwJoystick", "int"))
     .AddPrePatch(new ConstantsToEnumPatch("GLFW_GAMEPAD_", "GlfwGamepad", "int"))
+    .AddPostPatch(new SuppressGcTransitionPatch())
     .Generate("include/main.h", "../../../../Hexa.NET.GLFW/Generated", [.. Directory.GetFiles("include")])
     .Finish();
