@@ -5,7 +5,7 @@ GLFW.Init();
 GLFW.WindowHint(GLFW.GLFW_FOCUSED, 1);    // Make window focused on start
 GLFW.WindowHint(GLFW.GLFW_RESIZABLE, 1);  // Make window resizable
 
-GLFWwindowPtr window = GLFW.CreateWindow(800, 600, "GLFW Example", null, null);
+var window = GLFW.CreateWindow(800, 600, "GLFW Example", null, null);
 if (window.IsNull)
 {
     Console.WriteLine("Failed to create GLFW window.");
