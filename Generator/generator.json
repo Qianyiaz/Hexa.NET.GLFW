@@ -1,10 +1,7 @@
 {
   "Namespace": "Hexa.NET.GLFW",
   "ApiName": "GLFW",
-  "LibName": "GLFW",
-  "GenerateConstructorsForStructs": true,
   "GeneratePlaceholderComments": false,
-  "GenerateMetadata": false,
   "WrapPointersAsHandle": true,
   "ImportType": "FunctionTable",
   "TypeMappings": {
