@@ -1,9 +1,10 @@
 {
   "Namespace": "Hexa.NET.GLFW",
   "ApiName": "GLFW",
+  "LibName": "glfw3",
   "GeneratePlaceholderComments": false,
   "WrapPointersAsHandle": true,
-  "ImportType": "FunctionTable",
+  "ImportType": "LibraryImport",
   "TypeMappings": {
     "Window": "X11Window",
     "Display": "X11Display",

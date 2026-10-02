@@ -17,642 +17,6 @@ namespace Hexa.NET.GLFW
     {
         /// <summary>
         /// <br/>
-        /// This function sets the cursor boundary crossing callback of the specified<br/>
-        /// window, which is called when the cursor enters or leaves the content area of<br/>
-        /// the window.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// For more information about the callback parameters, see the<br/>
-        /// [function pointer type](<br/>
-        /// <br/>
-        /// Possible errors include <br/>
-        /// <br/>
-        /// _safety This function must only be called from the main thread.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
-        public static delegate*<GLFWwindow*, int, void> SetCursorEnterCallback(ref GLFWwindow window, delegate*<GLFWwindow*, int, void> callback)
-        {
-            fixed (GLFWwindow* pwindow = &window)
-            {
-                delegate*<GLFWwindow*, int, void> ret = SetCursorEnterCallbackNative((GLFWwindow*)pwindow, callback);
-                return ret;
-            }
-        }
-
-        /// <summary>
-        /// <br/>
-        /// This function sets the cursor boundary crossing callback of the specified<br/>
-        /// window, which is called when the cursor enters or leaves the content area of<br/>
-        /// the window.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// For more information about the callback parameters, see the<br/>
-        /// [function pointer type](<br/>
-        /// <br/>
-        /// Possible errors include <br/>
-        /// <br/>
-        /// _safety This function must only be called from the main thread.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
-        public static delegate*<GLFWwindow*, int, void> SetCursorEnterCallback(GLFWwindowPtr window, GLFWcursorenterfun callback)
-        {
-            delegate*<GLFWwindow*, int, void> ret = SetCursorEnterCallbackNative((GLFWwindow*)window, (delegate*<GLFWwindow*, int, void> )Utils.GetFunctionPointerForDelegate(callback));
-            return ret;
-        }
-
-        /// <summary>
-        /// <br/>
-        /// This function sets the cursor boundary crossing callback of the specified<br/>
-        /// window, which is called when the cursor enters or leaves the content area of<br/>
-        /// the window.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// For more information about the callback parameters, see the<br/>
-        /// [function pointer type](<br/>
-        /// <br/>
-        /// Possible errors include <br/>
-        /// <br/>
-        /// _safety This function must only be called from the main thread.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
-        public static delegate*<GLFWwindow*, int, void> SetCursorEnterCallback(ref GLFWwindow window, GLFWcursorenterfun callback)
-        {
-            fixed (GLFWwindow* pwindow = &window)
-            {
-                delegate*<GLFWwindow*, int, void> ret = SetCursorEnterCallbackNative((GLFWwindow*)pwindow, (delegate*<GLFWwindow*, int, void> )Utils.GetFunctionPointerForDelegate(callback));
-                return ret;
-            }
-        }
-
-        /// <summary>
-        /// <br/>
-        /// This function sets the scroll callback of the specified window, which is<br/>
-        /// called when a scrolling device is used, such as a mouse wheel or scrolling<br/>
-        /// area of a touchpad.<br/>
-        /// The scroll callback receives all scrolling input, like that from a mouse<br/>
-        /// wheel or a touchpad scrolling area.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// For more information about the callback parameters, see the<br/>
-        /// [function pointer type](<br/>
-        /// <br/>
-        /// Possible errors include <br/>
-        /// <br/>
-        /// _safety This function must only be called from the main thread.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static delegate*<GLFWwindow*, double, double, void> SetScrollCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, double, double, void> callback)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, double, double, void>, delegate*<GLFWwindow*, double, double, void>>)funcTable[92])(window, callback);
-#else
-            return (delegate*<GLFWwindow*, double, double, void> )((delegate* unmanaged[Cdecl]<nint, nint, nint> )funcTable[92])((nint)window, (nint)callback);
-#endif
-        }
-
-        /// <summary>
-        /// <br/>
-        /// This function sets the scroll callback of the specified window, which is<br/>
-        /// called when a scrolling device is used, such as a mouse wheel or scrolling<br/>
-        /// area of a touchpad.<br/>
-        /// The scroll callback receives all scrolling input, like that from a mouse<br/>
-        /// wheel or a touchpad scrolling area.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// For more information about the callback parameters, see the<br/>
-        /// [function pointer type](<br/>
-        /// <br/>
-        /// Possible errors include <br/>
-        /// <br/>
-        /// _safety This function must only be called from the main thread.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
-        public static delegate*<GLFWwindow*, double, double, void> SetScrollCallback(GLFWwindowPtr window, delegate*<GLFWwindow*, double, double, void> callback)
-        {
-            delegate*<GLFWwindow*, double, double, void> ret = SetScrollCallbackNative((GLFWwindow*)window, callback);
-            return ret;
-        }
-
-        /// <summary>
-        /// <br/>
-        /// This function sets the scroll callback of the specified window, which is<br/>
-        /// called when a scrolling device is used, such as a mouse wheel or scrolling<br/>
-        /// area of a touchpad.<br/>
-        /// The scroll callback receives all scrolling input, like that from a mouse<br/>
-        /// wheel or a touchpad scrolling area.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// For more information about the callback parameters, see the<br/>
-        /// [function pointer type](<br/>
-        /// <br/>
-        /// Possible errors include <br/>
-        /// <br/>
-        /// _safety This function must only be called from the main thread.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
-        public static delegate*<GLFWwindow*, double, double, void> SetScrollCallback(ref GLFWwindow window, delegate*<GLFWwindow*, double, double, void> callback)
-        {
-            fixed (GLFWwindow* pwindow = &window)
-            {
-                delegate*<GLFWwindow*, double, double, void> ret = SetScrollCallbackNative((GLFWwindow*)pwindow, callback);
-                return ret;
-            }
-        }
-
-        /// <summary>
-        /// <br/>
-        /// This function sets the scroll callback of the specified window, which is<br/>
-        /// called when a scrolling device is used, such as a mouse wheel or scrolling<br/>
-        /// area of a touchpad.<br/>
-        /// The scroll callback receives all scrolling input, like that from a mouse<br/>
-        /// wheel or a touchpad scrolling area.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// For more information about the callback parameters, see the<br/>
-        /// [function pointer type](<br/>
-        /// <br/>
-        /// Possible errors include <br/>
-        /// <br/>
-        /// _safety This function must only be called from the main thread.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
-        public static delegate*<GLFWwindow*, double, double, void> SetScrollCallback(GLFWwindowPtr window, GLFWscrollfun callback)
-        {
-            delegate*<GLFWwindow*, double, double, void> ret = SetScrollCallbackNative((GLFWwindow*)window, (delegate*<GLFWwindow*, double, double, void> )Utils.GetFunctionPointerForDelegate(callback));
-            return ret;
-        }
-
-        /// <summary>
-        /// <br/>
-        /// This function sets the scroll callback of the specified window, which is<br/>
-        /// called when a scrolling device is used, such as a mouse wheel or scrolling<br/>
-        /// area of a touchpad.<br/>
-        /// The scroll callback receives all scrolling input, like that from a mouse<br/>
-        /// wheel or a touchpad scrolling area.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// For more information about the callback parameters, see the<br/>
-        /// [function pointer type](<br/>
-        /// <br/>
-        /// Possible errors include <br/>
-        /// <br/>
-        /// _safety This function must only be called from the main thread.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
-        public static delegate*<GLFWwindow*, double, double, void> SetScrollCallback(ref GLFWwindow window, GLFWscrollfun callback)
-        {
-            fixed (GLFWwindow* pwindow = &window)
-            {
-                delegate*<GLFWwindow*, double, double, void> ret = SetScrollCallbackNative((GLFWwindow*)pwindow, (delegate*<GLFWwindow*, double, double, void> )Utils.GetFunctionPointerForDelegate(callback));
-                return ret;
-            }
-        }
-
-        /// <summary>
-        /// <br/>
-        /// This function sets the path drop callback of the specified window, which is<br/>
-        /// called when one or more dragged paths are dropped on the window.<br/>
-        /// Because the path array and its strings may have been generated specifically<br/>
-        /// for that event, they are not guaranteed to be valid after the callback has<br/>
-        /// returned.  If you wish to use them after the callback returns, you need to<br/>
-        /// make a deep copy.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// For more information about the callback parameters, see the<br/>
-        /// [function pointer type](<br/>
-        /// <br/>
-        /// Possible errors include <br/>
-        /// <br/>
-        /// _safety This function must only be called from the main thread.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static delegate*<GLFWwindow*, int, byte**, void> SetDropCallbackNative(GLFWwindow* window, delegate*<GLFWwindow*, int, byte**, void> callback)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, delegate*<GLFWwindow*, int, byte**, void>, delegate*<GLFWwindow*, int, byte**, void>>)funcTable[93])(window, callback);
-#else
-            return (delegate*<GLFWwindow*, int, byte**, void> )((delegate* unmanaged[Cdecl]<nint, nint, nint> )funcTable[93])((nint)window, (nint)callback);
-#endif
-        }
-
-        /// <summary>
-        /// <br/>
-        /// This function sets the path drop callback of the specified window, which is<br/>
-        /// called when one or more dragged paths are dropped on the window.<br/>
-        /// Because the path array and its strings may have been generated specifically<br/>
-        /// for that event, they are not guaranteed to be valid after the callback has<br/>
-        /// returned.  If you wish to use them after the callback returns, you need to<br/>
-        /// make a deep copy.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// For more information about the callback parameters, see the<br/>
-        /// [function pointer type](<br/>
-        /// <br/>
-        /// Possible errors include <br/>
-        /// <br/>
-        /// _safety This function must only be called from the main thread.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
-        public static delegate*<GLFWwindow*, int, byte**, void> SetDropCallback(GLFWwindowPtr window, delegate*<GLFWwindow*, int, byte**, void> callback)
-        {
-            delegate*<GLFWwindow*, int, byte**, void> ret = SetDropCallbackNative((GLFWwindow*)window, callback);
-            return ret;
-        }
-
-        /// <summary>
-        /// <br/>
-        /// This function sets the path drop callback of the specified window, which is<br/>
-        /// called when one or more dragged paths are dropped on the window.<br/>
-        /// Because the path array and its strings may have been generated specifically<br/>
-        /// for that event, they are not guaranteed to be valid after the callback has<br/>
-        /// returned.  If you wish to use them after the callback returns, you need to<br/>
-        /// make a deep copy.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// For more information about the callback parameters, see the<br/>
-        /// [function pointer type](<br/>
-        /// <br/>
-        /// Possible errors include <br/>
-        /// <br/>
-        /// _safety This function must only be called from the main thread.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
-        public static delegate*<GLFWwindow*, int, byte**, void> SetDropCallback(ref GLFWwindow window, delegate*<GLFWwindow*, int, byte**, void> callback)
-        {
-            fixed (GLFWwindow* pwindow = &window)
-            {
-                delegate*<GLFWwindow*, int, byte**, void> ret = SetDropCallbackNative((GLFWwindow*)pwindow, callback);
-                return ret;
-            }
-        }
-
-        /// <summary>
-        /// <br/>
-        /// This function sets the path drop callback of the specified window, which is<br/>
-        /// called when one or more dragged paths are dropped on the window.<br/>
-        /// Because the path array and its strings may have been generated specifically<br/>
-        /// for that event, they are not guaranteed to be valid after the callback has<br/>
-        /// returned.  If you wish to use them after the callback returns, you need to<br/>
-        /// make a deep copy.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// For more information about the callback parameters, see the<br/>
-        /// [function pointer type](<br/>
-        /// <br/>
-        /// Possible errors include <br/>
-        /// <br/>
-        /// _safety This function must only be called from the main thread.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
-        public static delegate*<GLFWwindow*, int, byte**, void> SetDropCallback(GLFWwindowPtr window, GLFWdropfun callback)
-        {
-            delegate*<GLFWwindow*, int, byte**, void> ret = SetDropCallbackNative((GLFWwindow*)window, (delegate*<GLFWwindow*, int, byte**, void> )Utils.GetFunctionPointerForDelegate(callback));
-            return ret;
-        }
-
-        /// <summary>
-        /// <br/>
-        /// This function sets the path drop callback of the specified window, which is<br/>
-        /// called when one or more dragged paths are dropped on the window.<br/>
-        /// Because the path array and its strings may have been generated specifically<br/>
-        /// for that event, they are not guaranteed to be valid after the callback has<br/>
-        /// returned.  If you wish to use them after the callback returns, you need to<br/>
-        /// make a deep copy.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// For more information about the callback parameters, see the<br/>
-        /// [function pointer type](<br/>
-        /// <br/>
-        /// Possible errors include <br/>
-        /// <br/>
-        /// _safety This function must only be called from the main thread.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
-        public static delegate*<GLFWwindow*, int, byte**, void> SetDropCallback(ref GLFWwindow window, GLFWdropfun callback)
-        {
-            fixed (GLFWwindow* pwindow = &window)
-            {
-                delegate*<GLFWwindow*, int, byte**, void> ret = SetDropCallbackNative((GLFWwindow*)pwindow, (delegate*<GLFWwindow*, int, byte**, void> )Utils.GetFunctionPointerForDelegate(callback));
-                return ret;
-            }
-        }
-
-        /// <summary>
-        /// <br/>
-        /// This function returns whether the specified joystick is present.<br/>
-        /// There is no need to call this function before other functions that accept<br/>
-        /// a joystick ID, as they all check for presence before performing any other<br/>
-        /// work.<br/>
-        /// <br/>
-        /// <br/>
-        /// Possible errors include <br/>
-        /// <br/>
-        /// and <br/>
-        /// <br/>
-        /// _safety This function must only be called from the main thread.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static int JoystickPresentNative(int jid)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, int>)funcTable[94])(jid);
-#else
-            return (int)((delegate* unmanaged[Cdecl]<int, int> )funcTable[94])(jid);
-#endif
-        }
-
-        /// <summary>
-        /// <br/>
-        /// This function returns whether the specified joystick is present.<br/>
-        /// There is no need to call this function before other functions that accept<br/>
-        /// a joystick ID, as they all check for presence before performing any other<br/>
-        /// work.<br/>
-        /// <br/>
-        /// <br/>
-        /// Possible errors include <br/>
-        /// <br/>
-        /// and <br/>
-        /// <br/>
-        /// _safety This function must only be called from the main thread.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
-        public static int JoystickPresent(int jid)
-        {
-            int ret = JoystickPresentNative(jid);
-            return ret;
-        }
-
-        /// <summary>
-        /// <br/>
-        /// This function returns the values of all axes of the specified joystick.<br/>
-        /// Each element in the array is a value between -1.0 and 1.0.<br/>
-        /// If the specified joystick is not present this function will return `NULL`<br/>
-        /// but will not generate an error.  This can be used instead of first calling<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// Possible errors include <br/>
-        /// <br/>
-        /// and <br/>
-        /// <br/>
-        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-        /// should not free it yourself.  It is valid until the specified joystick is<br/>
-        /// disconnected or the library is terminated.<br/>
-        /// <br/>
-        /// _safety This function must only be called from the main thread.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static float* GetJoystickAxesNative(int jid, int* count)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, int*, float*>)funcTable[95])(jid, count);
-#else
-            return (float*)((delegate* unmanaged[Cdecl]<int, nint, nint> )funcTable[95])(jid, (nint)count);
-#endif
-        }
-
-        /// <summary>
-        /// <br/>
-        /// This function returns the values of all axes of the specified joystick.<br/>
-        /// Each element in the array is a value between -1.0 and 1.0.<br/>
-        /// If the specified joystick is not present this function will return `NULL`<br/>
-        /// but will not generate an error.  This can be used instead of first calling<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// Possible errors include <br/>
-        /// <br/>
-        /// and <br/>
-        /// <br/>
-        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-        /// should not free it yourself.  It is valid until the specified joystick is<br/>
-        /// disconnected or the library is terminated.<br/>
-        /// <br/>
-        /// _safety This function must only be called from the main thread.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
-        public static float* GetJoystickAxes(int jid, int* count)
-        {
-            float* ret = GetJoystickAxesNative(jid, count);
-            return ret;
-        }
-
-        /// <summary>
-        /// <br/>
-        /// This function returns the values of all axes of the specified joystick.<br/>
-        /// Each element in the array is a value between -1.0 and 1.0.<br/>
-        /// If the specified joystick is not present this function will return `NULL`<br/>
-        /// but will not generate an error.  This can be used instead of first calling<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// Possible errors include <br/>
-        /// <br/>
-        /// and <br/>
-        /// <br/>
-        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-        /// should not free it yourself.  It is valid until the specified joystick is<br/>
-        /// disconnected or the library is terminated.<br/>
-        /// <br/>
-        /// _safety This function must only be called from the main thread.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
-        public static float* GetJoystickAxes(int jid, ref int count)
-        {
-            fixed (int* pcount = &count)
-            {
-                float* ret = GetJoystickAxesNative(jid, (int*)pcount);
-                return ret;
-            }
-        }
-
-        /// <summary>
-        /// <br/>
-        /// This function returns the state of all buttons of the specified joystick.<br/>
-        /// Each element in the array is either `GLFW_PRESS` or `GLFW_RELEASE`.<br/>
-        /// For backward compatibility with earlier versions that did not have <br/>
-        /// the button array also includes all hats, each<br/>
-        /// represented as four buttons.  The hats are in the same order as returned by<br/>
-        /// __glfwGetJoystickHats__ and are in the order _up_, _right_, _down_ and<br/>
-        /// _left_.  To disable these extra buttons, set the <br/>
-        /// init hint before initialization.<br/>
-        /// If the specified joystick is not present this function will return `NULL`<br/>
-        /// but will not generate an error.  This can be used instead of first calling<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// Possible errors include <br/>
-        /// <br/>
-        /// and <br/>
-        /// <br/>
-        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-        /// should not free it yourself.  It is valid until the specified joystick is<br/>
-        /// disconnected or the library is terminated.<br/>
-        /// <br/>
-        /// _safety This function must only be called from the main thread.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static byte* GetJoystickButtonsNative(int jid, int* count)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, int*, byte*>)funcTable[96])(jid, count);
-#else
-            return (byte*)((delegate* unmanaged[Cdecl]<int, nint, nint> )funcTable[96])(jid, (nint)count);
-#endif
-        }
-
-        /// <summary>
-        /// <br/>
-        /// This function returns the state of all buttons of the specified joystick.<br/>
-        /// Each element in the array is either `GLFW_PRESS` or `GLFW_RELEASE`.<br/>
-        /// For backward compatibility with earlier versions that did not have <br/>
-        /// the button array also includes all hats, each<br/>
-        /// represented as four buttons.  The hats are in the same order as returned by<br/>
-        /// __glfwGetJoystickHats__ and are in the order _up_, _right_, _down_ and<br/>
-        /// _left_.  To disable these extra buttons, set the <br/>
-        /// init hint before initialization.<br/>
-        /// If the specified joystick is not present this function will return `NULL`<br/>
-        /// but will not generate an error.  This can be used instead of first calling<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// Possible errors include <br/>
-        /// <br/>
-        /// and <br/>
-        /// <br/>
-        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-        /// should not free it yourself.  It is valid until the specified joystick is<br/>
-        /// disconnected or the library is terminated.<br/>
-        /// <br/>
-        /// _safety This function must only be called from the main thread.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
-        public static byte* GetJoystickButtons(int jid, int* count)
-        {
-            byte* ret = GetJoystickButtonsNative(jid, count);
-            return ret;
-        }
-
-        /// <summary>
-        /// <br/>
-        /// This function returns the state of all buttons of the specified joystick.<br/>
-        /// Each element in the array is either `GLFW_PRESS` or `GLFW_RELEASE`.<br/>
-        /// For backward compatibility with earlier versions that did not have <br/>
-        /// the button array also includes all hats, each<br/>
-        /// represented as four buttons.  The hats are in the same order as returned by<br/>
-        /// __glfwGetJoystickHats__ and are in the order _up_, _right_, _down_ and<br/>
-        /// _left_.  To disable these extra buttons, set the <br/>
-        /// init hint before initialization.<br/>
-        /// If the specified joystick is not present this function will return `NULL`<br/>
-        /// but will not generate an error.  This can be used instead of first calling<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// Possible errors include <br/>
-        /// <br/>
-        /// and <br/>
-        /// <br/>
-        /// _lifetime The returned array is allocated and freed by GLFW.  You<br/>
-        /// should not free it yourself.  It is valid until the specified joystick is<br/>
-        /// disconnected or the library is terminated.<br/>
-        /// <br/>
-        /// _safety This function must only be called from the main thread.<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// </summary>
-        public static string GetJoystickButtonsS(int jid, int* count)
-        {
-            string ret = Utils.DecodeStringUTF8(GetJoystickButtonsNative(jid, count));
-            return ret;
-        }
-
-        /// <summary>
-        /// <br/>
         /// This function returns the state of all buttons of the specified joystick.<br/>
         /// Each element in the array is either `GLFW_PRESS` or `GLFW_RELEASE`.<br/>
         /// For backward compatibility with earlier versions that did not have <br/>
@@ -774,17 +138,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetJoystickHats")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static byte* GetJoystickHatsNative(int jid, int* count)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, int*, byte*>)funcTable[97])(jid, count);
-#else
-            return (byte*)((delegate* unmanaged[Cdecl]<int, nint, nint> )funcTable[97])(jid, (nint)count);
-#endif
-        }
-
+        internal static partial byte* GetJoystickHatsNative(int jid, int* count);
         /// <summary>
         /// <br/>
         /// This function returns the state of all hats of the specified joystick.<br/>
@@ -1027,17 +384,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetJoystickName")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static byte* GetJoystickNameNative(int jid)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, byte*>)funcTable[98])(jid);
-#else
-            return (byte*)((delegate* unmanaged[Cdecl]<int, nint> )funcTable[98])(jid);
-#endif
-        }
-
+        internal static partial byte* GetJoystickNameNative(int jid);
         /// <summary>
         /// <br/>
         /// This function returns the name, encoded as UTF-8, of the specified joystick.<br/>
@@ -1130,17 +480,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetJoystickGUID")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static byte* GetJoystickGUIDNative(int jid)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, byte*>)funcTable[99])(jid);
-#else
-            return (byte*)((delegate* unmanaged[Cdecl]<int, nint> )funcTable[99])(jid);
-#endif
-        }
-
+        internal static partial byte* GetJoystickGUIDNative(int jid);
         /// <summary>
         /// <br/>
         /// This function returns the SDL compatible GUID, as a UTF-8 encoded<br/>
@@ -1235,17 +578,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwSetJoystickUserPointer")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void SetJoystickUserPointerNative(int jid, void* pointer)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<int, void*, void>)funcTable[100])(jid, pointer);
-#else
-            ((delegate* unmanaged[Cdecl]<int, nint, void> )funcTable[100])(jid, (nint)pointer);
-#endif
-        }
-
+        internal static partial void SetJoystickUserPointerNative(int jid, void* pointer);
         /// <summary>
         /// <br/>
         /// This function sets the user-defined pointer of the specified joystick.  The<br/>
@@ -1309,17 +645,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetJoystickUserPointer")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void* GetJoystickUserPointerNative(int jid)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, void*>)funcTable[101])(jid);
-#else
-            return (void*)((delegate* unmanaged[Cdecl]<int, nint> )funcTable[101])(jid);
-#endif
-        }
-
+        internal static partial void* GetJoystickUserPointerNative(int jid);
         /// <summary>
         /// <br/>
         /// This function returns the current value of the user-defined pointer of the<br/>
@@ -1363,17 +692,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwJoystickIsGamepad")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static int JoystickIsGamepadNative(int jid)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, int>)funcTable[102])(jid);
-#else
-            return (int)((delegate* unmanaged[Cdecl]<int, int> )funcTable[102])(jid);
-#endif
-        }
-
+        internal static partial int JoystickIsGamepadNative(int jid);
         /// <summary>
         /// <br/>
         /// This function returns whether the specified joystick is both present and has<br/>
@@ -1424,17 +746,9 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static delegate*<int, int, void> SetJoystickCallbackNative(delegate*<int, int, void> callback)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<delegate*<int, int, void>, delegate*<int, int, void>>)funcTable[103])(callback);
-#else
-            return (delegate*<int, int, void> )((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[103])((nint)callback);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "glfwSetJoystickCallback")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial delegate*<int, int, void> SetJoystickCallbackNative(delegate*<int, int, void> callback);
         /// <summary>
         /// <br/>
         /// This function sets the joystick configuration callback, or removes the<br/>
@@ -1519,17 +833,9 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static int UpdateGamepadMappingsNative(byte* str)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte*, int>)funcTable[104])(str);
-#else
-            return (int)((delegate* unmanaged[Cdecl]<nint, int> )funcTable[104])((nint)str);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "glfwUpdateGamepadMappings")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial int UpdateGamepadMappingsNative(byte* str);
         /// <summary>
         /// <br/>
         /// This function parses the specified ASCII encoded string and updates the<br/>
@@ -1704,17 +1010,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetGamepadName")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static byte* GetGamepadNameNative(int jid)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, byte*>)funcTable[105])(jid);
-#else
-            return (byte*)((delegate* unmanaged[Cdecl]<int, nint> )funcTable[105])(jid);
-#endif
-        }
-
+        internal static partial byte* GetGamepadNameNative(int jid);
         /// <summary>
         /// <br/>
         /// This function returns the human-readable name of the gamepad from the<br/>
@@ -1800,17 +1099,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetGamepadState")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static int GetGamepadStateNative(int jid, GLFWgamepadstate* state)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int, GLFWgamepadstate*, int>)funcTable[106])(jid, state);
-#else
-            return (int)((delegate* unmanaged[Cdecl]<int, nint, int> )funcTable[106])(jid, (nint)state);
-#endif
-        }
-
+        internal static partial int GetGamepadStateNative(int jid, GLFWgamepadstate* state);
         /// <summary>
         /// <br/>
         /// This function retrieves the state of the specified joystick remapped to<br/>
@@ -1895,17 +1187,9 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static void SetClipboardStringNative(GLFWwindow* window, byte* str)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, byte*, void>)funcTable[107])(window, str);
-#else
-            ((delegate* unmanaged[Cdecl]<nint, nint, void> )funcTable[107])((nint)window, (nint)str);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "glfwSetClipboardString")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial void SetClipboardStringNative(GLFWwindow* window, byte* str);
         /// <summary>
         /// <br/>
         /// This function sets the system clipboard to the specified, UTF-8 encoded<br/>
@@ -2193,17 +1477,9 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static byte* GetClipboardStringNative(GLFWwindow* window)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, byte*>)funcTable[108])(window);
-#else
-            return (byte*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[108])((nint)window);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "glfwGetClipboardString")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial byte* GetClipboardStringNative(GLFWwindow* window);
         /// <summary>
         /// <br/>
         /// This function returns the contents of the system clipboard, if it contains<br/>
@@ -2358,17 +1634,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetTime")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static double GetTimeNative()
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<double>)funcTable[109])();
-#else
-            return (double)((delegate* unmanaged[Cdecl]<double> )funcTable[109])();
-#endif
-        }
-
+        internal static partial double GetTimeNative();
         /// <summary>
         /// <br/>
         /// This function returns the current GLFW time, in seconds.  Unless the time<br/>
@@ -2421,17 +1690,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwSetTime")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void SetTimeNative(double time)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<double, void>)funcTable[110])(time);
-#else
-            ((delegate* unmanaged[Cdecl]<double, void> )funcTable[110])(time);
-#endif
-        }
-
+        internal static partial void SetTimeNative(double time);
         /// <summary>
         /// <br/>
         /// This function sets the current GLFW time, in seconds.  The value must be<br/>
@@ -2477,17 +1739,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetTimerValue")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static ulong GetTimerValueNative()
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ulong>)funcTable[111])();
-#else
-            return (ulong)((delegate* unmanaged[Cdecl]<ulong> )funcTable[111])();
-#endif
-        }
-
+        internal static partial ulong GetTimerValueNative();
         /// <summary>
         /// <br/>
         /// This function returns the current value of the raw timer, measured in<br/>
@@ -2525,17 +1780,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetTimerFrequency")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static ulong GetTimerFrequencyNative()
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ulong>)funcTable[112])();
-#else
-            return (ulong)((delegate* unmanaged[Cdecl]<ulong> )funcTable[112])();
-#endif
-        }
-
+        internal static partial ulong GetTimerFrequencyNative();
         /// <summary>
         /// <br/>
         /// This function returns the frequency, in Hz, of the raw timer.<br/>
@@ -2586,17 +1834,9 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static void MakeContextCurrentNative(GLFWwindow* window)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[113])(window);
-#else
-            ((delegate* unmanaged[Cdecl]<nint, void> )funcTable[113])((nint)window);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "glfwMakeContextCurrent")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial void MakeContextCurrentNative(GLFWwindow* window);
         /// <summary>
         /// <br/>
         /// This function makes the OpenGL or OpenGL ES context of the specified window<br/>
@@ -2686,17 +1926,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetCurrentContext")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static GLFWwindow* GetCurrentContextNative()
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*>)funcTable[114])();
-#else
-            return (GLFWwindow*)((delegate* unmanaged[Cdecl]<nint> )funcTable[114])();
-#endif
-        }
-
+        internal static partial GLFWwindow* GetCurrentContextNative();
         /// <summary>
         /// <br/>
         /// This function returns the window whose OpenGL or OpenGL ES context is<br/>
@@ -2741,17 +1974,9 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static void SwapBuffersNative(GLFWwindow* window)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<GLFWwindow*, void>)funcTable[115])(window);
-#else
-            ((delegate* unmanaged[Cdecl]<nint, void> )funcTable[115])((nint)window);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "glfwSwapBuffers")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial void SwapBuffersNative(GLFWwindow* window);
         /// <summary>
         /// <br/>
         /// This function swaps the front and back buffers of the specified window when<br/>
@@ -2843,17 +2068,9 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static void SwapIntervalNative(int interval)
-        {
-#if NET5_0_OR_GREATER
-			((delegate* unmanaged[Cdecl]<int, void>)funcTable[116])(interval);
-#else
-            ((delegate* unmanaged[Cdecl]<int, void> )funcTable[116])(interval);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "glfwSwapInterval")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial void SwapIntervalNative(int interval);
         /// <summary>
         /// <br/>
         /// This function sets the swap interval for the current OpenGL or OpenGL ES<br/>
@@ -2919,17 +2136,9 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static int ExtensionSupportedNative(byte* extension)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte*, int>)funcTable[117])(extension);
-#else
-            return (int)((delegate* unmanaged[Cdecl]<nint, int> )funcTable[117])((nint)extension);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "glfwExtensionSupported")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial int ExtensionSupportedNative(byte* extension);
         /// <summary>
         /// <br/>
         /// This function returns whether the specified<br/>
@@ -3134,17 +2343,9 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static delegate*<void> GetProcAddressNative(byte* procname)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<byte*, delegate*<void>>)funcTable[118])(procname);
-#else
-            return (delegate*<void> )((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[118])((nint)procname);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "glfwGetProcAddress")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial delegate*<void> GetProcAddressNative(byte* procname);
         /// <summary>
         /// <br/>
         /// This function returns the address of the specified OpenGL or OpenGL ES<br/>
@@ -3339,17 +2540,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwVulkanSupported")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static int VulkanSupportedNative()
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<int>)funcTable[119])();
-#else
-            return (int)((delegate* unmanaged[Cdecl]<int> )funcTable[119])();
-#endif
-        }
-
+        internal static partial int VulkanSupportedNative();
         /// <summary>
         /// <br/>
         /// This function returns whether the Vulkan loader and any minimally functional<br/>
@@ -3406,17 +2600,9 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static byte** GetRequiredInstanceExtensionsNative(uint* count)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<uint*, byte**>)funcTable[120])(count);
-#else
-            return (byte**)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[120])((nint)count);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "glfwGetRequiredInstanceExtensions")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial byte** GetRequiredInstanceExtensionsNative(uint* count);
         /// <summary>
         /// <br/>
         /// This function returns an array of names of Vulkan instance extensions required<br/>
@@ -3522,17 +2708,9 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static delegate*<void> GetInstanceProcAddressNative(VkInstance instance, byte* procname)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<VkInstance, byte*, delegate*<void>>)funcTable[121])(instance, procname);
-#else
-            return (delegate*<void> )((delegate* unmanaged[Cdecl]<VkInstance, nint, nint> )funcTable[121])(instance, (nint)procname);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "glfwGetInstanceProcAddress")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial delegate*<void> GetInstanceProcAddressNative(VkInstance instance, byte* procname);
         /// <summary>
         /// <br/>
         /// This function returns the address of the specified Vulkan core or extension<br/>
@@ -3733,17 +2911,9 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static int GetPhysicalDevicePresentationSupportNative(VkInstance instance, VkPhysicalDevice device, uint queuefamily)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<VkInstance, VkPhysicalDevice, uint, int>)funcTable[122])(instance, device, queuefamily);
-#else
-            return (int)((delegate* unmanaged[Cdecl]<VkInstance, VkPhysicalDevice, uint, int> )funcTable[122])(instance, device, queuefamily);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "glfwGetPhysicalDevicePresentationSupport")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial int GetPhysicalDevicePresentationSupportNative(VkInstance instance, VkPhysicalDevice device, uint queuefamily);
         /// <summary>
         /// <br/>
         /// This function returns whether the specified queue family of the specified<br/>
@@ -3818,17 +2988,9 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        [SuppressGCTransition]
-        internal static int CreateWindowSurfaceNative(VkInstance instance, GLFWwindow* window, void** allocator, VkSurfaceKHR* surface)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<VkInstance, GLFWwindow*, void**, VkSurfaceKHR*, int>)funcTable[123])(instance, window, allocator, surface);
-#else
-            return (int)((delegate* unmanaged[Cdecl]<VkInstance, nint, nint, nint, int> )funcTable[123])(instance, (nint)window, (nint)allocator, (nint)surface);
-#endif
-        }
-
+        [LibraryImport(LibName, EntryPoint = "glfwCreateWindowSurface")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial int CreateWindowSurfaceNative(VkInstance instance, GLFWwindow* window, void** allocator, VkSurfaceKHR* surface);
         /// <summary>
         /// <br/>
         /// This function creates a Vulkan surface for the specified window.<br/>
@@ -4262,17 +3424,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetWin32Adapter")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static byte* GetWin32AdapterNative(GLFWmonitor* monitor)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, byte*>)funcTable[124])(monitor);
-#else
-            return (byte*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[124])((nint)monitor);
-#endif
-        }
-
+        internal static partial byte* GetWin32AdapterNative(GLFWmonitor* monitor);
         /// <summary>
         /// <br/>
         /// <br/>
@@ -4368,17 +3523,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetWin32Monitor")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static byte* GetWin32MonitorNative(GLFWmonitor* monitor)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, byte*>)funcTable[125])(monitor);
-#else
-            return (byte*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[125])((nint)monitor);
-#endif
-        }
-
+        internal static partial byte* GetWin32MonitorNative(GLFWmonitor* monitor);
         /// <summary>
         /// <br/>
         /// <br/>
@@ -4476,17 +3624,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetWin32Window")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static nint GetWin32WindowNative(GLFWwindow* window)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, nint>)funcTable[126])(window);
-#else
-            return (nint)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[126])((nint)window);
-#endif
-        }
-
+        internal static partial nint GetWin32WindowNative(GLFWwindow* window);
         /// <summary>
         /// <br/>
         /// <br/>
@@ -4548,17 +3689,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetWGLContext")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void* GetWGLContextNative(GLFWwindow* window)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[127])(window);
-#else
-            return (void*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[127])((nint)window);
-#endif
-        }
-
+        internal static partial void* GetWGLContextNative(GLFWwindow* window);
         /// <summary>
         /// <br/>
         /// <br/>
@@ -4619,17 +3753,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetCocoaMonitor")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static uint GetCocoaMonitorNative(GLFWmonitor* monitor)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, uint>)funcTable[128])(monitor);
-#else
-            return (uint)((delegate* unmanaged[Cdecl]<nint, uint> )funcTable[128])((nint)monitor);
-#endif
-        }
-
+        internal static partial uint GetCocoaMonitorNative(GLFWmonitor* monitor);
         /// <summary>
         /// <br/>
         /// <br/>
@@ -4684,17 +3811,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetCocoaWindow")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void* GetCocoaWindowNative(GLFWwindow* window)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[129])(window);
-#else
-            return (void*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[129])((nint)window);
-#endif
-        }
-
+        internal static partial void* GetCocoaWindowNative(GLFWwindow* window);
         /// <summary>
         /// <br/>
         /// <br/>
@@ -4749,17 +3869,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetCocoaView")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void* GetCocoaViewNative(GLFWwindow* window)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[130])(window);
-#else
-            return (void*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[130])((nint)window);
-#endif
-        }
-
+        internal static partial void* GetCocoaViewNative(GLFWwindow* window);
         /// <summary>
         /// <br/>
         /// <br/>
@@ -4815,17 +3928,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetNSGLContext")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void* GetNSGLContextNative(GLFWwindow* window)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, void*>)funcTable[131])(window);
-#else
-            return (void*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[131])((nint)window);
-#endif
-        }
-
+        internal static partial void* GetNSGLContextNative(GLFWwindow* window);
         /// <summary>
         /// <br/>
         /// <br/>
@@ -4882,17 +3988,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetX11Display")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static X11Display* GetX11DisplayNative()
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<X11Display*>)funcTable[132])();
-#else
-            return (X11Display*)((delegate* unmanaged[Cdecl]<nint> )funcTable[132])();
-#endif
-        }
-
+        internal static partial X11Display* GetX11DisplayNative();
         /// <summary>
         /// <br/>
         /// <br/>
@@ -4925,17 +4024,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetX11Adapter")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void* GetX11AdapterNative(GLFWmonitor* monitor)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, void*>)funcTable[133])(monitor);
-#else
-            return (void*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[133])((nint)monitor);
-#endif
-        }
-
+        internal static partial void* GetX11AdapterNative(GLFWmonitor* monitor);
         /// <summary>
         /// <br/>
         /// <br/>
@@ -4990,17 +4082,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetX11Monitor")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static void* GetX11MonitorNative(GLFWmonitor* monitor)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWmonitor*, void*>)funcTable[134])(monitor);
-#else
-            return (void*)((delegate* unmanaged[Cdecl]<nint, nint> )funcTable[134])((nint)monitor);
-#endif
-        }
-
+        internal static partial void* GetX11MonitorNative(GLFWmonitor* monitor);
         /// <summary>
         /// <br/>
         /// <br/>
@@ -5055,17 +4140,10 @@ namespace Hexa.NET.GLFW
         /// <br/>
         /// <br/>
         /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [LibraryImport(LibName, EntryPoint = "glfwGetX11Window")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
         [SuppressGCTransition]
-        internal static X11Window GetX11WindowNative(GLFWwindow* window)
-        {
-#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<GLFWwindow*, X11Window>)funcTable[135])(window);
-#else
-            return (X11Window)((delegate* unmanaged[Cdecl]<nint, X11Window> )funcTable[135])((nint)window);
-#endif
-        }
-
+        internal static partial X11Window GetX11WindowNative(GLFWwindow* window);
         /// <summary>
         /// <br/>
         /// <br/>
@@ -5083,6 +4161,879 @@ namespace Hexa.NET.GLFW
         {
             X11Window ret = GetX11WindowNative((GLFWwindow*)window);
             return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static X11Window GetX11Window(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                X11Window ret = GetX11WindowNative((GLFWwindow*)pwindow);
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The specified string is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [LibraryImport(LibName, EntryPoint = "glfwSetX11SelectionString")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial void SetX11SelectionStringNative(byte* str);
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The specified string is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetX11SelectionString(byte* str)
+        {
+            SetX11SelectionStringNative(str);
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The specified string is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetX11SelectionString(in byte str)
+        {
+            fixed (byte* pstr = &str)
+            {
+                SetX11SelectionStringNative((byte*)pstr);
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The specified string is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetX11SelectionString(ReadOnlySpan<byte> str)
+        {
+            fixed (byte* pstr = str)
+            {
+                SetX11SelectionStringNative((byte*)pstr);
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The specified string is copied before this function<br/>
+        /// returns.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void SetX11SelectionString(string str)
+        {
+            byte* pStr0 = null;
+            int pStrSize0 = 0;
+            if (str != null)
+            {
+                pStrSize0 = Utils.GetByteCountUTF8(str);
+                if (pStrSize0 >= Utils.MaxStackallocSize)
+                {
+                    pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+                }
+                else
+                {
+                    byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+                    pStr0 = pStrStack0;
+                }
+
+                int pStrOffset0 = Utils.EncodeStringUTF8(str, pStr0, pStrSize0);
+                pStr0[pStrOffset0] = 0;
+            }
+
+            SetX11SelectionStringNative(pStr0);
+            if (pStrSize0 >= Utils.MaxStackallocSize)
+            {
+                Utils.Free(pStr0);
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// If the selection is empty or if its contents cannot be converted, `NULL`<br/>
+        /// is returned and a <br/>
+        /// error is generated.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW. You<br/>
+        /// should not free it yourself. It is valid until the next call to <br/>
+        /// or <br/>
+        /// or until the<br/>
+        /// library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [LibraryImport(LibName, EntryPoint = "glfwGetX11SelectionString")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial byte* GetX11SelectionStringNative();
+        /// <summary>
+        /// <br/>
+        /// If the selection is empty or if its contents cannot be converted, `NULL`<br/>
+        /// is returned and a <br/>
+        /// error is generated.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW. You<br/>
+        /// should not free it yourself. It is valid until the next call to <br/>
+        /// or <br/>
+        /// or until the<br/>
+        /// library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static byte* GetX11SelectionString()
+        {
+            byte* ret = GetX11SelectionStringNative();
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// If the selection is empty or if its contents cannot be converted, `NULL`<br/>
+        /// is returned and a <br/>
+        /// error is generated.<br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _lifetime The returned string is allocated and freed by GLFW. You<br/>
+        /// should not free it yourself. It is valid until the next call to <br/>
+        /// or <br/>
+        /// or until the<br/>
+        /// library is terminated.<br/>
+        /// <br/>
+        /// _safety This function must only be called from the main thread.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static string GetX11SelectionStringS()
+        {
+            string ret = Utils.DecodeStringUTF8(GetX11SelectionStringNative());
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [LibraryImport(LibName, EntryPoint = "glfwGetGLXContext")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        [SuppressGCTransition]
+        internal static partial void* GetGLXContextNative(GLFWwindow* window);
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetGLXContext(GLFWwindowPtr window)
+        {
+            void* ret = GetGLXContextNative((GLFWwindow*)window);
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetGLXContext(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                void* ret = GetGLXContextNative((GLFWwindow*)pwindow);
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [LibraryImport(LibName, EntryPoint = "glfwGetGLXWindow")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        [SuppressGCTransition]
+        internal static partial void* GetGLXWindowNative(GLFWwindow* window);
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetGLXWindow(GLFWwindowPtr window)
+        {
+            void* ret = GetGLXWindowNative((GLFWwindow*)window);
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetGLXWindow(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                void* ret = GetGLXWindowNative((GLFWwindow*)pwindow);
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [LibraryImport(LibName, EntryPoint = "glfwGetWaylandDisplay")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        [SuppressGCTransition]
+        internal static partial WlDisplay* GetWaylandDisplayNative();
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static WlDisplayPtr GetWaylandDisplay()
+        {
+            WlDisplayPtr ret = GetWaylandDisplayNative();
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [LibraryImport(LibName, EntryPoint = "glfwGetWaylandMonitor")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        [SuppressGCTransition]
+        internal static partial WlOutput* GetWaylandMonitorNative(GLFWmonitor* monitor);
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static WlOutputPtr GetWaylandMonitor(GLFWmonitorPtr monitor)
+        {
+            WlOutputPtr ret = GetWaylandMonitorNative((GLFWmonitor*)monitor);
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static WlOutputPtr GetWaylandMonitor(ref GLFWmonitor monitor)
+        {
+            fixed (GLFWmonitor* pmonitor = &monitor)
+            {
+                WlOutputPtr ret = GetWaylandMonitorNative((GLFWmonitor*)pmonitor);
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [LibraryImport(LibName, EntryPoint = "glfwGetWaylandWindow")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        [SuppressGCTransition]
+        internal static partial WlSurface* GetWaylandWindowNative(GLFWwindow* window);
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static WlSurfacePtr GetWaylandWindow(GLFWwindowPtr window)
+        {
+            WlSurfacePtr ret = GetWaylandWindowNative((GLFWwindow*)window);
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static WlSurfacePtr GetWaylandWindow(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                WlSurfacePtr ret = GetWaylandWindowNative((GLFWwindow*)pwindow);
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [LibraryImport(LibName, EntryPoint = "glfwGetEGLDisplay")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        [SuppressGCTransition]
+        internal static partial void* GetEGLDisplayNative();
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetEGLDisplay()
+        {
+            void* ret = GetEGLDisplayNative();
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [LibraryImport(LibName, EntryPoint = "glfwGetEGLContext")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        [SuppressGCTransition]
+        internal static partial void* GetEGLContextNative(GLFWwindow* window);
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetEGLContext(GLFWwindowPtr window)
+        {
+            void* ret = GetEGLContextNative((GLFWwindow*)window);
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetEGLContext(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                void* ret = GetEGLContextNative((GLFWwindow*)pwindow);
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [LibraryImport(LibName, EntryPoint = "glfwGetEGLSurface")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        [SuppressGCTransition]
+        internal static partial void* GetEGLSurfaceNative(GLFWwindow* window);
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetEGLSurface(GLFWwindowPtr window)
+        {
+            void* ret = GetEGLSurfaceNative((GLFWwindow*)window);
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static void* GetEGLSurface(ref GLFWwindow window)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                void* ret = GetEGLSurfaceNative((GLFWwindow*)pwindow);
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        [LibraryImport(LibName, EntryPoint = "glfwGetOSMesaColorBuffer")]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
+        internal static partial int GetOSMesaColorBufferNative(GLFWwindow* window, int* width, int* height, int* format, void** buffer);
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int GetOSMesaColorBuffer(GLFWwindowPtr window, int* width, int* height, int* format, void** buffer)
+        {
+            int ret = GetOSMesaColorBufferNative((GLFWwindow*)window, width, height, format, buffer);
+            return ret;
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int GetOSMesaColorBuffer(ref GLFWwindow window, int* width, int* height, int* format, void** buffer)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                int ret = GetOSMesaColorBufferNative((GLFWwindow*)pwindow, width, height, format, buffer);
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int GetOSMesaColorBuffer(GLFWwindowPtr window, ref int width, int* height, int* format, void** buffer)
+        {
+            fixed (int* pwidth = &width)
+            {
+                int ret = GetOSMesaColorBufferNative((GLFWwindow*)window, (int*)pwidth, height, format, buffer);
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int GetOSMesaColorBuffer(ref GLFWwindow window, ref int width, int* height, int* format, void** buffer)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pwidth = &width)
+                {
+                    int ret = GetOSMesaColorBufferNative((GLFWwindow*)pwindow, (int*)pwidth, height, format, buffer);
+                    return ret;
+                }
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int GetOSMesaColorBuffer(GLFWwindowPtr window, int* width, ref int height, int* format, void** buffer)
+        {
+            fixed (int* pheight = &height)
+            {
+                int ret = GetOSMesaColorBufferNative((GLFWwindow*)window, width, (int*)pheight, format, buffer);
+                return ret;
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int GetOSMesaColorBuffer(ref GLFWwindow window, int* width, ref int height, int* format, void** buffer)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pheight = &height)
+                {
+                    int ret = GetOSMesaColorBufferNative((GLFWwindow*)pwindow, width, (int*)pheight, format, buffer);
+                    return ret;
+                }
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int GetOSMesaColorBuffer(GLFWwindowPtr window, ref int width, ref int height, int* format, void** buffer)
+        {
+            fixed (int* pwidth = &width)
+            {
+                fixed (int* pheight = &height)
+                {
+                    int ret = GetOSMesaColorBufferNative((GLFWwindow*)window, (int*)pwidth, (int*)pheight, format, buffer);
+                    return ret;
+                }
+            }
+        }
+
+        /// <summary>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// Possible errors include <br/>
+        /// and <br/>
+        /// <br/>
+        /// _safety This function may be called from any thread.  Access is not<br/>
+        /// synchronized.<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// </summary>
+        public static int GetOSMesaColorBuffer(ref GLFWwindow window, ref int width, ref int height, int* format, void** buffer)
+        {
+            fixed (GLFWwindow* pwindow = &window)
+            {
+                fixed (int* pwidth = &width)
+                {
+                    fixed (int* pheight = &height)
+                    {
+                        int ret = GetOSMesaColorBufferNative((GLFWwindow*)pwindow, (int*)pwidth, (int*)pheight, format, buffer);
+                        return ret;
+                    }
+                }
+            }
         }
     }
 }
